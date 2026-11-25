@@ -1,0 +1,390 @@
+---
+layout: layouts/enterprise.njk
+title: "Schedule a Meet | CipherTrivia Cybersecurity Services"
+description: "Talk to CipherTrivia about VAPT, penetration testing, cloud security and compliance. Schedule a meeting or send us your requirements."
+crumbs: [["Home", "/"], ["Contact"]]
+pageSchema: false
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{# Google Maps listing "Cipher Trivia I Cybersecurity Company": the place link and its embed #}
+{% set officeMap = "https://www.google.com/maps?cid=12632818219701700998" %}
+{% set officeEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8078483409113!2d77.7099096!3d12.9841386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x61c6488556792ac5%3A0xaf50c93d41670986!2sCipher%20Trivia%20I%20Cybersecurity%20Company!5e0!3m2!1sen!2sin!4v1792852749856!5m2!1sen!2sin" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "name": "Schedule a Meet | CipherTrivia Cybersecurity Services",
+      "url": "https://www.ciphertrivia.com/contact/",
+      "description": "Talk to CipherTrivia about VAPT, penetration testing, cloud security and compliance. Schedule a meeting or send us your requirements.",
+      "mainEntity": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "@id": "https://www.ciphertrivia.com/contact/#webpage",
+      "isPartOf": {
+        "@id": "https://www.ciphertrivia.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How quickly can an assessment start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most engagements can kick off within 1–2 weeks of scope sign-off, depending on consultant availability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you sign NDAs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we're happy to sign your NDA or use ours before any scoping discussion begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do we receive at the end?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A detailed report with severity-ranked findings, evidence, and remediation guidance, plus a free retest after fixes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you work with our existing dev team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We regularly join sprint calls and ticket trackers to help your developers fix issues quickly."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- TALK TO A SPECIALIST                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="contact-hero">
+      <div class="contact-hero__copy">
+        <p class="kicker kicker--label rv"><span class="kicker__slash">//</span> Get in touch</p>
+        <h1 class="contact-hero__title rv" style="--d:1" id="hero-title">Talk to a CipherTrivia <span class="accent">Security Specialist</span></h1>
+        <p class="hero__lede rv" style="--d:2">Get a walkthrough of how a CipherTrivia engagement would run for your app, API and cloud environment, tailored to your stack.</p>
+        <p class="contact-hero__note rv" style="--d:3">We'll review your current setup, map the right testing approach, and outline timelines and pricing, with no obligation.</p>
+      </div>
+
+      <!-- Form sits before the quote in source so it comes second on phones -->
+      <div class="contact-hero__form rv" style="--d:2" id="get-started">
+        <div class="intake">
+          <div class="intake__head">
+            <h2 class="intake__title">Tell us about your use case</h2>
+          </div>
+          <form id="contactForm" name="contact" method="POST" action="/api/contact" class="intake__form" novalidate>
+            <input type="hidden" name="page_url" value="">
+            <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+              <label for="lead-hp">Leave this field blank</label>
+              <input id="lead-hp" name="hp_field" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="fields">
+              <div class="field">
+                <label class="field__label" for="lead-name">Full name <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="lead-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="lead-email">Business email <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="lead-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="lead-phone">Phone number <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="lead-phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="lead-company">Company <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="lead-company" name="company" type="text" autocomplete="organization" required>
+              </div>
+              <div class="field field--full field--select">
+                <label class="field__label" for="lead-service">What are you interested in?</label>
+                <select class="field__input" id="lead-service" name="services">
+                  <option>VAPT / Penetration Testing</option>
+                  <option>Web or Mobile App Security</option>
+                  <option>API Security Testing</option>
+                  <option>Cloud Security Review</option>
+                  <option>Network Security Testing</option>
+                  <option>SOC as a Service</option>
+                  <option>Security Compliance (ISO 27001, SOC 2, etc.)</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="lead-description">Tell us about your requirements</label>
+                <textarea class="field__input" id="lead-description" name="description" rows="3"></textarea>
+              </div>
+            </div>
+
+            <div class="intake__foot">
+              <button id="contactSubmitBtn" type="submit" class="btn btn--signal intake__submit"><span class="btn__label">Get started</span><span class="spinner" aria-hidden="true"></span>{{ arrow() }}</button>
+              <div id="formMessage" class="form__msg" role="alert" hidden></div>
+              <p class="intake__legal">By submitting this form, you agree to CipherTrivia's <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>. You may unsubscribe at any time.</p>
+            </div>
+          </form>
+          <script>
+          (function() {
+            var form = document.getElementById('contactForm');
+            var btn = document.getElementById('contactSubmitBtn');
+            var label = btn.querySelector('.btn__label');
+            var msg = document.getElementById('formMessage');
+            var formLoadedAt = Date.now();
+
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              if (!form.checkValidity()) { form.reportValidity(); return; }
+
+              var honeypotFilled = form.querySelector('[name=hp_field]').value !== '';
+              var submittedTooFast = (Date.now() - formLoadedAt) < 4000;
+
+              if (honeypotFilled || submittedTooFast) {
+                return;
+              }
+
+              btn.disabled = true;
+              btn.classList.add('is-loading');
+              label.textContent = 'Sending...';
+              msg.hidden = true;
+
+              form.querySelector('[name=page_url]').value = window.location.href;
+              // Time on the page and where the visit came from (kept by enterprise.js) tell people from bots
+              var body = new URLSearchParams(new FormData(form));
+              body.set('elapsed', String(Date.now() - formLoadedAt));
+              try { body.set('source', sessionStorage.getItem('ct_source') || ''); } catch (err) {}
+
+              fetch(form.getAttribute('action'), {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+                body: body.toString()
+              })
+              .then(function(res) {
+                if (res.ok) {
+                  window.location.href = '/thank-you/';
+                } else {
+                  throw new Error('Server error');
+                }
+              })
+              .catch(function() {
+                msg.textContent = 'Something went wrong. Please email us at projects@ciphertrivia.com.';
+                msg.className = 'form__msg form__msg--error';
+                msg.hidden = false;
+              })
+              .finally(function() {
+                btn.disabled = false;
+                btn.classList.remove('is-loading');
+                label.textContent = 'Get started';
+              });
+            });
+          })();
+          </script>
+        </div>
+      </div>
+
+      <figure class="quote contact-hero__quote rv" style="--d:4">
+        <blockquote class="quote__text"><p>"CipherTrivia's team found critical issues our previous vendor missed, and worked directly with our developers until every one was closed."</p></blockquote>
+        <figcaption class="quote__by">
+          <span class="quote__mono" aria-hidden="true">RK</span>
+          <span><span class="quote__name">Rohit Kapoor</span><span class="quote__role">CTO, Fintech Startup</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="rail rail--tall">
+    <div class="container rail__inner">
+      <span class="rail__label">Trusted by 600+ businesses across 20+ countries</span>
+      <span class="rail__item rail__item--stack"><span>ISO 27001<small>Certified</small></span></span>
+      <span class="rail__item rail__item--stack"><span>ISO 9001<small>Certified</small></span></span>
+      <span class="rail__item rail__item--stack"><span>OWASP<small>Aligned Testing</small></span></span>
+      <span class="rail__item rail__item--stack"><span>AWS<small>Cloud Expertise</small></span></span>
+      <span class="rail__item rail__item--by"><span>Powered by <strong>Nextwebi</strong></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 01 · DIRECT CONTACT                                                  -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label"><span class="kicker__slash">//</span> Direct contact</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s1-title">Reach Us Directly</h2>
+      </div>
+    </header>
+
+    <div class="reach">
+      <address class="reach__list">
+        <a class="reach__row rv" href="mailto:projects@ciphertrivia.com">
+          <span class="reach__label">Email</span>
+          <span class="reach__value">projects@ciphertrivia.com</span>
+          <span class="reach__go">{{ arrow() }}</span>
+        </a>
+        <a class="reach__row rv" href="tel:+919008372466">
+          <span class="reach__label">Phone</span>
+          <span class="reach__value">+91 90083 72466</span>
+          <span class="reach__go">{{ arrow() }}</span>
+        </a>
+        <a class="reach__row rv" href="{{ officeMap }}" target="_blank" rel="noopener">
+          <span class="reach__label">Office</span>
+          <span class="reach__value reach__value--text">4th Floor M-Park, Doddanekundi 2nd Stage, Mahadevpura, Bengaluru, Karnataka 560048, India<span class="sr-only"> (opens Google Maps in a new tab)</span></span>
+          <span class="reach__go">{{ arrow() }}</span>
+        </a>
+        {%- for o in nextwebi.offices %}{% if not loop.first %}
+        <div class="reach__row rv">
+          <span class="reach__label">{{ o.name }}</span>
+          <span class="reach__value reach__value--text">{{ o.address }}</span>
+        </div>
+        {%- endif %}{% endfor %}
+        <div class="reach__row rv">
+          <span class="reach__label">Response time</span>
+          <span class="reach__value reach__value--text">Within one business day, <span class="nowrap">Monday–Friday</span> IST</span>
+        </div>
+      </address>
+
+      <div class="reach__media rv" style="--d:1">
+        <div class="map" data-map>
+          <iframe class="map__frame" data-src="{{ officeEmbed }}" title="CipherTrivia office on Google Maps" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <noscript><iframe class="map__frame map__frame--now" src="{{ officeEmbed }}" title="CipherTrivia office on Google Maps" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 02 · WHAT HAPPENS NEXT                                               -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label"><span class="kicker__slash">//</span> What happens next</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">From Message to Engagement in Three Steps</h2>
+      </div>
+    </header>
+
+    <ol class="flow">
+      <li class="flow__step flow__step--key rv">
+        {{ icon("chat") }}
+        <h3 class="flow__title">Discovery Call</h3>
+        <p class="flow__text">A 30-minute call to understand your application, infrastructure and compliance goals.</p>
+      </li>
+      <li class="flow__step rv" style="--d:1">
+        {{ icon("proposal") }}
+        <h3 class="flow__title">Scoping &amp; Proposal</h3>
+        <p class="flow__text">We define scope, timelines and methodology, then send a clear proposal with no surprise add-ons.</p>
+      </li>
+      <li class="flow__step rv" style="--d:2">
+        {{ icon("shield-check") }}
+        <h3 class="flow__title">Assessment &amp; Report</h3>
+        <p class="flow__text">Our team runs the engagement and delivers a prioritized report with a free retest of fixes.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 03 · FAQ                                                             -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <p class="kicker kicker--label"><span class="kicker__slash">//</span> FAQ</p>
+        <h2 class="faq-layout__title" id="s3-title">Common Questions</h2>
+        <p class="faq-layout__note">Can't find what you're looking for? <a href="mailto:projects@ciphertrivia.com">Email us</a> and we'll get back within a business day.</p>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="qa">
+          <article class="qa__item rv">
+            
+            <div>
+              <h3 class="qa__q">How quickly can an assessment start?</h3>
+              <p class="qa__a">Most engagements can kick off within <span class="nowrap">1–2 weeks</span> of scope sign-off, depending on consultant availability.</p>
+            </div>
+          </article>
+          <article class="qa__item rv">
+            
+            <div>
+              <h3 class="qa__q">Do you sign NDAs?</h3>
+              <p class="qa__a">Yes, we're happy to sign your NDA or use ours before any scoping discussion begins.</p>
+            </div>
+          </article>
+          <article class="qa__item rv">
+            
+            <div>
+              <h3 class="qa__q">What do we receive at the end?</h3>
+              <p class="qa__a">A detailed report with severity-ranked findings, evidence, and remediation guidance, plus a free retest after fixes.</p>
+            </div>
+          </article>
+          <article class="qa__item rv">
+            
+            <div>
+              <h3 class="qa__q">Can you work with our existing dev team?</h3>
+              <p class="qa__a">Yes. We regularly join sprint calls and ticket trackers to help your developers fix issues quickly.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title rv" id="final-title">Not sure where <span class="accent">to start?</span></h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Book a free 30-minute Security Risk Snapshot and we'll point you in the right direction.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal btn--up" href="#get-started">Send a Message {{ arrow() }}</a>
+      </div>
+    </div>
+    <div class="final__media rv" style="--d:3">
+      <div class="cover cover--signal" aria-hidden="true">{{ icon("gauge", "cover") }}</div>
+    </div>
+  </div>
+</section>

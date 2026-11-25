@@ -1,0 +1,247 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Identity & Access Management (IAM) Checklist | CipherTrivia Whitepapers"
+description: "An identity-lifecycle IAM checklist from CipherTrivia covering joiner, mover, leaver, and privileged access, with the cloud IAM findings we see most often and a least-privilege reference diagram."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Identity & Access Management Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Identity & Access Management Checklist",
+      "description": "An identity-lifecycle IAM checklist from CipherTrivia covering joiner, mover, leaver, and privileged access, with the cloud IAM findings we see most often and a least-privilege reference diagram.",
+      "url": "https://www.ciphertrivia.com/whitepapers/identity-access-management-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-identity-access-management-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/identity-access-management-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Identity & Access Management Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Identity &amp; Access Management</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Identity &amp; Access Management Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">Most access problems we find aren't access granted incorrectly; they're access that was correct once and never removed. This checklist follows identity through its lifecycle.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Identity &amp; Access Management</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>10 minutes</dd></div>
+        <div class="article-meta__row"><dt>Covers:</dt><dd>Workforce IAM &amp; cloud IAM (AWS/Azure/GCP)</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#joiner-mover-leaver">Joiner, Mover, Leaver</a></li>
+          <li><a href="#what-we-find-in-cloud-iam-reviews">What We Find in Cloud IAM Reviews</a></li>
+          <li><a href="#a-least-privilege-reference-model">A Least-Privilege Reference Model</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          When we find a former employee's account still active, or a contractor's cloud role still granting admin access eight months after their contract ended, the access itself was usually granted correctly at the time. The gap is almost always in what happens (or doesn't happen) afterward: a role change, a project ending, an offboarding step that depended on someone remembering to do it manually.
+        </p>
+        <p>
+          That's why this checklist follows the standard identity lifecycle model: joiner, mover, leaver, rather than listing IAM controls in isolation. Each stage is where a specific category of risk gets introduced, or should get removed.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="joiner-mover-leaver">
+        <h2>Joiner, Mover, Leaver</h2>
+
+        <div class="a-grid a-grid--3">
+          <div class="a-card">
+            <div class="a-badge a-badge--low">J</div>
+            <h3>Joiner</h3>
+            <p class="is-sm">Access is granted based on role, via a request/approval process, not by cloning an existing employee's permissions wholesale.</p>
+          </div>
+          <div class="a-card">
+            <div class="a-badge a-badge--medium">M</div>
+            <h3>Mover</h3>
+            <p class="is-sm">When someone changes roles or teams, old access is removed as part of the transition, not just left in place alongside new access.</p>
+          </div>
+          <div class="a-card">
+            <div class="a-badge a-badge--critical">L</div>
+            <h3>Leaver</h3>
+            <p class="is-sm">Access across all systems, including cloud consoles, API keys, and third-party SaaS, is revoked on a defined timeline, triggered automatically from HR offboarding.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="a-strong is-sm">Lifecycle checklist:</p>
+          <ul class="check-list">
+            <li class="check"><span class="check__box">✓</span><p class="is-sm">Access requests are role-based and approved by someone other than the requester.</p></li>
+            <li class="check"><span class="check__box">✓</span><p class="is-sm">Role/team changes trigger a review of existing access, not just provisioning of new access.</p></li>
+            <li class="check"><span class="check__box">✓</span><p class="is-sm">Offboarding is triggered from a single source of truth (HR system) and covers cloud accounts, SaaS apps, VPN and physical access.</p></li>
+            <li class="check"><span class="check__box">✓</span><p class="is-sm">Quarterly access reviews catch anything the lifecycle process missed, treated as a backstop rather than the primary control.</p></li>
+          </ul>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-we-find-in-cloud-iam-reviews">
+        <h2>What We Find in Cloud IAM Reviews</h2>
+        <p>Cloud IAM (AWS, Azure, GCP) deserves its own section. The lifecycle issues above apply, but cloud environments add a layer of machine identities and inherited permissions that's easy to lose track of:</p>
+        <div class="a-grid a-grid--4">
+          <div class="a-center">
+            <p class="a-stat">~40%</p>
+            <p class="is-xs">of reviewed cloud roles grant broader permissions than the workload actually uses</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">~25%</p>
+            <p class="is-xs">of access keys found are unused for 90+ days but not deactivated</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">~30%</p>
+            <p class="is-xs">of privileged roles lack MFA enforcement at the identity provider</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">1 in 4</p>
+            <p class="is-xs">environments still have at least one root/owner-level account used for routine tasks</p>
+          </div>
+        </div>
+        <p class="is-xs">Figures are directional, based on patterns observed across recent CipherTrivia cloud IAM reviews, not a statistical sample of all environments.</p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-least-privilege-reference-model">
+        <h2>A Least-Privilege Reference Model</h2>
+        <p>
+          The diagram below shows how identity, roles and permissions should connect: a single identity provider as the source of truth, role-based access mapped to least-privilege permission sets, and break-glass access for emergencies that's logged and time-limited.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/iam-least-privilege-architecture.png" alt="Diagram of a least-privilege identity and access management model showing a central identity provider with MFA enforced as the source of truth for all users, connected to role-based access groups that map to least-privilege permission sets in cloud accounts, with a separate time-limited and logged break-glass emergency access path, and automated deprovisioning triggered from the HR system" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: One identity source, role-based mapping, and an auditable emergency path.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What does an IAM review actually involve?</h3>
+            <p class="is-sm">We review your identity provider configuration, role/group structure, cloud IAM policies (for over-permissioned roles, unused credentials, and root account usage), and your joiner/mover/leaver processes, typically through a combination of configuration review and interviews with your IT/security team.</p>
+          </div>
+          <div>
+            <h3>We use a single sign-on provider: does that cover this?</h3>
+            <p class="is-sm">SSO centralizes authentication, which is a strong foundation, but doesn't automatically mean authorization (what each identity can actually do once authenticated) is well-managed. Those are the cloud IAM and role-mapping issues this checklist focuses on.</p>
+          </div>
+          <div>
+            <h3>How does this relate to the SOC 2 / ISO 27001 access review requirement?</h3>
+            <p class="is-sm">Directly: the lifecycle checklist above is largely what auditors are checking when they ask for access review evidence. See our <a href="/whitepapers/soc2-iso27001-compliance-checklist/">SOC 2 &amp; ISO 27001 Compliance Checklist</a> for that framing.</p>
+          </div>
+          <div>
+            <h3>Can you help us implement fixes, or just identify issues?</h3>
+            <p class="is-sm">Both: we typically deliver a prioritized findings report, and can also support implementation (role redesign, automated deprovisioning workflows, break-glass procedures) depending on scope.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">RP</span>
+          <div>
+            <p class="a-strong">Ravi Prasad</p>
+            <p class="a-meta is-sm">Identity &amp; Access Management Consultant, CipherTrivia · AWS Security Specialty &amp; Azure AZ-500</p>
+            <p class="is-sm">Ravi runs IAM and cloud access reviews at CipherTrivia, across AWS, Azure and GCP environments. He's reviewed access for organizations ranging from early-stage startups to multi-account enterprise environments, and built this checklist around the lifecycle gaps he sees repeat across all of them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need a security architecture review?</h3>
+        <p class="svc-cta__text">Our security architects assess IAM policies, access controls and zero-trust architecture.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/security-architecture-review/">Explore Architecture Review {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Find out who really has access to what</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">An IAM review maps your identity lifecycle and cloud permissions against this checklist; see our <a href="/services/">identity &amp; access management services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

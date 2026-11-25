@@ -1,0 +1,574 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Security Architecture Review Services - CipherTrivia"
+description: "Identify security gaps with security architecture review services covering application design and cloud infrastructure along with network security and access controls."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Security Architecture Review Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What is a Security Architecture Review?", "A Security Architecture Review is an assessment of how an organization's IT systems are designed and how security controls protect applications and sensitive data. It helps identify design weaknesses and gaps that could expose business systems to cyber threats."],
+  ["Why do businesses need Security Architecture Review Services?", "Businesses need security architecture reviews to identify risks in system design before they lead to security incidents. These assessments help organizations evaluate existing security controls and reduce the risk of unauthorized access or data exposure."],
+  ["What does a Security Architecture Review include?", "A Security Architecture Review can include assessments of application architecture and network infrastructure along with cloud environments and identity management. The scope also covers security boundaries and data protection controls based on the organization's technology environment."],
+  ["What is the difference between a Security Architecture Review and a Vulnerability Assessment?", "A Security Architecture Review evaluates the overall system design and how security controls work together. A vulnerability assessment focuses on identifying known security weaknesses in systems and applications. Both approaches offer different insights into an organization's security posture."],
+  ["Which systems can be covered in a Security Architecture Review?", "The assessment can cover enterprise IT systems and cloud infrastructure along with web applications and APIs and hybrid environments. The exact scope depends on your architecture and business requirements."],
+  ["How long does a Security Architecture Review take?", "The duration depends on the complexity of your IT environment and the number of systems included in the assessment. A focused review may take several days while a large enterprise environment may require several weeks."],
+  ["What deliverables do you receive after a Security Architecture Review?", "Deliverables can include a security architecture review report and documented design weaknesses along with risk ratings and prioritized remediation recommendations. A security improvement roadmap may also be provided to guide future architectural changes."],
+  ["Can a Security Architecture Review help with compliance requirements?", "Yes. A review can identify gaps between existing security controls and relevant framework requirements. Depending on the assessment scope, the review may support alignment with standards such as ISO 27001 and guidance such as the NIST Cybersecurity Framework, although the review itself does not establish compliance or certification."],
+  ["When should an organization conduct a Security Architecture Review?", "A review is recommended when designing a new system or migrating to the cloud and when making major infrastructure changes. Periodic reviews also help identify architectural risks as applications and business requirements evolve."],
+  ["How do Security Architecture Review Services improve long-term security?", "Security architecture reviews help businesses identify weaknesses in system design and address gaps in security controls. The resulting recommendations support better technology decisions and help organizations incorporate appropriate security measures into future system development and infrastructure changes."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Security Architecture Review Services",
+      "serviceType": "Security Architecture Review",
+      "description": "Identify security gaps with security architecture review services covering application design and cloud infrastructure along with network security and access controls.",
+      "url": "https://www.ciphertrivia.com/services/security-architecture-review/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Security Architecture Review Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">Security <span class="accent">Architecture Review</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">Securing IT architecture is essential for protecting business applications and critical infrastructure from evolving cyber threats. Our Security Architecture Review Services examine system design and security controls across applications and cloud environments to identify potential weaknesses and gaps in protection. CipherTrivia delivers actionable findings and recommendations that help businesses improve security design and reduce risks across their IT infrastructure.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" aria-hidden="true">
+          <svg viewBox="0 0 480 480">
+<g data-fx="slide" data-at="0.2" data-len="0.6" data-dy="30"><path class="f-ink s-ink" d="M64 380V392L240 468L416 392V380L240 456Z" stroke-width="1.5"/><path class="f-paper s-ink" d="M64 380L240 304L416 380L240 456Z" stroke-width="1.5"/></g>
+<g data-fx="pop" data-at="1.4" data-len="0.4"><path class="f-p100 s-ink" d="M153 367V386.8L175 397.8V378.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M197 367V386.8L175 397.8V378.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M153 367L175 356.0L197 367L175 378.0Z" stroke-width="1.25"/></g>
+<g data-fx="pop" data-at="1.52" data-len="0.4"><path class="f-p100 s-ink" d="M283 367V386.8L305 397.8V378.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M327 367V386.8L305 397.8V378.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M283 367L305 356.0L327 367L305 378.0Z" stroke-width="1.25"/></g>
+<g data-fx="slide" data-at="0.55" data-len="0.6" data-dy="30"><path class="f-ink s-ink" d="M64 255V267L240 343L416 267V255L240 331Z" stroke-width="1.5"/><path class="f-paper s-ink" d="M64 255L240 179L416 255L240 331Z" stroke-width="1.5"/></g>
+<g data-fx="pop" data-at="1.75" data-len="0.4"><path class="f-p100 s-ink" d="M138 242V261.8L160 272.8V253.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M182 242V261.8L160 272.8V253.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M138 242L160 231.0L182 242L160 253.0Z" stroke-width="1.25"/></g>
+<g data-fx="pop" data-at="1.87" data-len="0.4"><path class="f-p100 s-ink" d="M218 214V233.8L240 244.8V225.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M262 214V233.8L240 244.8V225.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M218 214L240 203.0L262 214L240 225.0Z" stroke-width="1.25"/></g>
+<g data-fx="pop" data-at="1.99" data-len="0.4"><path class="f-p100 s-ink" d="M298 242V261.8L320 272.8V253.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M342 242V261.8L320 272.8V253.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M298 242L320 231.0L342 242L320 253.0Z" stroke-width="1.25"/></g>
+<g data-fx="slide" data-at="0.9" data-len="0.6" data-dy="30"><path class="f-ink s-ink" d="M64 130V142L240 218L416 142V130L240 206Z" stroke-width="1.5"/><path class="f-paper s-ink" d="M64 130L240 54L416 130L240 206Z" stroke-width="1.5"/></g>
+<g data-fx="pop" data-at="2.1" data-len="0.4"><path class="f-p100 s-ink" d="M218 110V129.8L240 140.8V121.0Z" stroke-width="1.25"/><path class="f-ink8 s-ink" d="M262 110V129.8L240 140.8V121.0Z" stroke-width="1.25"/><path class="f-paper s-ink" d="M218 110L240 99.0L262 110L240 121.0Z" stroke-width="1.25"/></g>
+<path class="f-none s-ink" d="M240 122V218" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path class="f-none s-ink" d="M160 258V355" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path class="f-none s-ink" d="M320 258V355" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path class="f-none s-sig" d="M320 258V355" pathLength="1" stroke-width="2.5" data-fx="draw" data-at="5.4" data-len="0.5"/>
+<g data-fx="slide" data-at="2.8" data-len="2.6" data-out="5.6" data-dy="-430"><g transform="translate(0 460)"><path class="f-none s-sig" d="M40 0H440" stroke-width="2"/><rect class="f-sig1" x="40" y="-14" width="400" height="14" fill-opacity=".5"/></g></g>
+<g data-fx="pop" data-at="3.5" data-len="0.35"><rect class="f-ink" x="229" y="159" width="22" height="22"/><path class="f-none s-paper" d="M235 170l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="4.4" data-len="0.35"><rect class="f-ink" x="149" y="295" width="22" height="22"/><path class="f-none s-paper" d="M155 306l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-sig" d="M294 270v-8h8M338 262h8v8M346 342v8h-8M302 350h-8v-8" stroke-width="2" data-fx="pop" data-at="5.7" data-len="0.45"/>
+<g data-fx="pop" data-at="7" data-len="0.5"><g transform="translate(320 306)"><rect class="f-sig" x="-15" y="-15" width="30" height="30"/><g transform="translate(-10 -10) scale(0.416667)" class="f-none s-ink" stroke-width="4.32" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g></g>
+<g data-fx="pop" data-at="7.6" data-len="0.45"><rect class="f-paper s-ink" x="392" y="24" width="70" height="54" stroke-width="1.5"/><rect class="f-sig" x="404" y="38" width="30" height="12"/><rect class="f-ink" x="404" y="58" width="46" height="4"/></g>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Security Architecture Review to Identify Design-Level Security Risks</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Security Architecture Review evaluates how an organization's IT systems are designed and how security controls work together to protect applications, networks and sensitive business data. It helps identify weaknesses in system design and security configurations that could create opportunities for unauthorized access or expose critical business resources to cyber threats.</p>
+        <p class="rv">CipherTrivia's Security Architecture Review Services examine application architecture and network infrastructure along with cloud environments, identity and access controls, and data protection mechanisms. Our assessment identifies gaps in security design and evaluates how effectively existing controls address potential risks. We provide actionable findings and prioritized recommendations to help businesses improve their security architecture, make informed technology decisions and build stronger protection into their IT infrastructure.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board" data-sig-wrap>
+        <div class="board__canvas" data-sig="10" role="img" aria-label="Animated diagram: the review moves across the network, applications and data inside the cloud, checking each trust boundary and identity and access; a connection from an application to data without access control is flagged as a security gap and a control is added">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<rect class="f-none s-ink" x="450.5" y="60.5" width="520" height="320" stroke-opacity=".35" stroke-dasharray="8 6"/>
+<text class="sig-mono f-ink" x="466" y="84" font-size="11.5" text-anchor="start" fill-opacity=".6">CLOUD</text>
+<text class="sig-mono f-ink" x="250" y="84" font-size="11.5" text-anchor="start" fill-opacity=".6">NETWORK</text>
+<text class="sig-mono f-ink" x="490" y="116" font-size="11.5" text-anchor="start" fill-opacity=".6">APPLICATIONS</text>
+<text class="sig-mono f-ink" x="770" y="116" font-size="11.5" text-anchor="start" fill-opacity=".6">DATA</text>
+<rect class="f-p100 s-ink" x="230.75" y="400.75" width="739.5" height="58.5" stroke-width="1.5"/>
+<g transform="translate(249 417) scale(0.541667)" class="f-none s-ink" stroke-width="2.95385" stroke-linecap="square"><circle cx="16" cy="32" r="8"/><path d="M22 26l16-16M31 17l5 5M36 12l5 5"/><g class="s-sig"><path d="M12 5v10M7.7 7.5l8.6 5M7.7 12.5l8.6-5" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="290" y="435" font-size="12" text-anchor="start">IDENTITY AND ACCESS</text>
+<rect class="f-paper s-ink" x="68.75" y="138.75" width="62.5" height="62.5" stroke-width="1.5"/><g transform="translate(83 153) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><circle cx="18" cy="14" r="7"/><path d="M5 41v-4c0-6 5-10 11-10h5"/><g class="s-sig"><path d="M35 22l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6z" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="68.75" y="258.75" width="62.5" height="62.5" stroke-width="1.5"/><g transform="translate(83 273) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><circle cx="18" cy="14" r="7"/><path d="M5 41v-4c0-6 5-10 11-10h5"/><g class="s-sig"><path d="M35 22l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6z" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="278.75" y="170.75" width="82.5" height="118.5" stroke-width="1.5"/><g transform="translate(303 213) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><rect x="6" y="10" width="36" height="28"/><path d="M6 17h36M6 24h36M6 31h36M18 10v7M30 10v7M12 17v7M24 17v7M36 17v7M18 24v7M30 24v7M12 31v7M24 31v7M36 31v7"/><g class="s-sig"><rect x="24" y="17" width="12" height="7" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="522.75" y="142.75" width="74.5" height="74.5" stroke-width="1.5"/><g transform="translate(543 163) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><rect x="5" y="8" width="38" height="32"/><path d="M5 16h38"/><g class="s-sig"><path d="M18 23l-5 5 5 5M30 23l5 5-5 5M26 21l-4 14" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="522.75" y="262.75" width="74.5" height="74.5" stroke-width="1.5"/><g transform="translate(543 283) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><rect x="5" y="8" width="38" height="32"/><path d="M5 16h38"/><g class="s-sig"><path d="M18 23l-5 5 5 5M30 23l5 5-5 5M26 21l-4 14" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="642.75" y="202.75" width="74.5" height="74.5" stroke-width="1.5"/><g transform="translate(663 223) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><path d="M16 7h-4v13l-4 4 4 4v13h4M32 7h4v13l4 4-4 4v13h-4"/><g class="s-sig"><path d="M19 24h2M23 24h2M27 24h2" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="782.75" y="142.75" width="74.5" height="74.5" stroke-width="1.5"/><g transform="translate(803 163) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g>
+<rect class="f-paper s-ink" x="782.75" y="262.75" width="74.5" height="74.5" stroke-width="1.5"/><g transform="translate(803 283) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g>
+<path class="f-none s-ink" d="M132 170H278" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M132 290H278" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M362 210H522" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M362 250C440 250 450 300 522 300" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M598 180C640 180 642 240 642 240" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M598 300C640 300 642 240 642 240" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M718 240C760 240 750 180 782 180" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M718 240C760 240 750 300 782 300" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none s-ink s-dash" d="M205 70V390" stroke-opacity=".55"/>
+<g data-fx="pop" data-at="1.4" data-len="0.35"><rect class="f-ink" x="194" y="52" width="22" height="22"/><path class="f-none s-paper" d="M200 63l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-ink s-dash" d="M425 70V390" stroke-opacity=".55"/>
+<g data-fx="pop" data-at="2.7" data-len="0.35"><rect class="f-ink" x="414" y="52" width="22" height="22"/><path class="f-none s-paper" d="M420 63l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-ink s-dash" d="M740 70V390" stroke-opacity=".55"/>
+<g data-fx="pop" data-at="7.6" data-len="0.35"><rect class="f-ink" x="729" y="52" width="22" height="22"/><path class="f-none s-paper" d="M735 63l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none" d="M60 230H1000" id="arc-lens"/>
+<g data-fx="move" data-at="0.6" data-len="4.6" data-path="#arc-lens"><rect class="f-sig1" x="-26" y="-150" width="52" height="300" fill-opacity=".45"/><path class="f-none s-sig" d="M0 -150V150" stroke-width="2"/></g>
+<path class="f-none s-sig" d="M718 240C760 240 750 300 782 300" pathLength="1" stroke-width="2.5" data-fx="draw" data-at="4" data-len="0.5"/>
+<path class="f-none s-sig" d="M728 269v-8h8M788 261h8v8M796 301v8h-8M736 309h-8v-8" stroke-width="2" data-fx="pop" data-at="4.3" data-len="0.45"/>
+<g data-fx="pop" data-at="6.6" data-len="0.5"><g transform="translate(758 278)"><rect class="f-sig" x="-13" y="-13" width="26" height="26"/><g transform="translate(-9 -9) scale(0.375)" class="f-none s-ink" stroke-width="4.8" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g></g>
+<text class="sig-mono f-ink" x="1010" y="84" font-size="11.5" text-anchor="start" fill-opacity=".6">SECURITY GAPS</text>
+<rect class="f-p50 s-ink" x="1010.75" y="100.75" width="158.5" height="278.5" stroke-width="1.5"/>
+<rect class="f-sig" x="1026" y="124" width="28" height="13" data-fx="pop" data-at="4.7" data-len="0.4"/>
+<rect class="f-ink" x="1026" y="148" width="118" height="4" fill-opacity=".7" data-fx="grow" data-at="4.8" data-len="0.35"/>
+<rect class="f-stone" x="1026" y="159" width="84" height="4" data-fx="grow" data-at="4.9" data-len="0.35"/>
+<rect class="f-p100 s-stone" x="1026" y="194" width="28" height="13" data-fx="pop" data-at="4.95" data-len="0.4"/>
+<rect class="f-ink" x="1026" y="218" width="118" height="4" fill-opacity=".7" data-fx="grow" data-at="5.05" data-len="0.35"/>
+<rect class="f-stone" x="1026" y="229" width="84" height="4" data-fx="grow" data-at="5.15" data-len="0.35"/>
+<rect class="f-p100 s-stone" x="1026" y="264" width="28" height="13" data-fx="pop" data-at="5.2" data-len="0.4"/>
+<rect class="f-ink" x="1026" y="288" width="118" height="4" fill-opacity=".7" data-fx="grow" data-at="5.3" data-len="0.35"/>
+<rect class="f-stone" x="1026" y="299" width="84" height="4" data-fx="grow" data-at="5.4" data-len="0.35"/>
+<path class="f-none s-sig" d="M1127 131l3.5 3.5 7-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="7" data-len="0.35"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHAT'S INCLUDED                                                      -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="included" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">What's Included in Our Security Architecture Review</h2>
+        <p class="shead__lede rv" style="--d:1">Our Security Architecture Review Services evaluate how effectively your IT systems and security controls work together to protect business applications and sensitive information. CipherTrivia examines key areas of your technology environment to identify design weaknesses and security gaps while providing practical recommendations to reduce risks and improve protection.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--3">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("layers") }}</div>
+        <h3 class="ledger__title">Architecture and Security Design Assessment</h3>
+        <p class="ledger__text">We review your existing system architecture to identify design-level weaknesses and gaps in security controls. This helps determine if the current architecture supports business requirements while maintaining appropriate security across connected systems.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("network") }}</div>
+        <h3 class="ledger__title">Network and Infrastructure Security Review</h3>
+        <p class="ledger__text">Our assessment examines network architecture and infrastructure configurations to identify unnecessary exposure and weaknesses in system connectivity. We evaluate network boundaries and security controls to help restrict unauthorized access to critical resources.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("cloud-lock") }}</div>
+        <h3 class="ledger__title">Cloud Security Architecture Review</h3>
+        <p class="ledger__text">We assess cloud architecture and security configurations across applicable environments to identify gaps in access management and resource protection. The review helps businesses understand risks associated with cloud deployments and improve the security of their infrastructure.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("browser") }}</div>
+        <h3 class="ledger__title">Application Security Architecture Review</h3>
+        <p class="ledger__text">We examine application design and communication between system components to identify potential security weaknesses. This includes reviewing how applications handle sensitive data and manage access to critical functions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("identity") }}</div>
+        <h3 class="ledger__title">Identity and Access Management Review</h3>
+        <p class="ledger__text">Our review evaluates authentication methods and access permissions to identify excessive privileges or gaps in access control. These checks help businesses improve identity management and restrict access to authorized users.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("lock") }}</div>
+        <h3 class="ledger__title">Data Protection and Encryption Review</h3>
+        <p class="ledger__text">We assess how sensitive information is stored and transferred across systems to identify gaps in data protection. The review considers encryption practices and access restrictions along with relevant safeguards for confidential business information.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">Security Controls and Compliance Alignment</h3>
+        <p class="ledger__text">We evaluate relevant security controls against applicable industry frameworks and organizational requirements. Depending on the scope, this may include reviewing alignment with standards such as ISO 27001 and NIST Cybersecurity Framework guidance.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("gauge") }}</div>
+        <h3 class="ledger__title">Security Gaps and Risk Assessment</h3>
+        <p class="ledger__text">Identified weaknesses are evaluated based on their severity and potential business impact. Our findings help organizations understand their most significant architectural risks and prioritize improvements according to security requirements.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("compass") }}</div>
+        <h3 class="ledger__title">Remediation Roadmap and Recommendations</h3>
+        <p class="ledger__text">We provide actionable recommendations to address identified gaps and improve the overall security design. The roadmap helps technical teams prioritize corrective measures and plan security improvements in line with business objectives.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ARCHITECTURE TYPES                                                   -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Architecture Types We Review</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia's Security Architecture Review Services cover different technology environments to help businesses identify design weaknesses and improve the protection of critical systems. We assess how applications and infrastructure are structured and how security controls protect data and manage access across interconnected environments.</p>
+      </div>
+    </header>
+
+    <div class="explorer" data-explorer>
+      <div class="explorer__media" aria-hidden="true">
+        <div class="explorer__stack">
+          <div class="explorer__frame is-active" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-enterprise.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-cloud.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-application.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-network.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-hybrid.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-microservices.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-identity.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/security-architecture-review/type-data.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+        </div>
+      </div>
+
+      <div class="explorer__list">
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-enterprise.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Enterprise IT Architecture</h3>
+          <p class="explorer__text">We review enterprise systems and connected IT infrastructure to identify security gaps across business applications and shared resources. The assessment focuses on system connectivity and access controls along with the security measures protecting critical business operations.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-cloud.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Cloud Security Architecture</h3>
+          <p class="explorer__text">Our cloud architecture reviews examine security design across AWS and Microsoft Azure along with other cloud environments within the agreed scope. We assess access management and resource configurations to identify weaknesses that could expose cloud-hosted applications or business data.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-application.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Application Security Architecture</h3>
+          <p class="explorer__text">We evaluate how applications are designed and how their components communicate with backend systems and external services. This review helps identify weaknesses in data handling and authentication along with security controls that protect application functionality.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-network.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Network Security Architecture</h3>
+          <p class="explorer__text">Our network architecture review examines network boundaries and system connections along with firewall controls and network segmentation. The objective is to identify design gaps that could allow unauthorized access or expose critical infrastructure.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-hybrid.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Hybrid IT Architecture</h3>
+          <p class="explorer__text">We assess environments that combine on-premises infrastructure with cloud-based systems to identify security gaps across connected resources. The review focuses on access management and data movement along with the security controls protecting communication between environments.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-microservices.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Microservices and API Architecture</h3>
+          <p class="explorer__text">Our assessment reviews how microservices and APIs exchange information and manage access between system components. We identify architectural weaknesses involving service communication and authentication along with data exposure and access control.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-identity.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Identity and Access Management Architecture</h3>
+          <p class="explorer__text">We examine how user identities and permissions are managed across business systems. The review identifies excessive privileges and gaps in authentication or access policies that could increase the risk of unauthorized access.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/security-architecture-review/type-data.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Data Architecture and Storage Security</h3>
+          <p class="explorer__text">Our review evaluates how business data is stored and transferred across databases and connected systems. We identify potential gaps in data access controls and protection mechanisms that could expose sensitive information.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RISK AREAS                                                           -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Common Architecture-Level Risk Areas We Identify</h2>
+        <p class="shead__lede rv" style="--d:1">Security weaknesses can originate from the way systems are designed and connected rather than from individual software vulnerabilities alone. CipherTrivia's Security Architecture Review Services help identify design-level risks across applications and infrastructure so businesses can address security gaps before they expose critical systems or sensitive information.</p>
+      </div>
+    </header>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("segments", "lg") }}</span>
+        <h3 class="trigger__title">Weak Security Boundaries Between Systems</h3>
+        <p class="trigger__text">Poorly defined boundaries between applications and infrastructure can allow unauthorized access to critical resources. We examine how systems are separated and how access is controlled to identify gaps that could expose sensitive business functions.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("escalate", "lg") }}</span>
+        <h3 class="trigger__title">Excessive Access Privileges</h3>
+        <p class="trigger__text">Users and applications with broader permissions than necessary can increase the risk of data exposure and unauthorized changes. Our review evaluates access design and permission structures to identify opportunities to apply least-privilege access.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("api", "lg") }}</span>
+        <h3 class="trigger__title">Insecure Application and API Communication</h3>
+        <p class="trigger__text">Applications often exchange information through APIs and interconnected services. We assess communication paths and security controls to identify weaknesses that could expose sensitive data or allow unauthorized interactions between system components.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("cloud-alert", "lg") }}</span>
+        <h3 class="trigger__title">Cloud Misconfigurations</h3>
+        <p class="trigger__text">Cloud environments can introduce risks when storage resources and services are configured incorrectly or exposed beyond their intended audience. We review cloud security architecture to identify design gaps involving resource access and security boundaries.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("lateral", "lg") }}</span>
+        <h3 class="trigger__title">Inadequate Network Segmentation</h3>
+        <p class="trigger__text">When critical systems share insufficiently restricted network access, a security incident affecting one system may spread to others. Our assessment evaluates network segmentation and connectivity to identify paths that could increase the impact of an attack.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("database", "lg") }}</span>
+        <h3 class="trigger__title">Gaps in Data Protection Architecture</h3>
+        <p class="trigger__text">Sensitive information may be exposed when systems lack appropriate data classification and protection controls. We examine how data is stored and transferred along with access restrictions and encryption practices to identify architectural weaknesses.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("pillar", "lg") }}</span>
+        <h3 class="trigger__title">Single Points of Failure in Security Controls</h3>
+        <p class="trigger__text">Overdependence on a single security mechanism can leave critical systems exposed if that control fails or is bypassed. We review the placement and coverage of security controls to identify areas that may require additional safeguards.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("eye-off", "lg") }}</span>
+        <h3 class="trigger__title">Insufficient Logging and Security Visibility</h3>
+        <p class="trigger__text">Limited visibility across applications and infrastructure can make suspicious activity harder to detect and investigate. Our review examines logging and monitoring design to identify gaps that could affect incident detection and response.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("link", "lg") }}</span>
+        <h3 class="trigger__title">Insecure Integration Between Systems</h3>
+        <p class="trigger__text">Connections between internal platforms and third-party services can introduce security risks when trust relationships and access permissions are not properly defined. We assess integration points to identify weaknesses that could expose connected systems or business data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">How Our Security Architecture Review Works</h2>
+        <p class="process__lede">CipherTrivia follows a structured Security Architecture Review process to identify design-level security gaps and assess how effectively your IT systems protect critical business assets. Our approach focuses on understanding your existing architecture and evaluating security controls before delivering practical recommendations to reduce risks.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Architecture Discovery and Scope Definition</h3>
+          <p class="step__text">We begin by understanding your technology environment and business requirements to identify the systems and components included in the review. This helps define the assessment scope across applications and networks along with cloud infrastructure and access management.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Design and Control Assessment</h3>
+          <p class="step__text">Our team reviews system architecture and security configurations to understand how applications communicate and how access to critical resources is managed. We examine security boundaries and data protection measures to identify weaknesses in the existing design.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Identification and Impact Analysis</h3>
+          <p class="step__text">Identified gaps are evaluated based on their severity and potential impact on business operations. We assess how architectural weaknesses could expose sensitive information or create opportunities for unauthorized access.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Findings Report and Remediation Roadmap</h3>
+          <p class="step__text">We provide a structured report documenting security gaps and their potential consequences along with prioritized recommendations. The roadmap helps technical teams understand which improvements require immediate attention and how to address architectural risks.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Guidance and Review</h3>
+          <p class="step__text">Following the assessment, we discuss key findings and recommended improvements with relevant stakeholders. Additional review activities can help validate proposed design changes and support the implementation of stronger security controls.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Security Architecture Review</h2>
+        <p class="shead__lede rv" style="--d:1">Our Security Architecture Review Services provide a clear understanding of architectural weaknesses and security gaps across your IT environment. CipherTrivia delivers actionable findings and prioritized recommendations to help businesses improve security design and make informed decisions about protecting critical systems.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example security architecture review report: security control assessment findings by architecture area and the security improvement roadmap">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-ink" x="36.75" y="44.75" width="259.5" height="391.5"/><rect class="f-sig" x="52" y="60" width="8" height="8"/><rect class="f-paper" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-paper" x="54" y="112" font-size="20.1" text-anchor="start">Security Architecture</text><text class="sig-txt f-paper" x="54" y="135.3" font-size="20.1" text-anchor="start">Review Report</text><path class="f-none s-sig" d="M58 165.3h-6v26h6M138 165.3h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-sig" x="66" y="182.8" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-paper" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Security Control Assessment Findings</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><text class="sig-txt f-ink" x="216" y="240" font-size="10" text-anchor="start" data-fx="fade" data-at="1.9" data-len="0.3">Identity and Access Management</text><g data-fx="pop" data-at="2.05" data-len="0.4"><rect class="f-sig" x="384.5" y="229.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="240.5" font-size="7" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 249h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="267" font-size="10" text-anchor="start" data-fx="fade" data-at="2.12" data-len="0.3">Data Architecture and Storage</text><g data-fx="pop" data-at="2.27" data-len="0.4"><rect class="f-sig" x="384.5" y="256.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="267.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 276h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="294" font-size="9" text-anchor="start" data-fx="fade" data-at="2.34" data-len="0.3">Microservices and API Architecture</text><g data-fx="pop" data-at="2.49" data-len="0.4"><rect class="f-sig" x="384.5" y="283.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="294.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 303h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="321" font-size="10" text-anchor="start" data-fx="fade" data-at="2.56" data-len="0.3">Network Security Architecture</text><g data-fx="pop" data-at="2.71" data-len="0.4"><rect class="f-sig1" x="384.5" y="310.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="321.5" font-size="7" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 330h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="348" font-size="10" text-anchor="start" data-fx="fade" data-at="2.78" data-len="0.3">Cloud Security Architecture</text><g data-fx="pop" data-at="2.93" data-len="0.4"><rect class="f-p100 s-stone" x="384.5" y="337.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="348.5" font-size="7" text-anchor="middle">LOW</text></g><path class="f-none s-ink" d="M216 357h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="395" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3" data-len="0.3">Security Improvement Roadmap</text><path class="f-none s-ink" d="M216 405h216" stroke-opacity=".2"/><rect class="f-p50" x="216" y="421" width="216" height="10"/><rect class="f-sig" x="216" y="421" width="97.2" height="10" data-fx="grow" data-at="3.2" data-len="0.4"/><rect class="f-p50" x="216" y="437" width="216" height="10"/><rect class="f-ink" x="270" y="437" width="108" height="10" fill-opacity=".8" data-fx="grow" data-at="3.35" data-len="0.4"/><rect class="f-p50" x="216" y="453" width="216" height="10"/><rect class="f-ink" x="324" y="453" width="97.2" height="10" fill-opacity=".8" data-fx="grow" data-at="3.5" data-len="0.4"/><rect class="f-p50" x="216" y="469" width="216" height="10"/><rect class="f-ink" x="367.2" y="469" width="64.8" height="10" fill-opacity=".8" data-fx="grow" data-at="3.65" data-len="0.4"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Security Architecture Review Report</h3>
+            <p class="deliver__text">Receive a structured report outlining the current state of your security architecture and the key weaknesses identified across applications and infrastructure. The report helps stakeholders understand existing security gaps and areas that require improvement.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("alert") }}
+          <div>
+            <h3 class="deliver__title">Identified Security Gaps and Risk Analysis</h3>
+            <p class="deliver__text">We document architectural weaknesses and explain their potential impact on business operations and sensitive data. Each finding is prioritized based on severity and risk to help your team focus on the most important issues.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("clipboard") }}
+          <div>
+            <h3 class="deliver__title">Security Control Assessment Findings</h3>
+            <p class="deliver__text">Get insights into how existing security controls protect system access and data along with network communication and connected applications. These findings help identify areas where controls may be missing or insufficient.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("wrench") }}
+          <div>
+            <h3 class="deliver__title">Prioritized Remediation Recommendations</h3>
+            <p class="deliver__text">Our recommendations outline practical improvements to address identified architectural risks. This guidance helps technical teams plan security enhancements and prioritize changes according to business requirements and potential impact.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Security Improvement Roadmap</h3>
+            <p class="deliver__text">Receive a structured set of recommended actions to guide future security improvements. The roadmap helps your organization plan architectural changes and strengthen security controls while aligning improvements with business and technology priorities.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for Security Architecture Review Services?</h2>
+        <p class="shead__lede rv" style="--d:1">A secure architecture requires more than individual security tools; it depends on how applications and infrastructure are designed and how security controls work together. CipherTrivia's Security Architecture Review Services help businesses identify design-level weaknesses and understand potential risks across their IT environments while providing practical guidance to improve security.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("magnifier") }}
+        <h3 class="principle__title">Comprehensive Architecture Assessment</h3>
+        <p class="principle__text">Our review covers application design and network infrastructure along with cloud environments and access management. This broad assessment helps identify security gaps across interconnected systems that could expose critical business resources.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("target") }}
+        <h3 class="principle__title">Focus on Real Business Risks</h3>
+        <p class="principle__text">We evaluate architectural weaknesses based on their potential impact on business operations and sensitive information. This helps organizations understand which security gaps require immediate attention and prioritize improvements effectively.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Practical and Actionable Recommendations</h3>
+        <p class="principle__text">Security findings are supported by clear recommendations that help technical teams address architectural weaknesses. Our guidance focuses on improving security controls and reducing unnecessary exposure while supporting business and technology requirements.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("globe") }}
+        <h3 class="principle__title">Review Across Diverse Technology Environments</h3>
+        <p class="principle__text">From enterprise IT infrastructure to cloud-based applications and hybrid environments, our Security Architecture Assessment Services examine security design across different technology setups. The assessment is scoped to your existing architecture and business needs.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("present") }}
+        <h3 class="principle__title">Clear Reporting and Risk Prioritization</h3>
+        <p class="principle__text">We provide structured findings that explain identified weaknesses and their potential consequences along with recommended corrective actions. This helps technical teams and decision-makers understand security gaps and plan improvements with greater clarity.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("chart") }}
+        <h3 class="principle__title">Support for Long-Term Security Improvements</h3>
+        <p class="principle__text">Our assessment helps organizations identify opportunities to improve security design as their technology environment evolves. The findings support better architectural decisions and help incorporate appropriate security controls into future system changes.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Security Architecture Review Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

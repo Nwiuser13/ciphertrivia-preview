@@ -1,0 +1,289 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Cloud Security Assessment Checklist | CipherTrivia Whitepapers"
+description: "A self-audit checklist for AWS, Azure and GCP environments, organized around the five pillars CipherTrivia's cloud security team audits in every engagement."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Cloud Security Assessment Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Cloud Security Assessment Checklist",
+      "description": "A self-audit checklist for AWS, Azure and GCP environments, organized around the five pillars CipherTrivia's cloud security team audits in every engagement.",
+      "url": "https://www.ciphertrivia.com/whitepapers/cloud-security-assessment-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-cloud-security-assessment-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/cloud-security-assessment-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cloud Security Assessment Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Cloud Security</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Cloud Security Assessment Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">A self-audit checklist for AWS, Azure and GCP, built around the five pillars our cloud security team checks on day one of every review.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Cloud Security</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>9 minutes</dd></div>
+        <div class="article-meta__row"><dt>Covers:</dt><dd>AWS, Azure, GCP</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#the-five-pillars-we-audit">The Five Pillars We Audit</a></li>
+          <li><a href="#a-finding-from-the-field">A Finding From the Field</a></li>
+          <li><a href="#a-reference-cloud-account-layout">A Reference Cloud Account Layout</a></li>
+          <li><a href="#the-checklist">The Checklist</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          When I start a <a href="/services/cloud-security-services/">cloud security</a> review, I don't open with a vulnerability scanner. I open with five questions. Almost every serious cloud incident I've worked traces back to one of them: who can do what (IAM), what's reachable from the internet (network exposure), where sensitive data actually lives (data protection), whether anyone would notice if something went wrong (logging &amp; monitoring), and whether the environment still matches what was designed (configuration drift).
+        </p>
+        <p>
+          This checklist is organized around those five pillars. It's the same structure we use internally before scoping a cloud security assessment, so you can run it yourself first, and come to us with a head start.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-five-pillars-we-audit">
+        <h2>The Five Pillars We Audit</h2>
+        <div class="a-grid a-grid--2">
+          <div class="a-card">
+            <span class="a-label">01</span>
+            <h3>Identity &amp; Access (IAM)</h3>
+            <p class="is-sm">Who can assume which roles, from where, and with what permissions, and how many of those permissions are actually used.</p>
+          </div>
+          <div class="a-card">
+            <span class="a-label">02</span>
+            <h3>Network Exposure</h3>
+            <p class="is-sm">What's reachable from the public internet, what's reachable between internal services that shouldn't be, and whether anything is exposed "temporarily."</p>
+          </div>
+          <div class="a-card">
+            <span class="a-label">03</span>
+            <h3>Data Protection</h3>
+            <p class="is-sm">Where regulated or sensitive data actually lives (including backups, logs and analytics copies), and how it's encrypted and accessed.</p>
+          </div>
+          <div class="a-card">
+            <span class="a-label">04</span>
+            <h3>Logging &amp; Monitoring</h3>
+            <p class="is-sm">Whether security-relevant activity is captured centrally, retained long enough to investigate, and actually alerted on.</p>
+          </div>
+          <div class="a-card a-span-2">
+            <span class="a-label">05</span>
+            <h3>Configuration Drift</h3>
+            <p class="is-sm">Whether the environment still matches your infrastructure-as-code. Manual changes ("just this once") are how most misconfigurations are born, and they rarely get cleaned up.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-finding-from-the-field">
+        <h2>A Finding From the Field</h2>
+        <blockquote>
+          <p>
+            On a recent engagement, a client's production S3 buckets were correctly locked down: no public access, encryption enabled, the works. But a nightly job copied database backups into a second account "for disaster recovery," and that account's bucket policy had never been updated from its default. The backups, containing full customer records, were reachable by anyone with the bucket name.
+          </p>
+          <p class="is-sm">It wasn't a misconfigured production system. It was an unreviewed copy of one, which is exactly why "where does sensitive data actually live" has to include backups, replicas and analytics exports, not just the systems you think of first.</p>
+        </blockquote>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-reference-cloud-account-layout">
+        <h2>A Reference Cloud Account Layout</h2>
+        <p>
+          Most of the environments we review eventually converge on some version of the layout below: workloads separated from a locked-down central security/logging account, with a dedicated identity provider rather than long-lived per-user cloud credentials.
+        </p>
+
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/cloud-security-architecture.png" alt="Diagram of a secure multi-account cloud architecture showing a central identity provider, separate production, staging and security/logging accounts connected via cross-account roles, a locked-down logging account aggregating CloudTrail and VPC flow logs, and a network diagram showing public subnets only for load balancers with private subnets for application and database tiers" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: A reference multi-account layout, with identity centralized, workloads separated, logging isolated and locked down.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-checklist">
+        <h2>The Checklist</h2>
+        <p>Work through each pillar. If you're unsure of an answer, that's usually the most useful signal of all.</p>
+
+        <div class="a-stack a-stack--lg">
+          <div>
+            <h3>Identity &amp; Access</h3>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p>No IAM policies use wildcard (<code>*</code>) permissions on production resources.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Root / global admin accounts have MFA enforced and are not used for day-to-day work.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Human users authenticate via SSO/identity provider, not long-lived static access keys.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Unused roles, users and access keys are reviewed and removed on a regular schedule.</p></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Network Exposure</h3>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p>Databases and internal services sit in private subnets with no direct route to the internet.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Security groups / firewall rules don't have any 0.0.0.0/0 inbound rules on management ports (SSH, RDP, database ports).</p></li>
+              <li class="check"><span class="check__box">✓</span><p>There's a current inventory of every public IP and load balancer, with an owner for each.</p></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Data Protection</h3>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p>Storage buckets and database snapshots are private by default, including in non-production accounts.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Backups, replicas and analytics exports of sensitive data are inventoried, not just primary databases.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Encryption at rest is enabled using keys you control (not provider-default keys) for regulated data.</p></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Logging &amp; Monitoring</h3>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p>Account-level audit logging (e.g. CloudTrail, Activity Log) is enabled in every account, including new ones by default.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Logs are shipped to a separate account or service that workload accounts can't modify or delete.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>Alerts exist for high-risk changes, such as new admin users, disabled logging, or public bucket policy changes.</p></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Configuration Drift</h3>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p>Production infrastructure is defined in code (Terraform/CloudFormation/etc.), with manual console changes the exception, not the norm.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>There's an automated check that flags resources not matching the defined IaC state.</p></li>
+              <li class="check"><span class="check__box">✓</span><p>"Temporary" changes (open ports, broadened permissions) have an expiry process, not just good intentions.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>We're multi-cloud. Does this checklist still apply?</h3>
+            <p class="is-sm">Yes. The five pillars are provider-agnostic; only the specific service names change (e.g. IAM policies vs. Azure RBAC, S3 vs. Blob Storage, CloudTrail vs. Activity Log). We run the same structure across AWS, Azure and GCP engagements.</p>
+          </div>
+          <div>
+            <h3>How is this different from a cloud security posture management (CSPM) tool scan?</h3>
+            <p class="is-sm">CSPM tools are great for catching known misconfiguration patterns at scale, but they don't understand your architecture's intent: a human reviewer can tell the difference between "this bucket is public and shouldn't be" and "this bucket is public on purpose and serves static assets." We typically use CSPM output as a starting point, not the conclusion.</p>
+          </div>
+          <div>
+            <h3>Do you need production access to run an assessment?</h3>
+            <p class="is-sm">No, most of our cloud security reviews are read-only, using a scoped audit role with view-level permissions across the accounts in scope. We never need write or admin access to assess configuration.</p>
+          </div>
+          <div>
+            <h3>How long does a cloud security assessment take?</h3>
+            <p class="is-sm">For a single-account environment of moderate size, typically 1-2 weeks including the report. Multi-account or multi-cloud environments usually take 2-4 weeks depending on account count.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">PN</span>
+          <div>
+            <p class="a-strong">Priya Nair</p>
+            <p class="a-meta is-sm">Cloud Security Architect, CipherTrivia · AWS &amp; Azure Certified</p>
+            <p class="is-sm">Priya leads cloud security reviews and architecture work at CipherTrivia, helping teams move from "we think it's locked down" to environments backed by infrastructure-as-code and continuous checks. She's previously worked as a cloud infrastructure engineer, which shapes how she explains findings to engineering teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert cloud security assessment?</h3>
+        <p class="svc-cta__text">Our cloud security team reviews AWS, Azure and GCP configurations and IAM policies.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/cloud-security-services/">Explore Cloud Security {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Want a second pair of eyes on your cloud setup?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your AWS, Azure or GCP environment, and see our <a href="/services/">cloud security services</a> for what's included.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

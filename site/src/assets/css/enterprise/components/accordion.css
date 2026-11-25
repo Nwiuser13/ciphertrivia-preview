@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Accordion (FAQ) — native <details>, hairline rows, plus → minus
+   ========================================================================== */
+
+.acc { border-top: 1px solid var(--line-strong); }
+
+.acc__item { border-bottom: 1px solid var(--line); }
+
+.acc__q {
+  display: grid;
+  grid-template-columns: 1fr 1.5rem;
+  align-items: start;
+  gap: 1rem;
+  padding-block: 1.625rem;
+  transition: color var(--dur-1);
+}
+.acc__no {
+  padding-top: 0.3rem;
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  color: var(--stone-500);
+}
+.acc__title {
+  font-size: var(--fs-lg);
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.acc__icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-top: 0.45rem;
+  justify-self: end;
+}
+.acc__icon::before,
+.acc__icon::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  transition: transform var(--dur-2) var(--ease), background var(--dur-1);
+}
+.acc__icon::before { left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; }
+.acc__icon::after  { top: 0; bottom: 0; left: 50%; width: 1.5px; margin-left: -0.75px; }
+
+.acc__item:hover .acc__title,
+.acc__item[open] .acc__title { color: var(--signal-700); }
+.acc__item[open] .acc__icon::after { transform: scaleY(0); }
+.acc__item[open] .acc__icon::before { background: var(--signal-700); }
+
+.acc__a {
+  padding: 0 2.5rem 1.875rem 0;
+  max-width: 78ch;
+  color: var(--ink-700);
+  animation: accIn var(--dur-2) var(--ease-out);
+}
+@keyframes accIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Heading + button variant ([data-acc]): questions stay real headings.
+   Answers are hidden only once JS is known to be running. */
+.acc__h { font: inherit; letter-spacing: inherit; }
+button.acc__q { width: 100%; text-align: left; }
+.acc__q[aria-expanded="true"] .acc__title { color: var(--signal-700); }
+.acc__q[aria-expanded="true"] .acc__icon::after { transform: scaleY(0); }
+.acc__q[aria-expanded="true"] .acc__icon::before { background: var(--signal-700); }
+.js [data-acc] .acc__item:not(.is-open) .acc__a { display: none; }
+
+@media (max-width: 640px) {
+  .acc__q { grid-template-columns: 1fr 1.25rem; }
+  .acc__a { padding-right: 0; }
+}

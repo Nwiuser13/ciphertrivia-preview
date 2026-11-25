@@ -1,0 +1,306 @@
+/* ==========================================================================
+   City pages — location-plate hero, linked prose inside cards, visit and
+   engagement-at-a-glance block. Reference: src/penetration-testing-company-bangalore.njk
+   ========================================================================== */
+
+/* ---- Hero: copy left, a schematic plate of the office location right ---- */
+.city-hero {
+  position: relative;
+  background: var(--ink-950);
+  color: var(--paper-50);
+  border-bottom: 1px solid var(--line-inv-strong);
+  overflow: hidden;
+}
+.city-hero .guides > .container { --line: rgba(255, 255, 255, 0.07); }
+
+.city-hero__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3.5rem;
+  align-items: center;
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) clamp(3.5rem, 2rem + 5vw, 6.5rem);
+}
+.city-hero__copy { grid-column: 1 / span 7; }
+.city-hero__place {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: var(--fs-xs);
+  color: var(--stone-300);
+  font-weight: 500;
+}
+.city-hero__place::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--signal-500);
+  animation: utilPulse 1.6s steps(2, jump-none) infinite;
+}
+.city-hero__title {
+  margin-top: 1.75rem;
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 1.1rem + 4.2vw, 5.5rem);
+  line-height: 0.97;
+  letter-spacing: -0.048em;
+  font-weight: 400;
+}
+.city-hero__title .accent { color: var(--signal-500); }
+.city-hero__lede {
+  margin-top: 2rem;
+  max-width: 62ch;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--stone-300);
+}
+.city-checks {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.city-checks li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.875rem;
+  align-items: start;
+  color: var(--paper-50);
+}
+.city-checks li::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-top: 0.5em;
+  border: 1px solid var(--signal-500);
+  background: var(--signal-500);
+}
+.city-hero .hero__actions { margin-top: 2.5rem; }
+.city-hero .btn--signal { --btn-hover: var(--paper-50); --btn-hover-fg: var(--ink-950); }
+.city-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-inv);
+  font-size: var(--fs-xs);
+  color: var(--stone-400);
+}
+.city-hero__meta span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.city-hero__meta span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--stone-400);
+}
+
+/* The plate: grid, arterial roads drawing in, range squares, crosshair and a pinged pin */
+.plate {
+  grid-column: 8 / -1;
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--ink-900);
+  border: 1px solid var(--line-inv-strong);
+  overflow: hidden;
+}
+.plate__map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+.plate__grid path { stroke: rgba(255, 255, 255, 0.05); stroke-width: 1; }
+.plate__road { stroke: var(--stone-500); stroke-width: 2; stroke-linecap: square; }
+.plate__road--minor { stroke: var(--ink-600); stroke-width: 1.25; }
+.plate__ring { stroke: var(--line-inv-strong); stroke-dasharray: 3 6; }
+.plate__ring--outer { stroke: var(--line-inv); }
+.plate__cross { stroke: rgba(255, 79, 31, 0.35); stroke-dasharray: 2 6; }
+.js .plate.rv .plate__road {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.2s var(--ease-out) 0.3s;
+}
+.js .plate.rv.is-in .plate__road { stroke-dashoffset: 0; }
+.plate__pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: var(--signal-500);
+}
+.plate__pin::before,
+.plate__pin::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--signal-500);
+  animation: cityPing 2.6s var(--ease-out) infinite;
+}
+.plate__pin::after { animation-delay: 1.3s; }
+@keyframes cityPing {
+  from { opacity: 0.9; transform: scale(1); }
+  to   { opacity: 0; transform: scale(5); }
+}
+.plate__tag {
+  position: absolute;
+  z-index: 3;
+  padding: 0.375rem 0.625rem;
+  background: rgba(0, 5, 20, 0.78);
+  border: 1px solid var(--line-inv-strong);
+  font-size: 0.75rem;
+  color: var(--paper-50);
+  white-space: nowrap;
+  font-weight: 500;
+}
+.plate__tag--tl { top: clamp(1rem, 0.5rem + 2vw, 2.5rem); left: clamp(1rem, 0.5rem + 2vw, 2.5rem); }
+.plate__tag--br { right: clamp(1rem, 0.5rem + 2vw, 2.5rem); bottom: clamp(1rem, 0.5rem + 2vw, 2.5rem); color: var(--signal-500); }
+.plate .ind-hero__frame { z-index: 2; }
+
+/* ---- Links written into the copy (the brief names these targets) ---- */
+.has-links a {
+  color: var(--ink-950);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--signal-500);
+  text-underline-offset: 3px;
+  transition: color var(--dur-1);
+}
+.has-links a:hover { color: var(--signal-700); }
+.section--ink .has-links a,
+.ledger__cell:hover .has-links a { color: var(--paper-50); }
+.section--ink .has-links a:hover,
+.ledger__cell:hover .has-links a:hover { color: var(--signal-500); }
+/* Light process: inactive steps are grey, their links stay readable */
+.process--light .step__text.has-links a { color: var(--ink-900); }
+
+/* ---- Two linked industry tiles on a light section ---- */
+.tiles--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--s-block);
+  background: var(--line);
+  border-color: var(--line);
+}
+.tiles--2 .tile { aspect-ratio: 16 / 9; }
+
+/* ---- Visit + engagement model: copy and contact rows left, the glance panel right ---- */
+.visit {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+  align-items: start;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-inv-strong);
+}
+.visit__main { grid-column: 1 / span 6; }
+.visit__title {
+  font-size: var(--fs-3xl);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+.visit__text { margin-top: 2rem; }
+.visit__text p { color: var(--stone-300); font-size: var(--fs-lg); line-height: 1.55; }
+.visit__text p + p { margin-top: 1rem; }
+.visit__contact {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--line-inv-strong);
+}
+.visit__row {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line-inv);
+}
+.visit__row dt {
+  padding-top: 0.2rem;
+  font-size: var(--fs-xs);
+  color: var(--stone-400);
+}
+.visit__row dd { color: var(--paper-50); }
+.visit__row a { font-weight: 500; transition: color var(--dur-1); }
+.visit__row a:hover { color: var(--signal-500); }
+
+.glance {
+  grid-column: 8 / -1;
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  background: var(--paper-50);
+  color: var(--ink-950);
+}
+.glance__label {
+  font-size: var(--fs-xs);
+  color: var(--signal-700);
+  font-weight: 500;
+}
+.glance__list {
+  position: relative;
+  margin-top: 1.75rem;
+}
+/* Rail through the nodes */
+.glance__list::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 7px;
+  width: 1px;
+  background: var(--line-strong);
+}
+.glance__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  padding-block: 0.875rem;
+  font-size: var(--fs-lg);
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+.glance__step + .glance__step { border-top: 1px solid var(--line); }
+.glance__node {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: var(--paper-50);
+  border: 1px solid var(--ink-950);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+  transition-delay: calc(var(--i, 0) * 160ms + 300ms);
+}
+.glance.is-in .glance__node,
+html:not(.js) .glance__node { background: var(--signal-500); border-color: var(--signal-500); }
+.glance__note {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-strong);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .city-hero__copy { grid-column: 1 / -1; }
+  .plate { grid-column: 1 / -1; width: 100%; max-width: 34rem; }
+}
+@media (max-width: 1024px) {
+  .visit__main, .glance { grid-column: 1 / -1; }
+  .glance { position: static; }
+}
+@media (max-width: 640px) {
+  .visit__row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .tiles--2 { grid-template-columns: 1fr; }
+  .city-hero .hero__actions .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plate__pin::before, .plate__pin::after { animation: none; opacity: 0; }
+  .js .plate.rv .plate__road { stroke-dasharray: none; transition: none; }
+  .glance__node { transition: none; }
+}

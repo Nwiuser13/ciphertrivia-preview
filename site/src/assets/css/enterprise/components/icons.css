@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Icons — line icons on a square tile. When the item they belong to is hovered
+   or focused, the tile lifts and tilts off an orange plate and the accent
+   stroke redraws; the same draw plays once when the item scrolls into view.
+   ========================================================================== */
+
+.ico {
+  --ico: 4rem;
+  --ico-bg: var(--paper-0);
+  --ico-line: var(--ink-950);
+  --ico-edge: var(--line-strong);
+  --ico-accent: var(--signal-500);
+  position: relative;
+  display: inline-grid;
+  flex: none;
+  width: var(--ico);
+  height: var(--ico);
+}
+/* The plate the tile lifts off */
+.ico::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ico-accent);
+}
+.ico__face {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--ico-bg);
+  border: 1px solid var(--ico-edge);
+  color: var(--ico-line);
+  transform-origin: 30% 70%;
+  transition: transform 0.6s var(--ease-out), border-color 0.3s var(--ease);
+}
+.ico svg { width: 62%; height: 62%; overflow: visible; }
+.ico__a { stroke: var(--ico-accent); }
+.ico__a rect,
+.ico__a circle { fill: var(--ico-bg); }
+.ico__a > * { stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+.ico--sm { --ico: 2.75rem; }
+.ico--lg { --ico: 4.5rem; }
+/* Hero-scale tile (status pages): thinner line so the weight matches the small tiles */
+.ico--xl { --ico: clamp(7rem, 4rem + 9vw, 13rem); }
+.ico--xl svg { stroke-width: 1.25; }
+/* Cover-scale tile (whitepaper covers): thinner line so it reads as a drawing */
+.ico--cover { --ico: var(--tile, 6rem); }
+.ico--cover svg { width: 70%; height: 70%; stroke-width: 1.5; }
+.ico--bare { --ico: 1.375rem; }
+.ico--bare::before { content: none; }
+.ico--bare .ico__face { background: none; border: 0; }
+.ico--bare svg { width: 100%; height: 100%; }
+
+/* Dark surfaces */
+.section--ink .ico,
+.findings .ico {
+  --ico-bg: var(--ink-900);
+  --ico-line: var(--paper-50);
+  --ico-edge: var(--line-inv-strong);
+}
+
+/* Lift + tilt, accent redraw: on hover or keyboard focus of the owning item */
+:is(.ledger__cell, .trigger, .deliver__item, .principle, .flow__step, .related__row, .standard, .include, .svc-row, .bento__cell, .fw, .track__step, .surface__item, .card):is(:hover, :focus-within) .ico:not(.ico--bare) .ico__face {
+  transform: translate(-6px, -6px) rotate(-6deg);
+  border-color: var(--ico-line);
+}
+:is(.ledger__cell, .trigger, .deliver__item, .principle, .flow__step, .related__row, .standard, .include, .svc-row, .bento__cell, .fw, .track__step, .surface__item, .card):is(:hover, :focus-within) .ico__a > * {
+  animation: icoDrawHover 0.9s var(--ease-out) both;
+}
+/* Draw once as the item scrolls into view */
+.is-in .ico__a > * { animation: icoDraw 1.2s var(--ease-out) 0.25s both; }
+
+@keyframes icoDraw      { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes icoDrawHover { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ico__face { transition: none; }
+  .ico__a > * { animation: none !important; }
+  :is(.ledger__cell, .trigger, .deliver__item, .principle, .flow__step, .related__row, .standard, .include, .svc-row, .bento__cell, .fw, .track__step, .surface__item, .card):is(:hover, :focus-within) .ico:not(.ico--bare) .ico__face { transform: none; }
+}

@@ -1,0 +1,14 @@
+{# Arrow icon used inside buttons and links #}
+{% macro arrow(cls="btn__icon") -%}
+<svg class="{{ cls }}" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+{%- endmacro %}
+
+{# Image placeholder. Replace the whole <figure> with an <img> when real images arrive.
+   label: what the image should show · spec: suggested size / art direction
+   ratio: CSS aspect-ratio value · variant: "" | "inv" | "flush" | "inv ph--flush" #}
+{% macro ph(label, spec, ratio="16 / 9", variant="") -%}
+<figure class="ph{% if variant %} ph--{{ variant }}{% endif %}" style="--ph-ratio: {{ ratio }}" role="img" aria-label="Image placeholder: {{ label }}">
+  <span class="ph__corner" aria-hidden="true">IMG</span>
+  <figcaption class="ph__tag"><strong>{{ label }}</strong><span>{{ spec }}</span></figcaption>
+</figure>
+{%- endmacro %}

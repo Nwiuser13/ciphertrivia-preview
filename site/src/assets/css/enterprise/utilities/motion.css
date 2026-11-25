@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Motion utilities — reveal on scroll. Only hides content when JS is present.
+   Use: class="rv" and optional style="--d:2" for a stagger step.
+   ========================================================================== */
+
+.js .rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+  transition-delay: calc(var(--d, 0) * 70ms);
+}
+.js .rv.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line-draw for hairline rules */
+.js .rv-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-out);
+}
+.js .rv-line.is-in { transform: scaleX(1); }
+
+/* Masked line rise for display headlines: wrap each line's text in a span */
+.js .rv-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.14em 0.1em 0.16em 0;
+  margin: -0.14em 0 -0.16em;
+}
+.js .rv-mask > * {
+  display: inline-block;
+  transform: translateY(108%);
+  transition: transform 1.1s var(--ease-out);
+  transition-delay: calc(var(--d, 0) * 110ms);
+}
+.js .rv-mask.is-in > * { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rv, .js .rv-line { opacity: 1; transform: none; }
+  .js .rv-mask > * { transform: none; }
+}

@@ -1,0 +1,525 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "AI Agent Security Testing Services | Agentic AI Security"
+description: "AI agent security testing for autonomous agents, tools and permissions. Find excessive agency, tool abuse and identity risks with CipherTrivia."
+crumbs: [["Home", "/"], ["AI Security Services", "/ai-security/"], ["AI Agent Security Testing Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What is AI agent security testing?", "AI agent security testing is a structured assessment of an autonomous AI system that can plan, call tools and take actions on a user's behalf. Testers try to manipulate the agent, push it beyond its intended permissions and abuse the tools and credentials it holds. The result is a prioritized list of weaknesses, each with evidence and a recommended fix."],
+  ["How is an AI agent different from a chatbot for security purposes?", "A chatbot produces text. An agent acts: it can send email, query databases, change records, run code or spend money. A successful attack on a chatbot usually exposes information, while a successful attack on an agent can cause a real action. That is why agents need their own testing, centered on permissions, tools and approval controls."],
+  ["What is excessive agency?", "Excessive agency is a weakness in which an AI system is given more tools, permissions or autonomy than its task requires. When such an agent is manipulated, the damage is limited only by what it is allowed to do. Reducing agency to the minimum the task needs is one of the most effective ways to reduce risk."],
+  ["What is indirect prompt injection against an agent?", "Indirect prompt injection hides instructions in content an agent reads while doing its job, such as a web page, an email, a support ticket or a shared document. The agent may treat those instructions as legitimate and act on them. Because agents read a great deal of untrusted content, this is among the most important attack paths to test."],
+  ["What is least privilege for AI agents?", "Least privilege means the agent can reach only the tools, data and actions that its current task needs, using credentials scoped to that purpose. Testing checks whether the agent holds broader access than necessary, whether permissions are enforced outside the prompt, and what an attacker could do with the access the agent already has."],
+  ["Do you test agents built on the Model Context Protocol (MCP)?", "Yes. Agents that connect to tools and data through MCP servers, plugins or custom integrations can be assessed. Testing covers how tools are described and authorized, whether tool output can carry hostile instructions, and how credentials are stored and passed."],
+  ["Can you test multi-agent systems?", "Yes. When several agents delegate to each other, a weakness in one can spread to the rest. We test how agents trust each other's messages, whether one compromised agent can instruct another, and whether shared memory or context can be poisoned."],
+  ["Which AI agents can you test?", "We can test customer service agents, coding and developer agents, browser and computer-use agents, workflow automation agents, data analysis agents and multi-agent systems. Agents built with commercial platforms, open-source frameworks or custom code can all be assessed."],
+  ["Will testing cause the agent to take real actions?", "Testing is planned to avoid harm. We prefer a staging environment, test accounts and sandboxed tools, and we agree in advance which actions may be exercised for real. Where an action would be destructive, we verify that the attack path exists without completing it."],
+  ["Do you review human-in-the-loop approvals?", "Yes. Many agents rely on a person to approve sensitive actions. We test whether those approvals can be bypassed, whether the approval request shows the real action, and whether an attacker could overwhelm or mislead the reviewer."],
+  ["What does an AI agent security report include?", "The report includes an executive summary, an inventory of the agent's tools and permissions, each finding with its severity and steps to reproduce, supporting evidence, the affected component and a recommended fix. Findings can be mapped to the OWASP Top 10 for LLM Applications and to agentic AI threat guidance."],
+  ["How long does AI agent security testing take?", "Duration depends on the number of agents, the tools and systems they can reach, and the depth of testing required. A single-purpose agent can be assessed in a short engagement, while multi-agent systems with many integrations take longer. We confirm the timeline after scoping."],
+  ["How much does AI agent security testing cost?", "Cost depends on the number of agents and tools, the complexity of the integrations, the testing depth and the reporting scope. Share a short description of your agent with CipherTrivia and we will recommend a scope and quote."],
+  ["When should we test an AI agent?", "Test before an agent is given access to production systems or customer data, after you add tools or widen permissions, and on a regular schedule once it is live. Each new tool or permission changes what a successful attack can do."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "AI Agent Security Testing Services",
+      "serviceType": "AI Agent Security Testing",
+      "description": "AI agent security testing for autonomous agents, tools and permissions. Find excessive agency, tool abuse and identity risks with CipherTrivia.",
+      "url": "https://www.ciphertrivia.com/services/ai-agent-security-testing/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Agent Security Testing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agent Permission and Privilege Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tool and Function Abuse Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agent Identity and Credential Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Indirect Prompt Injection Testing for Agents" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Goal Hijacking and Task Manipulation Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MCP and Integration Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Agent and Memory Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Human-in-the-Loop and Approval Control Review" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Security Services", "item": "https://www.ciphertrivia.com/ai-security/" },
+        { "@type": "ListItem", "position": 3, "name": "AI Agent Security Testing Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">AI Agent <span class="accent">Security Testing</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">An AI agent does more than answer: it calls tools, reads untrusted content and acts with real permissions. CipherTrivia's AI agent security testing shows how far a manipulated agent could go, then gives your team evidence-backed findings and practical ways to tighten its limits.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" role="img" aria-label="Diagram: an AI agent uses two tools inside its permission boundary; a manipulated instruction then sends it to a third tool outside the boundary, the attempt is recorded as a finding">
+          <svg aria-hidden="true" viewBox="0 0 480 480">
+<rect class="f-none s-ink s-dash" x="176.5" y="20.5" width="283" height="270" stroke-opacity=".5"/>
+<rect class="f-paper s-ink" x="24.5" y="156.5" width="110" height="100" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="44" y="176" width="22" height="18" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M55 176v-8M49 168h12M44 202h70M44 214h50M44 226h60" stroke-width="1.5" stroke-opacity=".7"/>
+<rect class="f-paper s-ink" x="300.5" y="46.5" width="140" height="64" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M318 66h28v20h-28zM318 66l14 10 14-10" stroke-width="1.5"/>
+<rect class="f-ink" x="358" y="70" width="64" height="4" fill-opacity=".4"/>
+<rect class="f-ink" x="358" y="80" width="40" height="4" fill-opacity=".25"/>
+<rect class="f-paper s-ink" x="300.5" y="168.5" width="140" height="64" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M318 196c0-4 28-4 28 0v16c0 4-28 4-28 0zM318 196c0 4 28 4 28 0M318 204c0 4 28 4 28 0" stroke-width="1.5"/>
+<rect class="f-ink" x="358" y="192" width="64" height="4" fill-opacity=".4"/>
+<rect class="f-ink" x="358" y="202" width="40" height="4" fill-opacity=".25"/>
+<rect class="f-paper s-ink" x="300.5" y="366.5" width="140" height="64" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="318" y="386" width="28" height="20" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M318 392h28M324 400h8" stroke-width="1.5"/>
+<rect class="f-ink" x="358" y="390" width="64" height="4" fill-opacity=".4"/>
+<rect class="f-ink" x="358" y="400" width="40" height="4" fill-opacity=".25"/>
+<path class="f-none s-ink" d="M135 190H178V78H299" pathLength="1" stroke-width="1.5" data-fx="draw" data-at="0.5" data-len="0.6"/>
+<path class="f-none s-ink" d="M292 73l7 5-7 5" stroke-width="1.5" data-fx="fade" data-at="1.05" data-len="0.15"/>
+<path class="f-none s-ink" d="M135 222H178V200H299" pathLength="1" stroke-width="1.5" data-fx="draw" data-at="1.3" data-len="0.6"/>
+<path class="f-none s-ink" d="M292 195l7 5-7 5" stroke-width="1.5" data-fx="fade" data-at="1.85" data-len="0.15"/>
+<rect class="f-ink" x="44" y="238" width="70" height="3" fill-opacity=".35" data-fx="grow" data-at="2.2" data-len="0.4"/>
+<rect class="f-sig" x="44" y="238" width="70" height="3" data-fx="grow" data-at="4.4" data-len="0.4"/>
+<path class="f-none s-sig" d="M80 257V398H299" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.9" data-len="0.9"/>
+<path class="f-none s-sig" d="M292 393l7 5-7 5" stroke-width="2" data-fx="fade" data-at="5.8" data-len="0.15"/>
+<rect class="f-sig1 s-sig" x="300.5" y="366.5" width="140" height="64" data-fx="fade" data-at="6" data-len="0.3"/>
+<rect class="f-sig" x="318" y="446" width="90" height="3" data-fx="grow" data-at="6.9" data-len="0.4"/>
+<rect class="f-sig" x="318" y="454" width="60" height="3" fill-opacity=".6" data-fx="grow" data-at="7" data-len="0.4"/>
+<path class="f-none s-sig" d="M290 358v-6h6M444 352h6v6M450 434v6h-6M296 440h-6v-6" stroke-width="1.5" data-fx="pop" data-at="7.6" data-len="0.5"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10 for LLM Applications</span>
+      <span class="rail__item">OWASP Agentic AI Threats</span>
+      <span class="rail__item">MITRE ATLAS</span>
+      <span class="rail__item">NIST AI RMF</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">AI Agent Security Testing for Autonomous, Tool-Using AI Systems</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">AI agents plan their own steps and use tools to carry them out: they send messages, query databases, update records, browse the web and run code. That autonomy is what makes them useful, and it is also what changes the risk. A flaw that would only make a chatbot say something wrong can make an agent do something wrong, with the permissions you gave it.</p>
+        <p class="rv">CipherTrivia's AI agent security testing examines the agent as a whole: the instructions that steer it, the untrusted content it reads, the tools and credentials it holds, the approvals that supervise it and the systems it can reach. We try to mislead it, push it past its limits and abuse its tools, and we show exactly what an attacker could achieve.</p>
+        <p class="rv">The aim is a smaller blast radius. Our findings help you give each agent only the access its job requires, enforce those limits outside the prompt, and keep a record of what the agent did.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RANGE OF SERVICES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Our AI Agent Security Testing Services</h2>
+        <p class="shead__lede rv" style="--d:1">Each engagement is scoped to your agent and the systems it can reach. These are the areas we test, from the instructions that guide the agent to the approvals that supervise it.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("escalate") }}</div>
+        <h3 class="ledger__title">Agent Permission and Privilege Testing</h3>
+        <p class="ledger__text">We inventory what the agent is allowed to do and test whether it holds more access than its task needs. Findings show where permissions can be reduced and where limits are enforced only by the prompt.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("terminal") }}</div>
+        <h3 class="ledger__title">Tool and Function Abuse Testing</h3>
+        <p class="ledger__text">We test whether an attacker can make the agent call a tool with harmful parameters, call tools in a damaging order, or use a legitimate tool for an unintended purpose.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("key") }}</div>
+        <h3 class="ledger__title">Agent Identity and Credential Testing</h3>
+        <p class="ledger__text">We review how the agent authenticates, whose identity it acts under, how tokens and API keys are stored and scoped, and whether an agent's access can be reused or impersonated.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("syringe") }}</div>
+        <h3 class="ledger__title">Indirect Prompt Injection Testing for Agents</h3>
+        <p class="ledger__text">We plant hostile instructions in the pages, files, tickets and messages your agent reads, and test whether they can redirect it. Agents read a great deal of untrusted content, so this is a core test.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">Goal Hijacking and Task Manipulation Testing</h3>
+        <p class="ledger__text">We try to change what the agent is trying to achieve, through conversation, poisoned context or conflicting instructions, and check whether it keeps to its intended purpose.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("link") }}</div>
+        <h3 class="ledger__title">MCP and Integration Security Testing</h3>
+        <p class="ledger__text">For agents that connect through Model Context Protocol servers, plugins or custom connectors, we test how tools are described and authorized and whether tool output can smuggle in instructions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("network") }}</div>
+        <h3 class="ledger__title">Multi-Agent and Memory Security Testing</h3>
+        <p class="ledger__text">We test how agents trust one another and whether a compromised agent can instruct another. We also check whether shared memory and context can be poisoned to affect later decisions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("user-shield") }}</div>
+        <h3 class="ledger__title">Human-in-the-Loop and Approval Control Review</h3>
+        <p class="ledger__text">We test whether approvals for sensitive actions can be bypassed, whether the approval request shows what will really happen, and whether a reviewer can be misled or overwhelmed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- AGENTIC AI THREATS                                                   -->
+<!-- ================================================================== -->
+<section class="section section--white" id="threats" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Agentic AI Threats Our Testing Covers</h2>
+        <p class="shead__lede rv" style="--d:1">Agents introduce risks beyond those of a plain language model. Our test coverage follows recognized agentic AI threat guidance, alongside the OWASP Top 10 for LLM Applications, so findings use terms your security and engineering teams already know.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("database") }}</div>
+        <h3 class="ledger__title">Memory Poisoning</h3>
+        <p class="ledger__text">False or hostile information written into an agent's memory that shapes its later decisions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("wrench") }}</div>
+        <h3 class="ledger__title">Tool Misuse</h3>
+        <p class="ledger__text">Legitimate tools driven into harmful use through manipulated instructions or parameters.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("unlock") }}</div>
+        <h3 class="ledger__title">Privilege Compromise</h3>
+        <p class="ledger__text">An agent's access abused or widened to reach data and actions it was never meant to touch.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("gauge") }}</div>
+        <h3 class="ledger__title">Resource Overload</h3>
+        <p class="ledger__text">Tasks that push an agent into runaway loops, heavy tool use or very large costs.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("alert") }}</div>
+        <h3 class="ledger__title">Cascading Hallucination</h3>
+        <p class="ledger__text">A false statement that is stored, repeated and acted on until it spreads through connected agents and systems.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">Intent Breaking and Goal Manipulation</h3>
+        <p class="ledger__text">Attempts to redirect an agent's plan or objective away from what its owner intended.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("document") }}</div>
+        <h3 class="ledger__title">Repudiation and Untraceability</h3>
+        <p class="ledger__text">Agent actions that are not logged well enough to show who or what caused them.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("identity") }}</div>
+        <h3 class="ledger__title">Identity Spoofing and Impersonation</h3>
+        <p class="ledger__text">Attackers posing as a user, an agent or a trusted service to borrow its authority.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("users-cross") }}</div>
+        <h3 class="ledger__title">Overwhelming Human Oversight</h3>
+        <p class="ledger__text">Floods of approval requests or misleading summaries that make human review ineffective.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("code") }}</div>
+        <h3 class="ledger__title">Unexpected Code Execution</h3>
+        <p class="ledger__text">Agents that can run code or commands being steered into executing an attacker's instructions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- AGENTS WE TEST                                                       -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">AI Agents We Test</h2>
+        <p class="shead__lede rv" style="--d:1">If an AI system can decide what to do next and act on it, it belongs in scope. We assess the following kinds of agents, built with commercial platforms, open-source frameworks or custom code.</p>
+      </div>
+    </header>
+
+    <ul class="includes">
+      <li class="include rv">{{ icon("chat", "sm") }}<p><strong>Customer Service Agents:</strong> Agents that look up accounts, issue refunds and update orders, where one manipulated request can become a financial or privacy incident.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("code", "sm") }}<p><strong>Coding and Developer Agents:</strong> Agents that read repositories, run commands and open pull requests, where untrusted code or comments can steer what they execute.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("globe", "sm") }}<p><strong>Browser and Computer-Use Agents:</strong> Agents that browse sites and operate applications, where every page they visit is untrusted input.</p></li>
+      <li class="include rv">{{ icon("pipeline", "sm") }}<p><strong>Workflow Automation Agents:</strong> Agents that move data between business systems, where broad service accounts amplify any mistake.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("directory", "sm") }}<p><strong>Data and Analytics Agents:</strong> Agents that query databases and generate reports, where over-broad access can expose records across teams or customers.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("agent", "sm") }}<p><strong>Multi-Agent Systems:</strong> Groups of agents that delegate to one another, where one weak link can influence all the others.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- STATEMENT BAND                                                       -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Why Test an AI Agent Before You Give It Access?</h2>
+    <p class="band__text rv" style="--d:1">An agent's permissions define the worst day it can have. Testing before it reaches production data, customer accounts or payment systems shows how far a manipulated agent could go, while limits are still easy to tighten and before an attacker finds the same path.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our AI Agent Security Testing Process</h2>
+        <p class="process__lede">Every engagement starts by mapping what the agent can do, then tests how far an attacker could take it. Testing is planned with your team so that real actions are exercised safely.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope and Agent Architecture Mapping</h3>
+          <p class="step__text">We map how the agent is built: its model, instructions, memory, data sources and the systems it connects to. We agree what is in scope and which actions may be exercised for real.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Tool, Permission and Identity Inventory</h3>
+          <p class="step__text">We list every tool the agent can call, the permissions and credentials behind each one, and the identity it acts under. This inventory shows the agent's potential blast radius before any attack begins.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Injection and Goal Hijacking Attacks</h3>
+          <p class="step__text">Testers attempt direct and indirect prompt injection and try to redirect the agent's goals, using content the agent reads in normal operation: pages, files, tickets and messages.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Action and Boundary Testing</h3>
+          <p class="step__text">We test whether the agent can be made to exceed its permissions, misuse its tools, bypass approvals or act on another user's behalf, and whether limits are enforced outside the prompt.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Analysis and Reporting</h3>
+          <p class="step__text">Each finding is validated, reproduced and rated by severity and business impact. The report explains the attack path in plain terms and recommends a specific fix for each issue.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Support and Retesting</h3>
+          <p class="step__text">We walk your team through the findings and support fixes as they are built. After remediation we retest to confirm each boundary now holds and that the changes have not opened new gaps.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our AI Agent Security Testing</h2>
+        <p class="shead__lede rv" style="--d:1">You receive a report your engineers can act on and your leadership can read, including a clear picture of what each agent can reach. Every finding comes with the steps to reproduce it, the evidence and a recommended fix.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <article class="xfind" aria-label="Example AI agent security finding">
+          <header class="xfind__head">
+            <span class="xfind__tag">Example finding</span>
+            <span class="xfind__sev">High</span>
+          </header>
+          <h3 class="xfind__title">Support agent approves a refund above its limit after a manipulated customer message</h3>
+          <dl class="xfind__rows">
+            <div><dt>Category</dt><dd>Goal manipulation · Excessive agency · Tool misuse</dd></div>
+            <div><dt>Evidence</dt><dd>A message claiming to come from a manager told the agent to skip the refund cap. The agent called the refund tool with an amount far above its limit. The cap was written in the prompt, and the tool itself accepted any value.</dd></div>
+            <div><dt>Recommended fix</dt><dd>Enforce the refund limit inside the tool and require human approval above it. Give the agent a credential scoped to refunds only, and log every call with the requesting user.</dd></div>
+            <div><dt>Retest</dt><dd>Fixed. The tool now rejects amounts above the limit and routes them for approval.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Summary</h3>
+            <p class="deliver__text">A concise overview of the assessment that explains the main risks and their business impact, written for stakeholders who do not need the technical detail.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("directory") }}
+          <div>
+            <h3 class="deliver__title">Agent Tool and Permission Inventory</h3>
+            <p class="deliver__text">A map of every tool, credential and permission the agent holds, showing what a successful attack could reach.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Vulnerability Report</h3>
+            <p class="deliver__text">Every finding with its affected component, a description of the attack and its potential impact, mapped to the OWASP Top 10 for LLM Applications and agentic threat guidance where relevant.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("magnifier") }}
+          <div>
+            <h3 class="deliver__title">Reproducible Attack Evidence</h3>
+            <p class="deliver__text">The exact inputs, tool calls and responses behind each finding, so developers can reproduce the issue and verify their fix.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Remediation Recommendations</h3>
+            <p class="deliver__text">Specific guidance on least-privilege permissions, tool-level enforcement, approvals and logging, prioritized by risk.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("retest") }}
+          <div>
+            <h3 class="deliver__title">Retesting and Verification</h3>
+            <p class="deliver__text">A follow-up check that reported boundaries now hold, with the results added to your report.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for AI Agent Security Testing?</h2>
+        <p class="shead__lede rv" style="--d:1">Agents fail in ways that ordinary application testing does not look for. CipherTrivia combines application and API security experience with methods designed for autonomous AI, and reports in terms your developers can act on.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("agent") }}
+        <h3 class="principle__title">Agent-Specific Testing Methods</h3>
+        <p class="principle__text">Our approach is built around how agents fail, covering goal hijacking, tool misuse, privilege abuse and approval bypass, not just prompt-level attacks.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("shield-check") }}
+        <h3 class="principle__title">Focus on Blast Radius</h3>
+        <p class="principle__text">We show what a manipulated agent could actually reach and do, so you can reduce permissions where they matter most.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("layers") }}
+        <h3 class="principle__title">The Whole Agent, Not Just the Model</h3>
+        <p class="principle__text">We test prompts, memory, tools, APIs, credentials and approvals together, because real-world impact comes from how they combine.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("terminal") }}
+        <h3 class="principle__title">Manual Expertise With Automated Coverage</h3>
+        <p class="principle__text">Automated attack libraries provide breadth. Experienced testers chain weaknesses together and try the creative attacks that automation misses.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Developer-Ready Fixes</h3>
+        <p class="principle__text">Each finding includes reproduction steps and a specific recommendation, which shortens the time between a report and a fix.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Alignment With Recognized Frameworks</h3>
+        <p class="principle__text">Reporting can follow the OWASP Top 10 for LLM Applications and agentic AI threat guidance, helping you show customers and auditors how your agents are secured.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About AI Agent Security Testing</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

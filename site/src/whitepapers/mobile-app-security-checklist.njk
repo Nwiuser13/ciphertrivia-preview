@@ -1,0 +1,248 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Mobile App Security Checklist | CipherTrivia Whitepapers"
+description: "A teardown-style mobile app security checklist from CipherTrivia's mobile security team, covering iOS and Android: what we look at first, what we usually find, and how to fix it."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Mobile App Security Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Mobile App Security Checklist",
+      "description": "A teardown-style mobile app security checklist from CipherTrivia's mobile security team, covering iOS and Android: what we look at first, what we usually find, and how to fix it.",
+      "url": "https://www.ciphertrivia.com/whitepapers/mobile-app-security-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-mobile-app-security-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/mobile-app-security-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mobile App Security Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Mobile App Security</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Mobile App Security Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">A walkthrough of the first hour of a mobile app assessment: what we open first, what usually falls out, and the checklist that prevents it.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Mobile App Security</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>10 minutes</dd></div>
+        <div class="article-meta__row"><dt>Covers:</dt><dd>iOS &amp; Android, based on OWASP MASVS</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#stage-1-before-we-run-the-app">Stage 1: Before We Run the App</a></li>
+          <li><a href="#stage-2-while-the-app-is-running">Stage 2: While the App Is Running</a></li>
+          <li><a href="#stage-3-the-backend-behind-the-app">Stage 3: The Backend Behind the App</a></li>
+          <li><a href="#a-hardened-mobile-app-architecture">A Hardened Mobile App Architecture</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          Before I ever tap a button in a mobile app, I've usually already found two or three issues, just by unzipping the build. Mobile apps ship as files that sit on a user's device, which means anyone can pull them apart at their own pace, offline, with no rate limiting and no monitoring. That changes the threat model in ways teams coming from web development don't always expect.
+        </p>
+        <p>
+          This checklist follows the order we actually work in during an assessment: static teardown first, then runtime behavior, then the backend APIs the app talks to. Each stage has its own checklist below.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="stage-1-before-we-run-the-app">
+        <h2>Stage 1: Before We Run the App</h2>
+        <p>
+          An APK or IPA is just an archive. Decompiling it takes minutes with free tools, and what's inside is often more revealing than teams expect:
+        </p>
+        <div class="a-stack">
+          <div class="a-card a-card--row">
+            <span class="tag tag--critical">Critical</span>
+            <div><p class="a-strong is-sm">Hardcoded secrets</p><p class="is-sm">API keys, signing secrets, and sometimes full backend credentials are visible directly in decompiled source or string resources, often left over from development environments.</p></div>
+          </div>
+          <div class="a-card a-card--row">
+            <span class="tag tag--medium">High</span>
+            <div><p class="a-strong is-sm">Weak or missing code obfuscation</p><p class="is-sm">Business logic, including how licensing, payments or feature gating works, is readable almost as-written, making it straightforward to bypass.</p></div>
+          </div>
+          <div class="a-card a-card--row">
+            <span class="tag tag--medium">High</span>
+            <div><p class="a-strong is-sm">Insecure local storage</p><p class="is-sm">Session tokens, cached personal data, or PINs stored in plaintext in app-local databases or shared preferences, recoverable from any device the user owns (or has lost).</p></div>
+          </div>
+        </div>
+        <p class="a-strong is-sm">Stage 1 checklist:</p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">No API keys, credentials, or signing secrets in the decompiled source, resources or build config.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Code obfuscation/minification is applied to release builds, particularly around licensing and payment logic.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Locally stored data (tokens, cache, PINs) is encrypted using platform keystore/keychain mechanisms, not stored in plaintext.</p></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="stage-2-while-the-app-is-running">
+        <h2>Stage 2: While the App Is Running</h2>
+        <p>
+          Once the app is installed on a test device with traffic routed through an interception proxy, the questions shift to how the app defends itself at runtime.
+        </p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">The app uses certificate pinning, or at minimum rejects connections through an untrusted proxy/CA.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">The app detects (and meaningfully responds to) rooted/jailbroken devices for sensitive functions like payments.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Sensitive screens (balances, personal data) are excluded from the OS task-switcher screenshot/preview.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Clipboard access to sensitive fields (OTPs, card numbers) is restricted, and biometric prompts can't be bypassed.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Deep links and custom URL schemes validate input and can't be used to trigger unintended actions.</p></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="stage-3-the-backend-behind-the-app">
+        <h2>Stage 3: The Backend Behind the App</h2>
+        <p>
+          By this point we've usually captured the full set of API calls the app makes, including ones not visible in the UI. This is often where the most impactful findings live, because the same authorization issues common in web APIs apply here, but client-side controls (like a "premium" UI badge) are frequently mistaken for actual security.
+        </p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Every API endpoint the app calls enforces authorization server-side, not just feature-gated in the app UI.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Endpoints used only by internal/debug builds are removed or disabled in production, not just hidden from the UI.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Push notification payloads and deep-link parameters are treated as untrusted input.</p></li>
+        </ul>
+        <p>For the full backend-side checklist, see our <a href="/whitepapers/api-security-best-practices/">API Security Best Practices</a> guide, as most mobile backends are tested against both.</p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-hardened-mobile-app-architecture">
+        <h2>A Hardened Mobile App Architecture</h2>
+        <p>
+          The diagram below shows how the controls above fit together: defenses at the device, transport and backend layers, each addressing a different stage of the assessment above.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/mobile-app-security-architecture.png" alt="Diagram of a hardened mobile application architecture showing a mobile device with encrypted local storage using platform keystore, an obfuscated app binary, certificate pinning and root/jailbreak detection, connecting over TLS with certificate pinning to a backend API gateway that enforces server-side authorization on every endpoint, with debug endpoints disabled in production and centralized logging" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: Device-side, transport-layer and backend controls working together.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>Do you test both iOS and Android?</h3>
+            <p class="is-sm">Yes, the platforms differ in tooling and some platform-specific controls (keychain vs. keystore, App Transport Security vs. network security config), but the assessment stages above apply to both, and we report findings per platform.</p>
+          </div>
+          <div>
+            <h3>Can you test an app that's not yet on the app store?</h3>
+            <p class="is-sm">Yes: we regularly test pre-release builds (APK/IPA files or TestFlight/internal track builds) provided directly by the development team.</p>
+          </div>
+          <div>
+            <h3>Is obfuscation alone enough to protect business logic?</h3>
+            <p class="is-sm">No, obfuscation raises the effort required but doesn't make logic unreadable to a determined attacker. Anything that must not be bypassed (entitlements, pricing, payment validation) needs to be enforced server-side, with the client treated as untrusted.</p>
+          </div>
+          <div>
+            <h3>How long does a mobile app assessment take?</h3>
+            <p class="is-sm">A single-platform assessment of a typical app is usually 1-2 weeks; testing both iOS and Android plus the backend APIs is commonly scoped as a combined 2-3 week engagement.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">VS</span>
+          <div>
+            <p class="a-strong">Vikram Sahni</p>
+            <p class="a-meta is-sm">Mobile Application Security Engineer, CipherTrivia · OSCP &amp; eMAPT</p>
+            <p class="is-sm">Vikram leads mobile assessments at CipherTrivia, covering fintech, healthtech and consumer apps on both iOS and Android. He maintains the team's internal reverse-engineering toolkit and regularly trains client developer teams on secure mobile coding patterns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert mobile app security testing?</h3>
+        <p class="svc-cta__text">Our mobile security team tests Android and iOS apps aligned to OWASP MASVS.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/mobile-application-security-testing/">Explore Mobile App Testing {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Know what's inside your app before someone else does</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Our mobile security team can assess your iOS and Android builds. See our <a href="/services/">mobile app security services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,191 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Banking API Gateway VAPT Case Study | CipherTrivia"
+description: "How CipherTrivia identified and helped remediate critical authentication and access control flaws in a regional bank's customer-facing API gateway ahead of a regulatory audit."
+crumbs: [["Home", "/"], ["Case Studies", "/case-studies/"], ["Closing Critical Gaps in a Banking API Gateway"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Closing Critical Gaps in a Banking API Gateway",
+      "description": "How CipherTrivia identified and helped remediate critical authentication and access control flaws in a regional bank's customer-facing API gateway ahead of a regulatory audit.",
+      "url": "https://www.ciphertrivia.com/case-studies/banking-api-gateway/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/case-studies-banking-api-gateway.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/case-studies/banking-api-gateway/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case Studies",
+          "item": "https://www.ciphertrivia.com/case-studies/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Closing Critical Gaps in a Banking API Gateway"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/case-studies/">{{ arrow("btn__icon back-link__icon") }}All Case Studies</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">VAPT · Fintech &amp; Banking</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Closing Critical Gaps in a Banking API Gateway</h1>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Industry:</dt><dd>Fintech &amp; Banking</dd></div>
+        <div class="article-meta__row"><dt>Engagement:</dt><dd>API Penetration Test</dd></div>
+        <div class="article-meta__row"><dt>Duration:</dt><dd>3 Weeks</dd></div>
+        <div class="article-meta__row"><dt>Methodology:</dt><dd>OWASP API Security Top 10</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Case study report">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#client-overview">Client Overview</a></li>
+          <li><a href="#the-challenge">The Challenge</a></li>
+          <li><a href="#key-concerns-identified">Key Concerns Identified</a></li>
+          <li><a href="#the-approach">The Approach</a></li>
+          <li><a href="#outcomes-delivered">Outcomes Delivered</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section" id="client-overview">
+        <h2>Client Overview</h2>
+        <p>
+          The client is a regional bank rolling out a new API gateway that lets partner fintech apps access account balances and transaction history on behalf of their shared customers. With launch a few weeks away and a regulatory security review due shortly after, the bank needed an independent assessment that could realistically test how a malicious or compromised partner might abuse the API.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-challenge">
+        <h2>The Challenge</h2>
+        <p>
+          The gateway's authentication relied on OAuth2 client-credentials and token exchange between the bank, partner apps and downstream account services. Scope covered the authentication flows, account and transaction endpoints, rate limiting, and the partner onboarding portal.
+        </p>
+        <p>
+          The engagement window was tight: three weeks, end to end, with no room to extend before launch. Testing had to be focused on the areas most likely to expose customer data or money-movement risk.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="key-concerns-identified">
+        <h2>Key Concerns Identified</h2>
+        <ul class="a-findings">
+          <li class="a-finding">
+            <span class="tag tag--critical">Critical</span>
+            <p><strong>Broken object-level authorization (BOLA).</strong> A partner could swap an account identifier in a transaction history request and retrieve another customer's full transaction record.</p>
+          </li>
+          <li class="a-finding">
+            <span class="tag tag--high">High</span>
+            <p><strong>OAuth2 token replay across environments.</strong> Access tokens issued by staging were also accepted by production due to a shared signing key, allowing staging compromise to reach production.</p>
+          </li>
+          <li class="a-finding">
+            <span class="tag tag--high">High</span>
+            <p><strong>Missing rate limiting on transaction endpoints.</strong> High-value transaction and OTP-verification endpoints had no per-account rate limiting, enabling brute-force attempts.</p>
+          </li>
+          <li class="a-finding">
+            <span class="tag tag--medium">Medium</span>
+            <p><strong>Verbose error messages.</strong> Malformed requests returned internal stack traces revealing framework versions and internal hostnames.</p>
+          </li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-approach">
+        <h2>The Approach</h2>
+        <p>
+          We ran the engagement in three stages:
+        </p>
+        <ol class="a-olist">
+          <li><strong>Reconnaissance &amp; mapping</strong>: catalogued every endpoint, auth flow and token lifecycle across the gateway, partner portal and downstream services.</li>
+          <li><strong>Targeted exploitation</strong>, which tested authorization boundaries between partner accounts, token handling, and business logic around transaction limits.</li>
+          <li><strong>Remediation &amp; retest</strong> (worked alongside the engineering team to verify fixes in staging, with a full retest before sign-off).</li>
+        </ol>
+      </div>
+
+<hr>
+
+<div class="a-section" id="outcomes-delivered">
+        <h2>Outcomes Delivered</h2>
+        <ul class="a-list">
+          <li><strong>9 findings identified</strong> across authentication, authorization and rate-limiting controls.</li>
+          <li><strong>All 9 findings remediated and retested</strong> before the public launch date.</li>
+          <li><strong>Zero outstanding issues</strong> at launch, with evidence accepted by the bank's regulator.</li>
+          <li>Engagement completed within the original <strong>3-week window</strong>, with no impact to the launch schedule.</li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section">
+        <blockquote>
+          <p>"CipherTrivia found issues in our API gateway that would have been very costly if discovered after launch. Their team explained every finding clearly and stayed engaged until each one was fixed and verified."</p>
+          <footer>Head of Engineering, Regional Banking Platform</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Want results like this for your platform?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your application, API or cloud environment and we'll map out the right approach.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

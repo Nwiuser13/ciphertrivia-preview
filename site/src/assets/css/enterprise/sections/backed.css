@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Backed by Nextwebi — parent-company statement, credentials, client wall.
+   Built for dark (.section--ink) sections. Every credential and logo here is
+   Nextwebi's and is labelled as such right where it appears; keep it that way.
+   ========================================================================== */
+
+.backed {
+  margin-top: var(--s-block);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-inv-strong);
+}
+/* When the module opens its own section rather than following other content */
+.backed--lead { margin-top: 0; }
+
+/* ---- Intro: statement left (cols 1–5), explanation + figure right (7–12) ---- */
+.backed__intro {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 2.5rem;
+}
+.backed__lead {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.backed__title {
+  margin-top: var(--s-3);
+  max-width: 16ch;
+  font-size: clamp(1.875rem, 1.3rem + 2.2vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--paper-50);
+}
+.backed__title .accent { color: var(--signal-500); }
+
+.backed__body {
+  grid-column: 7 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.backed__text {
+  max-width: 58ch;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--stone-300);
+}
+.backed__stat {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  width: 100%;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-inv);
+}
+.backed__num {
+  font-size: clamp(3rem, 2rem + 3.2vw, 5.5rem);
+  line-height: 0.82;
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  color: var(--paper-50);
+  font-variant-numeric: tabular-nums;
+}
+.backed__stat-label {
+  max-width: 24ch;
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--stone-400);
+}
+.backed .link { color: var(--paper-50); }
+.backed .link:hover { color: var(--signal-500); }
+
+/* ---- Group label: what the list is, and whose it is ---- */
+.backed__group { margin-top: var(--s-block); }
+.backed__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  font-size: var(--fs-xs);
+  color: var(--stone-300);
+  font-weight: 500;
+}
+.backed__count { color: var(--signal-500); }
+.backed sup {
+  margin-left: 0.15em;
+  font-size: 0.85em;
+  line-height: 0;
+  color: var(--signal-500);
+}
+
+/* ---- Credentials: seals on white tiles (marks keep their own colours) ---- */
+.creds {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--line-inv-strong);
+  border-left: 1px solid var(--line-inv);
+}
+.cred {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  padding: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  border-right: 1px solid var(--line-inv);
+  border-bottom: 1px solid var(--line-inv);
+  transition: background var(--dur-2) var(--ease);
+}
+.cred:hover { background: var(--ink-800); }
+.cred__seal {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: 1.125rem;
+  background: var(--paper-0);
+}
+.cred__seal img {
+  width: 4.25rem;
+  height: 4.25rem;
+  object-fit: contain;
+}
+.cred__name {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--paper-50);
+}
+.cred__area {
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--stone-400);
+}
+
+/* ---- Client wall: one-colour marks, full strength on hover ---- */
+.clients {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--line-inv-strong);
+  border-left: 1px solid var(--line-inv);
+}
+.client {
+  display: grid;
+  place-items: center;
+  padding: clamp(0.5rem, 0.25rem + 0.8vw, 1rem);
+  border-right: 1px solid var(--line-inv);
+  border-bottom: 1px solid var(--line-inv);
+  transition: background var(--dur-2) var(--ease);
+}
+.client img {
+  width: 100%;
+  max-width: 13rem;
+  height: auto;
+  opacity: 0.66;
+  transition: opacity var(--dur-2) var(--ease);
+}
+.client:hover { background: var(--ink-800); }
+.client:hover img { opacity: 1; }
+
+/* Disclosure sits directly under the logos it qualifies, at reading size */
+.backed__note {
+  margin-top: 1.25rem;
+  max-width: 96ch;
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  color: var(--stone-400);
+}
+
+@media (max-width: 1024px) {
+  .backed__lead, .backed__body { grid-column: 1 / -1; }
+  .creds, .clients { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .creds, .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cred__seal { width: 4.75rem; height: 4.75rem; }
+  .cred__seal img { width: 3.625rem; height: 3.625rem; }
+}

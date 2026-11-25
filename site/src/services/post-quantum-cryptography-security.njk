@@ -1,0 +1,532 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Post-Quantum Cryptography Services | Quantum-Safe Migration"
+description: "Post-quantum cryptography services to assess encryption risk, inventory your cryptography and plan a quantum-safe migration with CipherTrivia."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Post-Quantum Cryptography Security Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What is post-quantum cryptography?", "Post-quantum cryptography (PQC) is a family of encryption and digital signature algorithms designed to stay secure even against attacks from large quantum computers. Unlike quantum key distribution, it runs on ordinary hardware and software, so organizations can adopt it through updates to their existing systems."],
+  ["Why does quantum risk matter if large quantum computers do not exist yet?", "Attackers can record encrypted traffic and stolen data today and decrypt it later, once a capable quantum computer exists. This is often called harvest now, decrypt later. Data that must stay confidential for many years, such as health, financial, legal and government records, is already exposed to that risk."],
+  ["When will quantum computers break today's encryption?", "Nobody can give a reliable date. What is clear is that migrating large organizations takes years, and standards bodies have already published algorithms and timelines. Planning now means you finish on your own schedule instead of reacting to someone else's."],
+  ["Which cryptographic algorithms are vulnerable to quantum attacks?", "Public-key algorithms based on integer factoring and discrete logarithms are the main concern. That includes RSA, Diffie-Hellman, elliptic-curve Diffie-Hellman and ECDSA. They are used for key exchange, certificates and digital signatures across TLS, VPNs, PKI, code signing and many other systems."],
+  ["Is AES encryption safe against quantum computers?", "Symmetric encryption such as AES is affected much less. Current guidance is to use 256-bit keys for long-term protection, and to use strong hash functions such as SHA-384 or SHA-512 where appropriate. The larger migration effort is in the public-key algorithms."],
+  ["What are the NIST post-quantum standards?", "In August 2024 NIST published the first three post-quantum standards: FIPS 203 (ML-KEM) for key establishment, FIPS 204 (ML-DSA) for digital signatures and FIPS 205 (SLH-DSA) for hash-based signatures. NIST has also proposed a timeline for deprecating and then disallowing quantum-vulnerable algorithms, with 2030 and 2035 as the key dates in its draft."],
+  ["What is crypto-agility?", "Crypto-agility is the ability to change cryptographic algorithms, keys and libraries without redesigning your systems. Organizations that can swap algorithms through configuration and updates will migrate faster, and will also be better prepared for the next algorithm change, whatever causes it."],
+  ["What is a cryptographic inventory?", "A cryptographic inventory is a list of where cryptography is used in your environment: which algorithms, key sizes and certificates protect which systems, who owns them and what depends on them. It is the foundation of any migration, because you cannot replace what you cannot find."],
+  ["What is a hybrid approach to post-quantum migration?", "A hybrid approach combines a classical algorithm with a post-quantum one, so a connection stays protected if either is later found to be weak. Many organizations use hybrid key exchange as a first step because it adds quantum protection without dropping the classical safeguards they rely on today."],
+  ["How long does a post-quantum migration take?", "It depends on the size of your estate, the number of third-party dependencies and how much of your cryptography is built into hardware or old software. Discovery and planning can take weeks to a few months. Full migration of a large organization is a multi-year program, which is why it should be phased."],
+  ["Do small and mid-sized businesses need to prepare?", "Yes, though the effort is smaller. Most of your cryptography comes from vendors, cloud platforms and browsers, so the priority is knowing what you depend on, asking vendors about their quantum-safe roadmaps and protecting any data that must stay confidential for a long time."],
+  ["Do you implement the changes or only advise?", "Our service focuses on assessment, planning and review: finding where you are exposed, prioritizing it and defining the migration path, then reviewing pilots and implementations. Your engineering team or vendors carry out the changes, and we support them with specific guidance."],
+  ["How much does a post-quantum cryptography assessment cost?", "Cost depends on the size of your environment, the number of systems and vendors in scope and the depth of the inventory. Share a short description of your environment with CipherTrivia and we will recommend a scope and quote."],
+  ["What does the assessment report include?", "The report includes an executive summary, a cryptographic inventory, a quantum risk register that ranks systems by exposure and data lifetime, crypto-agility findings and a phased migration roadmap with recommended owners and priorities."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Post-Quantum Cryptography Security Services",
+      "serviceType": "Post-Quantum Cryptography Assessment and Migration Planning",
+      "description": "Post-quantum cryptography services to assess encryption risk, inventory your cryptography and plan a quantum-safe migration with CipherTrivia.",
+      "url": "https://www.ciphertrivia.com/services/post-quantum-cryptography-security/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Post-Quantum Cryptography Security Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cryptographic Inventory and Discovery" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Quantum Risk Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Harvest Now, Decrypt Later Exposure Analysis" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Crypto-Agility Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Post-Quantum Migration Roadmap" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hybrid and Pilot Implementation Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PKI, Certificate and Key Management Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Third-Party and Vendor Cryptography Review" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Post-Quantum Cryptography Security Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">Post-Quantum Cryptography <span class="accent">Security</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">Today's encryption protects your data, your customers and your signatures, and much of it will not withstand a large quantum computer. CipherTrivia finds where your organization depends on vulnerable cryptography, ranks the exposure and plans a practical, phased move to quantum-safe algorithms.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" role="img" aria-label="Diagram: a cryptographic inventory lists four systems; two that rely on quantum-vulnerable algorithms are flagged, then each is migrated to a quantum-safe algorithm and a migration progress bar fills">
+          <svg aria-hidden="true" viewBox="0 0 480 480">
+<rect class="f-paper s-ink" x="40.5" y="30.5" width="399" height="64" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="60" y="48" width="28" height="28" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M66 56h16M66 62h16M66 68h10" stroke-width="1.5"/>
+<rect class="f-ink" x="108" y="50" width="150" height="4" fill-opacity=".5"/>
+<rect class="f-ink" x="108" y="62" width="100" height="4" fill-opacity=".25"/>
+<rect class="f-none s-ink" x="320.5" y="48.5" width="100" height="28" stroke-opacity=".6"/>
+<rect class="f-ink" x="334" y="60" width="72" height="4" fill-opacity=".4"/>
+<rect class="f-paper s-ink" x="40.5" y="120.5" width="399" height="64" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="60" y="138" width="28" height="28" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M66 152h16M74 144v16" stroke-width="1.5"/>
+<rect class="f-ink" x="108" y="140" width="130" height="4" fill-opacity=".5"/>
+<rect class="f-ink" x="108" y="152" width="90" height="4" fill-opacity=".25"/>
+<rect class="f-none s-ink" x="320.5" y="138.5" width="100" height="28" stroke-opacity=".6"/>
+<rect class="f-ink" x="334" y="150" width="72" height="4" fill-opacity=".4"/>
+<rect class="f-paper s-ink" x="40.5" y="210.5" width="399" height="64" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="60" y="228" width="28" height="28" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M66 242l6 6 10-12" stroke-width="1.5"/>
+<rect class="f-ink" x="108" y="230" width="160" height="4" fill-opacity=".5"/>
+<rect class="f-ink" x="108" y="242" width="110" height="4" fill-opacity=".25"/>
+<rect class="f-none s-ink" x="320.5" y="228.5" width="100" height="28" stroke-opacity=".6"/>
+<rect class="f-ink" x="334" y="240" width="72" height="4" fill-opacity=".4"/>
+<rect class="f-paper s-ink" x="40.5" y="300.5" width="399" height="64" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="60" y="318" width="28" height="28" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M66 332h6l3-6 6 12 3-6h4" stroke-width="1.5"/>
+<rect class="f-ink" x="108" y="320" width="140" height="4" fill-opacity=".5"/>
+<rect class="f-ink" x="108" y="332" width="96" height="4" fill-opacity=".25"/>
+<rect class="f-none s-ink" x="320.5" y="318.5" width="100" height="28" stroke-opacity=".6"/>
+<rect class="f-ink" x="334" y="330" width="72" height="4" fill-opacity=".4"/>
+<rect class="f-none s-ink" x="40.5" y="408.5" width="399" height="8" stroke-opacity=".5"/>
+<rect class="f-sig1 s-sig" x="320.5" y="48.5" width="100" height="28" data-fx="fade" data-at="2.5" data-len="0.3"/>
+<rect class="f-sig1 s-sig" x="320.5" y="138.5" width="100" height="28" data-fx="fade" data-at="3.2" data-len="0.3"/>
+<path class="f-none s-sig" d="M30 36v-6h6M444 30h6v6M450 88v6h-6M36 94h-6" stroke-width="1.5" data-fx="pop" data-at="2.8" data-len="0.4"/>
+<path class="f-none s-sig" d="M30 126v-6h6M444 120h6v6M450 178v6h-6M36 184h-6" stroke-width="1.5" data-fx="pop" data-at="3.5" data-len="0.4"/>
+<path class="f-none s-sig" d="M338 64l7 7 14-16" pathLength="1" stroke-width="2" data-fx="draw" data-at="5.6" data-len="0.4"/>
+<path class="f-none s-sig" d="M338 154l7 7 14-16" pathLength="1" stroke-width="2" data-fx="draw" data-at="6.4" data-len="0.4"/>
+<rect class="f-sig" x="40" y="408" width="400" height="9" data-fx="grow" data-at="5.4" data-len="1.8"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Planning aligned to</span>
+      <span class="rail__item">NIST FIPS 203</span>
+      <span class="rail__item">NIST FIPS 204</span>
+      <span class="rail__item">NIST FIPS 205</span>
+      <span class="rail__item">NIST IR 8547</span>
+      <span class="rail__item">CNSA 2.0</span>
+      <span class="rail__item">ISO 27001</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Quantum-Safe Security Starts With Knowing Where Your Cryptography Is</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Almost every secure connection, signed update, certificate and encrypted record relies on public-key cryptography such as RSA and elliptic curves. A sufficiently powerful quantum computer could break those algorithms. No one can say when that will happen, but attackers can already collect encrypted data now and decrypt it later, so information that must stay private for years is exposed today.</p>
+        <p class="rv">Standards bodies have responded. NIST has published its first post-quantum standards and proposed a timeline for retiring vulnerable algorithms. For most organizations the hard part is not choosing an algorithm. It is finding every place cryptography is used, understanding what depends on it and deciding what to change first.</p>
+        <p class="rv">CipherTrivia's post-quantum cryptography services give you that picture. We inventory your cryptography, assess quantum risk against how long your data must stay confidential, review your crypto-agility and build a phased roadmap your teams and vendors can follow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RANGE OF SERVICES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Our Post-Quantum Cryptography Services</h2>
+        <p class="shead__lede rv" style="--d:1">Each engagement is scoped to the size of your environment and the lifetime of your data. These are the services we offer, from discovery to the migration plan.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("magnifier") }}</div>
+        <h3 class="ledger__title">Cryptographic Inventory and Discovery</h3>
+        <p class="ledger__text">We locate the algorithms, key sizes, certificates and libraries in use across applications, infrastructure and devices, and record who owns each one and what depends on it.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("gauge") }}</div>
+        <h3 class="ledger__title">Quantum Risk Assessment</h3>
+        <p class="ledger__text">We rank systems by their exposure to quantum attack, the sensitivity of the data they protect and how long that data must stay confidential, so effort goes where risk is highest.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("clock") }}</div>
+        <h3 class="ledger__title">Harvest Now, Decrypt Later Exposure Analysis</h3>
+        <p class="ledger__text">We identify traffic and stored data that could be recorded today and decrypted later, and show which of it has a confidentiality lifetime that outlasts current encryption.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("sliders") }}</div>
+        <h3 class="ledger__title">Crypto-Agility Assessment</h3>
+        <p class="ledger__text">We test how easily your systems can change algorithms, keys and libraries. Hard-coded cryptography, pinned certificates and legacy protocols are flagged as migration blockers.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("route") }}</div>
+        <h3 class="ledger__title">Post-Quantum Migration Roadmap</h3>
+        <p class="ledger__text">We define a phased plan with priorities, owners, dependencies and milestones, so migration fits your release cycles and budgets instead of becoming one disruptive project.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("layers") }}</div>
+        <h3 class="ledger__title">Hybrid and Pilot Implementation Review</h3>
+        <p class="ledger__text">We review proposed hybrid key exchange and pilot deployments for correct configuration, performance impact and compatibility before they reach production.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("key") }}</div>
+        <h3 class="ledger__title">PKI, Certificate and Key Management Review</h3>
+        <p class="ledger__text">We assess certificate authorities, certificate lifecycles, key storage and hardware security modules for quantum readiness and for the operational work migration will involve.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("dependency") }}</div>
+        <h3 class="ledger__title">Third-Party and Vendor Cryptography Review</h3>
+        <p class="ledger__text">Much of your cryptography belongs to vendors and cloud platforms. We help you identify those dependencies and prepare the questions to ask about each supplier's quantum-safe plans.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHERE CRYPTOGRAPHY HIDES                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" id="where" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Where Quantum-Vulnerable Cryptography Hides</h2>
+        <p class="shead__lede rv" style="--d:1">Vulnerable algorithms are rarely in one place. They sit in protocols, products, devices and archives built over many years. Our inventory looks across the areas below.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("globe") }}</div>
+        <h3 class="ledger__title">TLS and HTTPS</h3>
+        <p class="ledger__text">Key exchange and certificates protecting websites, APIs and internal services.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("lock") }}</div>
+        <h3 class="ledger__title">VPN and Remote Access</h3>
+        <p class="ledger__text">Tunnels and gateways that carry sensitive traffic and are prime targets for recording.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">PKI and Certificates</h3>
+        <p class="ledger__text">Certificate authorities, internal PKI and certificate lifecycles that anchor trust.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("code") }}</div>
+        <h3 class="ledger__title">Code Signing and Software Updates</h3>
+        <p class="ledger__text">Signatures that prove software and firmware are genuine, often valid for many years.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("database") }}</div>
+        <h3 class="ledger__title">Databases and Data at Rest</h3>
+        <p class="ledger__text">Stored records and the key management that protects them.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h3 class="ledger__title">APIs and Tokens</h3>
+        <p class="ledger__text">Signed tokens and service-to-service authentication built on public-key signatures.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("mail-check") }}</div>
+        <h3 class="ledger__title">Email and Messaging</h3>
+        <p class="ledger__text">Signed and encrypted mail and messages that may need to remain private long term.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("server") }}</div>
+        <h3 class="ledger__title">Key Management and HSMs</h3>
+        <p class="ledger__text">Hardware security modules and key stores that may not support new algorithms.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("chip") }}</div>
+        <h3 class="ledger__title">IoT and Embedded Devices</h3>
+        <p class="ledger__text">Long-lived devices with fixed cryptography and limited ability to update.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("clock") }}</div>
+        <h3 class="ledger__title">Backups and Archives</h3>
+        <p class="ledger__text">Encrypted long-term records that are the clearest targets for harvest now, decrypt later.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ALGORITHMS AND STANDARDS                                             -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Algorithms and Standards We Work With</h2>
+        <p class="shead__lede rv" style="--d:1">Our recommendations follow published standards, not vendor claims. Here is how the landscape looks, and how it shapes the plans we write.</p>
+      </div>
+    </header>
+
+    <ul class="includes">
+      <li class="include rv">{{ icon("unlock", "sm") }}<p><strong>Algorithms at Risk:</strong> RSA, Diffie-Hellman, elliptic-curve Diffie-Hellman and ECDSA, which protect key exchange, certificates and signatures and are the focus of migration.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("key", "sm") }}<p><strong>ML-KEM (FIPS 203):</strong> NIST's standard for establishing shared keys, the main replacement for today's key exchange.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("badge", "sm") }}<p><strong>ML-DSA (FIPS 204):</strong> NIST's standard for digital signatures, intended for certificates, software signing and authentication.</p></li>
+      <li class="include rv">{{ icon("doc-check", "sm") }}<p><strong>SLH-DSA (FIPS 205):</strong> A hash-based signature standard that offers a different security basis as a conservative alternative.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("shield-check", "sm") }}<p><strong>Symmetric Encryption and Hashing:</strong> AES with 256-bit keys and strong hash functions, which need far less change than public-key algorithms.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("layers", "sm") }}<p><strong>Hybrid Approaches:</strong> Combining classical and post-quantum algorithms, often the practical first step while standards and products mature.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- STATEMENT BAND                                                       -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Why Start Quantum-Safe Planning Now?</h2>
+    <p class="band__text rv" style="--d:1">Migrating cryptography across applications, devices and vendors takes years, and data stolen today can be decrypted later. Starting with an inventory and a roadmap lets you move at your own pace, protect your longest-lived data first and avoid a rushed, expensive change when deadlines arrive.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our Post-Quantum Cryptography Assessment Process</h2>
+        <p class="process__lede">Every engagement moves from discovery to a plan your teams can execute. We work with your engineers and vendors so the roadmap reflects how your systems are really built and released.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope and Business Context</h3>
+          <p class="step__text">We start with what you need to protect: critical systems, regulated data, how long information must stay confidential and the obligations that shape your timeline.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Cryptographic Discovery and Inventory</h3>
+          <p class="step__text">Using configuration review, code and certificate analysis, interviews and available scanning data, we build an inventory of algorithms, keys, certificates and libraries across your environment.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Quantum Risk Assessment and Prioritization</h3>
+          <p class="step__text">Each asset is ranked by quantum exposure, data sensitivity and confidentiality lifetime, producing a risk register that shows what to change first.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Crypto-Agility and Dependency Review</h3>
+          <p class="step__text">We examine how easily each system can adopt new algorithms and identify blockers such as hard-coded cryptography, legacy protocols, constrained devices and vendor dependencies.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Migration Roadmap and Pilot Planning</h3>
+          <p class="step__text">We define a phased roadmap with priorities, owners and milestones, and recommend where to start with hybrid pilots so your team gains experience before wider rollout.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Reporting, Briefing and Support</h3>
+          <p class="step__text">We present the findings to leadership and engineering, answer questions as work begins and review pilot implementations against the plan.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Post-Quantum Cryptography Services</h2>
+        <p class="shead__lede rv" style="--d:1">You receive a clear picture of your cryptographic exposure and a plan for fixing it, in a form that leadership can approve and engineers can follow.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <article class="xfind" aria-label="Example post-quantum risk finding">
+          <header class="xfind__head">
+            <span class="xfind__tag">Example finding</span>
+            <span class="xfind__sev">High</span>
+          </header>
+          <h3 class="xfind__title">Customer VPN gateway relies on RSA key exchange for data that must stay confidential for ten years</h3>
+          <dl class="xfind__rows">
+            <div><dt>Category</dt><dd>Harvest now, decrypt later · Quantum-vulnerable key exchange</dd></div>
+            <div><dt>Evidence</dt><dd>The inventory shows RSA-2048 key exchange on the gateway that carries customer financial records. The records have a ten-year retention requirement, which is longer than the planning horizon for quantum-vulnerable algorithms.</dd></div>
+            <div><dt>Recommended fix</dt><dd>Pilot hybrid key exchange on the gateway in the first phase of the roadmap. Confirm vendor support, test performance and keep the classical algorithm alongside the post-quantum one.</dd></div>
+            <div><dt>Next step</dt><dd>Scheduled for phase one of the migration roadmap, with the network team as owner.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Briefing</h3>
+            <p class="deliver__text">A concise summary of quantum risk, the main exposures and the proposed plan, written for leadership and the board.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("directory") }}
+          <div>
+            <h3 class="deliver__title">Cryptographic Inventory</h3>
+            <p class="deliver__text">A structured record of algorithms, key sizes, certificates, libraries and owners across the systems in scope.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div>
+            <h3 class="deliver__title">Quantum Risk Register</h3>
+            <p class="deliver__text">Systems ranked by exposure, data sensitivity and confidentiality lifetime, so priorities are clear and defensible.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("sliders") }}
+          <div>
+            <h3 class="deliver__title">Crypto-Agility Findings</h3>
+            <p class="deliver__text">The blockers that would slow migration, with recommendations for removing them.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Phased Migration Roadmap</h3>
+            <p class="deliver__text">A sequenced plan with milestones, owners, dependencies and pilot recommendations.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("link") }}
+          <div>
+            <h3 class="deliver__title">Vendor Question List</h3>
+            <p class="deliver__text">Specific questions to put to suppliers and cloud providers about their quantum-safe plans.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for Post-Quantum Cryptography Services?</h2>
+        <p class="shead__lede rv" style="--d:1">Quantum readiness is an engineering and planning problem as much as a cryptographic one. CipherTrivia brings practical security assessment experience and keeps recommendations tied to how your systems are actually built.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("quantum") }}
+        <h3 class="principle__title">Practical, Standards-Based Guidance</h3>
+        <p class="principle__text">Recommendations follow published NIST standards and timelines, and avoid unproven products or hype.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("alert") }}
+        <h3 class="principle__title">Risk-Based Prioritization</h3>
+        <p class="principle__text">We rank systems by data sensitivity and how long data must stay confidential, so the first steps protect what matters most.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Whole-Environment Visibility</h3>
+        <p class="principle__text">We look across applications, infrastructure, devices and vendors, because vulnerable cryptography is rarely in one place.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("route") }}
+        <h3 class="principle__title">Roadmaps Teams Can Execute</h3>
+        <p class="principle__text">Plans are phased and tied to owners, dependencies and release cycles, so migration becomes a series of manageable steps.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Clear Reporting for Every Audience</h3>
+        <p class="principle__text">Leadership receives a concise briefing, and engineers receive the detail they need to act.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Support for Compliance Planning</h3>
+        <p class="principle__text">Findings help you show customers, auditors and regulators that quantum risk is understood and managed.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Post-Quantum Cryptography</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

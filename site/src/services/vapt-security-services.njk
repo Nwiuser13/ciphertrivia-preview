@@ -1,0 +1,803 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Vulnerability Assessment and Penetration Testing Services Company | CipherTrivia"
+description: "CipherTrivia combines automated vulnerability assessment with expert-led penetration testing to identify security gaps, validate real-world risks and provide clear remediation guidance."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["VAPT Security Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Vulnerability Assessment and Penetration Testing Services",
+      "provider": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "description": "Vulnerability Assessment and Penetration Testing (VAPT) services combining automated vulnerability scanning with manual, expert-led penetration testing across web applications, mobile applications, APIs, networks and cloud environments.",
+      "serviceType": "VAPT (Vulnerability Assessment and Penetration Testing)",
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "VAPT Security Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Application VAPT"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Application VAPT"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "API Security Testing"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Network VAPT"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Infrastructure Security Testing"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.ciphertrivia.com/services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "VAPT Security Services"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is VAPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VAPT stands for Vulnerability Assessment and Penetration Testing. It combines vulnerability scanning with manual security testing to identify, validate and prioritize security weaknesses across applications, APIs, networks and IT infrastructure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a VAPT service provider do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A VAPT service provider assesses your digital assets for security vulnerabilities and validates exploitable weaknesses through controlled penetration testing. At CipherTrivia, we provide technical findings with severity ratings, evidence and remediation recommendations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is VAPT testing important for businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VAPT testing helps businesses identify security vulnerabilities before attackers can exploit them. It can reduce security risks across web applications, mobile applications, APIs and infrastructure while supporting internal security assessments and compliance requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of VAPT services does CipherTrivia provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide web application VAPT, mobile application VAPT, API penetration testing, network VAPT and infrastructure security testing. Our assessments can be scoped according to the applications and infrastructure being tested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does CipherTrivia perform VAPT testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We follow a structured process that covers scope definition, vulnerability assessment, manual penetration testing, vulnerability validation, risk classification, reporting and retesting. Our approach combines automated security tools with manual testing performed by security professionals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does VAPT include manual penetration testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our VAPT security services include manual validation and penetration testing to investigate vulnerabilities identified through automated assessment. Manual testing also helps uncover security issues that automated scanners may not detect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide a VAPT report?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide a detailed VAPT security assessment report containing vulnerability descriptions, severity ratings, technical evidence, affected assets and remediation recommendations. Reports can also include relevant OWASP, CWE and CVSS references."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What vulnerabilities can VAPT identify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VAPT can identify vulnerabilities such as SQL injection, Cross-Site Scripting (XSS), broken access control, authentication weaknesses, privilege escalation, insecure configurations, sensitive data exposure and API security vulnerabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CipherTrivia provide VAPT retesting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. After vulnerabilities are remediated, we can perform VAPT retesting to verify the implemented fixes. The retest results can be documented in a closure report for internal security teams and relevant stakeholders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a VAPT assessment take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The duration depends on the scope and complexity of the environment being tested. Factors such as the number of applications, APIs, IP addresses, user roles and testing requirements can affect the overall VAPT assessment timeline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can VAPT support compliance and security audits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A properly documented VAPT assessment can support security and audit activities by providing evidence of vulnerability testing and remediation. Our reports can include industry references such as OWASP, CWE and CVSS based on the assessment scope."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CipherTrivia use AI in VAPT security testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use AI-assisted security analysis to support activities such as vulnerability analysis and technical review. Human security expertise remains central to our VAPT methodology, with findings requiring appropriate validation before inclusion in the final report."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <p class="kicker rv">VAPT Security Services</p>
+        <h1 class="hero__title rv" style="--d:1" id="hero-title">Vulnerability Assessment and <span class="accent">Penetration Testing</span> Services Company</h1>
+        <p class="hero__lede rv" style="--d:2">Find security weaknesses before attackers do. We at CipherTrivia, a leading VAPT company in Bangalore, combine automated vulnerability assessment with expert-led penetration testing to identify security gaps, validate real-world risks and provide clear remediation guidance. From web applications and APIs to networks and infrastructure, our VAPT security services help businesses understand what is vulnerable, what can actually be exploited and what needs to be fixed first.</p>
+        <div class="hero__actions rv" style="--d:3">
+          <a class="btn btn--signal" href="/contact/">Get a VAPT Security Assessment {{ arrow() }}</a>
+          <a class="btn btn--ghost" href="/whitepapers/enterprise-vapt-guide/">Download the VAPT Guide {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <aside class="hero__visual rv" style="--d:2" aria-label="Engagement overview">
+        <div class="scanboard" aria-hidden="true">
+          <svg viewBox="0 0 480 480" focusable="false">
+            <defs><linearGradient id="sbTail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF4F1F" stop-opacity="0"/><stop offset="1" stop-color="#FF4F1F" stop-opacity="0.22"/></linearGradient></defs>
+            <line class="sb-link" x1="70" y1="64" x2="410" y2="64"/><line class="sb-link" x1="70" y1="120" x2="410" y2="120"/><line class="sb-link" x1="70" y1="176" x2="410" y2="176"/><line class="sb-link" x1="70" y1="232" x2="410" y2="232"/><line class="sb-link" x1="70" y1="288" x2="410" y2="288"/><line class="sb-link" x1="70" y1="64" x2="70" y2="288"/><line class="sb-link" x1="138" y1="64" x2="138" y2="288"/><line class="sb-link" x1="206" y1="64" x2="206" y2="288"/><line class="sb-link" x1="274" y1="64" x2="274" y2="288"/><line class="sb-link" x1="342" y1="64" x2="342" y2="288"/><line class="sb-link" x1="410" y1="64" x2="410" y2="288"/>
+            <path class="sb-ghost" d="M138 120H274V232H410V337"/>
+            <rect class="sb-node" x="60" y="54" width="20" height="20"/><rect class="sb-node" x="128" y="54" width="20" height="20"/><rect class="sb-node" x="196" y="54" width="20" height="20"/><rect class="sb-node" x="264" y="54" width="20" height="20"/><rect class="sb-node sb-flag" style="--d:0.357s" x="332" y="54" width="20" height="20"/><rect class="sb-node" x="400" y="54" width="20" height="20"/><rect class="sb-node" x="60" y="110" width="20" height="20"/><rect class="sb-node sb-flag is-crit" style="--d:1.191s" x="128" y="110" width="20" height="20"/><rect class="sb-node" x="196" y="110" width="20" height="20"/><rect class="sb-node" x="264" y="110" width="20" height="20"/><rect class="sb-node" x="332" y="110" width="20" height="20"/><rect class="sb-node" x="400" y="110" width="20" height="20"/><rect class="sb-node" x="60" y="166" width="20" height="20"/><rect class="sb-node" x="128" y="166" width="20" height="20"/><rect class="sb-node" x="196" y="166" width="20" height="20"/><rect class="sb-node sb-flag is-crit" style="--d:2.025s" x="264" y="166" width="20" height="20"/><rect class="sb-node" x="332" y="166" width="20" height="20"/><rect class="sb-node" x="400" y="166" width="20" height="20"/><rect class="sb-node sb-flag" style="--d:2.859s" x="60" y="222" width="20" height="20"/><rect class="sb-node" x="128" y="222" width="20" height="20"/><rect class="sb-node" x="196" y="222" width="20" height="20"/><rect class="sb-node" x="264" y="222" width="20" height="20"/><rect class="sb-node" x="332" y="222" width="20" height="20"/><rect class="sb-node sb-flag is-crit" style="--d:2.859s" x="400" y="222" width="20" height="20"/><rect class="sb-node" x="60" y="278" width="20" height="20"/><rect class="sb-node" x="128" y="278" width="20" height="20"/><rect class="sb-node sb-flag" style="--d:3.693s" x="196" y="278" width="20" height="20"/><rect class="sb-node" x="264" y="278" width="20" height="20"/><rect class="sb-node" x="332" y="278" width="20" height="20"/><rect class="sb-node" x="400" y="278" width="20" height="20"/>
+            <path class="sb-path" pathLength="1" d="M138 120H274V232H410V337"/>
+            <rect class="sb-target" x="395" y="337" width="30" height="30"/>
+            <rect class="sb-ping" x="395" y="337" width="30" height="30"/>
+            <rect class="sb-target-core" x="403" y="345" width="14" height="14"/>
+            <rect class="sb-bar sb-bar--1" style="--d:0.00s" x="70" y="404" width="40" height="12"/><rect class="sb-bar sb-bar--2" style="--d:0.12s" x="110" y="404" width="70" height="12"/><rect class="sb-bar sb-bar--3" style="--d:0.24s" x="180" y="404" width="110" height="12"/><rect class="sb-bar sb-bar--4" style="--d:0.36s" x="290" y="404" width="120" height="12"/>
+            <path class="sb-axis" d="M70 424H410"/><path class="sb-axis" d="M70 424V430"/><path class="sb-axis" d="M110 424V430"/><path class="sb-axis" d="M180 424V430"/><path class="sb-axis" d="M290 424V430"/><path class="sb-axis" d="M410 424V430"/>
+            <g class="sb-scan"><rect x="30" y="-20" width="420" height="60" fill="url(#sbTail)"/><rect class="sb-scan-line" x="30" y="39" width="420" height="2"/></g>
+          </svg>
+          <span class="ind-hero__frame"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="spec">
+          <div class="spec__head"><span>Engagement Spec</span><span class="spec__status">VAPT</span></div>
+          <dl>
+            <div class="spec__row"><dt>Scope</dt><dd>Web · Mobile · API · Network · Infrastructure</dd></div>
+            <div class="spec__row"><dt>Method</dt><dd>Automated scanning + manual penetration testing</dd></div>
+            <div class="spec__row"><dt>Output</dt><dd>Severity-rated findings with evidence</dd></div>
+            <div class="spec__row"><dt>Mapping</dt><dd>OWASP · CWE · CVSS</dd></div>
+            <div class="spec__row"><dt>Closure</dt><dd>Retesting of remediated findings</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 01 · WHAT IS VAPT                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <p class="kicker">What Is VAPT</p>
+        <h2 class="split__title rv" id="s1-title">Vulnerability Assessment and Penetration Testing Services for Your Digital Infrastructure</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Vulnerability Assessment and Penetration Testing (VAPT) is a cybersecurity testing process used to discover security vulnerabilities and determine how attackers could exploit them. A Vulnerability Assessment identifies and classifies potential weaknesses across applications and infrastructure, while Penetration Testing uses controlled attack techniques to validate the exploitability and impact of those vulnerabilities. VAPT is commonly performed for web applications, mobile applications, APIs, networks, servers, cloud environments and other internet-facing or business-critical systems.</p>
+        <p class="rv">At CipherTrivia, a trusted VAPT testing company, we perform VAPT by first defining the testing scope and understanding the target environment. Our security team then conducts automated vulnerability scanning followed by manual security testing and controlled penetration testing to validate significant findings. We assess authentication, authorization, access controls, APIs, application logic, configurations and other relevant attack surfaces based on the agreed scope. AI-assisted security analysis supports vulnerability discovery and technical analysis while our security professionals validate the findings before they are reported.</p>
+        <p class="rv">We offer VAPT service for various industries and sectors including businesses, enterprises, SaaS companies, startups, government organizations and technology teams that need to identify security risks in their digital systems. It is particularly valuable before launching a new application, after major application or infrastructure changes, during periodic security assessments and when organizations need security evidence for customer or compliance requirements. Our VAPT security testing produces findings with severity ratings, technical evidence and remediation recommendations, with optional retesting to verify that reported vulnerabilities have been addressed.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="vflow" data-vflow>
+        <div class="vflow__board" data-vflow-board role="img" aria-label="Animated VAPT workflow: findings from the vulnerability assessment are validated by manual penetration testing, classified by risk, written into the report, remediated and retested">
+          <canvas class="vflow__canvas"></canvas>
+          <ol class="vflow__stages">
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("target", "sm") }}<span>Scope &amp; Security Assessment Planning</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("radar", "sm") }}<span>Vulnerability Assessment</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("terminal", "sm") }}<span>Manual Penetration Testing</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("gauge", "sm") }}<span>Vulnerability Analysis &amp; Risk Classification</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("document", "sm") }}<span>Detailed VAPT Report</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("wrench", "sm") }}<span>Remediation Support</span></p></li>
+            <li class="vflow__stage" data-vflow-stage><div class="vflow__zone" data-vflow-zone></div><p class="vflow__label">{{ icon("retest", "sm") }}<span>VAPT Retesting</span></p></li>
+          </ol>
+        </div>
+        <button class="vflow__toggle" type="button" aria-label="Pause animation" data-vflow-toggle>
+          <svg class="vflow__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="vflow__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <script src="/assets/js/vapt-flow.js" defer></script>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 02 · WHAT'S INCLUDED                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker">Scope of Work</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">What Is Included in Our VAPT Services?</h2>
+        <p class="shead__lede rv" style="--d:1">At CipherTrivia, we provide Vulnerability Assessment and Penetration Testing (VAPT) services to identify, validate and prioritize security vulnerabilities across web applications, mobile applications, APIs, networks and cloud environments. We combine automated vulnerability scanning with manual penetration testing to uncover exploitable security weaknesses and provide technical remediation guidance. Our VAPT security testing services follow industry-recognized practices with a strong focus on application security, infrastructure security and risk-based vulnerability assessment.</p>
+      </div>
+    </header>
+
+    <div class="subhead" style="margin-top:0">
+      <p class="kicker subhead__label">12 Workstreams</p>
+      <h3 class="t-h4 subhead__title">Our VAPT Security Testing Services Include:</h3>
+    </div>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("browser") }}</div>
+        <h4 class="ledger__title">Web Application VAPT</h4>
+        <p class="ledger__text">We perform comprehensive web application penetration testing to identify vulnerabilities such as SQL injection, Cross-Site Scripting (XSS), broken access control, authentication flaws, session vulnerabilities, insecure configurations and other OWASP security risks.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("mobile") }}</div>
+        <h4 class="ledger__title">Mobile Application VAPT</h4>
+        <p class="ledger__text">We assess Android and iOS applications for security weaknesses involving insecure data storage, weak authentication, improper session handling, API vulnerabilities, reverse engineering risks and insecure communication.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h4 class="ledger__title">API Security Testing</h4>
+        <p class="ledger__text">We conduct API penetration testing to identify broken authentication, authorization issues, excessive data exposure, injection attacks, insecure endpoints and other vulnerabilities that can compromise API security.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("network") }}</div>
+        <h4 class="ledger__title">Network VAPT</h4>
+        <p class="ledger__text">Our network vulnerability assessment and penetration testing covers servers, network devices, exposed ports, services and configurations to identify vulnerabilities that could provide unauthorized access to your infrastructure.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("server") }}</div>
+        <h4 class="ledger__title">Infrastructure Security Testing</h4>
+        <p class="ledger__text">We assess IT infrastructure for outdated software, exposed services, security misconfigurations and known vulnerabilities that could increase the attack surface of your organization.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("lock") }}</div>
+        <h4 class="ledger__title">Authentication &amp; Authorization Testing</h4>
+        <p class="ledger__text">We test login mechanisms, password policies, session management, privilege escalation and role-based access controls to identify vulnerabilities that could allow unauthorized users to access restricted resources.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("bug") }}</div>
+        <h4 class="ledger__title">OWASP Vulnerability Testing</h4>
+        <p class="ledger__text">We test applications against common OWASP Top 10 vulnerabilities and related application security risks. Our testing focuses on identifying practical vulnerabilities that could affect confidentiality, integrity and availability.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("terminal") }}</div>
+        <h4 class="ledger__title">Manual Penetration Testing</h4>
+        <p class="ledger__text">We go beyond automated vulnerability scanning with manual security testing and penetration testing. Our security testers validate vulnerabilities and assess their potential impact through controlled attack scenarios.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("gauge") }}</div>
+        <h4 class="ledger__title">Vulnerability Risk Assessment</h4>
+        <p class="ledger__text">We classify identified vulnerabilities based on severity and business impact. Critical and high-risk vulnerabilities receive priority so your technical team can focus on the security issues that require immediate attention.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("document") }}</div>
+        <h4 class="ledger__title">VAPT Security Report</h4>
+        <p class="ledger__text">We provide a detailed VAPT assessment report covering vulnerability descriptions, affected assets, severity ratings, technical evidence, potential impact and recommended remediation actions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("wrench") }}</div>
+        <h4 class="ledger__title">Remediation Support</h4>
+        <p class="ledger__text">We provide technical guidance to help development and infrastructure teams understand the root cause of identified vulnerabilities and implement appropriate security fixes.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("retest") }}</div>
+        <h4 class="ledger__title">VAPT Retesting</h4>
+        <p class="ledger__text">After remediation, we perform VAPT retesting on applicable findings to verify that vulnerabilities have been fixed and that the implemented changes have reduced the identified security risk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 03 · PROCESS                                                         -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s3-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <p class="kicker">Methodology</p>
+        <h2 class="process__title" id="s3-title">How Our VAPT Security Services Process Works</h2>
+        <p class="process__lede">At CipherTrivia, our VAPT security services follow a structured security testing process that combines vulnerability assessment with manual penetration testing. We first understand your application or infrastructure scope and then identify security weaknesses through automated scanning and manual testing. Our security team validates exploitable vulnerabilities before documenting the findings with severity ratings and remediation recommendations. After fixes are implemented, we can perform VAPT retesting to verify the effectiveness of the remediation.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope &amp; Security Assessment Planning</h3>
+          <p class="step__text">We define the testing scope, target applications, APIs, mobile platforms, IP addresses and infrastructure components. This helps us establish the VAPT testing methodology and assessment boundaries before security testing begins.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Vulnerability Assessment</h3>
+          <p class="step__text">We conduct automated and manual vulnerability assessment testing to identify known vulnerabilities, insecure configurations, outdated components and potential attack vectors across the approved scope.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Manual Penetration Testing</h3>
+          <p class="step__text">We manually validate identified vulnerabilities and perform controlled attack simulations to determine their actual security impact. This helps us identify vulnerabilities that automated scanners may not detect.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Vulnerability Analysis &amp; Risk Classification</h3>
+          <p class="step__text">We analyze every validated finding and classify vulnerabilities based on severity and potential business impact. Critical and high-risk vulnerabilities receive higher remediation priority.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Detailed VAPT Report</h3>
+          <p class="step__text">We prepare a comprehensive VAPT security report with technical findings, affected assets, vulnerability severity, evidence and recommended remediation steps. The report gives your technical team a clear view of the security risks identified during testing.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Support</h3>
+          <p class="step__text">We work with your technical team by providing practical remediation guidance for identified security vulnerabilities. Our recommendations focus on addressing the root cause rather than only resolving the visible security issue.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">VAPT Retesting</h3>
+          <p class="step__text">Once remediation is completed, we conduct VAPT retesting for applicable findings. We verify the implemented fixes and document the updated security status of the tested vulnerabilities.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 04 · WHY VAPT / WHEN / WHO                                           -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker">Business Case</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Why Businesses Need VAPT Security Testing</h2>
+        <p class="shead__lede rv" style="--d:1">Businesses depend on web applications, mobile apps, APIs, cloud infrastructure and connected systems to manage critical operations and sensitive information. Vulnerability Assessment and Penetration Testing (VAPT) helps identify security weaknesses before attackers can exploit them. At CipherTrivia, we assess your technology environment through automated vulnerability discovery and manual security testing so your team can understand the actual risks affecting your applications and infrastructure.</p>
+      </div>
+    </header>
+
+    <div class="subhead">
+      <p class="kicker subhead__label">Triggers</p>
+      <h3 class="t-h3 subhead__title">When Is VAPT Required?</h3>
+    </div>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("rocket", "lg") }}</span>
+        <h4 class="trigger__title">Before Launching a New Application</h4>
+        <p class="trigger__text">We assess web applications, mobile apps and APIs before production deployment to identify vulnerabilities that could expose your users or business systems.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("update", "lg") }}</span>
+        <h4 class="trigger__title">After Major Application Updates</h4>
+        <p class="trigger__text">New features, authentication changes, API integrations and business logic updates can introduce security weaknesses. We test the modified attack surface and validate significant findings.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("cloud-sync", "lg") }}</span>
+        <h4 class="trigger__title">After Infrastructure or Cloud Changes</h4>
+        <p class="trigger__text">Server migrations, cloud deployments and network configuration changes can introduce new exposure. Our infrastructure VAPT services help identify vulnerabilities within the updated environment.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("clipboard", "lg") }}</span>
+        <h4 class="trigger__title">Before Security Audits or Customer Assessments</h4>
+        <p class="trigger__text">We provide structured VAPT reports with technical evidence, severity ratings and remediation recommendations that can support internal security reviews and applicable customer or audit requirements.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("database", "lg") }}</span>
+        <h4 class="trigger__title">When Handling Sensitive Data</h4>
+        <p class="trigger__text">Organizations processing financial information, personal data, healthcare information or confidential business records can use VAPT to identify vulnerabilities that may expose sensitive information.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("alert", "lg") }}</span>
+        <h4 class="trigger__title">After a Security Incident</h4>
+        <p class="trigger__text">We can assess affected systems to identify potential attack vectors and security weaknesses that may have contributed to an incident.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("calendar", "lg") }}</span>
+        <h4 class="trigger__title">As Part of Periodic Security Testing</h4>
+        <p class="trigger__text">Applications and infrastructure continuously change as new features, integrations and dependencies are introduced. Regular VAPT security testing helps businesses identify newly introduced vulnerabilities and maintain better visibility into their security posture.</p>
+      </div>
+    </div>
+
+    <div class="callout rv">
+      <div class="callout__media">
+        <div class="xaud" aria-hidden="true">
+          {%- for a in [["clouds", "SaaS"], ["card", "Fintech"], ["heart-pulse", "Healthcare"], ["cart", "Ecommerce"], ["server", "IT companies"], ["rocket", "Startups"], ["buildings", "Enterprises"]] %}
+          <div class="xaud__tile" style="--i:{{ loop.index0 }}">{{ icon(a[0], "sm") }}<span>{{ a[1] }}</span></div>
+          {%- endfor %}
+          <div class="xaud__tile xaud__tile--brand">{{ icon("target", "lg") }}</div>
+        </div>
+      </div>
+      <div class="callout__body">
+        <p class="kicker">Audience</p>
+        <h3 class="callout__title">Who Should Consider VAPT?</h3>
+        <p class="lede">SaaS companies, fintech businesses, healthcare organizations, ecommerce platforms, IT companies, startups and enterprises can benefit from professional VAPT services. At CipherTrivia, we define the testing scope according to your application architecture and infrastructure so our VAPT security assessment focuses on the systems and attack surfaces that matter most to your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA BAND                                                             -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <p class="band__meta">Next step</p>
+    <h2 class="band__title rv" id="band-title">Identify Security Risks Before Attackers Do</h2>
+    <p class="band__text rv" style="--d:1">Strengthen your application and infrastructure with professional VAPT security testing from CipherTrivia. Our security team combines vulnerability assessment, manual penetration testing and AI-assisted analysis to identify exploitable weaknesses and provide clear remediation guidance.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Get a VAPT Security Assessment {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 05 · DELIVERABLES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker">Deliverables</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s5-title">What You Receive From Our VAPT Security Services</h2>
+        <p class="shead__lede rv" style="--d:1">At CipherTrivia, we provide more than a vulnerability list. Our VAPT security assessment report gives your development, security and management teams the technical evidence they need to understand security risks, prioritize remediation and track vulnerability closure. We structure our Vulnerability Assessment and Penetration Testing services around clear findings with CVSS severity, evidence, remediation guidance and retesting support.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <img class="media-img" src="/assets/images/vapt-security-services/report.webp" width="1200" height="1500" alt="Example VAPT report with an executive summary and severity-rated findings" loading="lazy">
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div>
+            <h3 class="deliver__title">Executive VAPT Summary</h3>
+            <p class="deliver__text">We provide an executive-level overview of the security assessment findings with risk severity, key vulnerabilities and potential business impact. This section gives non-technical stakeholders a clear understanding of the overall security posture.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Vulnerability Assessment Report</h3>
+            <p class="deliver__text">We document every validated security vulnerability with its CVSS score, severity level, affected asset, technical description and proof-of-concept evidence. Our findings include sufficient technical detail to help security and development teams reproduce and investigate the issue.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("wrench") }}
+          <div>
+            <h3 class="deliver__title">CipherTrivia Technical Remediation Guidance</h3>
+            <p class="deliver__text">We provide practical remediation recommendations for each vulnerability. Our findings can be mapped to relevant OWASP and CWE references, helping developers understand the root cause and implement appropriate security fixes.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">CipherTrivia VAPT Findings Walkthrough</h3>
+            <p class="deliver__text">We conduct a detailed walkthrough with your technical and management teams to explain the identified vulnerabilities, attack scenarios and potential impact. Our security testers answer technical questions and help prioritize the remediation roadmap.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("retest") }}
+          <div>
+            <h3 class="deliver__title">CipherTrivia VAPT Retesting &amp; Closure Report</h3>
+            <p class="deliver__text">After remediation, we perform VAPT retesting to validate the fixes for applicable findings. We document the retest results and provide a closure report that can support internal security reviews, customer assessments and compliance requirements.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chip") }}
+          <div>
+            <h3 class="deliver__title">CipherTrivia AI-Assisted Security Insights</h3>
+            <p class="deliver__text">Where applicable, we use AI-assisted analysis to help organize vulnerability data, identify patterns across findings and improve security reporting workflows. Human-led security validation remains central to our VAPT methodology so AI insights complement rather than replace penetration testing expertise.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 06 · WHY CIPHERTRIVIA                                                -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker">Why CipherTrivia</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">Why Choose CipherTrivia for VAPT Security Services?</h2>
+        <p class="shead__lede rv" style="--d:1">Our team at CipherTrivia, a trusted VAPT service provider, approaches Vulnerability Assessment and Penetration Testing (VAPT) as a technical security assessment rather than a basic automated scan. Our VAPT security services combine experienced security testing with AI-assisted analysis and manual validation so your team receives actionable findings with clear evidence, risk classification and practical remediation guidance.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("user-shield") }}
+        <h3 class="principle__title">Senior Security Testers</h3>
+        <p class="principle__text">Our VAPT security testing is performed with experienced security professionals who manually validate identified vulnerabilities. We go beyond standard automated scans to assess attack paths and determine the actual impact of security weaknesses.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("chip") }}
+        <h3 class="principle__title">AI-Assisted Security Testing</h3>
+        <p class="principle__text">We use AI-assisted security analysis to support vulnerability discovery, reconnaissance and technical analysis. Human security experts validate the findings before they are included in the final VAPT assessment report, keeping AI as a supporting layer within our testing methodology.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("badge") }}
+        <h3 class="principle__title">Validated Security Findings</h3>
+        <p class="principle__text">We focus on actionable and technically validated vulnerabilities instead of filling reports with unverified scanner results. Each significant finding is reviewed for exploitability so your development and security teams can prioritize genuine risks.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Compliance-Focused VAPT Reporting</h3>
+        <p class="principle__text">Our VAPT reports can be structured around relevant security and compliance requirements with mappings to frameworks such as OWASP, CWE and CVSS. This gives your technical and compliance teams useful documentation for security reviews and audit preparation.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("wrench") }}
+        <h3 class="principle__title">Clear Remediation Guidance</h3>
+        <p class="principle__text">We provide technical remediation recommendations alongside vulnerability findings. Your development team can use the report to understand the root cause, assess the security impact and plan the appropriate fix.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("eye") }}
+        <h3 class="principle__title">Transparent VAPT Process</h3>
+        <p class="principle__text">From scope definition and vulnerability assessment to penetration testing, reporting and retesting, we maintain a structured process with clear deliverables. This gives stakeholders better visibility into the security assessment and the status of identified vulnerabilities.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 07 · CASE STUDY                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker">Proof of Work</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">A VAPT Security Services Case Study</h2>
+      </div>
+    </header>
+
+    <article class="case rv">
+      <div class="case__media">
+        <img class="media-img" src="/assets/images/vapt-security-services/case-banking-api.webp" width="1600" height="1000" alt="Diagram of a banking API gateway where a cross-account access flaw was found, fixed and retested" loading="lazy">
+      </div>
+      <div class="case__body">
+        <p class="kicker">VAPT · Fintech &amp; Banking</p>
+        <h3 class="case__title">Closing Critical Gaps in a Banking API Gateway</h3>
+        <p class="case__text">A regional bank needed a full penetration test of its customer-facing API gateway ahead of launch. We found 9 issues, including a critical broken access control flaw, and retested every fix before a 3-week deadline.</p>
+        <div class="case__foot">
+          <a class="btn" href="/case-studies/banking-api-gateway/">Read case study {{ arrow() }}</a>
+          <a class="link" href="/case-studies/">All case studies {{ arrow() }}</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 08 · FAQ                                                             -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <p class="kicker">FAQ</p>
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About VAPT Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc">
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">What is VAPT?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">VAPT stands for Vulnerability Assessment and Penetration Testing. It combines vulnerability scanning with manual security testing to identify, validate and prioritize security weaknesses across applications, APIs, networks and IT infrastructure.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">What does a VAPT service provider do?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">A VAPT service provider assesses your digital assets for security vulnerabilities and validates exploitable weaknesses through controlled penetration testing. At CipherTrivia, we provide technical findings with severity ratings, evidence and remediation recommendations.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Why is VAPT testing important for businesses?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">VAPT testing helps businesses identify security vulnerabilities before attackers can exploit them. It can reduce security risks across web applications, mobile applications, APIs and infrastructure while supporting internal security assessments and compliance requirements.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">What types of VAPT services does CipherTrivia provide?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">We provide web application VAPT, mobile application VAPT, API penetration testing, network VAPT and infrastructure security testing. Our assessments can be scoped according to the applications and infrastructure being tested.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">How does CipherTrivia perform VAPT testing?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">We follow a structured process that covers scope definition, vulnerability assessment, manual penetration testing, vulnerability validation, risk classification, reporting and retesting. Our approach combines automated security tools with manual testing performed by security professionals.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Does VAPT include manual penetration testing?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">Yes. Our VAPT security services include manual validation and penetration testing to investigate vulnerabilities identified through automated assessment. Manual testing also helps uncover security issues that automated scanners may not detect.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Do you provide a VAPT report?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">Yes. We provide a detailed VAPT security assessment report containing vulnerability descriptions, severity ratings, technical evidence, affected assets and remediation recommendations. Reports can also include relevant OWASP, CWE and CVSS references.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">What vulnerabilities can VAPT identify?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">VAPT can identify vulnerabilities such as SQL injection, Cross-Site Scripting (XSS), broken access control, authentication weaknesses, privilege escalation, insecure configurations, sensitive data exposure and API security vulnerabilities.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Does CipherTrivia provide VAPT retesting?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">Yes. After vulnerabilities are remediated, we can perform VAPT retesting to verify the implemented fixes. The retest results can be documented in a closure report for internal security teams and relevant stakeholders.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">How long does a VAPT assessment take?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">The duration depends on the scope and complexity of the environment being tested. Factors such as the number of applications, APIs, IP addresses, user roles and testing requirements can affect the overall VAPT assessment timeline.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Can VAPT support compliance and security audits?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">Yes. A properly documented VAPT assessment can support security and audit activities by providing evidence of vulnerability testing and remediation. Our reports can include industry references such as OWASP, CWE and CVSS based on the assessment scope.</p>
+          </details>
+          <details class="acc__item">
+            <summary class="acc__q"><span class="acc__title">Does CipherTrivia use AI in VAPT security testing?</span><span class="acc__icon" aria-hidden="true"></span></summary>
+            <p class="acc__a">We use AI-assisted security analysis to support activities such as vulnerability analysis and technical review. Human security expertise remains central to our VAPT methodology, with findings requiring appropriate validation before inclusion in the final report.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED                                                              -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="rel-title" style="padding-top:clamp(3rem,2rem + 4vw,6rem)">
+  <div class="container">
+    <div class="subhead" style="margin-top:0">
+      <p class="kicker subhead__label">Related Services</p>
+      <h2 class="t-h3 subhead__title" id="rel-title">Explore Related Security Services</h2>
+    </div>
+    <nav class="related" aria-label="Related services">
+      <a class="related__row" href="/services/penetration-testing/">
+        <span class="related__no">{{ icon("target", "sm") }}</span>
+        <span class="related__title">Penetration Testing</span>
+        <span class="related__desc">Manual, attacker-simulated exploitation by certified security experts</span>
+        <span class="related__go">{{ arrow() }}</span>
+      </a>
+      <a class="related__row" href="/services/web-application-security-testing/">
+        <span class="related__no">{{ icon("browser", "sm") }}</span>
+        <span class="related__title">Web App Security Testing</span>
+        <span class="related__desc">OWASP Top 10, business logic and authentication flaw testing</span>
+        <span class="related__go">{{ arrow() }}</span>
+      </a>
+      <a class="related__row" href="/services/api-security-testing/">
+        <span class="related__no">{{ icon("api", "sm") }}</span>
+        <span class="related__title">API Security Testing</span>
+        <span class="related__desc">REST and GraphQL testing against OWASP API Top 10</span>
+        <span class="related__go">{{ arrow() }}</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title rv" id="final-title">Get Started With Our <span class="accent">VAPT Security Services</span></h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your application, API, cloud or network environment and we'll scope a VAPT security services engagement that fits your timeline and budget.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/enterprise-vapt-guide/">Download the VAPT Guide {{ arrow() }}</a>
+      </div>
+    </div>
+    <aside class="final__guide rv" style="--d:3">
+      <img class="media-img" src="/assets/images/vapt-security-services/guide-cover.webp" width="800" height="500" alt="Cover of the CipherTrivia Enterprise VAPT Guide" loading="lazy">
+      <div class="final__guide-body">
+        <p class="kicker">Free Guide</p>
+        <h3>Enterprise VAPT Guide</h3>
+        <a class="link" href="/whitepapers/enterprise-vapt-guide/">Download free guide {{ arrow() }}</a>
+      </div>
+    </aside>
+  </div>
+</section>

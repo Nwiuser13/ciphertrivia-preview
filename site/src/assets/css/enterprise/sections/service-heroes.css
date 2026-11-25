@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Service hero signatures — coded line-art animations in the style of the
+   page diagrams, so service heroes stop looking alike.
+     .scanboard   VAPT: a scan sweeps the estate, flags weak points, then an
+                  orange path proves how three of them chain to the target
+     .hero--ink + .chain   Penetration Testing: dark hero, an attack path drawn
+                  over the photo and the attack chain stepping underneath
+     .hero--cinema   Cloud Security: the hero video plays behind the headline
+   (Web App, Mobile and API heroes are SVG timelines: see signatures.css)
+   All motion is decorative (aria-hidden) and settles to its end state for
+   reduced motion.
+   ========================================================================== */
+
+/* Wider visual column for heroes that carry a signature */
+.hero__layout--sig .hero__copy { grid-column: 1 / span 7; }
+.hero__layout--sig .hero__visual { grid-column: 8 / -1; }
+
+/* ---------------------------------------------------------------- VAPT ---- */
+.scanboard {
+  position: relative;
+  aspect-ratio: 1;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--ink-950);
+  border: 1px solid var(--ink-950);
+  overflow: hidden;
+}
+.scanboard svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.scanboard .ind-hero__frame { z-index: 2; }
+
+.sb-node { fill: var(--ink-950); stroke: rgba(255, 255, 255, 0.32); stroke-width: 1.5; }
+.sb-link { stroke: rgba(255, 255, 255, 0.08); stroke-width: 1; }
+.sb-ghost { fill: none; stroke: rgba(255, 255, 255, 0.18); stroke-width: 1.5; stroke-dasharray: 4 6; }
+.sb-path  { fill: none; stroke: var(--signal-500); stroke-width: 3; stroke-linecap: square; stroke-linejoin: miter; }
+.sb-target { fill: var(--ink-950); stroke: rgba(255, 255, 255, 0.45); stroke-width: 1.5; }
+.sb-target-core { fill: var(--signal-500); }
+.sb-bar { transform-box: fill-box; transform-origin: left center; }
+.sb-bar--1 { fill: var(--signal-500); }
+.sb-bar--2 { fill: rgba(255, 79, 31, 0.6); }
+.sb-bar--3 { fill: var(--stone-400); }
+.sb-bar--4 { fill: var(--ink-600); }
+.sb-axis { stroke: rgba(255, 255, 255, 0.18); }
+.sb-scan-line { fill: var(--signal-500); }
+
+/* 9 s cycle: scan 0–45 %, path 48–66 %, bars 66–74 %, hold, reset */
+.js .sb-scan { animation: sbScan 9s linear infinite; }
+@keyframes sbScan {
+  0%   { transform: translateY(0); opacity: 1; }
+  45%  { transform: translateY(272px); opacity: 1; }
+  46%, 100% { transform: translateY(272px); opacity: 0; }
+}
+.js .sb-flag { animation: sbFlagSoft 9s linear infinite; animation-delay: var(--d); }
+.js .sb-flag.is-crit { animation-name: sbFlagCrit; }
+@keyframes sbFlagSoft {
+  0%   { stroke: rgba(255, 255, 255, 0.32); fill: var(--ink-950); }
+  3%, 82% { stroke: var(--signal-500); fill: var(--ink-950); }
+  90%, 100% { stroke: rgba(255, 255, 255, 0.32); fill: var(--ink-950); }
+}
+@keyframes sbFlagCrit {
+  0%   { stroke: rgba(255, 255, 255, 0.32); fill: var(--ink-950); }
+  3%, 82% { stroke: var(--signal-500); fill: var(--signal-500); }
+  90%, 100% { stroke: rgba(255, 255, 255, 0.32); fill: var(--ink-950); }
+}
+.js .sb-path { stroke-dasharray: 1; animation: sbPath 9s var(--ease) infinite; }
+@keyframes sbPath {
+  0%, 48% { stroke-dashoffset: 1; opacity: 1; }
+  66%, 90% { stroke-dashoffset: 0; opacity: 1; }
+  97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.js .sb-target-core { transform-box: fill-box; transform-origin: center; animation: sbTarget 9s var(--ease-out) infinite; }
+@keyframes sbTarget {
+  0%, 64% { transform: scale(0); }
+  70%, 92% { transform: scale(1); }
+  98%, 100% { transform: scale(0); }
+}
+.js .sb-ping { transform-box: fill-box; transform-origin: center; fill: none; stroke: var(--signal-500); animation: sbPing 9s var(--ease-out) infinite; }
+@keyframes sbPing {
+  0%, 66% { transform: scale(1); opacity: 0; }
+  67% { transform: scale(1); opacity: 0.9; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+.js .sb-bar { animation: sbBar 9s var(--ease-out) infinite; animation-delay: var(--d, 0s); }
+@keyframes sbBar {
+  0%, 66% { transform: scaleX(0); }
+  74%, 92% { transform: scaleX(1); }
+  98%, 100% { transform: scaleX(0); }
+}
+
+/* --------------------------------------------- Penetration Testing ---- */
+.hero--ink {
+  background: var(--ink-950);
+  color: var(--paper-50);
+  border-bottom-color: var(--line-inv-strong);
+}
+.hero--ink .guides > .container { --line: rgba(255, 255, 255, 0.07); }
+.hero--ink .hero__title .accent { color: var(--signal-500); }
+.hero--ink .hero__lede { color: var(--stone-300); }
+.hero--ink .btn--signal { --btn-hover: var(--paper-50); --btn-hover-fg: var(--ink-950); }
+.hero--ink .rail { background: var(--ink-900); border-top-color: var(--line-inv-strong); }
+.hero--ink .rail__label { color: var(--stone-400); }
+.hero--ink .rail__item { color: var(--paper-50); border-right-color: var(--line-inv); }
+.hero--ink .rail__item::before { background: var(--signal-500); }
+
+.chain__photo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line-inv-strong);
+}
+.chain__photo .hero__img { border: 0; filter: saturate(0.45) contrast(1.05); }
+.chain__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(0, 5, 20, 0.2) 0%, rgba(0, 5, 20, 0.62) 100%);
+}
+.chain__svg { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; overflow: visible; }
+.ch-ghost { fill: none; stroke: rgba(255, 255, 255, 0.45); stroke-width: 1.5; stroke-dasharray: 5 7; }
+.ch-path  { fill: none; stroke: var(--signal-500); stroke-width: 3; stroke-linecap: square; stroke-linejoin: miter; }
+.ch-node  { fill: var(--ink-950); stroke: rgba(255, 255, 255, 0.75); stroke-width: 1.5; }
+.ch-target { fill: var(--ink-950); stroke: var(--paper-50); stroke-width: 2; }
+.ch-packet { fill: var(--signal-500); }
+
+/* 7.5 s cycle: the path draws over 0–60 %; each node lights as the path reaches it */
+.js .ch-path { stroke-dasharray: 1; animation: chPath 7.5s linear infinite; }
+@keyframes chPath {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  60%, 90% { stroke-dashoffset: 0; opacity: 1; }
+  97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.js .ch-node { animation: 7.5s linear infinite; }
+.js .ch-node--1 { animation-name: chNode1; }
+.js .ch-node--2 { animation-name: chNode2; }
+.js .ch-node--3 { animation-name: chNode3; }
+.js .ch-node--4 { animation-name: chNode4; }
+.js .ch-node--5 { animation-name: chNode5; }
+@keyframes chNode1 { 0%, 92% { fill: var(--signal-500); stroke: var(--signal-500); } 97%, 100% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } }
+@keyframes chNode2 { 0%, 15% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } 17%, 92% { fill: var(--signal-500); stroke: var(--signal-500); } 97%, 100% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } }
+@keyframes chNode3 { 0%, 28% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } 30%, 92% { fill: var(--signal-500); stroke: var(--signal-500); } 97%, 100% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } }
+@keyframes chNode4 { 0%, 45% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } 47%, 92% { fill: var(--signal-500); stroke: var(--signal-500); } 97%, 100% { fill: var(--ink-950); stroke: rgba(255,255,255,.75); } }
+@keyframes chNode5 { 0%, 58% { fill: var(--ink-950); stroke: var(--paper-50); } 61%, 92% { fill: var(--signal-500); stroke: var(--signal-500); } 97%, 100% { fill: var(--ink-950); stroke: var(--paper-50); } }
+
+/* Attack chain strip under the photo: five steps, a rail fills, each tile lifts in turn */
+.chain__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  justify-items: center;
+  padding: 1.5rem 0 0.25rem;
+}
+.chain__steps::before,
+.chain__steps::after {
+  content: "";
+  position: absolute;
+  top: calc(1.5rem + 1.375rem);
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--line-inv-strong);
+}
+.chain__steps::after {
+  height: 3px;
+  margin-top: -1px;
+  background: var(--signal-500);
+  transform-origin: left;
+  animation: chRail 7.5s linear infinite;
+}
+@keyframes chRail {
+  0% { transform: scaleX(0); opacity: 1; }
+  60%, 90% { transform: scaleX(1); opacity: 1; }
+  97%, 100% { transform: scaleX(1); opacity: 0; }
+}
+.chain__steps li { position: relative; z-index: 1; }
+.chain__steps .ico { --ico-bg: var(--ink-900); --ico-line: var(--paper-50); --ico-edge: var(--line-inv-strong); }
+.js .chain__steps li .ico__face { animation: 7.5s var(--ease-out) infinite; }
+.js .chain__steps li:nth-child(1) .ico__face { animation-name: chStep1; }
+.js .chain__steps li:nth-child(2) .ico__face { animation-name: chStep2; }
+.js .chain__steps li:nth-child(3) .ico__face { animation-name: chStep3; }
+.js .chain__steps li:nth-child(4) .ico__face { animation-name: chStep4; }
+.js .chain__steps li:nth-child(5) .ico__face { animation-name: chStep5; }
+@keyframes chStep1 { 0%, 92% { transform: translate(-5px, -5px) rotate(-6deg); } 97%, 100% { transform: none; } }
+@keyframes chStep2 { 0%, 14% { transform: none; } 17%, 92% { transform: translate(-5px, -5px) rotate(-6deg); } 97%, 100% { transform: none; } }
+@keyframes chStep3 { 0%, 28% { transform: none; } 31%, 92% { transform: translate(-5px, -5px) rotate(-6deg); } 97%, 100% { transform: none; } }
+@keyframes chStep4 { 0%, 43% { transform: none; } 46%, 92% { transform: translate(-5px, -5px) rotate(-6deg); } 97%, 100% { transform: none; } }
+@keyframes chStep5 { 0%, 57% { transform: none; } 60%, 92% { transform: translate(-5px, -5px) rotate(-6deg); } 97%, 100% { transform: none; } }
+
+/* -------------------------------------------------- Cloud Security ---- */
+/* The hero video fills the hero behind the headline. The video is scaled
+   from its upper left so the generator's corner mark stays out of frame. */
+.hero--cinema { isolation: isolate; }
+.hero--cinema .hero-video__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  transform: scale(1.2);
+  transform-origin: 25% 20%;
+}
+.hero--cinema::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(0, 5, 20, 0.94) 0%, rgba(0, 5, 20, 0.82) 34%, rgba(0, 5, 20, 0.35) 66%, rgba(0, 5, 20, 0.15) 100%),
+    linear-gradient(180deg, rgba(0, 5, 20, 0.55) 0%, rgba(0, 5, 20, 0) 26%, rgba(0, 5, 20, 0) 72%, rgba(0, 5, 20, 0.7) 100%);
+}
+.hero-cinema__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(36rem, 80vh, 52rem);
+  padding-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+.hero--cinema .hero__title { margin-top: auto; padding-top: 4rem; }
+.hero--cinema .hero-home__row { border-top-color: var(--line-inv-strong); }
+.hero--cinema .hero-home__tagline,
+.hero--cinema .hero-home__body { grid-column: 1 / span 7; }
+.hero--cinema .hero-home__tagline { color: var(--paper-50); }
+.hero--cinema .hero-home__body .hero__lede { color: var(--stone-300); }
+.hero--cinema .btn--ghost { --btn-fg: var(--paper-50); --btn-bd: var(--line-inv-strong); --btn-hover: var(--paper-50); --btn-hover-fg: var(--ink-950); }
+.hero--cinema .hero-video__toggle { left: auto; right: var(--gutter); top: 1.25rem; bottom: auto; z-index: 2; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .hero__layout--sig .hero__copy,
+  .hero__layout--sig .hero__visual { grid-column: 1 / -1; }
+  .hero__visual--chain { display: block; max-width: 36rem; }
+  .hero__visual .scanboard { aspect-ratio: auto; min-height: 100%; }
+}
+@media (max-width: 900px) {
+  .hero--cinema .hero-home__tagline,
+  .hero--cinema .hero-home__body { grid-column: 1 / -1; }
+  .hero--cinema::after { background: linear-gradient(180deg, rgba(0, 5, 20, 0.6) 0%, rgba(0, 5, 20, 0.78) 45%, rgba(0, 5, 20, 0.92) 100%); }
+}
+@media (max-width: 640px) {
+  .hero__visual .scanboard { aspect-ratio: 1; }
+  .chain__steps .ico { --ico: 2.25rem; }
+}
+
+/* ---- Reduced motion: show the end state, no movement ---- */
+@media (prefers-reduced-motion: reduce) {
+  .js .sb-scan, .js .sb-ping { animation: none; opacity: 0; }
+  .js .sb-flag, .js .sb-path, .js .sb-target-core, .js .sb-bar,
+  .js .ch-path, .js .ch-node, .chain__steps::after, .js .chain__steps li .ico__face { animation: none; }
+  .js .sb-flag.is-crit, .js .ch-node { fill: var(--signal-500); stroke: var(--signal-500); }
+  .js .sb-flag { stroke: var(--signal-500); }
+  .ch-packet { display: none; }
+}
+html:not(.js) .sb-scan { display: none; }

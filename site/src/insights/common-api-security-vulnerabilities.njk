@@ -1,0 +1,273 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Common Vulnerabilities Our API Security Testing Services Find | CipherTrivia Insights"
+description: "The OWASP API Security Top 10 defines the vulnerability categories that matter most for APIs."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Common Vulnerabilities Our API Security Testing Services Find"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Common Vulnerabilities Our API Security Testing Services Find",
+      "description": "The OWASP API Security Top 10 defines the vulnerability categories that matter most for APIs.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/common-api-security-vulnerabilities/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-common-api-security-vulnerabilities.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/common-api-security-vulnerabilities/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Common Vulnerabilities Our API Security Testing Services Find"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is included in an API security test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An API security test covers authentication and authorization logic, object-level access control (BOLA), function-level access control (BFLA), mass assignment, rate limiting, input validation, data exposure in responses, and business-logic abuse. Every finding is mapped to the OWASP API Security Top 10 and scored with CVSS 4.0, with proof-of-concept requests and remediation guidance included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you test GraphQL APIs differently from REST APIs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. GraphQL introduces attack surface that does not exist in REST: introspection exposure, query depth and complexity abuse, batched query attacks, alias-based rate-limit bypass, and field-level authorization gaps in nested resolvers. We test all of these in addition to the standard OWASP API Top 10 categories (BOLA, BFLA, broken auth, etc.) that apply to any API architecture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you test APIs that have no user interface?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We work directly at the HTTP layer using your OpenAPI or GraphQL schema, Postman collections, or raw endpoint documentation. Testing is performed with Burp Suite, custom scripts and API-specific fuzzing frameworks. A user interface is not required. In fact, testing without a UI is how we catch the issues the UI hides: over-fetched response fields, mass-assignment vectors and undocumented endpoints."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can API security testing be done on production?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with agreed rules of engagement. We coordinate testing windows, respect rate limits, avoid destructive operations (no DELETE on real data), and use dedicated test accounts. Where possible we recommend a staging environment that mirrors production, but production testing is common and safe when scoped correctly. We agree on all boundaries before testing begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the retest included in the engagement cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every API security testing engagement includes one full retest cycle at no additional cost. Once your team has remediated the findings, we re-verify each issue individually and issue a signed closure report confirming what was fixed. This is the document most auditors and enterprise customers ask for directly."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">API Security</span>
+          <span class="article-hero__date">22 Oct 2026 · 5 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Common Vulnerabilities Our API Security Testing Services Find</h1>
+        <p class="hero__lede rv" style="--d:2">The OWASP API Security Top 10 defines the vulnerability categories that matter most for APIs. Here are six of the highest-impact classes we test for across every API security testing engagement, and what makes each one difficult to catch without manual, context-aware testing.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--signal" aria-hidden="true">{{ icon("api", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#broken-object-level-authorization-bola">Broken Object-Level Authorization (BOLA)</a></li>
+        <li><a href="#broken-authentication">Broken Authentication</a></li>
+        <li><a href="#broken-object-property-level-authorization">Broken Object Property Level Authorization</a></li>
+        <li><a href="#unrestricted-resource-consumption">Unrestricted Resource Consumption</a></li>
+        <li><a href="#broken-function-level-authorization-bfla">Broken Function-Level Authorization (BFLA)</a></li>
+        <li><a href="#server-side-request-forgery-ssrf">Server-Side Request Forgery (SSRF)</a></li>
+        <li><a href="#faq">Frequently Asked Questions About API Security Testing</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="broken-object-level-authorization-bola">
+        <h2>Broken Object-Level Authorization (BOLA)</h2>
+        <p>BOLA is the most common critical finding in API security assessments. The vulnerability occurs when an API endpoint accepts an object identifier (user ID, order ID, document ID) and returns or modifies that object without verifying that the authenticated user has permission to access it. The pattern is straightforward: User A's token is used to request User B's data by changing an ID in the URL or request body, and the server complies because it trusts the token but never checks ownership.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Scanners cannot reason about object ownership. Finding BOLA requires testing every sensitive endpoint with two real accounts of different privilege levels side by side, which is exactly how our testers work across every endpoint in scope.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="broken-authentication">
+        <h2>Broken Authentication</h2>
+        <p>API authentication failures go well beyond weak passwords. JWTs accepted with <code>alg: none</code> or signed with a weak shared secret, refresh tokens that remain valid after logout or password change, missing token expiration enforcement, and password-reset tokens that are predictable or reusable are the patterns we find most often. The entire authentication chain, from initial credential exchange to token refresh to logout invalidation, needs to be tested as a single flow.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Most testing stops at the login endpoint. We test the full token lifecycle: issuance, refresh, revocation, cross-environment replay, and edge cases like concurrent sessions and password-reset race conditions.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="broken-object-property-level-authorization">
+        <h2>Broken Object Property Level Authorization</h2>
+        <p>This class combines two related problems: excessive data exposure (the API returns more fields than the client needs, including PII, internal IDs or financial data) and mass assignment (the API accepts and persists fields that should be read-only, such as <code>role</code>, <code>isAdmin</code>, <code>accountBalance</code> or <code>plan</code>). Both stem from the same root cause: the serializer trusts the schema rather than explicitly defining which fields are readable and writable per role.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>The front end only displays a subset of the API response, so excess fields are invisible in the UI. We inspect raw response bodies field by field and attempt to write back every field we receive to test for mass assignment.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="unrestricted-resource-consumption">
+        <h2>Unrestricted Resource Consumption</h2>
+        <p>APIs without proper rate limiting on authentication endpoints allow credential-stuffing and OTP brute-force attacks. Missing limits on resource-intensive operations (search queries, report generation, file uploads, bulk exports) enable denial-of-service through legitimate-looking requests. GraphQL APIs are particularly vulnerable: deeply nested queries, alias-based batching and unrestricted query complexity can exhaust backend resources with a single request.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Rate limits often exist on the gateway but can be bypassed with header manipulation, IP rotation or parameter variation. We test the actual enforcement, not just the documented policy.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="broken-function-level-authorization-bfla">
+        <h2>Broken Function-Level Authorization (BFLA)</h2>
+        <p>BFLA occurs when a regular user can invoke administrative endpoints by guessing or discovering the URL pattern. The API correctly authenticates the user but fails to check whether their role permits the requested action. Common patterns include predictable admin paths (<code>/api/admin/users</code>), HTTP method confusion (a regular user can <code>DELETE</code> a resource they can only <code>GET</code>), and internal endpoints that were never intended to be externally reachable but are.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Admin endpoints are often excluded from client documentation and therefore from testing. We enumerate every method on every endpoint from the OpenAPI spec and server routes, then test each one with every role in scope.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="server-side-request-forgery-ssrf">
+        <h2>Server-Side Request Forgery (SSRF)</h2>
+        <p>Any API feature that fetches a URL on the server's behalf is a potential SSRF vector: webhook registration, file import by URL, link preview generation, PDF rendering, and integration callback URLs. In cloud deployments, SSRF can reach the instance metadata endpoint (<code>169.254.169.254</code>) and retrieve temporary IAM credentials, turning a URL-fetching feature into full cloud account compromise. Internal service endpoints, databases, and admin interfaces become reachable from outside.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Blind SSRF produces no visible response in the API output. We use out-of-band detection infrastructure to confirm every URL-handling feature, including ones that appear harmless like avatar uploads and import endpoints.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About API Security Testing</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What is included in an API security test?</h3>
+            <p class="is-sm">An API security test covers authentication and authorization logic, object-level access control (BOLA), function-level access control (BFLA), mass assignment, rate limiting, input validation, data exposure in responses, and business-logic abuse. Every finding is mapped to the OWASP API Security Top 10 and scored with CVSS 4.0, with proof-of-concept requests and remediation guidance included.</p>
+          </div>
+          <div>
+            <h3>Do you test GraphQL APIs differently from REST APIs?</h3>
+            <p class="is-sm">Yes. GraphQL introduces attack surface that does not exist in REST: introspection exposure, query depth and complexity abuse, batched query attacks, alias-based rate-limit bypass, and field-level authorization gaps in nested resolvers. We test all of these in addition to the standard OWASP API Top 10 categories (BOLA, BFLA, broken auth, etc.) that apply to any API architecture.</p>
+          </div>
+          <div>
+            <h3>How do you test APIs that have no user interface?</h3>
+            <p class="is-sm">We work directly at the HTTP layer using your OpenAPI or GraphQL schema, Postman collections, or raw endpoint documentation. Testing is performed with Burp Suite, custom scripts and API-specific fuzzing frameworks. A user interface is not required. In fact, testing without a UI is how we catch the issues the UI hides: over-fetched response fields, mass-assignment vectors and undocumented endpoints.</p>
+          </div>
+          <div>
+            <h3>Can API security testing be done on production?</h3>
+            <p class="is-sm">Yes, with agreed rules of engagement. We coordinate testing windows, respect rate limits, avoid destructive operations (no <code>DELETE</code> on real data), and use dedicated test accounts. Where possible we recommend a staging environment that mirrors production, but production testing is common and safe when scoped correctly. We agree on all boundaries before testing begins.</p>
+          </div>
+          <div>
+            <h3>Is the retest included in the engagement cost?</h3>
+            <p class="is-sm">Yes. Every API security testing engagement includes one full retest cycle at no additional cost. Once your team has remediated the findings, we re-verify each issue individually and issue a signed closure report confirming what was fixed. This is the document most auditors and enterprise customers ask for directly.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/api-security-testing/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">API Security Testing</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/api-security-best-practices/">
+            <p class="a-label">Guide</p>
+            <p class="reading__title">API Security Best Practices</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With API Security Testing</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your API architecture, endpoints and authorization model, and we will scope an API security testing engagement that fits your timeline and budget.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/api-security-best-practices/">Download API Security Guide {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

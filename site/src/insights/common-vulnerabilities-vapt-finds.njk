@@ -1,0 +1,297 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Common Vulnerabilities Our VAPT Security Services Find | CipherTrivia Insights"
+description: "Across web, mobile, API and cloud assessments, a handful of vulnerability classes account for most of the high and critical findings in our reports."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Common Vulnerabilities Our VAPT Security Services Find"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Common Vulnerabilities Our VAPT Security Services Find",
+      "description": "Across web, mobile, API and cloud assessments, a handful of vulnerability classes account for most of the high and critical findings in our reports.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/common-vulnerabilities-vapt-finds/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-common-vulnerabilities-vapt-finds.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/common-vulnerabilities-vapt-finds/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Common Vulnerabilities Our VAPT Security Services Find"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a VAPT engagement take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most engagements run two to four weeks depending on scope: number of applications, APIs, environments and the depth of testing required. Smaller, single-application tests can complete in as little as one week. We agree on timelines during scoping so there are no surprises."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will testing disrupt our production environment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We agree rules of engagement upfront, including testing windows, rate limits and excluded actions (e.g. destructive operations or payment capture). Most testing happens against staging environments where possible; where production testing is necessary, we coordinate timing with your team and avoid high-traffic periods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the retest really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every VAPT engagement includes one full retest cycle once your team has remediated the findings, at no additional cost. We re-verify each issue individually and issue a signed closure report confirming what was fixed, which is the document most auditors and enterprise customers ask for directly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can VAPT reports be used for compliance audits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our reports are structured specifically to support ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR evidence requirements. We map findings to the relevant control families and provide the closure documentation auditors expect to see alongside your remediation evidence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between black-box, grey-box and white-box testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Black-box testing simulates an external attacker with no prior access or knowledge. Grey-box gives testers limited credentials (e.g. a standard user account) to test authenticated functionality and access controls, which is the most common and realistic approach. White-box includes source code and architecture access for the deepest possible review. We'll recommend the right mix based on your goals and timeline."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">VAPT</span>
+          <span class="article-hero__date">22 Oct 2026 · 6 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Common Vulnerabilities Our VAPT Security Services Find</h1>
+        <p class="hero__lede rv" style="--d:2">Across web, mobile, API and cloud assessments, a handful of vulnerability classes account for most of the high and critical findings in our reports. Here's what our VAPT security services test for hardest, and what attackers go after first.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--signal" aria-hidden="true">{{ icon("target", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#broken-access-control-idor-bola">Broken Access Control (IDOR &amp; BOLA)</a></li>
+        <li><a href="#injection-sql-command-nosql">Injection (SQL, Command &amp; NoSQL)</a></li>
+        <li><a href="#cross-site-scripting-client-side-injection">Cross-Site Scripting &amp; Client-Side Injection</a></li>
+        <li><a href="#security-misconfiguration-cloud-drift">Security Misconfiguration &amp; Cloud Drift</a></li>
+        <li><a href="#authentication-session-token-flaws">Authentication, Session &amp; Token Flaws</a></li>
+        <li><a href="#server-side-request-forgery-ssrf">Server-Side Request Forgery (SSRF)</a></li>
+        <li><a href="#sensitive-data-excessive-exposure">Sensitive Data &amp; Excessive Exposure</a></li>
+        <li><a href="#vulnerable-outdated-components">Vulnerable &amp; Outdated Components</a></li>
+        <li><a href="#faq">Frequently Asked Questions About VAPT Security Services</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="broken-access-control-idor-bola">
+        <h2>Broken Access Control (IDOR &amp; BOLA)</h2>
+        <p>This is the single most common critical finding across our engagements: an endpoint trusts an ID in the URL or token instead of verifying that the requesting user actually owns that record. Object-level checks tend to get implemented for the "main" flow and quietly skipped on admin tools, export endpoints, and v2 API routes added later.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Automated scanners can't reason about "does this user own this object." Finding it requires testing every sensitive endpoint with two real accounts of different privilege side by side, which is exactly how our testers work.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="injection-sql-command-nosql">
+        <h2>Injection (SQL, Command &amp; NoSQL)</h2>
+        <p>Classic injection hasn't gone away; it's just moved. ORMs and prepared statements cut down the obvious cases, but raw query builders, dynamic sort/filter parameters, and NoSQL operator injection (<code>$where</code>, <code>$ne</code>) in MongoDB-style stores remain wide open in practice. Second-order injection, where tainted data is stored safely but later concatenated into a query elsewhere, is one we routinely find that scanners don't chain together.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>"We use an ORM so we're safe" is the most common false sense of security we encounter, and we specifically hunt for the raw-query and dynamic-field exceptions teams forget they wrote.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="cross-site-scripting-client-side-injection">
+        <h2>Cross-Site Scripting &amp; Client-Side Injection</h2>
+        <p>Modern frameworks auto-escape rendered output, which has pushed XSS toward less obvious sinks: <code>postMessage</code> handlers with no origin check, client-side template injection in dynamic dashboards, mutation XSS that survives sanitizers, and "rich text" fields that re-enter the DOM unescaped via <code>innerHTML</code>. A working XSS chain is often enough to silently exfiltrate session tokens or trigger actions as the victim.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>A passing CSP scan or a "we use React" assumption often hides the one custom component that bypasses both, so we test the actual rendering paths, not just the framework defaults.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="security-misconfiguration-cloud-drift">
+        <h2>Security Misconfiguration &amp; Cloud Drift</h2>
+        <p>In cloud-native environments, misconfiguration is rarely a single bad setting; it's drift between staging and production: a debug endpoint left enabled, an internal admin panel reachable from the public internet, an S3 bucket or storage container with a policy that's broader than anyone realizes, or a Kubernetes dashboard exposed without authentication. Each one looks minor in isolation but often becomes the entry point for everything else.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Config baselines get reviewed once at launch and rarely again, so we re-map your live external surface at test time, not against an outdated architecture diagram.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="authentication-session-token-flaws">
+        <h2>Authentication, Session &amp; Token Flaws</h2>
+        <p>Most teams harden the login form and stop there, but the riskier surface is everything around it: JWTs accepted with <code>alg: none</code> or a weak shared secret, refresh tokens that remain valid after logout or password reset, predictable password-reset tokens, and missing step-up authentication (MFA) on sensitive actions like changing an email address or exporting data.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>We test the full session lifecycle (login, refresh, logout, password reset, account recovery), not just the initial sign-in, which is where most authentication testing stops.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="server-side-request-forgery-ssrf">
+        <h2>Server-Side Request Forgery (SSRF)</h2>
+        <p>Any feature that fetches a URL on the server's behalf (link previews, webhook configuration, file imports, PDF generation) is a potential SSRF entry point. In cloud deployments, that single feature can be coerced into reaching the instance metadata endpoint (<code>169.254.169.254</code>) and handing over the temporary credentials your application's cloud role holds, turning a "fetch this URL" feature into full account compromise.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Blind SSRF, where there's no visible response, needs out-of-band detection infrastructure to confirm. We run this on every URL-handling feature, not just the obviously risky ones.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="sensitive-data-excessive-exposure">
+        <h2>Sensitive Data &amp; Excessive Exposure</h2>
+        <p>The data that leaks is rarely what's rendered on screen; it's what's sitting in the API response behind it. Over-fetching endpoints that return entire internal objects, mass-assignment bugs that let a client set fields like <code>role</code> or <code>isAdmin</code>, PII written to application logs, and secrets committed to repositories are the patterns we find most often, and each one is invisible from the UI alone.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>We inspect the raw API payloads and request/response bodies field-by-field, not just what the front end chooses to display.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="vulnerable-outdated-components">
+        <h2>Vulnerable &amp; Outdated Components</h2>
+        <p>A long list of CVEs from an SCA tool is the easy part. The harder, more useful question is which of those vulnerable functions are actually reachable from user input in your application. We focus on reachability and exploitability, not just version numbers, because that's also exactly how an attacker scopes their next move once they fingerprint your stack.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>"We have an SCA scan" tells you what's installed, not what's exploitable. We validate which flagged CVEs have a real path from attacker input to vulnerable code.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About VAPT Security Services</h2>
+        <div class="a-faq">
+          <div>
+            <h3>How long does a VAPT engagement take?</h3>
+            <p class="is-sm">Most engagements run two to four weeks depending on scope: number of applications, APIs, environments and the depth of testing required. Smaller, single-application tests can complete in as little as one week. We agree on timelines during scoping so there are no surprises.</p>
+          </div>
+          <div>
+            <h3>Will testing disrupt our production environment?</h3>
+            <p class="is-sm">We agree rules of engagement upfront, including testing windows, rate limits and excluded actions (e.g. destructive operations or payment capture). Most testing happens against staging environments where possible; where production testing is necessary, we coordinate timing with your team and avoid high-traffic periods.</p>
+          </div>
+          <div>
+            <h3>Is the retest really free?</h3>
+            <p class="is-sm">Yes. Every VAPT engagement includes one full retest cycle once your team has remediated the findings, at no additional cost. We re-verify each issue individually and issue a signed closure report confirming what was fixed, which is the document most auditors and enterprise customers ask for directly.</p>
+          </div>
+          <div>
+            <h3>Can VAPT reports be used for compliance audits?</h3>
+            <p class="is-sm">Yes, our reports are structured specifically to support ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR evidence requirements. We map findings to the relevant control families and provide the closure documentation auditors expect to see alongside your remediation evidence.</p>
+          </div>
+          <div>
+            <h3>What's the difference between black-box, grey-box and white-box testing?</h3>
+            <p class="is-sm">Black-box testing simulates an external attacker with no prior access or knowledge. Grey-box gives testers limited credentials (e.g. a standard user account) to test authenticated functionality and access controls, which is the most common and realistic approach. White-box includes source code and architecture access for the deepest possible review. We'll recommend the right mix based on your goals and timeline.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/vapt-security-services/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">VAPT Security Services</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/enterprise-vapt-guide/">
+            <p class="a-label">Guide</p>
+            <p class="reading__title">Enterprise VAPT Guide</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With Our VAPT Security Services</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your application, API, cloud or network environment and we'll scope a VAPT security services engagement that fits your timeline and budget.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/enterprise-vapt-guide/">Download the VAPT Guide {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

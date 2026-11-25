@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Explorer — sticky media stack on the left that follows the list item in
+   view on the right. Markup: [data-explorer] > .explorer__media (frames with
+   [data-explorer-media]) + .explorer__list ([data-explorer-item] rows).
+   Swap each placeholder frame for an <img> when images arrive.
+   ========================================================================== */
+
+.explorer {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+}
+
+.explorer__media {
+  grid-column: 1 / span 5;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+.explorer__stack {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line-strong);
+}
+.explorer__frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+.explorer__frame .ph { height: 100%; aspect-ratio: auto; border: 0; }
+.explorer__frame.is-active { opacity: 1; }
+html:not(.js) .explorer__frame:first-child { opacity: 1; }
+
+.explorer__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.875rem;
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  color: var(--stone-500);
+}
+.explorer__meta strong { color: var(--ink-900); font-weight: 500; }
+
+.explorer__list {
+  grid-column: 7 / -1;
+  border-top: 1px solid var(--line-strong);
+}
+.explorer__item {
+  position: relative;
+  padding-block: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.explorer__item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--gutter) * -0.6);
+  top: -1px;
+  bottom: -1px;
+  width: 3px;
+  background: var(--signal-500);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-2) var(--ease);
+}
+.explorer__item.is-active::before { transform: scaleY(1); }
+
+.explorer__name {
+  font-size: var(--fs-2xl);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+.explorer__name a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color var(--dur-1);
+}
+.explorer__name a:hover { color: var(--signal-700); }
+.explorer__num {
+  margin-right: 0.75rem;
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  vertical-align: 0.6em;
+  color: var(--stone-500);
+  transition: color var(--dur-2);
+}
+.explorer__item.is-active .explorer__num { color: var(--signal-700); }
+.explorer__name .btn__icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--stone-400);
+  transition: transform var(--dur-2) var(--ease), color var(--dur-2);
+}
+.explorer__name a:hover .btn__icon { color: var(--signal-700); transform: translateX(4px); }
+.explorer__sub {
+  margin-top: 0.875rem;
+  font-size: var(--fs-lg);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+}
+.explorer__text {
+  margin-top: 0.625rem;
+  max-width: 62ch;
+  color: var(--ink-700);
+}
+
+@media (max-width: 1024px) {
+  .explorer__media { display: none; }
+  .explorer__list { grid-column: 1 / -1; }
+}
+
+/* Smaller screens hide the sticky frame, so each item shows its own image inline
+   (decorative duplicate of the frame image: empty alt) */
+.explorer__inline { display: none; }
+@media (max-width: 1024px) {
+  .explorer__inline {
+    display: block;
+    width: 100%;
+    max-width: 26rem;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--line-strong);
+  }
+}

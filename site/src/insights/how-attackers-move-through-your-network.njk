@@ -1,0 +1,273 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "How Attackers Move Through Your Network — and How We Test It | CipherTrivia Insights"
+description: "Network compromise is rarely a single exploit. Attackers chain together reconnaissance, initial access, privilege escalation, and lateral movement to reach their objective."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["How Attackers Move Through Your Network — and How We Test It"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How Attackers Move Through Your Network — and How We Test It",
+      "description": "Network compromise is rarely a single exploit. Attackers chain together reconnaissance, initial access, privilege escalation, and lateral movement to reach their objective.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/how-attackers-move-through-your-network/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-how-attackers-move-through-your-network.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/how-attackers-move-through-your-network/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Attackers Move Through Your Network — and How We Test It"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between external and internal network penetration testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "External testing targets your internet-facing perimeter — public IPs, DNS, firewalls, VPN gateways, and exposed services — simulating an attacker with no internal access. Internal testing starts from inside the corporate network (or a VPN-connected position) and evaluates what an attacker who has bypassed perimeter controls, or a malicious insider, can reach. Both are required for a complete picture because external hardening alone does not prevent lateral movement once an attacker gains initial access through phishing, supply-chain compromise, or a compromised endpoint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will network penetration testing disrupt production systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We agree on rules of engagement, testing windows, and excluded actions before testing begins. Exploitation is controlled and non-destructive — we avoid denial-of-service conditions, do not modify production data, and coordinate timing with your operations team. In critical environments such as OT/ICS networks, we limit testing to passive reconnaissance and configuration review unless active testing is explicitly authorised by the asset owner."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a network security test take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A focused external perimeter test typically completes in one to two weeks. A combined external and internal assessment with Active Directory testing runs two to four weeks depending on the number of subnets, hosts, and domains in scope. Timelines are agreed during the scoping phase so your team can plan maintenance windows and access provisioning accordingly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you test Active Directory environments specifically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Active Directory assessment is a core component of our internal network testing, not an optional add-on. We test for Kerberoasting, AS-REP roasting, unconstrained and constrained delegation abuse, ACL misconfigurations (WriteDACL, GenericAll, GenericWrite), Group Policy weaknesses, AD Certificate Services template abuse (ESC1 through ESC8), password policy enforcement, privileged group membership, and trust relationship exploitation across forests and domains."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What standards and frameworks does your network testing follow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our testing methodology aligns to PTES (Penetration Testing Execution Standard), NIST SP 800-115 (Technical Guide to Information Security Testing and Assessment), CIS Controls for network hardening benchmarks, and the MITRE ATT&CK; framework for mapping techniques to real-world adversary behaviour. Findings are scored using CVSS 4.0 and mapped to the relevant control families for ISO 27001, SOC 2, PCI DSS, and NIST CSF compliance evidence."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">Network Security</span>
+          <span class="article-hero__date">22 Oct 2026 · 5 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">How Attackers Move Through Your Network — and How We Test It</h1>
+        <p class="hero__lede rv" style="--d:2">Network compromise is rarely a single exploit. Attackers chain together reconnaissance, initial access, privilege escalation, and lateral movement to reach their objective. Our network security testing services replicate each stage of this kill chain to find the paths before a real adversary does.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--signal" aria-hidden="true">{{ icon("lateral", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#external-perimeter-breach">External Perimeter Breach</a></li>
+        <li><a href="#service-exploitation-initial-access">Service Exploitation &amp; Initial Access</a></li>
+        <li><a href="#active-directory-privilege-escalation">Active Directory Privilege Escalation</a></li>
+        <li><a href="#lateral-movement-pivoting">Lateral Movement &amp; Pivoting</a></li>
+        <li><a href="#credential-harvesting-pass-the-hash">Credential Harvesting &amp; Pass-the-Hash</a></li>
+        <li><a href="#data-exfiltration-impact">Data Exfiltration &amp; Impact</a></li>
+        <li><a href="#faq">Frequently Asked Questions About Network Security Testing</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="external-perimeter-breach">
+        <h2>External Perimeter Breach</h2>
+        <p>The first objective is gaining a foothold from the outside. We map your entire internet-facing attack surface — public IPs, DNS records, exposed services, SSL/TLS configurations, and externally reachable management interfaces. Port scanning across the full TCP and UDP range identifies services that should not be publicly accessible: forgotten development instances, database ports, RDP endpoints, and administrative consoles left open after a cloud migration or infrastructure change.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>Full-range Nmap and Masscan sweeps, banner grabbing, service fingerprinting, SSL/TLS analysis, and targeted exploitation of identified vulnerabilities on perimeter hosts. We validate every finding manually before reporting it.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="service-exploitation-initial-access">
+        <h2>Service Exploitation &amp; Initial Access</h2>
+        <p>Once exposed services are identified, we attempt exploitation of known vulnerabilities (CVEs in unpatched services), default or weak credentials on network devices, SNMP community strings, and misconfigured services like FTP, SMB, or IPMI. The goal is to convert a network-level finding into an actual shell or authenticated session that demonstrates real access, not just a theoretical vulnerability.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>Targeted exploitation using Metasploit, manual exploit scripts, credential spraying against identified services, SNMP enumeration, and default credential testing against routers, switches, firewalls, and out-of-band management interfaces (iLO, iDRAC, IPMI).</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="active-directory-privilege-escalation">
+        <h2>Active Directory Privilege Escalation</h2>
+        <p>Active Directory is the backbone of most enterprise networks, and the most common path to full domain compromise. We enumerate SPNs for Kerberoasting, identify accounts without pre-authentication for AS-REP roasting, map ACL misconfigurations that allow low-privilege users to modify privileged groups, and test for unconstrained delegation, certificate template abuse (ESC1-ESC8), and GPO permission weaknesses that lead to Domain Admin.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>BloodHound path analysis, Rubeus for Kerberos attacks, Certify for AD CS abuse, PowerView for ACL enumeration, and manual exploitation of identified privilege escalation paths through the domain trust hierarchy.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="lateral-movement-pivoting">
+        <h2>Lateral Movement &amp; Pivoting</h2>
+        <p>With initial access established, we test how far an attacker can move through the network. This means pivoting between subnets, exploiting trust relationships between systems, testing whether network segmentation actually blocks cross-VLAN traffic, and identifying hosts where credentials or sessions can be reused. Flat networks with no segmentation typically allow an attacker to reach every system from any initial foothold.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>SMB relay attacks, WMI and PSExec execution across hosts, SSH key reuse, RDP session hijacking, VLAN hop testing, and systematic verification of firewall rules between each trust zone in the network architecture.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="credential-harvesting-pass-the-hash">
+        <h2>Credential Harvesting &amp; Pass-the-Hash</h2>
+        <p>Credentials are the most reused asset in enterprise networks. We extract NTLM hashes from compromised hosts, test for pass-the-hash and pass-the-ticket attacks, enumerate credentials stored in Group Policy Preferences, LSASS memory, registry hives, and configuration files. Service accounts with weak passwords set years ago and never rotated are consistently the most reliable path to privilege escalation in real engagements.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>Mimikatz for credential extraction, Hashcat for offline cracking of Kerberos and NTLM hashes, Impacket for relay attacks, and systematic enumeration of stored credentials in GPP, SYSVOL, and local credential stores.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="data-exfiltration-impact">
+        <h2>Data Exfiltration &amp; Impact</h2>
+        <p>The final stage demonstrates real business impact. We test whether sensitive data (database exports, file shares containing PII, source code repositories, backup files) can be accessed and exfiltrated through the network without triggering detection. This includes testing egress filtering controls, DNS tunnelling, HTTP/S exfiltration channels, and whether DLP controls actually detect outbound data movement from compromised hosts.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we test it</p>
+          <p>Controlled data exfiltration attempts over DNS, HTTPS and ICMP channels, egress port testing, file share enumeration, database access validation, and assessment of whether SIEM and DLP controls detect the activity.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About Network Security Testing</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What is the difference between external and internal network penetration testing?</h3>
+            <p class="is-sm">External testing targets your internet-facing perimeter — public IPs, DNS, firewalls, VPN gateways, and exposed services — simulating an attacker with no internal access. Internal testing starts from inside the corporate network (or a VPN-connected position) and evaluates what an attacker who has bypassed perimeter controls, or a malicious insider, can reach. Both are required for a complete picture because external hardening alone does not prevent lateral movement once an attacker gains initial access through phishing, supply-chain compromise, or a compromised endpoint.</p>
+          </div>
+          <div>
+            <h3>Will network penetration testing disrupt production systems?</h3>
+            <p class="is-sm">We agree on rules of engagement, testing windows, and excluded actions before testing begins. Exploitation is controlled and non-destructive — we avoid denial-of-service conditions, do not modify production data, and coordinate timing with your operations team. In critical environments such as OT/ICS networks, we limit testing to passive reconnaissance and configuration review unless active testing is explicitly authorised by the asset owner.</p>
+          </div>
+          <div>
+            <h3>How long does a network security test take?</h3>
+            <p class="is-sm">A focused external perimeter test typically completes in one to two weeks. A combined external and internal assessment with Active Directory testing runs two to four weeks depending on the number of subnets, hosts, and domains in scope. Timelines are agreed during the scoping phase so your team can plan maintenance windows and access provisioning accordingly.</p>
+          </div>
+          <div>
+            <h3>Do you test Active Directory environments specifically?</h3>
+            <p class="is-sm">Yes. Active Directory assessment is a core component of our internal network testing, not an optional add-on. We test for Kerberoasting, AS-REP roasting, unconstrained and constrained delegation abuse, ACL misconfigurations (WriteDACL, GenericAll, GenericWrite), Group Policy weaknesses, AD Certificate Services template abuse (ESC1 through ESC8), password policy enforcement, privileged group membership, and trust relationship exploitation across forests and domains.</p>
+          </div>
+          <div>
+            <h3>What standards and frameworks does your network testing follow?</h3>
+            <p class="is-sm">Our testing methodology aligns to PTES (Penetration Testing Execution Standard), NIST SP 800-115 (Technical Guide to Information Security Testing and Assessment), CIS Controls for network hardening benchmarks, and the MITRE ATT&CK; framework for mapping techniques to real-world adversary behaviour. Findings are scored using CVSS 4.0 and mapped to the relevant control families for ISO 27001, SOC 2, PCI DSS, and NIST CSF compliance evidence.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/network-security-testing/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">Network Security Testing</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/network-security-checklist/">
+            <p class="a-label">Checklist</p>
+            <p class="reading__title">Network Security Checklist</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With Network Security Testing</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your network environment — IP ranges, Active Directory domains, compliance requirements — and we will scope a network security testing engagement that fits your timeline and budget.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/network-security-checklist/">Download Network Checklist {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

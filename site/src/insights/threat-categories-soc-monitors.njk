@@ -1,0 +1,269 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Threat Categories Our SOC as a Service Monitors | CipherTrivia Insights"
+description: "These are the six threat categories that generate the majority of escalated incidents across our managed SOC engagements."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Threat Categories Our SOC as a Service Monitors"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Threat Categories Our SOC as a Service Monitors",
+      "description": "These are the six threat categories that generate the majority of escalated incidents across our managed SOC engagements.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/threat-categories-soc-monitors/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-threat-categories-soc-monitors.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/threat-categories-soc-monitors/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Threat Categories Our SOC as a Service Monitors"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SOC as a Service and how does it differ from an in-house SOC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SOC as a Service is a fully managed security operations model where an external team provides 24×7 monitoring, threat detection, alert triage and incident response on your behalf. Unlike an in-house SOC, which requires recruiting, training and retaining a full analyst team plus purchasing and maintaining SIEM infrastructure, a managed SOC delivers the same operational coverage with significantly lower upfront investment and faster time to value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What log sources and environments does the SOC monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We ingest logs from SIEM platforms (Splunk, Microsoft Sentinel, Elastic), endpoint detection and response (EDR) tools, firewalls, VPN concentrators, cloud platforms (AWS CloudTrail, Azure Activity Log, GCP Audit Logs), identity providers, email security gateways and custom application logs. During onboarding we map your environment and confirm every critical log source is connected."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly does the SOC respond to a critical alert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our average triage time for critical alerts is under 15 minutes from detection to initial analyst review. Confirmed incidents are escalated immediately with containment recommendations, and a full incident report is delivered within the timeline agreed in your service-level agreement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can SOC as a Service support compliance requirements like SOC 2, ISO 27001 or PCI DSS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Monthly and quarterly reports are structured to provide evidence for SOC 2 Type II, ISO 27001 Annex A, PCI DSS, HIPAA and GDPR requirements. Log retention policies, incident documentation and access-control evidence are maintained in formats auditors expect to see."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need to replace our existing SIEM to use SOC as a Service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We integrate with your existing SIEM deployment, whether it is Splunk, Microsoft Sentinel, Elastic, QRadar or another platform. If you do not have a SIEM in place, we can deploy and manage one as part of the onboarding process. The goal is to work with your current tooling, not replace it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">SOC &amp; Monitoring</span>
+          <span class="article-hero__date">22 Oct 2026 · 5 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Threat Categories Our SOC as a Service Monitors</h1>
+        <p class="hero__lede rv" style="--d:2">These are the six threat categories that generate the majority of escalated incidents across our managed SOC engagements. Each requires different detection logic, different investigation workflows and different containment strategies.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--ink" aria-hidden="true">{{ icon("radar", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#unauthorized-access-credential-abuse">Unauthorized Access &amp; Credential Abuse</a></li>
+        <li><a href="#malware-ransomware-detection">Malware &amp; Ransomware Detection</a></li>
+        <li><a href="#insider-threats-data-exfiltration">Insider Threats &amp; Data Exfiltration</a></li>
+        <li><a href="#cloud-account-compromise">Cloud Account Compromise</a></li>
+        <li><a href="#lateral-movement-persistence">Lateral Movement &amp; Persistence</a></li>
+        <li><a href="#business-email-compromise">Business Email Compromise</a></li>
+        <li><a href="#faq">Frequently Asked Questions About SOC as a Service</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="unauthorized-access-credential-abuse">
+        <h2>Unauthorized Access &amp; Credential Abuse</h2>
+        <p>Credential stuffing, password spraying, stolen session tokens and compromised API keys represent the most common initial access vector we see across managed SOC engagements. Attackers use credential dumps from third-party breaches to attempt logins at scale, often spreading attempts across hundreds of source IPs to stay below standard rate-limit thresholds. Our detection rules correlate failed authentication events across multiple log sources (VPN, SSO, email, cloud console) to surface distributed attacks that single-source rules miss.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>Cross-source correlation of authentication failures, impossible-travel analysis, credential-reuse detection against known breach databases, and behavioral baselining of normal login patterns per user and per service.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="malware-ransomware-detection">
+        <h2>Malware &amp; Ransomware Detection</h2>
+        <p>Modern malware families use fileless execution, living-off-the-land binaries (LOLBins), process injection and encrypted C2 channels to evade signature-based detection. Ransomware operators increasingly spend days or weeks inside a network before encryption, exfiltrating data first to maximize leverage. Our SOC correlates EDR telemetry, network traffic anomalies and SIEM events to detect the staging and lateral-movement phases before the ransomware payload executes.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>Behavioral analysis of process trees, LOLBin usage patterns, anomalous file-system operations at scale (mass rename or encryption indicators), C2 beaconing detection via JA3/JA4 fingerprinting, and DNS request anomaly scoring.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="insider-threats-data-exfiltration">
+        <h2>Insider Threats &amp; Data Exfiltration</h2>
+        <p>Insider threats are among the hardest to detect because the attacker already has legitimate access. Whether it is a disgruntled employee downloading customer databases, a compromised service account staging data for exfiltration, or a contractor with over-provisioned access copying intellectual property, the activity often looks normal unless you have a behavioral baseline to compare against. Our analysts monitor data movement patterns, access anomalies and DLP signals to identify exfiltration before the data leaves your perimeter.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>User and entity behavior analytics (UEBA), anomalous data-volume tracking per user/role, USB and removable media monitoring, cloud storage upload anomaly detection, and off-hours access correlation.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="cloud-account-compromise">
+        <h2>Cloud Account Compromise</h2>
+        <p>Attackers who gain access to cloud management consoles or API keys can create new IAM roles, launch compute instances for cryptomining, modify security group rules, or access data stores directly, all without ever touching an endpoint in your corporate network. Cloud account compromise is particularly dangerous because the blast radius extends to every resource the compromised identity can reach, and standard EDR tools have no visibility into control-plane actions.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>CloudTrail / Azure Activity Log / GCP Audit Log analysis for privilege escalation patterns, unusual region usage, API key creation from unknown IPs, security group modifications, and resource provisioning outside of change-management windows.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="lateral-movement-persistence">
+        <h2>Lateral Movement &amp; Persistence</h2>
+        <p>Once inside a network, attackers move laterally using techniques like pass-the-hash, PsExec, WMI, RDP hijacking and exploitation of internal services to reach higher-value targets. They establish persistence through scheduled tasks, registry run keys, service installations, golden tickets or compromised service accounts. These activities generate telemetry across multiple data sources, but only show up as malicious when correlated together, which is exactly what a 24&times;7 SOC operation is designed to do.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>Correlation of authentication events across hosts, anomalous service installations, scheduled task creation in non-standard paths, east-west traffic anomaly detection, and Kerberos ticket-granting anomaly analysis.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="business-email-compromise">
+        <h2>Business Email Compromise</h2>
+        <p>Business email compromise (BEC) attacks bypass technical controls entirely by exploiting trust between people. An attacker gains access to a legitimate mailbox (typically through credential theft or session hijacking), monitors email threads, and then injects a fraudulent message at the right moment, usually requesting a wire transfer, vendor payment redirection or sensitive document. Because the email comes from a real internal address, spam filters and link scanners rarely flag it. Detection requires monitoring mailbox behavior, forwarding-rule changes and login anomalies on email infrastructure.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">How we detect it</p>
+          <p>Mailbox forwarding-rule creation alerts, inbox-rule manipulation detection, anomalous email sending patterns, OAuth application consent monitoring, and correlation of email access events with authentication anomalies.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About SOC as a Service</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What is SOC as a Service and how does it differ from an in-house SOC?</h3>
+            <p class="is-sm">SOC as a Service is a fully managed security operations model where an external team provides 24&times;7 monitoring, threat detection, alert triage and incident response on your behalf. Unlike an in-house SOC, which requires recruiting, training and retaining a full analyst team plus purchasing and maintaining SIEM infrastructure, a managed SOC delivers the same operational coverage with significantly lower upfront investment and faster time to value.</p>
+          </div>
+          <div>
+            <h3>What log sources and environments does the SOC monitor?</h3>
+            <p class="is-sm">We ingest logs from SIEM platforms (Splunk, Microsoft Sentinel, Elastic), endpoint detection and response (EDR) tools, firewalls, VPN concentrators, cloud platforms (AWS CloudTrail, Azure Activity Log, GCP Audit Logs), identity providers, email security gateways and custom application logs. During onboarding we map your environment and confirm every critical log source is connected.</p>
+          </div>
+          <div>
+            <h3>How quickly does the SOC respond to a critical alert?</h3>
+            <p class="is-sm">Our average triage time for critical alerts is under 15 minutes from detection to initial analyst review. Confirmed incidents are escalated immediately with containment recommendations, and a full incident report is delivered within the timeline agreed in your service-level agreement.</p>
+          </div>
+          <div>
+            <h3>Can SOC as a Service support compliance requirements like SOC 2, ISO 27001 or PCI DSS?</h3>
+            <p class="is-sm">Yes. Monthly and quarterly reports are structured to provide evidence for SOC 2 Type II, ISO 27001 Annex A, PCI DSS, HIPAA and GDPR requirements. Log retention policies, incident documentation and access-control evidence are maintained in formats auditors expect to see.</p>
+          </div>
+          <div>
+            <h3>Do we need to replace our existing SIEM to use SOC as a Service?</h3>
+            <p class="is-sm">No. We integrate with your existing SIEM deployment, whether it is Splunk, Microsoft Sentinel, Elastic, QRadar or another platform. If you do not have a SIEM in place, we can deploy and manage one as part of the onboarding process. The goal is to work with your current tooling, not replace it.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/soc-as-a-service/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">SOC as a Service</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With SOC as a Service</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your environment, your current tooling and your monitoring requirements. We will scope a SOC as a Service engagement that fits your security operations needs.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/services/">Explore All Services {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Flow — horizontal sequence of steps sitting on a rail with square nodes.
+   Columns via --flow-cols (default 3). Collapses to a vertical rail on mobile.
+   ========================================================================== */
+
+.flow {
+  --flow-cols: 3;
+  display: grid;
+  grid-template-columns: repeat(var(--flow-cols), minmax(0, 1fr));
+  row-gap: 3rem;
+}
+.flow--5 { --flow-cols: 5; }
+
+.flow__step {
+  position: relative;
+  padding: 2.5rem clamp(1rem, 0.5rem + 1.6vw, 2.25rem) 0 0;
+  border-top: 1px solid var(--line-strong);
+}
+.flow__step::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: var(--paper-50);
+  border: 1px solid var(--ink-950);
+  transition: background var(--dur-2), border-color var(--dur-2);
+}
+.section--stone .flow__step::before { background: var(--paper-100); }
+.section--white .flow__step::before { background: var(--paper-0); }
+.flow__step:hover::before,
+.flow__step--key::before { background: var(--signal-500); border-color: var(--signal-500); }
+
+/* Step icon above the label (no step numbers) */
+.flow__step > .ico { margin-bottom: 1.25rem; }
+
+.flow__label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;   /* the brief writes these labels in capitals */
+  color: var(--signal-700);
+  font-weight: 500;
+}
+.flow__title {
+  margin-top: 1rem;
+  font-size: var(--fs-xl);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+}
+.flow__text {
+  margin-top: 0.875rem;
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: var(--ink-700);
+}
+
+/* Dark variant */
+.section--ink .flow__step { border-top-color: var(--line-inv-strong); }
+.section--ink .flow__step::before { background: var(--ink-950); border-color: var(--stone-400); }
+.section--ink .flow__step:hover::before,
+.section--ink .flow__step--key::before { background: var(--signal-500); border-color: var(--signal-500); }
+.section--ink .flow__label { color: var(--signal-500); }
+.section--ink .flow__title { color: var(--paper-50); }
+.section--ink .flow__text { color: var(--stone-300); }
+
+/* Larger titles when there are only three steps */
+.flow:not(.flow--5) .flow__title { font-size: var(--fs-2xl); font-weight: 400; letter-spacing: -0.03em; }
+
+@media (max-width: 1180px) {
+  .flow--5 { --flow-cols: 3; }
+}
+@media (max-width: 900px) {
+  .flow { --flow-cols: 1; row-gap: 0; }
+  .flow--5 { --flow-cols: 1; }
+  .flow__step {
+    padding: 0 0 2.75rem 2rem;
+    border-top: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+  .section--ink .flow__step { border-left-color: var(--line-inv-strong); }
+  .flow__step:last-child { padding-bottom: 0.5rem; }
+  .flow__step::before { top: 0.15rem; left: -8px; }
+}

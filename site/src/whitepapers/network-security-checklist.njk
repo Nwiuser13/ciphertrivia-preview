@@ -1,0 +1,242 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Network Security Checklist | CipherTrivia Whitepapers"
+description: "Three real attack paths CipherTrivia's network security team uses during internal penetration tests, a segmentation reference diagram, and a two-tier checklist for hardening your network."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Network Security Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Network Security Checklist",
+      "description": "Three real attack paths CipherTrivia's network security team uses during internal penetration tests, a segmentation reference diagram, and a two-tier checklist for hardening your network.",
+      "url": "https://www.ciphertrivia.com/whitepapers/network-security-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-network-security-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/network-security-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Network Security Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Network Security</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Network Security Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">Three attack paths we use to get from "one compromised laptop" to "domain admin" during internal penetration tests, plus the two-tier checklist that closes them.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Network Security</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>9 minutes</dd></div>
+        <div class="article-meta__row"><dt>Based on:</dt><dd>CipherTrivia internal network penetration tests</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#three-ways-we-get-in">Three Ways We Get In</a></li>
+          <li><a href="#a-segmentation-reference-diagram">A Segmentation Reference Diagram</a></li>
+          <li><a href="#the-checklist">The Checklist</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          "We have a firewall and a VPN, so the internal network is fine" is the sentence that, more than any other, tells me an internal <a href="/services/penetration-testing/">penetration test</a> is going to go quickly. The internet-facing perimeter has gotten a lot of attention over the years. What's behind it usually hasn't.
+        </p>
+        <p>
+          On most internal engagements, our starting point is a single low-privilege foothold: a regular employee laptop, or a guest Wi-Fi connection. What happens next is rarely about exotic exploits. It's almost always one of three things below.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="three-ways-we-get-in">
+        <h2>Three Ways We Get In</h2>
+
+        <div class="a-stack a-stack--lg">
+          <div class="a-card">
+            <p class="a-label">Scenario 01</p>
+            <h3>The Flat Network</h3>
+            <p>From a guest or office VLAN, we run a basic network scan and discover we can reach finance servers, internal admin panels and database ports directly, because nothing actually separates "user network" from "server network." No exploit required; the network topology does the work for us.</p>
+          </div>
+          <div class="a-card">
+            <p class="a-label">Scenario 02</p>
+            <h3>Credential Reuse &amp; Lateral Movement</h3>
+            <p>A local administrator password is shared across most workstations, often set once during imaging and never rotated. Cracking or extracting it from one machine gives us admin on dozens. From there, cached domain credentials on one of those machines often belong to someone with much higher privileges.</p>
+          </div>
+          <div class="a-card">
+            <p class="a-label">Scenario 03</p>
+            <h3>Exposed Management Interfaces</h3>
+            <p>Switch, router, hypervisor and out-of-band management interfaces (iLO, iDRAC, IPMI) are reachable from general-purpose VLANs, often still on default or weak credentials. Access to a hypervisor management interface can mean access to every virtual machine running on it, including domain controllers.</p>
+          </div>
+        </div>
+
+        <p>None of these require zero-days. They're all design and hygiene issues, which is also why they're consistently fixable.</p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-segmentation-reference-diagram">
+        <h2>A Segmentation Reference Diagram</h2>
+        <p>
+          The diagram below is the segmentation model we recommend as a baseline: user, server, management and guest networks are separated into distinct zones, with a firewall enforcing rules between them, not just at the internet edge.
+        </p>
+
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/network-segmentation-architecture.png" alt="Diagram of a segmented internal network showing separate zones for user workstations, servers, management interfaces, and guest Wi-Fi, each connected through an internal firewall with explicit allow rules, and a jump host required for access to the management zone" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: A baseline segmentation model, where each zone can only reach what it explicitly needs to.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-checklist">
+        <h2>The Checklist</h2>
+        <p>We split this into two tiers: the first closes the scenarios above outright, and the second hardens what's left.</p>
+
+        <div>
+          <h3 class="a-inline"><span class="tag tag--critical">Tier 1</span> Fix Now</h3>
+          <ul class="check-list">
+            <li class="check"><span class="check__box">✓</span><p>User/office networks cannot directly reach database ports, admin panels or server management interfaces.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Local administrator passwords are unique per machine (e.g. via LAPS or equivalent), not a shared image-time password.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Hypervisor and out-of-band management interfaces (iLO/iDRAC/IPMI, switch/router admin) sit in a dedicated management VLAN, reachable only via a jump host.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Guest Wi-Fi is on a fully separate VLAN with no route to internal corporate networks.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>No default credentials remain on network devices, hypervisors or management interfaces.</p></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="a-inline"><span class="tag tag--medium">Tier 2</span> Strengthen Next</h3>
+          <ul class="check-list">
+            <li class="check"><span class="check__box">✓</span><p>Internal traffic between server-tier systems is also segmented by function (e.g. app servers can't directly reach all databases).</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Domain admin and other privileged accounts never log into standard workstations.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Network access control (802.1X or equivalent) prevents unknown devices from joining internal VLANs by plugging into a wall port.</p></li>
+            <li class="check"><span class="check__box">✓</span><p>Internal firewall rule sets are reviewed periodically to remove "temporary" rules that were never removed.</p></li>
+          </ul>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>We're moving everything to the cloud, so is internal network testing still relevant?</h3>
+            <p class="is-sm">Usually yes, in two forms: most organizations still have office networks, VPNs and at least some on-prem infrastructure (domain controllers, file servers, print servers) that can be a stepping stone. And the same segmentation thinking applies inside a VPC, so see our <a href="/whitepapers/cloud-security-assessment-checklist/">cloud security checklist</a> for the cloud-native equivalent.</p>
+          </div>
+          <div>
+            <h3>What does an internal penetration test actually involve?</h3>
+            <p class="is-sm">Typically, our consultant connects to your network the way a real attacker would gain a foothold (a provided laptop on the office network, or a VPN account), and then attempts to escalate privileges and move laterally, exactly as described in the three scenarios above.</p>
+          </div>
+          <div>
+            <h3>How disruptive is this kind of testing?</h3>
+            <p class="is-sm">We agree on rules of engagement upfront, including which techniques (e.g. password spraying, denial-of-service-adjacent tests) are in or out of scope, and maintain communication with your team throughout so nothing is mistaken for a real incident.</p>
+          </div>
+          <div>
+            <h3>Can you test our Wi-Fi specifically?</h3>
+            <p class="is-sm">Yes: wireless testing (rogue access points, WPA2/3 configuration, guest network isolation) is commonly scoped alongside an internal network test, especially for office-based organizations.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">RD</span>
+          <div>
+            <p class="a-strong">Rohan Desai</p>
+            <p class="a-meta is-sm">Senior Network Security Consultant, CipherTrivia · OSCP &amp; CCNP Security</p>
+            <p class="is-sm">Rohan runs internal and external network penetration tests at CipherTrivia, with a background in enterprise network engineering. He's particularly interested in how networks designed years ago quietly accumulate the "temporary" exceptions that make lateral movement easy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert network security testing?</h3>
+        <p class="svc-cta__text">Our network security team tests external and internal infrastructure for exposure.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/network-security-testing/">Explore Network Testing {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Curious how far an attacker could get on your network?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">An internal penetration test answers that question directly. See our <a href="/services/">network security services</a> for what's included.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,848 @@
+---
+layout: layouts/enterprise.njk
+title: "CipherTrivia | Cybersecurity Services Company, VAPT, & Cloud Security"
+description: "CipherTrivia is a cyber security services company offering VAPT, penetration testing, web and mobile app security testing, API security, cloud security and compliance services to protect businesses from cyber threats."
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What cybersecurity services does CipherTrivia offer?", "CipherTrivia offers cybersecurity services including Vulnerability Assessment and Penetration Testing (VAPT), web application security testing, API security assessments, cloud security reviews, infrastructure security assessments and AI-assisted security analysis. These services help businesses identify vulnerabilities, evaluate potential risks and prioritize security improvements."],
+  ["What is Vulnerability Assessment and Penetration Testing (VAPT)?", "Vulnerability Assessment and Penetration Testing (VAPT) helps organizations identify security weaknesses and understand how attackers could exploit them. A vulnerability assessment identifies potential security gaps, while penetration testing evaluates the practical impact of selected vulnerabilities within an authorized testing scope."],
+  ["Why does my business need a cybersecurity assessment?", "A cybersecurity assessment helps identify weaknesses in business applications, APIs, cloud environments and IT infrastructure before they lead to data exposure or operational disruption. It also helps businesses prioritize security investments, protect sensitive information and make informed decisions about risk reduction."],
+  ["How does AI improve cybersecurity?", "Artificial intelligence can help security teams analyze application code, system configurations and technical data to identify suspicious patterns and potential vulnerabilities. When combined with expert validation, AI-assisted cybersecurity can improve analysis efficiency, help prioritize threats and reduce the effort required to investigate irrelevant findings."],
+  ["What is the difference between vulnerability assessment and penetration testing?", "A vulnerability assessment focuses on identifying and evaluating security weaknesses across a defined environment. Penetration testing goes further by attempting to exploit selected vulnerabilities within an authorized scope to determine their potential impact. Both approaches help organizations understand security risks and plan corrective actions."],
+  ["Which industries can benefit from CipherTrivia's cybersecurity services?", "CipherTrivia's cybersecurity services can support SaaS and technology companies, banking and fintech organizations, healthcare providers, ecommerce businesses, manufacturers, logistics companies, startups and enterprises. Each assessment can focus on industry-specific risks involving applications, sensitive data, connected systems and digital infrastructure."],
+  ["Can CipherTrivia assess websites, APIs and cloud infrastructure?", "Yes. CipherTrivia can assess web applications, APIs, cloud environments and IT infrastructure based on the agreed scope of work. Security testing can identify access control weaknesses, insecure configurations, exposed services and other vulnerabilities that may affect business information or operations."],
+  ["What happens after cybersecurity vulnerabilities are identified?", "After an assessment, the findings can be documented in a structured security report with severity ratings, supporting evidence and recommended remediation steps. Development and IT teams can use these findings to prioritize fixes, while follow-up testing can help verify that reported vulnerabilities have been addressed."],
+  ["How long does a cybersecurity assessment take?", "The duration of a cybersecurity assessment depends on the size and complexity of the environment, the number of applications or systems being tested and the required testing depth. CipherTrivia can provide an estimated timeline after reviewing your business requirements and the proposed assessment scope."],
+  ["How can I get started with CipherTrivia?", "Contact CipherTrivia to discuss your cybersecurity requirements, the systems you want to assess and your primary security concerns. Our team can help define an appropriate assessment scope and explain the proposed testing approach, deliverables and next steps."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- BANNER                                                               -->
+<!-- ================================================================== -->
+<section class="hero hero-home hero-home--console" aria-labelledby="hero-title">
+  <div class="hero-home__grid" aria-hidden="true"></div>
+  <div class="hero-home__glow" aria-hidden="true"></div>
+  <div class="container" style="position:relative">
+    <a class="hero-home__news rv" href="/ai-security/"><span class="hero-home__new">New</span><span>AI Security Testing for LLM-based applications</span>{{ arrow() }}</a>
+    <h1 class="hero-home__title" id="hero-title">
+      <span class="rv-mask"><span>Cyber <span class="accent">Security</span></span></span>
+      <span class="rv-mask" style="--d:1"><span>Services Company</span></span>
+    </h1>
+
+    <div class="hero-home__row">
+      <p class="hero-home__tagline rv" style="--d:2">VAPT, Application, API &amp; Cloud Security Services for Modern Businesses</p>
+      <div class="hero-home__body">
+        <p class="hero__lede rv" style="--d:3">CipherTrivia, a leading cyber security company, provides advanced and comprehensive AI-assisted cyber security services to protect businesses against evolving cyber threats. Our expertise spans VAPT, penetration testing, application security, cloud security and compliance assessments, helping organizations identify vulnerabilities and strengthen their security posture.</p>
+        <div class="hero__actions rv" style="--d:4">
+          <a class="btn btn--signal" href="/contact/">Get a Security Assessment {{ arrow() }}</a>
+          <a class="btn btn--ghost" href="#services">Explore Our Services {{ arrow() }}</a>
+        </div>
+      </div>
+      <ul class="trustline rv" style="--d:4" aria-label="Credentials">
+        <li>{{ icon("badge", "bare") }}<span>ISO 27001 &amp; ISO 9001<small>Certified processes</small></span></li>
+        <li>{{ icon("globe", "bare") }}<span>600+ clients<small>Across 20+ countries</small></span></li>
+        <li>{{ icon("shield-check", "bare") }}<span>OWASP · PTES · NIST<small>Aligned methodology</small></span></li>
+        <li>{{ icon("buildings", "bare") }}<span>Powered by Nextwebi<small>15+ years of engineering</small></span></li>
+      </ul>
+    </div>
+
+    {% include "partials/enterprise/backed-strip.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 01 · SERVICES                                                        -->
+<!-- ================================================================== -->
+<section class="section section--white" id="services" aria-labelledby="s1-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s1-title">Proactive Cyber Security Strategies for a Resilient Digital Environment</h2>
+        <p class="shead__lede rv" style="--d:1">At CipherTrivia, we help businesses uncover hidden security gaps and address emerging cyber threats through a risk-driven approach to digital protection. Our specialists evaluate applications, infrastructure and cloud environments to identify weaknesses before they can be exploited. By combining AI-assisted threat analysis with security assessments and industry-aligned compliance practices, we help organizations reduce exposure, improve incident preparedness and build a stronger foundation for secure digital operations.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <a class="ledger__cell rv" href="/services/cybersecurity-consulting/">
+        <div class="ledger__head">{{ icon("compass") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Cyber Security Consulting</h3>
+        <p class="ledger__text">We assess security risks and define effective security strategies through risk assessments, security architecture reviews and compliance guidance.</p>
+        <p class="ledger__tags">Security Strategy · Risk Assessment · Compliance Guidance</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:1" href="/services/vapt-security-services/">
+        <div class="ledger__head">{{ icon("target") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">VAPT Security Services</h3>
+        <p class="ledger__text">We identify and validate security vulnerabilities through AI-assisted analysis and expert-led vulnerability assessments and penetration testing.</p>
+        <p class="ledger__tags">Vulnerability Assessment · Penetration Testing · Remediation Guidance</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:2" href="/services/penetration-testing/">
+        <div class="ledger__head">{{ icon("terminal") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Penetration Testing</h3>
+        <p class="ledger__text">Simulation of real-world cyberattacks to uncover exploitable weaknesses across applications, networks and infrastructure before attackers can target them.</p>
+        <p class="ledger__tags">Manual Testing · Exploit Validation · Risk Prioritization</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:3" href="/services/web-application-security-testing/">
+        <div class="ledger__head">{{ icon("browser") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Web Application Security Testing</h3>
+        <p class="ledger__text">We detect security flaws in web applications through in-depth testing of authentication, authorization, business logic and data protection mechanisms.</p>
+        <p class="ledger__tags">OWASP Top 10 · Authentication Testing · Business Logic Testing</p>
+      </a>
+      <a class="ledger__cell rv" href="/services/mobile-application-security-testing/">
+        <div class="ledger__head">{{ icon("mobile") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Mobile Application Security Testing</h3>
+        <p class="ledger__text">We evaluate Android and iOS applications for vulnerabilities affecting data storage, authentication, API communication and runtime security.</p>
+        <p class="ledger__tags">Android Security · iOS Security · Mobile API Testing</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:1" href="/services/api-security-testing/">
+        <div class="ledger__head">{{ icon("api") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">API Security Testing</h3>
+        <p class="ledger__text">Identify API vulnerabilities involving broken access controls, authentication weaknesses, data exposure and insecure business logic.</p>
+        <p class="ledger__tags">API Authentication · Access Control · Data Exposure Testing</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:2" href="/services/cloud-security-services/">
+        <div class="ledger__head">{{ icon("cloud-lock") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Cloud Security Services</h3>
+        <p class="ledger__text">Assess AWS, Azure and GCP environments for configuration weaknesses, identity risks and infrastructure vulnerabilities that could expose business data.</p>
+        <p class="ledger__tags">Cloud Configuration · IAM Assessment · Infrastructure Security</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:3" href="/services/network-security-testing/">
+        <div class="ledger__head">{{ icon("network") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Network Security Testing</h3>
+        <p class="ledger__text">We evaluate network infrastructure and security controls to identify exposed services, weak configurations and potential attack paths.</p>
+        <p class="ledger__tags">Network Scanning · Firewall Assessment · Attack Surface Analysis</p>
+      </a>
+      <a class="ledger__cell rv" href="/services/security-architecture-review/">
+        <div class="ledger__head">{{ icon("layers") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Security Architecture Review</h3>
+        <p class="ledger__text">We review system architecture, trust boundaries and security controls to uncover design-level weaknesses and recommend practical improvements.</p>
+        <p class="ledger__tags">Threat Modeling · Architecture Assessment · Security Controls Review</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:1" href="/services/devsecops-services/">
+        <div class="ledger__head">{{ icon("pipeline") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">DevSecOps Services</h3>
+        <p class="ledger__text">Integrate security testing into development workflows and CI/CD pipelines to detect vulnerabilities earlier and reduce application security risks.</p>
+        <p class="ledger__tags">SAST · DAST · Software Dependency Scanning</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:2" href="/services/soc-as-a-service/">
+        <div class="ledger__head">{{ icon("radar") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">SOC as a Service</h3>
+        <p class="ledger__text">Monitor security events and investigate suspicious activity through continuous threat detection, alert analysis and incident response support.</p>
+        <p class="ledger__tags">Threat Monitoring · Alert Triage · Incident Investigation</p>
+      </a>
+      <a class="ledger__cell rv" style="--d:3" href="/services/security-compliance/">
+        <div class="ledger__head">{{ icon("badge") }}{{ arrow("ledger__arrow") }}</div>
+        <h3 class="ledger__title">Security Compliance Services</h3>
+        <p class="ledger__text">We assess security controls and documentation against applicable standards and regulatory requirements to support audit preparation and compliance programs.</p>
+        <p class="ledger__tags">ISO 27001 · SOC 2 · Compliance Gap Assessment</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 01b · EMERGING SECURITY: cards stack over one another on scroll       -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="stack-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="stack-title">Emerging Security Services</h2>
+        <p class="shead__lede rv" style="--d:1">AI systems, autonomous agents, encryption, digital identity and connected devices bring new ways to be attacked. CipherTrivia helps you find and fix those weaknesses before attackers do.</p>
+      </div>
+    </header>
+
+    {%- set stackItems = [
+      { title: "AI & LLM Security", icon: "chat", href: "/services/llm-security-testing/", text: "Protect AI chatbots, LLM applications, generative AI systems and AI agents.",
+        more: "We test how your AI systems respond when someone tries to misuse them, and report what we find with evidence and practical fixes for your team.",
+        points: [["Prompt injection testing", "Crafted inputs that override instructions or guardrails."], ["Data leakage", "Responses that expose private or training data."], ["Model security", "Access, abuse and tampering risks around the model."], ["AI red teaming", "Expert-led attacks on the whole AI application."]] },
+      { title: "AI Agent Security", icon: "agent", href: "/services/ai-agent-security-testing/", text: "Protect autonomous AI agents, their tools, permissions, identities and connected systems.",
+        more: "We review what an agent is allowed to do and how far a manipulated agent could go, then show where to tighten its limits.",
+        points: [["Tools", "Which actions and APIs the agent can call."], ["Permissions", "Whether access stays limited to what the task needs."], ["Identities", "How the agent signs in and on whose behalf it acts."], ["Connected systems", "What it can reach if it is misled."]] },
+      { title: "Post-Quantum Cryptography Security", icon: "quantum", href: "/services/post-quantum-cryptography-security/", text: "Help businesses assess encryption risks and plan migration to quantum-resistant cryptography.",
+        more: "We map where your systems rely on encryption that quantum computers could one day break, and help you plan a practical order of migration.",
+        points: [["Encryption risks", "Where vulnerable algorithms and keys are in use."], ["Migration planning", "A phased path with priorities and dependencies."], ["Quantum-resistant cryptography", "Which standards fit your systems."]] },
+      { title: "Digital Identity & Deepfake Security", icon: "user-shield", href: "/services/digital-identity-deepfake-security/", text: "Protect organisations from identity impersonation, synthetic identities and deepfake-enabled fraud.",
+        more: "We assess how attackers could pose as your people or customers, and how well your checks hold up against synthetic voices, faces and documents.",
+        points: [["Identity impersonation", "Account takeover and caller or email spoofing."], ["Synthetic identities", "Fake profiles that pass onboarding checks."], ["Deepfake-enabled fraud", "Cloned voice or video used to approve payments."]] },
+      { title: "IoT & OT Security", icon: "chip", href: "/services/iot-ot-security/", text: "Protect connected devices, industrial systems, smart infrastructure and robotics.",
+        more: "We examine devices and industrial systems where they meet your network, looking for weaknesses that could disrupt operations or open a way in.",
+        points: [["Connected devices", "Default credentials, firmware and exposed services."], ["Industrial systems", "Control networks and their links to IT."], ["Smart infrastructure", "Building and facility systems on the network."], ["Robotics", "Control interfaces and update channels."]] }
+    ] -%}
+    <ol class="stack" data-stack>
+      {%- for s in stackItems %}
+      <li class="stack__card" style="--i:{{ loop.index0 }}" data-stack-card>
+        <div class="stack__body">
+          <h3 class="stack__title">{{ s.title }}</h3>
+          <p class="stack__text">{{ s.text }}</p>
+          <p class="stack__more">{{ s.more }}</p>
+          <ul class="stack__points">
+            {%- for p in s.points %}
+            <li class="stack__point" data-stack-tag data-label="{{ p[0] }}"><strong>{{ p[0] }}</strong><span>{{ p[1] }}</span></li>
+            {%- endfor %}
+          </ul>
+          <a class="btn btn--signal stack__cta" href="{{ s.href }}">View details {{ arrow() }}</a>
+        </div>
+        <div class="stack__visual" aria-hidden="true" data-stack-visual>
+          <div class="stack__tilt">{{ icon(s.icon, "xl") }}</div>
+          <p class="stack__read" data-stack-read>Focus areas</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 02 · RISK ASSESSMENT                                                 -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> IDENTIFY RISKS. PRIORITIZE ACTION.</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Cybersecurity Risk Assessment for Applications, APIs and Cloud Infrastructure</h2>
+        <p class="shead__lede rv" style="--d:1">Understand your organization's security gaps through a structured cybersecurity risk assessment that examines how your digital systems are configured, connected and exposed. CipherTrivia evaluates application vulnerabilities, API access controls, cloud security configurations and infrastructure weaknesses to deliver prioritized findings with practical remediation guidance for your technical team.</p>
+      </div>
+    </header>
+
+    <div class="deliver deliver--flip">
+      <div class="deliver__media rv">
+        <div class="media-overlay">
+          <img class="media-img" src="/assets/images/home/risk-report.webp" width="1126" height="1408" alt="Example VAPT security report with an executive summary and findings grouped by severity: critical, high, medium and low" loading="lazy">
+          <div class="media-overlay__card">
+            <p>Receive a prioritized risk report with vulnerability severity, technical evidence and remediation recommendations to help your team address critical security gaps.</p>
+            <a class="btn btn--signal" href="/contact/">Book a Security Assessment {{ arrow() }}</a>
+          </div>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("browser") }}
+          <div>
+            <h3 class="deliver__title">Application Vulnerability Assessment</h3>
+            <p class="deliver__text">We help you identify insecure authentication flows, access control issues, injection vulnerabilities and business logic flaws that could compromise application security.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("api") }}
+          <div>
+            <h3 class="deliver__title">API Security Testing</h3>
+            <p class="deliver__text">Our team assess API endpoints for broken authorization, excessive data exposure, weak authentication and other security weaknesses that put business information at risk.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("cloud-lock") }}
+          <div>
+            <h3 class="deliver__title">Cloud Security Assessment</h3>
+            <p class="deliver__text">Post then we review identity and access management, storage permissions, network policies and encryption configurations to identify cloud security misconfigurations.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("server") }}
+          <div>
+            <h3 class="deliver__title">Infrastructure Security Review</h3>
+            <p class="deliver__text">We also examine exposed services, network entry points, outdated components and infrastructure vulnerabilities that could increase your organization's attack surface.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 03 · INDUSTRIES                                                      -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> INDUSTRIES</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Cybersecurity Services for Industries That Depend on Digital Trust</h2>
+        <p class="shead__lede rv" style="--d:1">Every industry faces different digital security challenges. From protecting customer information and financial transactions to securing business applications and connected systems, CipherTrivia helps organizations identify security gaps and reduce the risk of cyberattacks. Our cybersecurity services address industry-specific risks so businesses can protect their operations, maintain customer trust and support secure digital growth.</p>
+      </div>
+    </header>
+
+    <div class="explorer" data-explorer>
+      <div class="explorer__media" aria-hidden="true">
+        <div class="explorer__stack">
+          <div class="explorer__frame is-active" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-saas-technology.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-banking-fintech.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-healthcare.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-ecommerce.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-manufacturing.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-logistics.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-startups.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/home/industry-enterprise-it.webp" width="864" height="1080" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+        </div>
+      </div>
+
+      <div class="explorer__list">
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-saas-technology.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/saas-technology/"><span>Technology &amp; SaaS</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Protect Your Software, Applications and Customer Data</h5>
+          <p class="explorer__text">Software companies depend on reliable applications and secure customer data. CipherTrivia helps identify weaknesses in software products, cloud platforms and system integrations so technology businesses can reduce security risks and build greater confidence among their customers.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-banking-fintech.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/banking-fintech/"><span>Fintech &amp; Banking</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Secure Financial Transactions and Sensitive Data</h5>
+          <p class="explorer__text">Banks and financial technology companies handle valuable financial information and transactions that require strong protection. Our cybersecurity assessments help identify weaknesses in payment systems, banking applications and APIs while supporting security practices aligned with relevant financial industry requirements.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-healthcare.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/healthcare/"><span>Healthcare</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Protect Patient Information and Healthcare Systems</h5>
+          <p class="explorer__text">Healthcare organizations manage confidential patient records and digital systems that support essential services. CipherTrivia helps uncover security gaps in healthcare applications, information systems and access controls to reduce the risk of data exposure and operational disruption.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-ecommerce.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/ecommerce/"><span>Retail &amp; Ecommerce</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Keep Online Shopping and Customer Information Secure</h5>
+          <p class="explorer__text">Online retailers depend on secure shopping experiences to protect customer accounts, payment processes and order information. Our security testing helps identify vulnerabilities in ecommerce websites, checkout systems and third-party integrations before they can be exploited.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-manufacturing.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/manufacturing/"><span>Manufacturing</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Strengthen Security Across Production and Business Systems</h5>
+          <p class="explorer__text">Manufacturers rely on connected equipment, production systems and business applications to keep operations running smoothly. CipherTrivia helps identify weaknesses in industrial networks, connected systems and IT infrastructure that could lead to production downtime or unauthorized access.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-logistics.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/logistics/"><span>Logistics</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Protect Supply Chain Systems and Operational Data</h5>
+          <p class="explorer__text">Logistics companies use digital platforms to coordinate shipments, track deliveries and exchange information across supply chains. Our cybersecurity assessments help identify risks in logistics applications, tracking systems and business integrations to support reliable operations and protect sensitive data.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-startups.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/startups/"><span>Startups</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Build Security Into Your Business From the Start</h5>
+          <p class="explorer__text">Growing businesses need to protect their products and customer information as they acquire users and expand their digital operations. CipherTrivia helps startups identify important security gaps in applications, cloud environments and digital infrastructure so they can address risks early and build customer confidence.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/home/industry-enterprise-it.webp" width="864" height="1080" alt="" loading="lazy">
+          <h3 class="explorer__name"><a href="/industries/enterprise-it/"><span>Enterprise IT</span>{{ arrow() }}</a></h3>
+          <h5 class="explorer__sub">Reduce Security Risks Across Complex IT Environments</h5>
+          <p class="explorer__text">Large organizations manage interconnected applications, cloud platforms, employee accounts and business-critical information. CipherTrivia helps enterprise IT teams identify vulnerabilities, review access permissions and uncover infrastructure weaknesses so they can prioritize remediation and strengthen their overall security posture.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 04 · WHY CHOOSE US                                                   -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> WHY CHOOSE US</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Cybersecurity Expertise That Goes Beyond Finding Vulnerabilities</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia combines cybersecurity expertise with deep software engineering knowledge to help businesses identify weaknesses and make informed security decisions. Backed by Nextwebi's technology experience, we assess applications, APIs, cloud environments and digital infrastructure while providing clear findings and practical recommendations that help technical teams address security risks.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("target") }}
+        <h3 class="principle__title">Application-Focused Security Testing</h3>
+        <p class="principle__text">We assess how applications function in real-world scenarios to uncover vulnerabilities that could expose business data or compromise critical features.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("wrench") }}
+        <h3 class="principle__title">Clear Remediation Recommendations</h3>
+        <p class="principle__text">Our security reports explain what went wrong, why it matters and how your team can address each finding through practical corrective actions.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Reports for Technical and Business Teams</h3>
+        <p class="principle__text">We present security findings in a structured format that helps business leaders understand risk priorities while giving developers and IT teams the technical details needed for remediation.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 05 · HOW IT WORKS                                                    -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> HOW IT WORKS</p>
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s5-title">From Security Assessment to Actionable Protection</h2>
+        <p class="shead__lede rv" style="--d:1">Our cybersecurity assessment process helps businesses understand their security risks and take the right steps to address them. From identifying vulnerabilities to validating corrective actions, CipherTrivia provides a structured approach that helps your team make informed security decisions.</p>
+      </div>
+    </header>
+
+    <div class="flow">
+      <div class="flow__step rv">
+        {{ icon("eye") }}
+        <p class="flow__label">DISCOVERY</p>
+        <h3 class="flow__title">Identify Security Weaknesses Early</h3>
+        <p class="flow__text">We examine your web applications, APIs, cloud environments and IT infrastructure to uncover vulnerabilities, outdated components and configuration issues that could expose your business to cyber threats.</p>
+      </div>
+      <div class="flow__step rv" style="--d:1">
+        {{ icon("gauge") }}
+        <p class="flow__label">RISK ANALYSIS</p>
+        <h3 class="flow__title">Understand Which Risks Matter Most</h3>
+        <p class="flow__text">We evaluate identified vulnerabilities based on their severity and potential business impact, helping your team distinguish critical security risks from lower-priority issues and focus on the fixes that matter most.</p>
+      </div>
+      <div class="flow__step rv" style="--d:2">
+        {{ icon("wrench") }}
+        <p class="flow__label">REMEDIATION</p>
+        <h3 class="flow__title">Resolve Vulnerabilities With Clear Guidance</h3>
+        <p class="flow__text">We provide practical remediation recommendations that help developers and IT teams correct identified weaknesses. Follow-up security testing can validate fixes and confirm that previously identified issues have been addressed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 06 + 07 · AI-POWERED CYBERSECURITY                                   -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s6-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> AI-POWERED CYBERSECURITY</p>
+        <h2 class="split__title rv" id="s6-title">AI Is Changing Cybersecurity. We Turn It Into a Stronger Defense.</h2>
+      </div>
+      <div class="split__body">
+        <div class="prose">
+          <p class="rv">AI-powered cybersecurity helps security teams analyze code, identify suspicious activity and uncover vulnerabilities across complex digital environments. CipherTrivia combines AI-assisted security analysis with cybersecurity expertise to help businesses detect potential threats, investigate risks and make informed decisions about protecting their digital assets.</p>
+          <p class="rv">Our approach brings together automated analysis and expert security validation to distinguish meaningful vulnerabilities from false positives. From application code and API security to cloud configurations and emerging attack patterns, we help organizations prioritize risks and focus on practical security improvements.</p>
+        </div>
+        <div class="hero__actions rv">
+          <a class="btn btn--signal" href="/contact/">Book an AI-Powered Security Assessment {{ arrow() }}</a>
+          <a class="btn btn--ghost-inv" href="/ai-security/">Explore Our AI Security Approach {{ arrow() }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="home-video hero-video" data-hero-video>
+        <video class="hero-video__media" muted loop playsinline preload="none" poster="/assets/video/home-ai-poster.jpg" aria-hidden="true"><source src="/assets/video/home-ai.mp4" type="video/mp4"></video>
+        <p class="home-video__cap" aria-hidden="true">AI-assisted analysis · Expert validation</p>
+        <button class="hero-video__toggle" type="button" aria-label="Pause video" data-video-toggle>
+          <svg class="hero-video__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="hero-video__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <header class="shead shead--follow">
+      <div class="shead__meta">
+      </div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">AI-Driven Security Analysis, Validated by Human Experts</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia combines AI-assisted security analysis with human expertise to examine digital environments, identify potential vulnerabilities and prioritize security risks. Each stage builds on the previous one, helping security teams move from identifying weaknesses to understanding their business impact and planning corrective action.</p>
+      </div>
+    </header>
+
+    <div class="flow flow--5">
+      <div class="flow__step rv">
+        {{ icon("radar") }}
+        <p class="flow__label">RECON AGENT</p>
+        <h3 class="flow__title">Discover Your Digital Attack Surface</h3>
+        <p class="flow__text">Identify internet-facing applications, APIs, cloud assets, subdomains and exposed services to understand where potential security weaknesses may exist.</p>
+      </div>
+      <div class="flow__step rv" style="--d:1">
+        {{ icon("code") }}
+        <p class="flow__label">DEEP-SCAN AGENT</p>
+        <h3 class="flow__title">Analyze Code and Security Configurations</h3>
+        <p class="flow__text">Examine application code, system configurations and network-related data to identify suspicious patterns, insecure settings and potential vulnerabilities that require further investigation.</p>
+      </div>
+      <div class="flow__step flow__step--key rv" style="--d:2">
+        {{ icon("user-shield") }}
+        <p class="flow__label">HUMAN + AI</p>
+        <h3 class="flow__title">Validate Findings With Security Experts</h3>
+        <p class="flow__text">Cybersecurity specialists review AI-generated findings to confirm their relevance, assess potential exploitability and reduce false positives before risks are reported.</p>
+      </div>
+      <div class="flow__step rv" style="--d:3">
+        {{ icon("chart") }}
+        <p class="flow__label">PRIORITIZATION AGENT</p>
+        <h3 class="flow__title">Rank Risks by Severity and Business Impact</h3>
+        <p class="flow__text">Organize validated findings by severity, exploitability and potential business consequences so your team can focus on the most important security issues first.</p>
+      </div>
+      <div class="flow__step rv" style="--d:4">
+        {{ icon("retest") }}
+        <p class="flow__label">RETEST AGENT</p>
+        <h3 class="flow__title">Verify Fixes and Track Security Improvements</h3>
+        <p class="flow__text">Reassess reported vulnerabilities after corrective actions to check if the identified weaknesses have been resolved and determine if further attention is required.</p>
+      </div>
+    </div>
+
+    {#- The assessment console plays these five stages as one example engagement (moved here from
+        the hero on the owner's request; the trust strip took its place) -#}
+    <div class="home-console">
+      {% include "partials/enterprise/console.njk" %}
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 08 · WHY CIPHERTRIVIA?                                               -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <p class="kicker kicker--label kicker--caps"><span class="kicker__slash">//</span> WHY CIPHERTRIVIA?</p>
+        <h2 class="split__title rv" id="s8-title">Major Security Breaches Can Begin With Small Oversights.</h2>
+        <p class="lede rv" style="--d:1;margin-top:.75rem">A forgotten subdomain, an incorrectly configured cloud permission or a weakness in an application can create an opportunity for attackers. CipherTrivia combines AI-assisted analysis with expert security review to examine these overlooked areas, helping businesses uncover hidden risks and take corrective action before those weaknesses lead to serious consequences.</p>
+      </div>
+      <div class="split__body rv">
+        <div class="board board--16x10 board--toggle-low" data-sig-wrap>
+          <div class="board__canvas" data-sig="11" role="img" aria-label="Animated diagram: a scan across DNS records, cloud permissions and application inputs flags a forgotten subdomain, a storage bucket open to everyone and an unvalidated input parameter; each oversight is shown leading to customer data, and each chain is broken once the oversight is fixed.">
+<svg aria-hidden="true" viewBox="0 0 800 500">
+<path class="f-none" d="M20 42V214" id="ov-scan"/>
+<g transform="translate(21 17) scale(0.375)" class="f-none s-ink" stroke-width="3.73333" stroke-linecap="square"><circle cx="24" cy="24" r="18"/><path d="M24 6c-6 5-8 11-8 18s2 13 8 18M24 6c6 5 8 11 8 18s-2 13-8 18M8 16h32M8 32h32"/><g class="s-sig"><path d="M6 24h36" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="46" y="30.5" font-size="11.5" text-anchor="start">DNS RECORDS</text>
+<rect class="f-paper s-ink" x="20.75" y="42.75" width="238.5" height="170.5" stroke-width="1.5"/>
+<rect class="f-stone" x="32" y="63" width="6" height="6"/>
+<text class="sig-mono f-ink" x="46" y="70.5" font-size="12" text-anchor="start" fill-opacity=".85">www.example.com</text>
+<path class="f-none s-ink" d="M239 65l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="0.906977" data-len="0.3"/>
+<path class="f-none s-ink" d="M30 87H250" stroke-opacity=".12"/>
+<rect class="f-stone" x="32" y="103" width="6" height="6"/>
+<text class="sig-mono f-ink" x="46" y="110.5" font-size="12" text-anchor="start" fill-opacity=".85">app.example.com</text>
+<path class="f-none s-ink" d="M239 105l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="1.55814" data-len="0.3"/>
+<path class="f-none s-ink" d="M30 127H250" stroke-opacity=".12"/>
+<rect class="f-stone" x="32" y="143" width="6" height="6"/>
+<text class="sig-mono f-ink" x="46" y="150.5" font-size="12" text-anchor="start" fill-opacity=".85">api.example.com</text>
+<path class="f-none s-ink" d="M239 145l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="2.2093" data-len="0.3"/>
+<path class="f-none s-ink" d="M30 167H250" stroke-opacity=".12"/>
+<rect class="f-stone" x="32" y="183" width="6" height="6"/>
+<text class="sig-mono f-ink" x="46" y="190.5" font-size="12" text-anchor="start" fill-opacity=".85">dev-old.example.com</text>
+<rect class="f-sig" x="30" y="181" width="10" height="10" data-fx="pop" data-at="2.86047" data-len="0.4"/>
+<text class="sig-mono f-sig" x="46" y="190.5" font-size="12" text-anchor="start" data-fx="fade" data-at="2.86047" data-len="0.3">dev-old.example.com</text>
+<path class="f-none s-sig" d="M24.0 177v-7h7M249.0 170h7v7M256.0 195v7h-7M31.0 202h-7v-7" stroke-width="2" data-fx="pop" data-at="2.96047" data-len="0.45"/>
+<rect class="f-sig" x="235" y="178" width="16" height="16" data-fx="pop" data-at="3.01047" data-len="0.35"/>
+<path class="f-none s-ink" d="M243 181v6M243 189.5v1" stroke-width="1.8" data-fx="fade" data-at="3.16047" data-len="0.2"/>
+<g data-fx="slide" data-at="3.31047" data-len="0.55" data-dy="14"><rect class="f-sig1 s-sig" x="20.75" y="232.75" width="238.5" height="56.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="32" y="256" font-size="13.5" text-anchor="start" font-weight="500">Exposed Subdomain or DNS Record</text><text class="sig-mono f-sig" x="32" y="276" font-size="9.5" text-anchor="start">POTENTIAL UNAUTHORIZED ACCESS</text></g>
+<g data-fx="pop" data-at="6.6" data-len="0.45"><rect class="f-ink" x="230" y="222" width="22" height="22"/><path class="f-none s-paper" d="M237.25 233l2.625 2.625 5.25-8" stroke-width="2" pathLength="1"/></g>
+<g transform="translate(281 17) scale(0.375)" class="f-none s-ink" stroke-width="3.73333" stroke-linecap="square"><path d="M12 38h23a8 8 0 0 0 1-16 11 11 0 0 0-21-2 9 9 0 0 0-3 18z"/><g class="s-sig"><rect x="19" y="27" width="10" height="8" pathLength="1"/><path d="M21 27v-3a3 3 0 0 1 6 0v3" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="306" y="30.5" font-size="11.5" text-anchor="start">CLOUD PERMISSIONS</text>
+<rect class="f-paper s-ink" x="280.75" y="42.75" width="238.5" height="170.5" stroke-width="1.5"/>
+<rect class="f-stone" x="292" y="63" width="6" height="6"/>
+<text class="sig-mono f-ink" x="306" y="70.5" font-size="12" text-anchor="start" fill-opacity=".85">s3/assets · private</text>
+<path class="f-none s-ink" d="M499 65l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="0.906977" data-len="0.3"/>
+<path class="f-none s-ink" d="M290 87H510" stroke-opacity=".12"/>
+<rect class="f-stone" x="292" y="103" width="6" height="6"/>
+<text class="sig-mono f-ink" x="306" y="110.5" font-size="12" text-anchor="start" fill-opacity=".85">role/deploy · scoped</text>
+<path class="f-none s-ink" d="M499 105l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="1.55814" data-len="0.3"/>
+<path class="f-none s-ink" d="M290 127H510" stroke-opacity=".12"/>
+<rect class="f-stone" x="292" y="143" width="6" height="6"/>
+<text class="sig-mono f-ink" x="306" y="150.5" font-size="12" text-anchor="start" fill-opacity=".85">s3/exports · public</text>
+<rect class="f-sig" x="290" y="141" width="10" height="10" data-fx="pop" data-at="2.2093" data-len="0.4"/>
+<text class="sig-mono f-sig" x="306" y="150.5" font-size="12" text-anchor="start" data-fx="fade" data-at="2.2093" data-len="0.3">s3/exports · public</text>
+<path class="f-none s-sig" d="M284.0 137v-7h7M509.0 130h7v7M516.0 155v7h-7M291.0 162h-7v-7" stroke-width="2" data-fx="pop" data-at="2.3093" data-len="0.45"/>
+<rect class="f-sig" x="495" y="138" width="16" height="16" data-fx="pop" data-at="2.3593" data-len="0.35"/>
+<path class="f-none s-ink" d="M503 141v6M503 149.5v1" stroke-width="1.8" data-fx="fade" data-at="2.5093" data-len="0.2"/>
+<path class="f-none s-ink" d="M290 167H510" stroke-opacity=".12"/>
+<rect class="f-stone" x="292" y="183" width="6" height="6"/>
+<text class="sig-mono f-ink" x="306" y="190.5" font-size="12" text-anchor="start" fill-opacity=".85">kms/data · rotated</text>
+<path class="f-none s-ink" d="M499 185l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="2.86047" data-len="0.3"/>
+<g data-fx="slide" data-at="2.6593" data-len="0.55" data-dy="14"><rect class="f-sig1 s-sig" x="280.75" y="232.75" width="238.5" height="56.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="292" y="256" font-size="13.5" text-anchor="start" font-weight="500">Overly Permissive Cloud Access</text><text class="sig-mono f-sig" x="292" y="276" font-size="9.5" text-anchor="start">POTENTIAL DATA EXPOSURE</text></g>
+<g data-fx="pop" data-at="7.2" data-len="0.45"><rect class="f-ink" x="490" y="222" width="22" height="22"/><path class="f-none s-paper" d="M497.25 233l2.625 2.625 5.25-8" stroke-width="2" pathLength="1"/></g>
+<g transform="translate(541 17) scale(0.375)" class="f-none s-ink" stroke-width="3.73333" stroke-linecap="square"><rect x="5" y="8" width="38" height="32"/><path d="M5 16h38"/><g class="s-sig"><path d="M18 23l-5 5 5 5M30 23l5 5-5 5M26 21l-4 14" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="566" y="30.5" font-size="11.5" text-anchor="start">APP INPUTS</text>
+<rect class="f-paper s-ink" x="540.75" y="42.75" width="238.5" height="170.5" stroke-width="1.5"/>
+<rect class="f-stone" x="552" y="63" width="6" height="6"/>
+<text class="sig-mono f-ink" x="566" y="70.5" font-size="12" text-anchor="start" fill-opacity=".85">POST /login</text>
+<path class="f-none s-ink" d="M759 65l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="0.906977" data-len="0.3"/>
+<path class="f-none s-ink" d="M550 87H770" stroke-opacity=".12"/>
+<rect class="f-stone" x="552" y="103" width="6" height="6"/>
+<text class="sig-mono f-ink" x="566" y="110.5" font-size="12" text-anchor="start" fill-opacity=".85">GET /account</text>
+<path class="f-none s-ink" d="M759 105l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="1.55814" data-len="0.3"/>
+<path class="f-none s-ink" d="M550 127H770" stroke-opacity=".12"/>
+<rect class="f-stone" x="552" y="143" width="6" height="6"/>
+<text class="sig-mono f-ink" x="566" y="150.5" font-size="12" text-anchor="start" fill-opacity=".85">GET /orders?id=</text>
+<rect class="f-sig" x="550" y="141" width="10" height="10" data-fx="pop" data-at="2.2093" data-len="0.4"/>
+<text class="sig-mono f-sig" x="566" y="150.5" font-size="12" text-anchor="start" data-fx="fade" data-at="2.2093" data-len="0.3">GET /orders?id=</text>
+<path class="f-none s-sig" d="M544.0 137v-7h7M769.0 130h7v7M776.0 155v7h-7M551.0 162h-7v-7" stroke-width="2" data-fx="pop" data-at="2.3093" data-len="0.45"/>
+<rect class="f-sig" x="755" y="138" width="16" height="16" data-fx="pop" data-at="2.3593" data-len="0.35"/>
+<path class="f-none s-ink" d="M763 141v6M763 149.5v1" stroke-width="1.8" data-fx="fade" data-at="2.5093" data-len="0.2"/>
+<path class="f-none s-ink" d="M550 167H770" stroke-opacity=".12"/>
+<rect class="f-stone" x="552" y="183" width="6" height="6"/>
+<text class="sig-mono f-ink" x="566" y="190.5" font-size="12" text-anchor="start" fill-opacity=".85">POST /checkout</text>
+<path class="f-none s-ink" d="M759 185l2.8 2.8 5.6-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="2.86047" data-len="0.3"/>
+<g data-fx="slide" data-at="2.6593" data-len="0.55" data-dy="14"><rect class="f-sig1 s-sig" x="540.75" y="232.75" width="238.5" height="56.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="552" y="256" font-size="13.5" text-anchor="start" font-weight="500">Unvalidated Input Parameter</text><text class="sig-mono f-sig" x="552" y="276" font-size="9.5" text-anchor="start">POTENTIAL SQL INJECTION</text></g>
+<g data-fx="pop" data-at="7.8" data-len="0.45"><rect class="f-ink" x="750" y="222" width="22" height="22"/><path class="f-none s-paper" d="M757.25 233l2.625 2.625 5.25-8" stroke-width="2" pathLength="1"/></g>
+<path class="f-none s-stone" d="M140 290C140 346 370 338 370 394" stroke-width="1.25" stroke-dasharray="3 5"/>
+<path class="f-none s-sig" d="M140 290C140 346 370 338 370 394" stroke-width="2" pathLength="1" data-fx="draw" data-at="4.1" data-len="0.8"/>
+<path class="f-none s-stone" d="M400 290V394" stroke-width="1.25" stroke-dasharray="3 5"/>
+<path class="f-none s-sig" d="M400 290V394" stroke-width="2" pathLength="1" data-fx="draw" data-at="4.45" data-len="0.8"/>
+<path class="f-none s-stone" d="M660 290C660 346 430 338 430 394" stroke-width="1.25" stroke-dasharray="3 5"/>
+<path class="f-none s-sig" d="M660 290C660 346 430 338 430 394" stroke-width="2" pathLength="1" data-fx="draw" data-at="4.8" data-len="0.8"/>
+<g data-fx="pop" data-at="6.75" data-len="0.4"><rect class="f-paper s-ink" x="251" y="341" width="22" height="22" stroke-width="1.5"/><path class="f-none s-sig" d="M258.4 348.4l7.2 7.2M265.6 348.4l-7.2 7.2" stroke-width="2.4"/></g>
+<g data-fx="pop" data-at="7.35" data-len="0.4"><rect class="f-paper s-ink" x="389" y="333" width="22" height="22" stroke-width="1.5"/><path class="f-none s-sig" d="M396.4 340.4l7.2 7.2M403.6 340.4l-7.2 7.2" stroke-width="2.4"/></g>
+<g data-fx="pop" data-at="7.95" data-len="0.4"><rect class="f-paper s-ink" x="527" y="341" width="22" height="22" stroke-width="1.5"/><path class="f-none s-sig" d="M534.4 348.4l7.2 7.2M541.6 348.4l-7.2 7.2" stroke-width="2.4"/></g>
+<rect class="f-paper s-ink" x="270.75" y="394.75" width="258.5" height="58.5" stroke-width="1.5"/>
+<g transform="translate(284 411) scale(0.5)" class="f-none s-ink" stroke-width="3" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="316" y="419" font-size="12" text-anchor="start">CUSTOMER DATA</text>
+<text class="sig-mono f-sig" x="316" y="437" font-size="9.5" text-anchor="start" data-fx="fade" data-at="5.3" data-len="0.3" data-out="8.5">EXPOSED THROUGH 3 OVERSIGHTS</text>
+<text class="sig-mono f-ink" x="316" y="437" font-size="9.5" text-anchor="start" fill-opacity=".7" data-fx="fade" data-at="8.6" data-len="0.3">OVERSIGHTS CLOSED</text>
+<rect class="f-none s-sig" x="265" y="389" width="270" height="70" stroke-width="2" data-fx="fade" data-at="5.3" data-len="0.3" data-out="8.5"/>
+<g data-fx="pop" data-at="8.6" data-len="0.45"><rect class="f-ink" x="496" y="411" width="22" height="22"/><path class="f-none s-paper" d="M503.25 422l2.625 2.625 5.25-8" stroke-width="2" pathLength="1"/></g>
+<g data-fx="move" data-at="0.5" data-len="2.8" data-out="3.35" data-path="#ov-scan"><rect class="f-sig" x="0" y="-14" width="760" height="14" fill-opacity=".08"/><path class="f-none s-sig" d="M0 0H760" stroke-width="2"/></g>
+</svg>
+          </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+        </div>
+        <div class="findings">
+          <div class="findings__head">
+            <h3 class="findings__title">Example Security Findings</h3>
+            <span class="findings__pulse" aria-hidden="true"></span>
+          </div>
+          <ul>
+            <li class="finding">
+              <span class="finding__no">{{ icon("alert", "bare") }}</span>
+              <p class="finding__text"><span class="finding__issue">Unvalidated Input Parameter</span> <span class="finding__impact">— Potential SQL Injection</span></p>
+            </li>
+            <li class="finding">
+              <span class="finding__no">{{ icon("alert", "bare") }}</span>
+              <p class="finding__text"><span class="finding__issue">Exposed Subdomain or DNS Record</span> <span class="finding__impact">— Potential Unauthorized Access</span></p>
+            </li>
+            <li class="finding">
+              <span class="finding__no">{{ icon("alert", "bare") }}</span>
+              <p class="finding__text"><span class="finding__issue">Overly Permissive Cloud Access</span> <span class="finding__impact">— Potential Data Exposure</span></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 09 · BLOGS                                                           -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s9-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+      </div>
+      <div class="shead__body">
+        <h3 class="shead__title rv" id="s9-title">Cybersecurity Knowledge That Keeps You Ahead</h3>
+        <p class="shead__lede rv" style="--d:1">Explore expert insights on cybersecurity, vulnerability assessment, application security and AI-driven threat detection to make informed decisions about protecting your business.</p>
+      </div>
+    </header>
+
+    <div class="cards">
+      <a class="card rv" href="/whitepapers/enterprise-vapt-guide/">
+        <div class="cover cover--ink" aria-hidden="true">{{ icon("target", "cover") }}</div>
+        <div class="card__body">
+          <p class="card__type">Whitepaper</p>
+          <h4 class="card__title">Enterprise VAPT Guide</h4>
+          <p class="card__text">A practical guide to scoping, running and acting on Vulnerability Assessment and Penetration Testing (VAPT) engagements at enterprise scale.</p>
+          <span class="card__go">{{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="card rv" style="--d:1" href="/whitepapers/owasp-top-10-security-guide/">
+        <div class="cover cover--paper" aria-hidden="true">{{ icon("shield-crack", "cover") }}</div>
+        <div class="card__body">
+          <p class="card__type">Whitepaper</p>
+          <h4 class="card__title">OWASP Top 10 Security Guide</h4>
+          <p class="card__text">CipherTrivia's penetration testing team breaks down the OWASP Top 10 (2021) with real fix patterns, engagement data, a secure reference architecture and an FAQ for engineering teams.</p>
+          <span class="card__go">{{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="card rv" style="--d:2" href="/whitepapers/api-security-best-practices/">
+        <div class="cover cover--signal" aria-hidden="true">{{ icon("api", "cover") }}</div>
+        <div class="card__body">
+          <p class="card__type">Whitepaper</p>
+          <h4 class="card__title">API Security Best Practices</h4>
+          <p class="card__text">CipherTrivia's API security team breaks down the OWASP API Security Top 10, real authentication and authorization fix patterns, a secure API architecture, and an FAQ for engineering teams.</p>
+          <span class="card__go">{{ arrow() }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 10 · NEWS, TRENDS & INSIGHTS                                         -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s10-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta">
+      </div>
+      <div class="shead__body">
+        <h3 class="shead__title rv" id="s10-title">Cybersecurity, AI and Emerging Threats</h3>
+        <p class="shead__lede rv" style="--d:1">Stay informed about evolving cyber threats, AI security developments, industry trends and emerging vulnerabilities that shape the digital security landscape.</p>
+      </div>
+    </header>
+
+    <a class="feature rv" href="/insights/open-source-supply-chain-attacks/">
+      <div class="feature__media">
+        <div class="board board--ink board--16x10 board--fill">
+          <div class="board__canvas sig-still" role="img" aria-label="Diagram: a compromised release of a transitive dependency is stopped at lockfile hash verification before it reaches the CI runner and its credentials; the pinned build passes provenance verification into production.">
+<svg aria-hidden="true" viewBox="0 0 800 500">
+<text class="sig-mono f-paper" x="24" y="30" font-size="11.5" text-anchor="start" fill-opacity=".65">DEPENDENCY TREE</text>
+<text class="sig-mono f-paper" x="372" y="30" font-size="11.5" text-anchor="end" fill-opacity=".45">NPM · PYPI</text>
+<rect class="f-none s-paper" x="24.5" y="44.5" width="348" height="432" stroke-opacity=".22" stroke-dasharray="5 5"/>
+<text class="sig-mono f-paper" x="462" y="30" font-size="11.5" text-anchor="start" fill-opacity=".65">CI PIPELINE</text>
+<path class="f-none s-paper" d="M140 260C172 260 142 140 170 140" stroke-opacity=".35" pathLength="1" data-fx="draw" data-at="0.4" data-len="0.5"/>
+<path class="f-none s-paper" d="M202 140C234 140 242 96 277 96" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="0.8" data-len="0.45"/>
+<path class="f-none s-paper" d="M202 140C234 140 242 166 277 166" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="0.9" data-len="0.45"/>
+<path class="f-none s-paper" d="M140 260C172 260 142 260 170 260" stroke-opacity=".35" pathLength="1" data-fx="draw" data-at="0.55" data-len="0.5"/>
+<path class="f-none s-paper" d="M202 260C234 260 242 228 277 228" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="1" data-len="0.45"/>
+<path class="f-none s-paper" d="M202 260C234 260 242 292 277 292" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="1.1" data-len="0.45"/>
+<path class="f-none s-paper" d="M140 260C172 260 142 380 170 380" stroke-opacity=".35" pathLength="1" data-fx="draw" data-at="0.7" data-len="0.5"/>
+<path class="f-none s-paper" d="M202 380C234 380 242 354 277 354" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="1.2" data-len="0.45"/>
+<path class="f-none s-paper" d="M202 380C234 380 242 424 277 424" stroke-opacity=".3" pathLength="1" data-fx="draw" data-at="1.3" data-len="0.45"/>
+<g data-fx="fade" data-at="0.2" data-len="0.4"><rect class="f-ink s-paper" x="36.75" y="234.75" width="102.5" height="50.5" stroke-width="1.5"/><g transform="translate(48 250) scale(0.416667)" class="f-none s-paper" stroke-width="3.6" stroke-linecap="square"><path d="M16 14L6 24l10 10M32 14l10 10-10 10"/><g class="s-sig"><path d="M27 9l-6 30" pathLength="1"/></g></g><text class="sig-mono f-paper" x="74" y="257" font-size="11" text-anchor="start">YOUR</text><text class="sig-mono f-paper" x="74" y="272" font-size="11" text-anchor="start">APP</text></g>
+<g data-fx="pop" data-at="0.55" data-len="0.4"><rect class="f-ink s-paper" x="170.75" y="124.75" width="30.5" height="30.5" stroke-width="1.5"/><rect class="f-paper" x="182" y="136" width="8" height="8"/></g>
+<g data-fx="pop" data-at="0.7" data-len="0.4"><rect class="f-ink s-paper" x="170.75" y="244.75" width="30.5" height="30.5" stroke-width="1.5"/><rect class="f-paper" x="182" y="256" width="8" height="8"/></g>
+<g data-fx="pop" data-at="0.85" data-len="0.4"><rect class="f-ink s-paper" x="170.75" y="364.75" width="30.5" height="30.5" stroke-width="1.5"/><rect class="f-paper" x="182" y="376" width="8" height="8"/></g>
+<text class="sig-mono f-paper" x="186" y="452" font-size="10" text-anchor="middle" fill-opacity=".45">DIRECT</text>
+<g data-fx="pop" data-at="0.95" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="83.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="93" width="6" height="6" fill-opacity=".7"/></g>
+<g data-fx="pop" data-at="1.05" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="153.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="163" width="6" height="6" fill-opacity=".7"/></g>
+<g data-fx="pop" data-at="1.15" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="215.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="225" width="6" height="6" fill-opacity=".7"/></g>
+<g data-fx="pop" data-at="1.25" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="279.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="289" width="6" height="6" fill-opacity=".7"/></g>
+<g data-fx="pop" data-at="1.35" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="341.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="351" width="6" height="6" fill-opacity=".7"/></g>
+<g data-fx="pop" data-at="1.45" data-len="0.35"><rect class="f-ink s-paper" x="277.75" y="411.75" width="24.5" height="24.5" stroke-opacity=".7" stroke-width="1.5"/><rect class="f-paper" x="287" y="421" width="6" height="6" fill-opacity=".7"/></g>
+<text class="sig-mono f-paper" x="290" y="462" font-size="10" text-anchor="middle" fill-opacity=".45">TRANSITIVE</text>
+<g data-fx="pop" data-at="4.5" data-len="0.45"><rect class="f-sig" x="277.75" y="215.75" width="24.5" height="24.5"/><rect class="f-ink" x="287" y="225" width="6" height="6"/></g>
+<g data-fx="slide" data-at="4.7" data-len="0.5" data-dx="-10"><rect class="f-sig" x="114" y="176" width="146" height="24"/><text class="sig-mono f-ink" x="122" y="192.5" font-size="10.5" text-anchor="start">v2.4.2 · POSTINSTALL</text></g>
+<path class="f-none s-sig" d="M270 214v-6h6M304 208h6v6M310 242v6h-6M276 248h-6v-6" stroke-width="2" data-fx="pop" data-at="4.6" data-len="0.45"/>
+<path class="f-none s-paper" d="M303 96H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M303 166H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M303 228H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M303 292H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M303 354H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M303 424H340" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M340 96V424" stroke-opacity=".22"/>
+<path class="f-none s-paper" d="M340 260H399M425 260H462" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none" d="M303 96H340V260H470" id="sc-ok0"/>
+<path class="f-none" d="M303 292H340V260H470" id="sc-ok3"/>
+<path class="f-none" d="M303 424H340V260H470" id="sc-ok5"/>
+<path class="f-none" d="M303 228H340V260H394" id="sc-bad"/>
+<g data-fx="move" data-at="2.4" data-len="1.1" data-out="3.6" data-path="#sc-ok0"><rect class="f-paper" x="-5" y="-5" width="10" height="10"/></g>
+<g data-fx="move" data-at="2.95" data-len="1.1" data-out="4.15" data-path="#sc-ok3"><rect class="f-paper" x="-5" y="-5" width="10" height="10"/></g>
+<g data-fx="move" data-at="3.5" data-len="1.1" data-out="4.7" data-path="#sc-ok5"><rect class="f-paper" x="-5" y="-5" width="10" height="10"/></g>
+<g data-fx="move" data-at="5.1" data-len="1.1" data-out="7" data-path="#sc-bad"><rect class="f-sig" x="-6" y="-6" width="12" height="12"/></g>
+<path class="f-ink s-paper" d="M412 247l13 13-13 13-13-13z" stroke-width="1.5"/>
+<text class="sig-mono f-paper" x="412" y="296" font-size="10" text-anchor="middle" fill-opacity=".7">LOCKFILE</text>
+<text class="sig-mono f-paper" x="412" y="310" font-size="10" text-anchor="middle" fill-opacity=".7">HASH</text>
+<g data-fx="pop" data-at="6.2" data-len="0.4"><path class="f-sig" d="M412 247l13 13-13 13-13-13z"/><path class="f-none s-ink" d="M409.3 257.3l5.4 5.4M414.7 257.3l-5.4 5.4" stroke-width="2.4"/></g>
+<path class="f-none s-sig" d="M386 241v-7h7M431 234h7v7M438 279v7h-7M393 286h-7v-7" stroke-width="2" data-fx="pop" data-at="6.3" data-len="0.45"/>
+<g data-fx="slide" data-at="6.4" data-len="0.5" data-dy="8"><rect class="f-sig" x="360" y="194" width="104" height="24"/><text class="sig-mono f-ink" x="412" y="210.5" font-size="10" text-anchor="middle">HASH MISMATCH</text></g>
+<rect class="f-ink9 s-paper" x="462.75" y="150.75" width="186.5" height="218.5" stroke-width="1.5"/>
+<text class="sig-mono f-paper" x="476" y="176" font-size="11.5" text-anchor="start">CI RUNNER</text>
+<rect class="f-none s-paper" x="474.75" y="195.75" width="162.5" height="32.5" stroke-opacity=".25"/>
+<g transform="translate(482 204) scale(0.333333)" class="f-none s-paper" stroke-width="4.2" stroke-linecap="square"><circle cx="16" cy="32" r="8"/><path d="M22 26l16-16M31 17l5 5M36 12l5 5"/><g class="s-sig"><path d="M12 5v10M7.7 7.5l8.6 5M7.7 12.5l8.6-5" pathLength="1"/></g></g>
+<text class="sig-mono f-paper" x="504" y="215.5" font-size="9.5" text-anchor="start" fill-opacity=".85">CLOUD CREDENTIALS</text>
+<g data-fx="pop" data-at="7" data-len="0.35"><rect class="f-paper" x="617" y="204" width="15" height="15"/><g transform="translate(619.5 206.5) scale(0.208333)" class="f-none s-ink" stroke-width="7.68" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g>
+<rect class="f-none s-paper" x="474.75" y="237.75" width="162.5" height="32.5" stroke-opacity=".25"/>
+<g transform="translate(482 246) scale(0.333333)" class="f-none s-paper" stroke-width="4.2" stroke-linecap="square"><circle cx="16" cy="32" r="8"/><path d="M22 26l16-16M31 17l5 5M36 12l5 5"/><g class="s-sig"><path d="M12 5v10M7.7 7.5l8.6 5M7.7 12.5l8.6-5" pathLength="1"/></g></g>
+<text class="sig-mono f-paper" x="504" y="257.5" font-size="9.5" text-anchor="start" fill-opacity=".85">REGISTRY TOKENS</text>
+<g data-fx="pop" data-at="7.2" data-len="0.35"><rect class="f-paper" x="617" y="246" width="15" height="15"/><g transform="translate(619.5 248.5) scale(0.208333)" class="f-none s-ink" stroke-width="7.68" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g>
+<rect class="f-none s-paper" x="474.75" y="279.75" width="162.5" height="32.5" stroke-opacity=".25"/>
+<g transform="translate(482 288) scale(0.333333)" class="f-none s-paper" stroke-width="4.2" stroke-linecap="square"><circle cx="16" cy="32" r="8"/><path d="M22 26l16-16M31 17l5 5M36 12l5 5"/><g class="s-sig"><path d="M12 5v10M7.7 7.5l8.6 5M7.7 12.5l8.6-5" pathLength="1"/></g></g>
+<text class="sig-mono f-paper" x="504" y="299.5" font-size="9.5" text-anchor="start" fill-opacity=".85">SIGNING KEYS</text>
+<g data-fx="pop" data-at="7.4" data-len="0.35"><rect class="f-paper" x="617" y="288" width="15" height="15"/><g transform="translate(619.5 290.5) scale(0.208333)" class="f-none s-ink" stroke-width="7.68" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g>
+<text class="sig-mono f-sig" x="476" y="354" font-size="9.5" text-anchor="start" data-fx="fade" data-at="7.6" data-len="0.3">SCOPED TO THE JOB</text>
+<path class="f-none s-paper" d="M649 260H664M756 294V398" stroke-opacity=".5" stroke-width="1.5"/>
+<path class="f-none" d="M649 260H756V420" id="sc-ship"/>
+<rect class="f-ink s-paper" x="664.75" y="226.75" width="110.5" height="66.5" stroke-width="1.5"/>
+<text class="sig-mono f-paper" x="676" y="254" font-size="11" text-anchor="start">BUILD</text>
+<text class="sig-mono f-paper" x="676" y="270" font-size="11" text-anchor="start">ARTIFACT</text>
+<g data-fx="pop" data-at="8.6" data-len="0.45"><rect class="f-sig" x="748" y="236" width="18" height="18"/><path class="f-none s-ink" d="M753.75 245l2.275 2.275 4.55-8" stroke-width="2" pathLength="1"/></g>
+<text class="sig-mono f-sig" x="666" y="312" font-size="9.5" text-anchor="start" data-fx="fade" data-at="8.8" data-len="0.3">PROVENANCE</text>
+<text class="sig-mono f-sig" x="666" y="325" font-size="9.5" text-anchor="start" data-fx="fade" data-at="8.8" data-len="0.3">VERIFIED</text>
+<rect class="f-ink s-paper" x="664.75" y="398.75" width="110.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(675 413) scale(0.375)" class="f-none s-paper" stroke-width="3.73333" stroke-linecap="square"><rect x="7" y="7" width="34" height="13"/><rect x="7" y="23" width="34" height="13"/><path d="M20 13.5h15M20 29.5h15M14 36v6M34 36v6M10 42h28"/><g class="s-sig"><rect x="11" y="12" width="3" height="3" pathLength="1"/><rect x="11" y="28" width="3" height="3" pathLength="1"/></g></g>
+<text class="sig-mono f-paper" x="698" y="426" font-size="10" text-anchor="start">PRODUCTION</text>
+<g data-fx="move" data-at="7.9" data-len="1.6" data-out="9.6" data-path="#sc-ship"><rect class="f-paper" x="-5" y="-5" width="10" height="10"/></g>
+<path class="f-none s-sig" d="M656 398v-8h8M776 390h8v8M784 446v8h-8M664 454h-8v-8" stroke-width="2" data-fx="pop" data-at="9.5" data-len="0.5"/>
+</svg>
+          </div>
+        </div>
+      </div>
+      <div class="feature__body">
+        <p class="card__type">Insight</p>
+        <h4 class="feature__title">Open-Source Supply-Chain Attacks Are Now a When, Not an If</h4>
+        <p class="feature__text">Compromised npm and PyPI packages have hit CI pipelines across the industry this quarter. Here's what CipherTrivia is seeing, and the controls that actually stop it.</p>
+        <span class="feature__go">{{ arrow() }}</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA                                                                  -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Strengthen Your Cybersecurity With Expert Guidance</h2>
+    <p class="band__text rv" style="--d:1">Connect with CipherTrivia's security specialists to identify vulnerabilities, assess digital risks and plan practical steps to protect your applications, cloud environments and business infrastructure.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Schedule a Security Consultation {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 11 · FAQ                                                             -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s11-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s11-title">Frequently Asked Questions About Cybersecurity</h2>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>
+<script src="/assets/js/home-console.js" defer></script>
+<script src="/assets/js/stack-cards.js" defer></script>

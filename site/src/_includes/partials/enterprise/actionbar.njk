@@ -1,0 +1,64 @@
+{#- Phones only: the quick-contact bar fixed to the bottom of the screen (WhatsApp, Call,
+    Quick quote) and the quick-quote sheet it opens. Styles in components/actionbar.css,
+    behaviour in assets/js/enterprise.js ([data-actionbar], [data-qq], [data-lead-form]).
+    The sheet posts the contact page's own fields to the same Netlify Function (/api/contact),
+    so keep its field names in step with contact.njk and netlify/functions/contact.mjs; the
+    service list and each page's service live in _data/enquiry.json. On pages with the
+    inquiry section (front matter `inquiry: true`) every quick-quote button scrolls to that
+    form instead, and on /contact/ to the contact form. Without JavaScript, Quick quote is a
+    plain link to the contact form. -#}
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow %}
+{%- set onContact = page.url == "/contact/" -%}
+<nav class="actionbar" data-actionbar aria-label="Quick contact">
+  <a class="actionbar__btn" href="https://wa.me/{{ enquiry.phone | replace('+', '') }}?text={{ enquiry.whatsappText | urlencode }}" target="_blank" rel="noopener">{{ icon("chat", "bare") }}<span>WhatsApp</span></a>
+  <a class="actionbar__btn" href="tel:{{ enquiry.phone }}">{{ icon("phone", "bare") }}<span>Call</span></a>
+  <a class="actionbar__btn actionbar__btn--quote" href="{% if onContact %}#get-started{% else %}/contact/#get-started{% endif %}"{% if not onContact %} data-qq-open{% endif %}><span>Quick quote</span>{{ arrow() }}</a>
+</nav>
+{%- if not onContact and not inquiry %}
+<dialog class="qq" id="quick-quote" aria-labelledby="qq-title" data-qq>
+  <form class="qq__form" method="POST" action="/api/contact" novalidate data-lead-form="quick-quote">
+    <div class="qq__head">
+      <h2 class="qq__title" id="qq-title">Get a quick quote</h2>
+      <p class="qq__note">We reply within one business day, Monday–Friday IST.</p>
+      <button class="qq__close" type="button" data-qq-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></button>
+    </div>
+    <input type="hidden" name="page_url" value="">
+    <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+      <label for="qq-hp">Leave this field blank</label>
+      <input id="qq-hp" name="hp_field" type="text" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="fields">
+      <div class="field field--full field--select">
+        <label class="field__label" for="qq-service">What are you interested in?</label>
+        <select class="field__input" id="qq-service" name="services">
+          {%- for s in enquiry.services %}
+          <option{% if enquiry.serviceFor[page.url] == s %} selected{% endif %}>{{ s }}</option>
+          {%- endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="qq-name">Full name <span class="field__req" aria-hidden="true">*</span></label>
+        <input class="field__input" id="qq-name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="qq-email">Business email <span class="field__req" aria-hidden="true">*</span></label>
+        <input class="field__input" id="qq-email" name="email" type="email" autocomplete="email" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="qq-phone">Phone number <span class="field__req" aria-hidden="true">*</span></label>
+        <input class="field__input" id="qq-phone" name="phone" type="tel" autocomplete="tel" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="qq-company">Company <span class="field__req" aria-hidden="true">*</span></label>
+        <input class="field__input" id="qq-company" name="company" type="text" autocomplete="organization" enterkeyhint="send" required>
+      </div>
+    </div>
+    <div class="qq__foot">
+      <button type="submit" class="btn btn--signal qq__submit"><span class="btn__label">Request a quote</span><span class="spinner" aria-hidden="true"></span>{{ arrow() }}</button>
+      <div class="form__msg" role="alert" hidden data-form-msg></div>
+      <p class="qq__legal">By submitting this form, you agree to CipherTrivia's <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>. You may unsubscribe at any time.</p>
+    </div>
+  </form>
+</dialog>
+{%- endif %}

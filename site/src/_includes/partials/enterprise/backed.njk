@@ -1,0 +1,40 @@
+{% from "partials/enterprise/macros.njk" import arrow %}
+{#- Parent-company module. Data: src/_data/nextwebi.json.
+    Legal rule: every credential and client shown here belongs to Nextwebi, so each
+    group is labelled with Nextwebi's name and the logos carry the † disclosure. -#}
+<aside class="backed{% if backedLead %} backed--lead{% endif %}" aria-labelledby="backed-title">
+  <div class="backed__intro">
+    <div class="backed__lead">
+      <p class="kicker kicker--label"><span class="kicker__slash">//</span> Backed by Nextwebi</p>
+      <p class="backed__title rv" id="backed-title">CipherTrivia is the cybersecurity practice of <span class="accent">Nextwebi</span>.</p>
+    </div>
+    <div class="backed__body">
+      <p class="backed__text rv" style="--d:1">CipherTrivia is a brand operated by {{ nextwebi.legalName }}, a Bengaluru software engineering company. The certifications, registrations and client relationships shown here are held by Nextwebi.</p>
+      <p class="backed__stat rv" style="--d:2"><span class="backed__num">600+</span><span class="backed__stat-label">Clients served by Nextwebi across 20+ countries</span></p>
+      <a class="link link--ext rv" style="--d:3" href="{{ nextwebi.url }}" target="_blank" rel="noopener">Visit nextwebi.com<span class="sr-only"> (opens in a new tab)</span> {{ arrow() }}</a>
+    </div>
+  </div>
+
+  <div class="backed__group">
+    <p class="backed__label"><span>Credentials held by {{ nextwebi.legalName }}</span></p>
+    <ul class="creds">
+      {%- for c in nextwebi.credentials %}
+      <li class="cred rv" style="--d:{{ loop.index0 }}">
+        <span class="cred__seal"><img src="/assets/trust/badges/{{ c.slug }}.webp" alt="{{ c.alt }}" width="{{ c.w }}" height="{{ c.h }}" loading="lazy" decoding="async"></span>
+        <span class="cred__name">{{ c.name }}</span>
+        <span class="cred__area">{{ c.area }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+
+  <div class="backed__group">
+    <p class="backed__label"><span>Selected clients of Nextwebi<sup>†</sup></span></p>
+    <ul class="clients rv">
+      {%- for c in nextwebi.clients %}
+      <li class="client"><img src="/assets/trust/clients/{{ c.slug }}.webp" alt="{{ c.name }}" width="480" height="240" loading="lazy" decoding="async"></li>
+      {%- endfor %}
+    </ul>
+    <p class="backed__note"><sup>†</sup> Client names and logos are trademarks of their respective owners. They represent client relationships of {{ nextwebi.legalName }} across its technology services and do not imply that these organisations endorse CipherTrivia's cybersecurity services.</p>
+  </div>
+</aside>

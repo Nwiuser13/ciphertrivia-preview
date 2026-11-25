@@ -1,0 +1,26 @@
+---
+layout: layouts/enterprise.njk
+title: "Thank You | CipherTrivia"
+description: "Thank you for contacting CipherTrivia. We'll get back to you within one business day."
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+
+<section class="hero hero--status" aria-labelledby="status-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <div class="hero__layout">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="status-title">Thank You for Reaching Out</h1>
+        <p class="hero__lede rv" style="--d:1">Your message has been received. A member of our security team will get back to you within one business day.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/">Back to Home {{ arrow() }}</a>
+          <a class="btn btn--ghost" href="/services/">Explore Our Services {{ arrow() }}</a>
+        </div>
+      </div>
+      <div class="hero__visual rv" style="--d:1">{{ icon("mail-check", "xl") }}</div>
+    </div>
+  </div>
+</section>

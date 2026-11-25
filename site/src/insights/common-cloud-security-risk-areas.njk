@@ -1,0 +1,261 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Common Cloud Security Risk Areas We Assess | CipherTrivia Insights"
+description: "Across AWS, Azure and GCP assessments, a handful of risk categories account for the majority of high and critical findings."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Common Cloud Security Risk Areas We Assess"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Common Cloud Security Risk Areas We Assess",
+      "description": "Across AWS, Azure and GCP assessments, a handful of risk categories account for the majority of high and critical findings.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/common-cloud-security-risk-areas/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-common-cloud-security-risk-areas.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/common-cloud-security-risk-areas/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Common Cloud Security Risk Areas We Assess"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What cloud platforms do your cloud security services cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our cloud security services cover Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platform (GCP), including multi-cloud and hybrid environments. We also assess Kubernetes clusters (EKS, AKS, GKE and self-managed), container platforms and Infrastructure as Code templates (Terraform, CloudFormation, Bicep) regardless of the underlying provider."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is a cloud security assessment different from a penetration test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A penetration test simulates an attacker exploiting application-layer vulnerabilities. A cloud security assessment reviews the configuration, identity, network and logging layers of your cloud environment against established benchmarks (CIS, Well-Architected Framework). The two are complementary: a penetration test finds what an attacker can exploit today, while a cloud security assessment finds the structural misconfigurations that make future exploitation easier or harder to detect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need admin access to our cloud accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We require read-only access to the accounts and subscriptions in scope. We provide the exact IAM policy or role definition upfront so your team can review and approve it before granting access. No write permissions are needed for the assessment itself. For AWS, this is typically a cross-account role with SecurityAudit and ViewOnlyAccess managed policies. For Azure and GCP, equivalent read-only roles apply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which compliance frameworks do your cloud security reports map to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every finding is mapped to the relevant CIS Benchmark control, the provider's own security framework (AWS Well-Architected, Azure Security Benchmark, GCP Security Best Practices), and where applicable to ISO 27001, SOC 2, PCI DSS and HIPAA control families. This dual mapping means the report can serve directly as audit evidence for both cloud-specific and regulatory compliance requirements."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">Cloud Security</span>
+          <span class="article-hero__date">22 Oct 2026 · 5 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Common Cloud Security Risk Areas We Assess</h1>
+        <p class="hero__lede rv" style="--d:2">Across AWS, Azure and GCP assessments, a handful of risk categories account for the majority of high and critical findings. Here's what our cloud security services focus on hardest, and what adversaries target first in cloud environments.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--ink" aria-hidden="true">{{ icon("cloud-alert", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#iam-privilege-escalation">IAM &amp; Privilege Escalation</a></li>
+        <li><a href="#storage-data-exposure">Storage &amp; Data Exposure</a></li>
+        <li><a href="#network-segmentation-gaps">Network Segmentation Gaps</a></li>
+        <li><a href="#logging-detection-blind-spots">Logging &amp; Detection Blind Spots</a></li>
+        <li><a href="#container-kubernetes-misconfig">Container &amp; Kubernetes Misconfig</a></li>
+        <li><a href="#secrets-key-management">Secrets &amp; Key Management</a></li>
+        <li><a href="#faq">Frequently Asked Questions About Cloud Security Services</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="iam-privilege-escalation">
+        <h2>IAM &amp; Privilege Escalation</h2>
+        <p>Over-permissive IAM policies are the most common critical finding across our cloud assessments. Policies with wildcard actions (<code>*</code>) or wildcard resources, service accounts with long-lived keys, roles that can assume other roles without conditions, and unused credentials that were provisioned once and never revoked combine to create privilege-escalation chains: a low-privilege identity chains together <code>iam:PassRole</code>, <code>sts:AssumeRole</code> and <code>lambda:CreateFunction</code> to reach admin-level access without ever being granted <code>AdministratorAccess</code> directly.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Native IAM analyzers flag individual over-permissive policies but do not chain permissions across roles and trust relationships. Our review maps the full graph of effective permissions to find escalation paths that no single policy violation would surface.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="storage-data-exposure">
+        <h2>Storage &amp; Data Exposure</h2>
+        <p>S3 buckets, Azure Blob containers and GCP Cloud Storage buckets with public access, overly broad bucket policies, missing server-side encryption, and objects accessible via pre-signed URLs that never expire. We also check for database instances (RDS, Cloud SQL, CosmosDB) reachable from the public internet, unencrypted snapshots shared across accounts, and backup storage that lacks access logging.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>The "Block Public Access" toggle at the account level can be overridden by individual bucket policies. We check effective access at the object level, not just the top-level setting, because that's where the actual exposure lives.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="network-segmentation-gaps">
+        <h2>Network Segmentation Gaps</h2>
+        <p>Security groups and firewall rules with <code>0.0.0.0/0</code> ingress on management ports (SSH, RDP, database ports), VPC peering without restrictive routing, missing network policies in Kubernetes clusters that allow any pod to reach any other pod, and load balancers forwarding traffic to internal services that were never intended to be internet-facing. We map the effective network paths, not just the rules as written, because NACLs, route tables and peering interactions create paths that no single rule review would catch.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Security groups look correct in isolation, but peering connections, transit gateways and service endpoints create transitive paths. We evaluate reachability from the outside in, tracing the actual packet path through every layer.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="logging-detection-blind-spots">
+        <h2>Logging &amp; Detection Blind Spots</h2>
+        <p>CloudTrail disabled in non-primary regions, Azure Activity Logs with short retention, GCP audit logs not exported to a centralized sink, and no alerting on high-risk API calls such as <code>StopLogging</code>, <code>CreateUser</code>, <code>AttachRolePolicy</code> or <code>DeleteTrail</code>. An attacker's first move after initial access is often to disable or tamper with logging; if your monitoring doesn't alert on that action within minutes, the rest of the investigation starts from a blind spot.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Logging is usually enabled in the primary region and assumed to be on everywhere. We check every region and subscription individually because attackers specifically target regions without coverage.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="container-kubernetes-misconfig">
+        <h2>Container &amp; Kubernetes Misconfig</h2>
+        <p>Privileged containers, host PID/network namespaces shared with pods, missing pod security standards enforcement, RBAC roles with <code>cluster-admin</code> bound to service accounts that don't need it, Kubernetes Secrets stored as base64 (not encrypted at rest), and image registries without vulnerability scanning or admission control. A single privileged pod with a host path mount is often enough to escape the container boundary and reach the underlying node.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Managed Kubernetes services (EKS, AKS, GKE) secure the control plane, but the workload configuration is still your responsibility. We review the full stack: cluster settings, RBAC, network policies, pod security and image supply chain.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="secrets-key-management">
+        <h2>Secrets &amp; Key Management</h2>
+        <p>Long-lived access keys that have never been rotated, API tokens and database credentials hardcoded in Lambda environment variables, Terraform state files with plaintext secrets, KMS keys without automatic rotation enabled, and secrets committed to version control that were "removed" in a later commit but remain in git history. We trace the full lifecycle of every credential: creation, storage, usage, rotation schedule and revocation path.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">Why it's missed</p>
+          <p>Secrets scanners check the current code but not IaC state files, environment variable configurations or historical git commits. We scan all three surfaces because leaked secrets don't care where they were left.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About Cloud Security Services</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What cloud platforms do your cloud security services cover?</h3>
+            <p class="is-sm">Our cloud security services cover Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platform (GCP), including multi-cloud and hybrid environments. We also assess Kubernetes clusters (EKS, AKS, GKE and self-managed), container platforms and Infrastructure as Code templates (Terraform, CloudFormation, Bicep) regardless of the underlying provider.</p>
+          </div>
+          <div>
+            <h3>How is a cloud security assessment different from a penetration test?</h3>
+            <p class="is-sm">A <a href="/services/penetration-testing/">penetration test</a> simulates an attacker exploiting application-layer vulnerabilities. A cloud security assessment reviews the configuration, identity, network and logging layers of your cloud environment against established benchmarks (CIS, Well-Architected Framework). The two are complementary: a penetration test finds what an attacker can exploit today, while a cloud security assessment finds the structural misconfigurations that make future exploitation easier or harder to detect.</p>
+          </div>
+          <div>
+            <h3>Do you need admin access to our cloud accounts?</h3>
+            <p class="is-sm">We require read-only access to the accounts and subscriptions in scope. We provide the exact IAM policy or role definition upfront so your team can review and approve it before granting access. No write permissions are needed for the assessment itself. For AWS, this is typically a cross-account role with <code>SecurityAudit</code> and <code>ViewOnlyAccess</code> managed policies. For Azure and GCP, equivalent read-only roles apply.</p>
+          </div>
+          <div>
+            <h3>Which compliance frameworks do your cloud security reports map to?</h3>
+            <p class="is-sm">Every finding is mapped to the relevant CIS Benchmark control, the provider's own security framework (AWS Well-Architected, Azure Security Benchmark, GCP Security Best Practices), and where applicable to ISO 27001, <a href="/services/security-compliance/">SOC 2</a>, PCI DSS and HIPAA control families. This dual mapping means the report can serve directly as audit evidence for both cloud-specific and regulatory compliance requirements.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/cloud-security-services/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">Cloud Security Services</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/cloud-security-assessment-checklist/">
+            <p class="a-label">Checklist</p>
+            <p class="reading__title">Cloud Security Assessment Checklist</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With Our Cloud Security Services</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your AWS, Azure or GCP environment and we'll scope a cloud security services engagement that fits your compliance timeline and operational requirements.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/cloud-security-assessment-checklist/">Download Cloud Checklist {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

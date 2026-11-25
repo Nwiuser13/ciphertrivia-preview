@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+<script>document.documentElement.classList.add('js');</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MH6V4MW5');</script>
+<!-- End Google Tag Manager -->
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="robots" content="{% if noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}">
+<meta name="author" content="CipherTrivia, Powered by Nextwebi">
+<link rel="canonical" href="https://www.ciphertrivia.com{{ page.url }}">
+
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/brand/favicon/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon/favicon.svg">
+<link rel="shortcut icon" href="/assets/brand/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/brand/favicon/site.webmanifest">
+<meta name="theme-color" content="#000514">
+
+<meta name="application-name" content="CipherTrivia">
+<meta name="apple-mobile-web-app-title" content="CipherTrivia">
+
+{#- Sharing (WhatsApp, LinkedIn, Slack, X, Facebook): every page has its own 1200 x 630 card in
+    assets/og/<slug>.jpg (the ogImage filter in .eleventy.js falls back to the home card). Bump ?v= whenever
+    the cards are re-rendered, so apps that cached the old image fetch the new one -#}
+{%- set ogImg = "https://www.ciphertrivia.com" + (page.url | ogImage) + "?v=2" -%}
+{%- set isArticle = (page.url.indexOf("/insights/") == 0 or page.url.indexOf("/whitepapers/") == 0 or page.url.indexOf("/case-studies/") == 0) and not (page.url in ["/insights/", "/whitepapers/", "/case-studies/"]) %}
+<meta property="og:type" content="{{ 'article' if isArticle else 'website' }}">
+<meta property="og:site_name" content="CipherTrivia">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="https://www.ciphertrivia.com{{ page.url }}">
+<meta property="og:image" content="{{ ogImg }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ title }}">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ciphertrivia">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ ogImg }}">
+<meta name="twitter:image:alt" content="{{ title }}">
+
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru">
+<meta name="geo.position" content="12.9784;77.7011">
+<meta name="ICBM" content="12.9784, 77.7011">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/enterprise/main.css">
+<script src="/assets/js/enterprise.js" defer></script>
+{% include "partials/enterprise/schema-site.njk" %}
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MH6V4MW5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% include "partials/enterprise/header.njk" %}
+
+<main id="main">
+{{ content | safe }}
+{%- if inquiry %}
+{% include "partials/enterprise/inquiry.njk" %}
+{%- endif %}
+</main>
+
+{% include "partials/enterprise/footer.njk" %}
+{% include "partials/enterprise/actionbar.njk" %}
+</body>
+</html>

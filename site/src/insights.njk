@@ -1,0 +1,299 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Security Insights & Industry Watch | CipherTrivia"
+description: "CipherTrivia's running watch on vulnerability disclosures, threat intelligence, regulatory shifts and industry trends, with analysis from our security engineering team."
+crumbs: [["Home", "/"], ["Insights"]]
+collectionOf: "/insights/"
+crumbsSchema: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <div class="hero__layout">
+      <div class="hero__copy">
+        <p class="kicker kicker--label rv"><span class="kicker__slash">//</span> Industry Watch</p>
+        <h1 class="hero__title rv" style="--d:1" id="hero-title">Security Insights &amp; Industry Watch</h1>
+        <p class="hero__lede rv" style="--d:2">Vulnerability disclosures, threat intelligence, regulatory shifts and industry trends, tracked and annotated by our security engineering team as they happen.</p>
+      </div>
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        {#- Watch wall: one tile per feed category (icon, tone, the step the cursor reaches it on) -#}
+        <div class="watch" aria-hidden="true">
+          {%- for t in [["agent", "ink", 0], ["magnifier", "paper", 1], ["bug", "ink", 2], ["radar", "paper", 5], ["doc-check", "ink", 4], ["globe", "paper", 3]] %}
+          <div class="watch__tile watch__tile--{{ t[1] }}" style="--step:{{ t[2] }}">{{ icon(t[0], "cover") }}</div>
+          {%- endfor %}
+          <span class="watch__cursor"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FILTER BAR                                                           -->
+<!-- ================================================================== -->
+<section class="filterbar" aria-label="Filter by category">
+  <div class="container filterbar__inner" id="insightFilters">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" type="button" data-filter="ai-security" aria-pressed="false">AI Security</button>
+      <button class="filter" type="button" data-filter="deep-dive" aria-pressed="false">Security Deep Dives</button>
+      <button class="filter" type="button" data-filter="vulnerability" aria-pressed="false">Vulnerability Alerts</button>
+      <button class="filter" type="button" data-filter="threat-intel" aria-pressed="false">Threat Intelligence</button>
+      <button class="filter" type="button" data-filter="regulatory" aria-pressed="false">Regulatory</button>
+      <button class="filter" type="button" data-filter="industry-news" aria-pressed="false">Industry News</button>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FEED                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white section--feed" aria-label="Insights feed">
+  <div class="container">
+    <div class="feed">
+      <a class="feed__item rv" href="/insights/the-agents-are-working/" data-category="ai-security">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">AI Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">The Agents Are Working. Who's Watching the Agents?</h2>
+          <p class="feed__text">How AI is reshaping VAPT, penetration testing, cloud, mobile, web and API security: what got better, what got more dangerous, and why the human element matters more now, not less.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/common-vulnerabilities-vapt-finds/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">VAPT</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Vulnerabilities Our VAPT Security Services Find</h2>
+          <p class="feed__text">Across web, mobile, API and cloud assessments, a handful of vulnerability classes account for most of the high and critical findings in our reports.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/penetration-testing-attack-scenarios/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Penetration Testing</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Attack Scenarios Our Penetration Testing Services Simulate</h2>
+          <p class="feed__text">Real attackers do not follow scanner checklists. They chain weaknesses, pivot between systems, and exploit trust relationships.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/common-web-application-vulnerabilities/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Web App Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Vulnerabilities Our Web Application Security Testing Uncovers</h2>
+          <p class="feed__text">Across hundreds of web application security testing engagements, the same vulnerability classes appear repeatedly.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/common-mobile-app-vulnerabilities/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Mobile Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Vulnerabilities Our Mobile Application Security Testing Finds</h2>
+          <p class="feed__text">Across Android and iOS engagements, these six vulnerability classes account for most of the high and critical findings in our mobile application security testing reports.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/common-api-security-vulnerabilities/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">API Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Vulnerabilities Our API Security Testing Services Find</h2>
+          <p class="feed__text">The OWASP API Security Top 10 defines the vulnerability categories that matter most for APIs.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/how-attackers-move-through-your-network/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Network Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">How Attackers Move Through Your Network — and How We Test It</h2>
+          <p class="feed__text">Network compromise is rarely a single exploit. Attackers chain together reconnaissance, initial access, privilege escalation, and lateral movement to reach their objective.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/common-cloud-security-risk-areas/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Cloud Security</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Cloud Security Risk Areas We Assess</h2>
+          <p class="feed__text">Across AWS, Azure and GCP assessments, a handful of risk categories account for the majority of high and critical findings.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/architecture-level-security-risks/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Security Architecture</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Common Architecture-Level Risk Areas We Identify</h2>
+          <p class="feed__text">Across enterprise systems, the same categories of design-level risk appear repeatedly.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/core-cybersecurity-consulting-areas/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Security Consulting</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Core Consulting Areas Within Our Cybersecurity Consulting Services</h2>
+          <p class="feed__text">Each consulting area addresses a distinct dimension of your security program. Depending on organizational maturity, engagements may focus on one area or span all six.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/cicd-security-gaps-devsecops-closes/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">DevSecOps</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Security Gaps Our DevSecOps Services Close</h2>
+          <p class="feed__text">Most organizations have CI/CD pipelines that build and deploy without a single automated security check.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/threat-categories-soc-monitors/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">SOC &amp; Monitoring</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Threat Categories Our SOC as a Service Monitors</h2>
+          <p class="feed__text">These are the six threat categories that generate the majority of escalated incidents across our managed SOC engagements.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/security-compliance-framework-areas/" data-category="deep-dive">
+        <div class="feed__meta">
+          <p class="feed__date">22 Oct 2026</p>
+          <span class="tag">Compliance</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Compliance Areas Our Security Compliance Services Address</h2>
+          <p class="feed__text">Each compliance framework targets a different regulatory or contractual requirement, but they share common control domains.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/insights/open-source-supply-chain-attacks/" data-category="threat-intel">
+        <div class="feed__meta">
+          <p class="feed__date">12 Jun 2026</p>
+          <span class="tag tag--info">Threat Intel</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Open-Source Supply-Chain Attacks Are Now a When, Not an If</h2>
+          <p class="feed__text">Compromised npm and PyPI packages have hit several CI pipelines this quarter. Here's what we're seeing, and the pipeline controls that actually stop it.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/contact/" data-category="vulnerability">
+        <div class="feed__meta">
+          <p class="feed__date">05 Jun 2026</p>
+          <span class="tag tag--critical">Vuln Alert</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Critical Remote Code Execution Flaws Disclosed in Popular VPN Appliances</h2>
+          <p class="feed__text">Multiple enterprise VPN/firewall vendors issued emergency patches this week. If your perimeter relies on one of these appliances, here's our prioritization guidance.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/contact/" data-category="industry-news">
+        <div class="feed__meta">
+          <p class="feed__date">29 May 2026</p>
+          <span class="tag tag--medium">Industry News</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Ransomware Groups Are Targeting Backup Infrastructure First</h2>
+          <p class="feed__text">Recent incident data shows attackers increasingly disable or encrypt backups before touching production, making backup isolation a frontline control rather than an afterthought.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/contact/" data-category="regulatory">
+        <div class="feed__meta">
+          <p class="feed__date">21 May 2026</p>
+          <span class="tag tag--info">Regulatory</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">Data Residency Requirements Are Tightening Across Asia-Pacific Markets</h2>
+          <p class="feed__text">Several APAC regulators have moved toward stricter local-storage and cross-border transfer rules: here's what this means for cloud architecture decisions.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+      <a class="feed__item rv" href="/contact/" data-category="threat-intel">
+        <div class="feed__meta">
+          <p class="feed__date">14 May 2026</p>
+          <span class="tag tag--info">Threat Intel</span>
+        </div>
+        <div class="feed__main">
+          <h2 class="feed__title">AI-Generated Phishing Is Getting Past Traditional Email Filters</h2>
+          <p class="feed__text">Phishing campaigns using AI-generated, highly personalized content are showing higher click-through rates in recent campaigns we've analyzed, and here's what to tell your users.</p>
+          <span class="feed__go">Read analysis {{ arrow() }}</span>
+        </div>
+      </a>
+    </div>
+    <p class="feed__empty" id="insightEmpty" hidden>No items in this category yet. Check back soon.</p>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Want this analysis applied to your environment?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Our team can assess whether the issues above actually affect your stack, and what to prioritize.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var buttons = document.querySelectorAll('#insightFilters .filter');
+  var items = document.querySelectorAll('.feed__item');
+  var empty = document.getElementById('insightEmpty');
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      var filter = btn.getAttribute('data-filter');
+      var visible = 0;
+      items.forEach(function (item) {
+        var show = filter === 'all' || item.getAttribute('data-category') === filter;
+        item.hidden = !show;
+        if (show) visible++;
+      });
+      empty.hidden = visible !== 0;
+    });
+  });
+})();
+</script>

@@ -1,0 +1,1119 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Mobile App Security Testing Services| Mobile App Penetration Testing"
+description: "Strengthen mobile app security with Android and iOS security testing, penetration testing, vulnerability assessments, API security testing and comprehensive mobile application security audits."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Mobile App Security Testing Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["Why is mobile application security testing important?", "Mobile application security testing helps businesses detect security weaknesses before attackers exploit them. It reduces the risk of data breaches and account compromise while helping protect user privacy and business information."],
+  ["What do your mobile app security testing services include?", "Our mobile app security testing services include vulnerability assessments and penetration testing along with authentication checks and API security testing. Depending on the agreed scope, assessments can also cover source code security and data protection practices."],
+  ["Do you provide Android and iOS app security testing?", "Yes. We assess both Android and iOS applications to identify platform-specific vulnerabilities and weaknesses in data protection and access controls. Testing scope depends on the application's architecture and the agreed engagement requirements."],
+  ["What is the difference between mobile app security testing and penetration testing?", "Mobile app security testing covers a broad range of security checks designed to identify application vulnerabilities. Mobile app penetration testing goes further by attempting to validate how selected vulnerabilities could be exploited through authorized attack simulations."],
+  ["How much do mobile app security testing services cost?", "The cost depends on application complexity and the number of platforms along with API coverage and testing depth. Contact our team with your application details to receive a scope-based estimate."],
+  ["How long does mobile application security testing take?", "Testing duration depends on application size and functionality along with the number of platforms and identified vulnerabilities. A focused assessment may take a few days while larger applications with extensive API coverage may require several weeks."],
+  ["What vulnerabilities can mobile app security testing identify?", "Testing can uncover weak authentication and insecure data storage along with API vulnerabilities and weak encryption practices. It may also identify insecure configurations and vulnerable third-party components that could expose sensitive information."],
+  ["Do you provide a report after mobile app security testing?", "Yes. Our deliverables can include an executive summary and a detailed vulnerability report along with severity ratings and remediation recommendations. Retesting and closure documentation can also be included in the agreed scope."],
+  ["Do you offer retesting after vulnerabilities are fixed?", "Retesting can be included in the engagement to verify the status of reported vulnerabilities after remediation. The results help development teams confirm that fixes are effective and identify issues that still require attention."],
+  ["Which security standards do you follow for mobile application testing?", "We can align relevant testing activities with the OWASP Mobile Application Security Verification Standard (MASVS) and OWASP mobile security testing guidance. The applicable requirements depend on the application type and assessment scope."],
+  ["When should a business conduct mobile app security testing?", "Security testing is recommended before a major application release and after significant code changes or new feature integrations. Regular assessments can also help businesses identify emerging vulnerabilities and maintain stronger application security over time."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Mobile App Security Testing Services",
+      "serviceType": "Mobile Application Security Testing",
+      "description": "Strengthen mobile app security with Android and iOS security testing, penetration testing, vulnerability assessments, API security testing and comprehensive mobile application security audits.",
+      "url": "https://www.ciphertrivia.com/services/mobile-application-security-testing/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mobile App Security Testing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Android App Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iOS App Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Penetration Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile API Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Vulnerability Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Data Storage and Encryption Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Source Code Security Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "OWASP Mobile Security Assessment" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Mobile App Security Testing Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--flip">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">Mobile App <span class="accent">Security Testing</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">We deliver Mobile App Security Testing Services to identify vulnerabilities and protect Android and iOS applications against evolving security threats. Our approach combines mobile application penetration testing, API security testing and vulnerability assessments to detect security gaps and protect sensitive user data. CipherTrivia, a trusted mobile app security testing company, helps businesses strengthen application security and reduce risks in line with industry standards.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" aria-hidden="true">
+          <svg viewBox="0 0 480 480">
+<g data-fx="fade" data-at="3.1" data-len="0.3" data-out="8.4">
+<rect class="f-paper s-ink" x="384.5" y="28.5" width="72" height="46" stroke-opacity=".6"/>
+<rect class="f-ink" x="394" y="40" width="10" height="10"/>
+<rect class="f-ink" x="410" y="42.5" width="36" height="3" fill-opacity=".35"/>
+<rect class="f-ink" x="394" y="58.5" width="52" height="3" fill-opacity=".2"/>
+</g>
+<g data-fx="slide" data-at="0.5" data-len="0.9" data-out="8.5" data-dx="-153" data-dy="-55">
+<g transform="translate(328 160)">
+<rect class="f-paper s-ink s-dash" x="0.5" y="0.5" width="130" height="270" stroke-opacity=".45"/>
+<path class="f-none s-ink" d="M14 66H110" stroke-opacity=".3"/>
+<path class="f-none s-ink" d="M104 62l6 4-6 4" stroke-opacity=".45"/>
+<rect class="f-ink" x="26" y="63" width="6" height="6" fill-opacity=".55"/>
+<path class="f-none s-ink" d="M14 104H110" stroke-opacity=".3"/>
+<path class="f-none s-ink" d="M104 100l6 4-6 4" stroke-opacity=".45"/>
+<rect class="f-ink" x="40" y="101" width="6" height="6" fill-opacity=".55"/>
+<path class="f-none s-ink" d="M14 142H110" stroke-opacity=".3"/>
+<path class="f-none s-ink" d="M104 138l6 4-6 4" stroke-opacity=".45"/>
+<rect class="f-ink" x="54" y="139" width="6" height="6" fill-opacity=".55"/>
+<path class="f-none s-ink" d="M14 180H110" stroke-opacity=".3"/>
+<path class="f-none s-ink" d="M104 176l6 4-6 4" stroke-opacity=".45"/>
+<rect class="f-ink" x="68" y="177" width="6" height="6" fill-opacity=".55"/>
+<rect class="f-none s-ink" x="14" y="220" width="102" height="30" stroke-opacity=".25"/>
+<rect class="f-ink" x="22" y="233.5" width="50" height="3" fill-opacity=".3"/>
+</g></g>
+<g data-fx="slide" data-at="0.58" data-len="0.9" data-out="8.5" data-dx="-51" data-dy="-21">
+<g transform="translate(226 126)">
+<rect class="f-p100 s-ink" x="0.5" y="0.5" width="130" height="270" stroke-opacity=".3"/>
+<rect class="f-ink" x="12" y="14" width="50" height="4" fill-opacity=".5"/>
+<rect class="f-paper s-ink" x="12.5" y="32.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="39" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="45" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="32.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="39" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="45" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="32.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="39" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="45" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="12.5" y="68.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="75" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="81" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="68.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="75" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="81" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="68.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="75" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="81" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="12.5" y="104.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="111" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="117" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="104.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="111" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="117" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="104.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="111" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="117" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="12.5" y="140.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="147" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="153" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="140.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="147" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="153" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="140.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="147" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="153" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="12.5" y="176.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="183" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="189" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="176.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="183" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="189" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="176.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="183" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="189" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="12.5" y="212.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="17" y="219" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="17" y="225" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="50.5" y="212.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="55" y="219" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="55" y="225" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-paper s-ink" x="88.5" y="212.5" width="30" height="22" stroke-opacity=".35"/>
+<rect class="f-ink" x="93" y="219" width="18" height="2.5" fill-opacity=".35"/>
+<rect class="f-ink" x="93" y="225" width="12" height="2.5" fill-opacity=".18"/>
+<rect class="f-sig" x="88.5" y="140.5" width="30" height="22" data-fx="pop" data-at="3.05" data-len="0.4" data-out="8.4"/>
+<rect class="f-paper" x="93" y="147" width="18" height="2.5" data-fx="fade" data-at="3.15" data-len="0.3" data-out="8.4"/>
+<path class="f-none s-sig" d="M81.5 133.5v-4h4M121.5 129.5h4v4M125.5 169.5v4h-4M85.5 173.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.2" data-len="0.45" data-out="8.4"/>
+</g></g>
+<g data-fx="slide" data-at="0.66" data-len="0.9" data-out="8.5" data-dx="51" data-dy="13">
+<g transform="translate(124 92)">
+<rect class="f-ink" x="0" y="0" width="130" height="270"/>
+<path class="s-paper" d="M22 26V256" stroke-opacity=".1"/>
+<rect class="f-none s-paper" x="10.5" y="10.5" width="5" height="5" stroke-opacity=".35"/>
+<rect class="f-none s-paper" x="19.5" y="10.5" width="5" height="5" stroke-opacity=".35"/>
+<rect class="f-none s-paper" x="28.5" y="10.5" width="5" height="5" stroke-opacity=".35"/>
+<rect class="f-paper" x="28" y="34" width="70" height="3" fill-opacity=".45"/>
+<rect class="f-paper" x="36" y="50" width="64" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="36" y="66" width="48" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="44" y="82" width="60" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="44" y="98" width="40" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="36" y="114" width="72" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="44" y="130" width="54" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="44" y="146" width="66" height="3" fill-opacity=".45" data-fx="hide" data-at="2.6" data-len="0.1" data-out="8.4"/>
+<rect class="f-sig" x="44" y="146" width="66" height="3" data-fx="grow" data-at="2.62" data-len="0.35" data-out="8.4"/>
+<path class="f-none s-sig" d="M114 143.5v-4h4M126 139.5h4v4M130 151.5v4h-4M118 155.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="2.75" data-len="0.45" data-out="8.4"/>
+<rect class="f-paper" x="36" y="162" width="44" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="28" y="178" width="58" height="3" fill-opacity=".45"/>
+<rect class="f-paper" x="36" y="194" width="76" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="44" y="210" width="38" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="36" y="226" width="62" height="3" fill-opacity=".22"/>
+<rect class="f-paper" x="28" y="242" width="50" height="3" fill-opacity=".45"/>
+</g></g>
+<g data-fx="slide" data-at="0.74" data-len="0.9" data-out="8.5" data-dx="153" data-dy="47">
+<g transform="translate(22 58)">
+<rect class="f-paper s-ink" x="0.75" y="0.75" width="130" height="270" stroke-width="1.5"/>
+<rect class="f-p50" x="8" y="22" width="114" height="226"/>
+<rect class="f-ink" x="55" y="10" width="20" height="3" fill-opacity=".5"/>
+<rect class="f-ink" x="18" y="34" width="46" height="4" fill-opacity=".85"/>
+<rect class="f-paper s-ink" x="18.5" y="54.5" width="22" height="22" stroke-opacity=".4"/>
+<rect class="f-ink" x="46" y="58" width="50" height="3" fill-opacity=".5"/>
+<rect class="f-ink" x="46" y="66" width="36" height="3" fill-opacity=".2"/>
+<rect class="f-paper s-ink" x="18.5" y="96.5" width="94" height="18" stroke-opacity=".3"/>
+<rect class="f-ink" x="24" y="104" width="40" height="2.5" fill-opacity=".45"/>
+<rect class="f-paper s-ink" x="18.5" y="120.5" width="94" height="18" stroke-opacity=".3"/>
+<rect class="f-ink" x="24" y="128" width="40" height="2.5" fill-opacity=".45"/>
+<rect class="f-ink" x="18" y="150" width="94" height="20"/>
+<rect class="f-paper" x="52" y="158.75" width="26" height="2.5"/>
+<rect class="f-ink" x="18" y="186" width="6" height="6" fill-opacity=".35"/>
+<rect class="f-ink" x="30" y="187.5" width="70" height="3" fill-opacity=".2"/>
+<rect class="f-ink" x="18" y="200" width="6" height="6" fill-opacity=".35"/>
+<rect class="f-ink" x="30" y="201.5" width="56" height="3" fill-opacity=".2"/>
+<rect class="f-ink" x="18" y="214" width="6" height="6" fill-opacity=".35"/>
+<rect class="f-ink" x="30" y="215.5" width="64" height="3" fill-opacity=".2"/>
+<rect class="f-ink" x="50" y="256" width="30" height="3" fill-opacity=".45"/>
+</g></g>
+<path class="f-none s-ink" d="M420 160V75" pathLength="1" stroke-width="1.5" stroke-opacity=".6" data-fx="draw" data-at="3.3" data-len="0.45" data-out="8.4"/>
+<path class="f-none s-sig" d="M420 160V125" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.85" data-len="0.3" data-out="8.4"/>
+<rect class="f-sig" x="414" y="113" width="12" height="12" data-fx="pop" data-at="3.75" data-len="0.45" data-out="8.4"/>
+<path class="f-none s-sig" d="M407 110v-4h4M429 106h4v4M433 128v4h-4M411 132h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.95" data-len="0.45" data-out="8.4"/>
+<path id="mh-scan" class="f-none" d="M10 40H470"/>
+<rect class="f-sig" x="-1" y="0" width="2" height="400" fill-opacity=".55" data-fx="move" data-path="#mh-scan" data-at="1.8" data-len="2"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Strengthen Application Protection with Mobile App Security Testing</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Mobile App Security Testing is the process of identifying vulnerabilities in mobile applications to protect sensitive data and prevent unauthorized access. We provide comprehensive Mobile App Security Testing Services to help businesses identify security weaknesses and protect mobile applications against data breaches and cyber threats. Our testing approach covers Android and iOS applications along with backend APIs and data communication channels to identify vulnerabilities that could expose sensitive information or compromise application functionality.</p>
+        <p class="rv">Our mobile application security testing process evaluates authentication mechanisms and access controls alongside data storage practices and API security. We use industry-recognized security testing methodologies to identify risks and recommend practical remediation measures that strengthen application protection.</p>
+        <p class="rv">As a mobile application security testing company, CipherTrivia helps organizations improve data privacy and reduce security risks across their mobile ecosystems through structured security assessments and actionable findings.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board board--ink" data-sig-wrap>
+        <div class="board__canvas" data-sig="12" role="img" aria-label="Animated diagram: a row of Android and iOS phones and a tablet on a test bench; each app is brought up and tested in turn, two devices are flagged with weaknesses and every result is logged">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<path class="f-none s-paper" d="M50 354H960" stroke-opacity=".14"/>
+<path class="f-none s-paper" d="M50 402H960" stroke-opacity=".3" stroke-width="1.5"/>
+<rect class="f-ink9 s-paper" x="1000.5" y="272.5" width="150" height="160" stroke-opacity=".25"/>
+<path class="s-paper" d="M1000 294H1150" stroke-opacity=".12"/>
+<rect class="f-sig" x="1012" y="280" width="7" height="7"/>
+<rect class="f-paper" x="1026" y="282" width="50" height="3" fill-opacity=".45"/>
+<path class="f-none s-paper" d="M960 402H1000" stroke-opacity=".3" stroke-width="1.5"/>
+<rect class="f-ink9 s-paper" x="80.5" y="194.5" width="74" height="150" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="86" y="210" width="62" height="118"/>
+<rect class="f-paper" x="109" y="201" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M117.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="113" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c0" class="f-none" d="M117.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c0" data-at="0.8" data-len=".45"/>
+<rect class="f-paper" x="92" y="224" width="35" height="3" fill-opacity=".55" data-fx="grow" data-at="1.25" data-len="0.35"/>
+<rect class="f-paper" x="92" y="240" width="45" height="3" fill-opacity=".25" data-fx="grow" data-at="1.33" data-len="0.35"/>
+<rect class="f-paper" x="92" y="256" width="27.5" height="3" fill-opacity=".25" data-fx="grow" data-at="1.41" data-len="0.35"/>
+<rect class="f-paper" x="92" y="272" width="40" height="3" fill-opacity=".25" data-fx="grow" data-at="1.49" data-len="0.35"/>
+<rect class="f-paper" x="92" y="288" width="50" height="18" fill-opacity=".12" data-fx="fade" data-at="1.5" data-len="0.3"/>
+<g data-fx="pop" data-at="1.7" data-len="0.45"><rect class="f-none s-paper" x="110.5" y="161.5" width="13" height="13" stroke-opacity=".7"/><path class="f-none s-paper" d="M113.5 168l2.5 2.5 4.5-5"/></g>
+<rect class="f-paper" x="1012" y="310" width="7" height="7" fill-opacity=".45" data-fx="pop" data-at="1.8" data-len="0.3"/>
+<rect class="f-paper" x="1026" y="312" width="96" height="3" fill-opacity=".3" data-fx="grow" data-at="1.85" data-len="0.4"/>
+<rect class="f-ink9 s-paper" x="200.5" y="174.5" width="84" height="170" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="206" y="190" width="72" height="138"/>
+<rect class="f-paper" x="234" y="181" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M242.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="238" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c1" class="f-none" d="M242.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c1" data-at="2.1" data-len=".45"/>
+<rect class="f-paper" x="212" y="204" width="42" height="3" fill-opacity=".55" data-fx="grow" data-at="2.55" data-len="0.35"/>
+<rect class="f-paper" x="212" y="220" width="54" height="3" fill-opacity=".25" data-fx="grow" data-at="2.63" data-len="0.35"/>
+<rect class="f-paper" x="212" y="236" width="33" height="3" fill-opacity=".25" data-fx="grow" data-at="2.71" data-len="0.35"/>
+<rect class="f-paper" x="212" y="252" width="48" height="3" fill-opacity=".25" data-fx="grow" data-at="2.79" data-len="0.35"/>
+<rect class="f-paper" x="212" y="288" width="60" height="18" fill-opacity=".12" data-fx="fade" data-at="2.8" data-len="0.3"/>
+<rect class="f-none s-sig" x="200.5" y="174.5" width="84" height="170" stroke-width="1.5" data-fx="fade" data-at="2.95" data-len="0.3"/>
+<rect class="f-sig" x="235" y="141" width="14" height="14" data-fx="pop" data-at="3" data-len="0.45"/>
+<path class="f-none s-sig" d="M229.0 139v-4h4M251.0 135h4v4M255.0 157v4h-4M233.0 161h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.15" data-len="0.45"/>
+<rect class="f-sig" x="1012" y="328" width="7" height="7" data-fx="pop" data-at="3.1" data-len="0.3"/>
+<rect class="f-sig" x="1026" y="330" width="80" height="3" data-fx="grow" data-at="3.15" data-len="0.4"/>
+<rect class="f-ink9 s-paper" x="330.5" y="130.5" width="168" height="214" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="336" y="146" width="156" height="182"/>
+<rect class="f-paper" x="406" y="137" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M414.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="410" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c2" class="f-none" d="M414.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c2" data-at="3.4" data-len=".45"/>
+<rect class="f-paper" x="342" y="160" width="100.8" height="3" fill-opacity=".55" data-fx="grow" data-at="3.85" data-len="0.35"/>
+<rect class="f-paper" x="342" y="176" width="129.6" height="3" fill-opacity=".25" data-fx="grow" data-at="3.93" data-len="0.35"/>
+<rect class="f-paper" x="342" y="192" width="79.2" height="3" fill-opacity=".25" data-fx="grow" data-at="4.01" data-len="0.35"/>
+<rect class="f-paper" x="342" y="208" width="115.2" height="3" fill-opacity=".25" data-fx="grow" data-at="4.09" data-len="0.35"/>
+<rect class="f-paper" x="342" y="288" width="144" height="18" fill-opacity=".12" data-fx="fade" data-at="4.1" data-len="0.3"/>
+<g data-fx="pop" data-at="4.3" data-len="0.45"><rect class="f-none s-paper" x="407.5" y="97.5" width="13" height="13" stroke-opacity=".7"/><path class="f-none s-paper" d="M410.5 104l2.5 2.5 4.5-5"/></g>
+<rect class="f-paper" x="1012" y="346" width="7" height="7" fill-opacity=".45" data-fx="pop" data-at="4.4" data-len="0.3"/>
+<rect class="f-paper" x="1026" y="348" width="110" height="3" fill-opacity=".3" data-fx="grow" data-at="4.45" data-len="0.4"/>
+<rect class="f-ink9 s-paper" x="545.5" y="182.5" width="80" height="162" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="551" y="198" width="68" height="130"/>
+<rect class="f-paper" x="577" y="189" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M585.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="581" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c3" class="f-none" d="M585.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c3" data-at="4.7" data-len=".45"/>
+<rect class="f-paper" x="557" y="212" width="39.2" height="3" fill-opacity=".55" data-fx="grow" data-at="5.15" data-len="0.35"/>
+<rect class="f-paper" x="557" y="228" width="50.4" height="3" fill-opacity=".25" data-fx="grow" data-at="5.23" data-len="0.35"/>
+<rect class="f-paper" x="557" y="244" width="30.8" height="3" fill-opacity=".25" data-fx="grow" data-at="5.31" data-len="0.35"/>
+<rect class="f-paper" x="557" y="260" width="44.8" height="3" fill-opacity=".25" data-fx="grow" data-at="5.39" data-len="0.35"/>
+<rect class="f-paper" x="557" y="288" width="56" height="18" fill-opacity=".12" data-fx="fade" data-at="5.4" data-len="0.3"/>
+<g data-fx="pop" data-at="5.6" data-len="0.45"><rect class="f-none s-paper" x="578.5" y="149.5" width="13" height="13" stroke-opacity=".7"/><path class="f-none s-paper" d="M581.5 156l2.5 2.5 4.5-5"/></g>
+<rect class="f-paper" x="1012" y="364" width="7" height="7" fill-opacity=".45" data-fx="pop" data-at="5.7" data-len="0.3"/>
+<rect class="f-paper" x="1026" y="366" width="70" height="3" fill-opacity=".3" data-fx="grow" data-at="5.75" data-len="0.4"/>
+<rect class="f-ink9 s-paper" x="670.5" y="164.5" width="92" height="180" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="676" y="180" width="80" height="148"/>
+<rect class="f-paper" x="708" y="171" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M716.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="712" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c4" class="f-none" d="M716.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c4" data-at="6" data-len=".45"/>
+<rect class="f-paper" x="682" y="194" width="47.6" height="3" fill-opacity=".55" data-fx="grow" data-at="6.45" data-len="0.35"/>
+<rect class="f-paper" x="682" y="210" width="61.2" height="3" fill-opacity=".25" data-fx="grow" data-at="6.53" data-len="0.35"/>
+<rect class="f-paper" x="682" y="226" width="37.4" height="3" fill-opacity=".25" data-fx="grow" data-at="6.61" data-len="0.35"/>
+<rect class="f-paper" x="682" y="242" width="54.4" height="3" fill-opacity=".25" data-fx="grow" data-at="6.69" data-len="0.35"/>
+<rect class="f-paper" x="682" y="288" width="68" height="18" fill-opacity=".12" data-fx="fade" data-at="6.7" data-len="0.3"/>
+<rect class="f-none s-sig" x="670.5" y="164.5" width="92" height="180" stroke-width="1.5" data-fx="fade" data-at="6.85" data-len="0.3"/>
+<rect class="f-sig" x="709" y="131" width="14" height="14" data-fx="pop" data-at="6.9" data-len="0.45"/>
+<path class="f-none s-sig" d="M703.0 129v-4h4M725.0 125h4v4M729.0 147v4h-4M707.0 151h-4v-4" stroke-width="1.5" data-fx="pop" data-at="7.05" data-len="0.45"/>
+<rect class="f-sig" x="1012" y="382" width="7" height="7" data-fx="pop" data-at="7" data-len="0.3"/>
+<rect class="f-sig" x="1026" y="384" width="104" height="3" data-fx="grow" data-at="7.05" data-len="0.4"/>
+<rect class="f-ink9 s-paper" x="808.5" y="194.5" width="74" height="150" stroke-opacity=".55" stroke-width="1.25"/>
+<rect class="f-ink" x="814" y="210" width="62" height="118"/>
+<rect class="f-paper" x="837" y="201" width="16" height="2.5" fill-opacity=".35"/>
+<path class="f-none s-paper" d="M845.0 402V344" stroke-opacity=".22"/>
+<rect class="f-paper" x="841" y="398" width="8" height="8" fill-opacity=".5"/>
+<path id="mb-c5" class="f-none" d="M845.0 402V344"/>
+<rect class="f-sig" x="-3.5" y="-3.5" width="7" height="7" data-fx="move" data-path="#mb-c5" data-at="7.3" data-len=".45"/>
+<rect class="f-paper" x="820" y="224" width="35" height="3" fill-opacity=".55" data-fx="grow" data-at="7.75" data-len="0.35"/>
+<rect class="f-paper" x="820" y="240" width="45" height="3" fill-opacity=".25" data-fx="grow" data-at="7.83" data-len="0.35"/>
+<rect class="f-paper" x="820" y="256" width="27.5" height="3" fill-opacity=".25" data-fx="grow" data-at="7.91" data-len="0.35"/>
+<rect class="f-paper" x="820" y="272" width="40" height="3" fill-opacity=".25" data-fx="grow" data-at="7.99" data-len="0.35"/>
+<rect class="f-paper" x="820" y="288" width="50" height="18" fill-opacity=".12" data-fx="fade" data-at="8" data-len="0.3"/>
+<g data-fx="pop" data-at="8.2" data-len="0.45"><rect class="f-none s-paper" x="838.5" y="161.5" width="13" height="13" stroke-opacity=".7"/><path class="f-none s-paper" d="M841.5 168l2.5 2.5 4.5-5"/></g>
+<rect class="f-paper" x="1012" y="400" width="7" height="7" fill-opacity=".45" data-fx="pop" data-at="8.3" data-len="0.3"/>
+<rect class="f-paper" x="1026" y="402" width="88" height="3" fill-opacity=".3" data-fx="grow" data-at="8.35" data-len="0.4"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TYPES                                                                -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Types of Mobile App Security Testing Services We Provide</h2>
+        <p class="shead__lede rv" style="--d:1">Our mobile app security testing services help businesses identify application vulnerabilities and protect sensitive information across Android and iOS platforms. We combine security assessments with practical testing methodologies to uncover weaknesses and recommend effective remediation measures.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("mobile") }}</div>
+        <h3 class="ledger__title">Android App Security Testing</h3>
+        <p class="ledger__text">We test Android applications for insecure data storage and weak authentication along with excessive permissions and exposed application components. Our assessment identifies security gaps that could expose user information or compromise application functionality.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("mobile-key") }}</div>
+        <h3 class="ledger__title">iOS App Security Testing</h3>
+        <p class="ledger__text">Our team evaluates iOS applications for weaknesses in data protection and authentication alongside insecure keychain usage and permission handling. We identify potential risks and recommend improvements to strengthen application security and protect sensitive data.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">Mobile App Penetration Testing</h3>
+        <p class="ledger__text">We simulate authorized attacks against mobile applications to identify exploitable vulnerabilities and assess existing security controls. Our penetration testing helps businesses understand potential attack paths and prioritize remediation based on risk severity.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h3 class="ledger__title">Mobile API Security Testing</h3>
+        <p class="ledger__text">We examine APIs connecting mobile applications with backend systems to uncover broken access controls and authentication flaws along with sensitive data exposure and insecure request handling. Our testing helps protect application endpoints and prevent unauthorized access to business information.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("radar") }}</div>
+        <h3 class="ledger__title">Mobile App Vulnerability Assessment</h3>
+        <p class="ledger__text">We conduct structured vulnerability assessments to identify and classify security weaknesses across mobile applications. Our findings highlight critical risks and provide actionable remediation recommendations that help development teams address vulnerabilities effectively.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("lock") }}</div>
+        <h3 class="ledger__title">Mobile Data Storage and Encryption Testing</h3>
+        <p class="ledger__text">We assess how mobile applications store and transmit sensitive information while reviewing encryption practices and data protection controls. Our testing identifies insecure local storage and weak encryption along with communication vulnerabilities that could expose confidential data.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("code") }}</div>
+        <h3 class="ledger__title">Mobile App Source Code Security Review</h3>
+        <p class="ledger__text">We analyze mobile application source code to detect insecure coding practices and potential security flaws. Our review focuses on authentication logic and input validation alongside data handling and other security-sensitive functions that could introduce application vulnerabilities.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">OWASP Mobile Security Assessment</h3>
+        <p class="ledger__text">We evaluate mobile application security controls against relevant OWASP Mobile Application Security Verification Standard (MASVS) requirements and testing guidance. Our assessment identifies gaps in security implementation and provides recommendations to improve alignment with recognized mobile security practices.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PLATFORMS                                                            -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Platforms Our Mobile App Security Testing Covers</h2>
+        <p class="shead__lede rv" style="--d:1">Our mobile app security testing services cover native and cross-platform applications across different industries. We identify security gaps that could expose user data or affect app functionality and provide practical recommendations to strengthen protection across mobile platforms.</p>
+      </div>
+    </header>
+
+    <div class="explorer" data-explorer>
+      <div class="explorer__media" aria-hidden="true">
+        <div class="explorer__stack">
+          <div class="explorer__frame is-active" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="84" y="155" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.6" data-len="0.4"/>
+<rect class="f-ink" x="168" y="150" width="15" height="15" data-fx="pop" data-at="0.8" data-len="0.35"/>
+<rect class="f-ink" x="84" y="197" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.72" data-len="0.4"/>
+<rect class="f-ink" x="168" y="192" width="15" height="15" data-fx="pop" data-at="0.92" data-len="0.35"/>
+<rect class="f-ink" x="84" y="239" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.84" data-len="0.4"/>
+<rect class="f-paper s-ink" x="168.5" y="234.5" width="14" height="14" stroke-opacity=".45" data-fx="pop" data-at="1.04" data-len="0.35"/>
+<rect class="f-ink" x="84" y="281" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.96" data-len="0.4"/>
+<rect class="f-sig" x="168" y="276" width="15" height="15" data-fx="pop" data-at="2.9" data-len="0.4"/>
+<rect class="f-ink" x="168.5" y="276.5" width="14" height="14" data-fx="pop" data-at="1.16" data-len="0.35" data-out="2.9"/>
+<g data-fx="pop" data-at="1.2" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="140.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="293" y="155" width="14" height="14"/>
+<path class="f-none s-ink" d="M300 150v6M300 168v6M288 162h6M306 162h6"/>
+</g>
+<g data-fx="pop" data-at="1.35" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="220.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="295.5" y="231" width="9" height="9"/>
+<path class="f-none s-ink" d="M289 254v-6h22v6"/>
+</g>
+<g data-fx="pop" data-at="1.5" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="300.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="288" y="312" width="24" height="5"/>
+<rect class="f-none s-ink" x="288" y="320" width="24" height="5"/>
+<rect class="f-none s-ink" x="288" y="328" width="24" height="5"/>
+</g>
+<path class="f-none s-ink" d="M183 157H226V162H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.8" data-len="0.5"/>
+<path class="f-none s-ink" d="M183 199H234V242H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2" data-len="0.5"/>
+<path class="f-none s-sig" d="M183 283H242V322H270" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.1" data-len="0.6"/>
+<rect class="f-none s-sig" x="267" y="299" width="66" height="50" stroke-width="1.5" data-fx="fade" data-at="3.6" data-len="0.3"/>
+<path class="f-none s-sig" d="M264 290v-4h4M332 286h4v4M336 354v4h-4M268 358h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.9" data-len="0.5"/>
+</svg></div></div>
+          <div class="explorer__frame" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.6" data-len="0.4">
+<rect class="f-p100 s-ink" x="90.5" y="150.5" width="90" height="104" stroke-width="1.25"/>
+<rect class="f-none s-ink" x="129" y="160" width="12" height="12"/>
+<path class="f-none s-ink" d="M135 172v10m0-4h4"/>
+</g>
+<g data-fx="fade" data-at="0.8" data-len="0.4">
+<rect class="f-none s-ink s-dash" x="90.5" y="280.5" width="90" height="56" stroke-opacity=".55"/>
+</g>
+<g data-fx="slide" data-at="1.4" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="102.5" y="206.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="107" y="213" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="1.7" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="146.5" y="206.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="151" y="213" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="2" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="124.5" y="228.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="129" y="235" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="2.6" data-len="0.7" data-dy="-200">
+<rect class="f-sig s-sig" x="124.5" y="300.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-paper" x="129" y="307" width="12" height="2.5"/>
+</g>
+<path class="f-none s-sig" d="M115.5 291.5v-4h4M151.5 287.5h4v4M155.5 323.5v4h-4M119.5 327.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.5" data-len="0.5"/>
+<path class="f-none s-sig" d="M200 308H262" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.8" data-len="0.5"/>
+<rect class="f-paper s-sig" x="262.5" y="290.5" width="56" height="36" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+<rect class="f-sig" x="272" y="306.5" width="36" height="3" data-fx="grow" data-at="4.5" data-len="0.4"/>
+</svg></div></div>
+          <div class="explorer__frame" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="140.5" y="70.5" width="120" height="60" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M186 92l-10 8 10 8M214 92l10 8-10 8M204 88l-8 24" stroke-width="1.5"/>
+</g>
+<g data-fx="fade" data-at="0.5" data-len="0.5">
+<rect class="f-paper s-ink" x="60.75" y="210.75" width="96" height="190" stroke-width="1.5"/>
+<rect class="f-ink" x="98" y="220" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="93" y="386" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.7" data-len="0.5">
+<rect class="f-paper s-ink" x="244.75" y="210.75" width="96" height="190" stroke-width="1.5"/>
+<rect class="f-ink" x="282" y="220" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="277" y="386" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="74" y="240" width="50" height="3" fill-opacity=".3" data-fx="grow" data-at="1" data-len="0.4"/>
+<rect class="f-ink" x="74" y="266" width="40" height="3" fill-opacity=".3" data-fx="grow" data-at="1.08" data-len="0.4"/>
+<rect class="f-ink" x="74" y="292" width="56" height="3" fill-opacity=".3" data-fx="grow" data-at="1.16" data-len="0.4"/>
+<rect class="f-ink" x="74" y="318" width="34" height="3" fill-opacity=".3" data-fx="grow" data-at="1.24" data-len="0.4"/>
+<rect class="f-ink" x="258" y="240" width="50" height="3" fill-opacity=".3" data-fx="grow" data-at="1.1" data-len="0.4"/>
+<rect class="f-ink" x="258" y="266" width="40" height="3" fill-opacity=".3" data-fx="grow" data-at="1.18" data-len="0.4"/>
+<rect class="f-ink" x="258" y="292" width="56" height="3" fill-opacity=".3" data-fx="grow" data-at="1.26" data-len="0.4"/>
+<rect class="f-ink" x="258" y="318" width="34" height="3" fill-opacity=".3" data-fx="grow" data-at="1.34" data-len="0.4"/>
+<path class="f-none s-ink" d="M200 130V170H108V210" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.5" data-len="0.6"/>
+<path class="f-none s-ink" d="M200 130V170H292V210" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.5" data-len="0.6"/>
+<g data-fx="pop" data-at="2.6" data-len="0.5"><rect class="f-sig" x="290" y="80" width="44" height="40"/><rect class="f-paper" x="298" y="93" width="28" height="3"/><rect class="f-paper" x="298" y="101" width="18" height="3" fill-opacity=".6"/></g>
+<path class="f-none s-sig" d="M290 100H261" pathLength="1" stroke-width="2" data-fx="draw" data-at="3" data-len="0.3"/>
+<path class="f-none s-sig" d="M200 130V170H108V210" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.6"/>
+<path class="f-none s-sig" d="M200 130V170H292V210" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.6"/>
+<rect class="f-sig" x="101" y="350" width="14" height="14" data-fx="pop" data-at="3.95" data-len="0.45"/>
+<path class="f-none s-sig" d="M94 347v-4h4M118 343h4v4M122 367v4h-4M98 371h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+<rect class="f-sig" x="285" y="350" width="14" height="14" data-fx="pop" data-at="3.95" data-len="0.45"/>
+<path class="f-none s-sig" d="M278 347v-4h4M302 343h4v4M306 367v4h-4M282 371h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+</svg></div></div>
+          <div class="explorer__frame" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.6" data-len="0.4">
+<rect class="f-paper s-ink" x="84.5" y="140.5" width="102" height="90" stroke-opacity=".7"/>
+<path class="s-ink" d="M84 154H186" stroke-opacity=".3"/>
+<rect class="f-none s-ink" x="90" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-none s-ink" x="97" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-none s-ink" x="104" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-ink" x="94" y="166" width="70" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="178" width="56" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="190" width="76" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="202" width="44" height="3" fill-opacity=".25"/>
+</g>
+<g data-fx="pop" data-at="1" data-len="0.45"><rect class="f-paper s-ink" x="88.5" y="290.5" width="40" height="40" stroke-opacity=".7"/><rect class="f-none s-ink" x="100" y="304" width="16" height="12"/><rect class="f-none s-ink" x="105" y="307" width="6" height="6"/></g>
+<g data-fx="pop" data-at="1.15" data-len="0.45"><rect class="f-paper s-ink" x="142.5" y="290.5" width="40" height="40" stroke-opacity=".7"/><rect class="f-none s-ink" x="152" y="300" width="20" height="5"/><rect class="f-none s-ink" x="152" y="308" width="20" height="5"/><rect class="f-none s-ink" x="152" y="316" width="20" height="5"/></g>
+<path class="f-none s-ink" d="M135 230V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.6" data-len="0.4"/>
+<path class="f-none s-ink" d="M135 266H108V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.9" data-len="0.35"/>
+<path class="f-none s-ink" d="M135 266H162V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.9" data-len="0.35"/>
+<rect class="f-paper s-ink" x="122.5" y="246.5" width="26" height="14" data-fx="pop" data-at="2.1" data-len="0.4"/>
+<g data-fx="pop" data-at="2.3" data-len="0.45"><rect class="f-paper s-ink" x="262.5" y="150.5" width="76" height="60" stroke-opacity=".6"/><path class="s-ink" d="M262 162H338" stroke-opacity=".25"/><rect class="f-ink" x="270" y="172" width="52" height="3" fill-opacity=".3"/><rect class="f-ink" x="270" y="182" width="36" height="3" fill-opacity=".2"/></g>
+<path class="f-none s-ink" d="M262 180H187" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2.6" data-len="0.4"/>
+<path class="f-none s-sig" d="M135 230V266H162V290" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.2" data-len="0.55"/>
+<rect class="f-none s-sig" x="141" y="289" width="43" height="43" stroke-width="1.5" data-fx="fade" data-at="3.7" data-len="0.3"/>
+<path class="f-none s-sig" d="M132.5 284.5v-4h4M188.5 280.5h4v4M192.5 336.5v4h-4M136.5 340.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.95" data-len="0.5"/>
+</svg></div></div>
+          <div class="explorer__frame" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-paper s-ink" x="97.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.6" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.65" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.7" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.75" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.8" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.85" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.9" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.95" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.05" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.1" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.15" data-len="0.3"/>
+<rect class="f-ink" x="97" y="264" width="7" height="7" data-fx="pop" data-at="1.3" data-len="0.3"/>
+<rect class="f-ink" x="109" y="264" width="7" height="7" data-fx="pop" data-at="1.4" data-len="0.3"/>
+<rect class="f-ink" x="121" y="264" width="7" height="7" data-fx="pop" data-at="1.5" data-len="0.3"/>
+<rect class="f-ink" x="133" y="264" width="7" height="7" data-fx="pop" data-at="1.6" data-len="0.3"/>
+<rect class="f-ink" x="84" y="300" width="102" height="22" data-fx="fade" data-at="1.7" data-len="0.3"/>
+<rect class="f-paper" x="122" y="309.75" width="26" height="2.5" data-fx="fade" data-at="1.7" data-len="0.3"/>
+<g data-fx="pop" data-at="1.9" data-len="0.45"><rect class="f-paper s-ink" x="270.5" y="150.5" width="70" height="60" stroke-opacity=".7"/><rect class="f-none s-ink" x="280" y="162" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="176" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="190" width="50" height="8" stroke-opacity=".5"/></g>
+<g data-fx="pop" data-at="2.1" data-len="0.45"><rect class="f-paper s-ink" x="270.5" y="300.5" width="70" height="60" stroke-opacity=".7"/><rect class="f-none s-ink" x="280" y="312" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="326" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="340" width="50" height="8" stroke-opacity=".5"/></g>
+<path class="f-none s-ink" d="M186 311H232V180H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2.3" data-len="0.6"/>
+<path class="f-none s-sig" d="M232 240V330H270" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.2" data-len="0.55"/>
+<rect class="f-none s-sig" x="267" y="297" width="77" height="67" stroke-width="1.5" data-fx="fade" data-at="3.7" data-len="0.3"/>
+<rect class="f-sig" x="227" y="235" width="10" height="10" data-fx="pop" data-at="3.1" data-len="0.4"/>
+<path class="f-none s-sig" d="M261.5 290.5v-4h4M345.5 286.5h4v4M349.5 370.5v4h-4M265.5 374.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4" data-len="0.5"/>
+</svg></div></div>
+          <div class="explorer__frame" data-explorer-media><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="84" y="150" width="80" height="3" fill-opacity=".28" data-fx="grow" data-at="0.6" data-len="0.4"/>
+<rect class="f-ink" x="84" y="170" width="60" height="3" fill-opacity=".28" data-fx="grow" data-at="0.7" data-len="0.4"/>
+<rect class="f-ink" x="84" y="190" width="90" height="3" fill-opacity=".28" data-fx="grow" data-at="0.8" data-len="0.4"/>
+<rect class="f-ink" x="84" y="210" width="50" height="3" fill-opacity=".28" data-fx="grow" data-at="0.9" data-len="0.4"/>
+<rect class="f-p100" x="84" y="240" width="102" height="40" data-fx="fade" data-at="1" data-len="0.3"/>
+<rect class="f-ink" x="96" y="254" width="12" height="12" data-fx="pop" data-at="1.1" data-len="0.3"/>
+<g data-fx="pop" data-at="1.4" data-len="0.5"><rect class="f-paper s-ink" x="270.5" y="170.5" width="70" height="70" stroke-width="1.5"/><rect class="f-none s-ink" x="290.5" y="190.5" width="30" height="30"/><rect class="f-ink" x="300.5" y="200.5" width="10" height="10"/></g>
+<path class="f-none s-ink" d="M200 205H270" pathLength="1" stroke-opacity=".6" data-fx="draw" data-at="1.9" data-len="0.45"/>
+<rect class="f-ink" x="231" y="201" width="8" height="8" data-fx="pop" data-at="2.3" data-len="0.35"/>
+<g data-fx="fade" data-at="2.8" data-len="0.4"><rect class="f-paper s-ink s-dash" x="275.5" y="330.5" width="60" height="110" stroke-opacity=".7"/><rect class="f-ink" x="298" y="338" width="14" height="2.5" fill-opacity=".4"/></g>
+<path class="f-none s-sig" d="M305 330V241" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.5"/>
+<rect class="f-sig" x="300" y="279" width="10" height="10" data-fx="pop" data-at="3.8" data-len="0.4"/>
+<path class="f-none s-sig" d="M259.5 163.5v-4h4M347.5 159.5h4v4M351.5 247.5v4h-4M263.5 251.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4" data-len="0.5"/>
+</svg></div></div>
+        </div>
+      </div>
+
+      <div class="explorer__list">
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="84" y="155" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.6" data-len="0.4"/>
+<rect class="f-ink" x="168" y="150" width="15" height="15" data-fx="pop" data-at="0.8" data-len="0.35"/>
+<rect class="f-ink" x="84" y="197" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.72" data-len="0.4"/>
+<rect class="f-ink" x="168" y="192" width="15" height="15" data-fx="pop" data-at="0.92" data-len="0.35"/>
+<rect class="f-ink" x="84" y="239" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.84" data-len="0.4"/>
+<rect class="f-paper s-ink" x="168.5" y="234.5" width="14" height="14" stroke-opacity=".45" data-fx="pop" data-at="1.04" data-len="0.35"/>
+<rect class="f-ink" x="84" y="281" width="60" height="3" fill-opacity=".45" data-fx="grow" data-at="0.96" data-len="0.4"/>
+<rect class="f-sig" x="168" y="276" width="15" height="15" data-fx="pop" data-at="2.9" data-len="0.4"/>
+<rect class="f-ink" x="168.5" y="276.5" width="14" height="14" data-fx="pop" data-at="1.16" data-len="0.35" data-out="2.9"/>
+<g data-fx="pop" data-at="1.2" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="140.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="293" y="155" width="14" height="14"/>
+<path class="f-none s-ink" d="M300 150v6M300 168v6M288 162h6M306 162h6"/>
+</g>
+<g data-fx="pop" data-at="1.35" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="220.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="295.5" y="231" width="9" height="9"/>
+<path class="f-none s-ink" d="M289 254v-6h22v6"/>
+</g>
+<g data-fx="pop" data-at="1.5" data-len="0.45">
+<rect class="f-paper s-ink" x="270.5" y="300.5" width="60" height="44" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="288" y="312" width="24" height="5"/>
+<rect class="f-none s-ink" x="288" y="320" width="24" height="5"/>
+<rect class="f-none s-ink" x="288" y="328" width="24" height="5"/>
+</g>
+<path class="f-none s-ink" d="M183 157H226V162H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.8" data-len="0.5"/>
+<path class="f-none s-ink" d="M183 199H234V242H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2" data-len="0.5"/>
+<path class="f-none s-sig" d="M183 283H242V322H270" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.1" data-len="0.6"/>
+<rect class="f-none s-sig" x="267" y="299" width="66" height="50" stroke-width="1.5" data-fx="fade" data-at="3.6" data-len="0.3"/>
+<path class="f-none s-sig" d="M264 290v-4h4M332 286h4v4M336 354v4h-4M268 358h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.9" data-len="0.5"/>
+</svg></div></div>
+          <h3 class="explorer__name">Native Android Applications</h3>
+          <p class="explorer__text">We check Android apps for security weaknesses that could expose personal information or allow unauthorized access. Our testing covers app permissions and login security along with data storage and overall app protection.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.6" data-len="0.4">
+<rect class="f-p100 s-ink" x="90.5" y="150.5" width="90" height="104" stroke-width="1.25"/>
+<rect class="f-none s-ink" x="129" y="160" width="12" height="12"/>
+<path class="f-none s-ink" d="M135 172v10m0-4h4"/>
+</g>
+<g data-fx="fade" data-at="0.8" data-len="0.4">
+<rect class="f-none s-ink s-dash" x="90.5" y="280.5" width="90" height="56" stroke-opacity=".55"/>
+</g>
+<g data-fx="slide" data-at="1.4" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="102.5" y="206.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="107" y="213" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="1.7" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="146.5" y="206.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="151" y="213" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="2" data-len="0.6" data-dy="-90">
+<rect class="f-paper s-ink" x="124.5" y="228.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-ink" x="129" y="235" width="12" height="2.5" fill-opacity=".4"/>
+</g>
+<g data-fx="slide" data-at="2.6" data-len="0.7" data-dy="-200">
+<rect class="f-sig s-sig" x="124.5" y="300.5" width="22" height="15" stroke-opacity=".6"/>
+<rect class="f-paper" x="129" y="307" width="12" height="2.5"/>
+</g>
+<path class="f-none s-sig" d="M115.5 291.5v-4h4M151.5 287.5h4v4M155.5 323.5v4h-4M119.5 327.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.5" data-len="0.5"/>
+<path class="f-none s-sig" d="M200 308H262" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.8" data-len="0.5"/>
+<rect class="f-paper s-sig" x="262.5" y="290.5" width="56" height="36" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+<rect class="f-sig" x="272" y="306.5" width="36" height="3" data-fx="grow" data-at="4.5" data-len="0.4"/>
+</svg></div></div>
+          <h3 class="explorer__name">Native iOS Applications</h3>
+          <p class="explorer__text">Our iOS security testing helps identify risks in data protection and user authentication along with insecure settings that could expose sensitive information or affect app security.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="140.5" y="70.5" width="120" height="60" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M186 92l-10 8 10 8M214 92l10 8-10 8M204 88l-8 24" stroke-width="1.5"/>
+</g>
+<g data-fx="fade" data-at="0.5" data-len="0.5">
+<rect class="f-paper s-ink" x="60.75" y="210.75" width="96" height="190" stroke-width="1.5"/>
+<rect class="f-ink" x="98" y="220" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="93" y="386" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.7" data-len="0.5">
+<rect class="f-paper s-ink" x="244.75" y="210.75" width="96" height="190" stroke-width="1.5"/>
+<rect class="f-ink" x="282" y="220" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="277" y="386" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="74" y="240" width="50" height="3" fill-opacity=".3" data-fx="grow" data-at="1" data-len="0.4"/>
+<rect class="f-ink" x="74" y="266" width="40" height="3" fill-opacity=".3" data-fx="grow" data-at="1.08" data-len="0.4"/>
+<rect class="f-ink" x="74" y="292" width="56" height="3" fill-opacity=".3" data-fx="grow" data-at="1.16" data-len="0.4"/>
+<rect class="f-ink" x="74" y="318" width="34" height="3" fill-opacity=".3" data-fx="grow" data-at="1.24" data-len="0.4"/>
+<rect class="f-ink" x="258" y="240" width="50" height="3" fill-opacity=".3" data-fx="grow" data-at="1.1" data-len="0.4"/>
+<rect class="f-ink" x="258" y="266" width="40" height="3" fill-opacity=".3" data-fx="grow" data-at="1.18" data-len="0.4"/>
+<rect class="f-ink" x="258" y="292" width="56" height="3" fill-opacity=".3" data-fx="grow" data-at="1.26" data-len="0.4"/>
+<rect class="f-ink" x="258" y="318" width="34" height="3" fill-opacity=".3" data-fx="grow" data-at="1.34" data-len="0.4"/>
+<path class="f-none s-ink" d="M200 130V170H108V210" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.5" data-len="0.6"/>
+<path class="f-none s-ink" d="M200 130V170H292V210" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.5" data-len="0.6"/>
+<g data-fx="pop" data-at="2.6" data-len="0.5"><rect class="f-sig" x="290" y="80" width="44" height="40"/><rect class="f-paper" x="298" y="93" width="28" height="3"/><rect class="f-paper" x="298" y="101" width="18" height="3" fill-opacity=".6"/></g>
+<path class="f-none s-sig" d="M290 100H261" pathLength="1" stroke-width="2" data-fx="draw" data-at="3" data-len="0.3"/>
+<path class="f-none s-sig" d="M200 130V170H108V210" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.6"/>
+<path class="f-none s-sig" d="M200 130V170H292V210" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.6"/>
+<rect class="f-sig" x="101" y="350" width="14" height="14" data-fx="pop" data-at="3.95" data-len="0.45"/>
+<path class="f-none s-sig" d="M94 347v-4h4M118 343h4v4M122 367v4h-4M98 371h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+<rect class="f-sig" x="285" y="350" width="14" height="14" data-fx="pop" data-at="3.95" data-len="0.45"/>
+<path class="f-none s-sig" d="M278 347v-4h4M302 343h4v4M306 367v4h-4M282 371h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4.2" data-len="0.45"/>
+</svg></div></div>
+          <h3 class="explorer__name">React Native and Flutter Apps</h3>
+          <p class="explorer__text">We assess cross-platform apps for security gaps that may affect both Android and iOS users. Our testing focuses on data protection and app permissions along with third-party components that could introduce security risks.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<g data-fx="fade" data-at="0.6" data-len="0.4">
+<rect class="f-paper s-ink" x="84.5" y="140.5" width="102" height="90" stroke-opacity=".7"/>
+<path class="s-ink" d="M84 154H186" stroke-opacity=".3"/>
+<rect class="f-none s-ink" x="90" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-none s-ink" x="97" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-none s-ink" x="104" y="145" width="4" height="4" stroke-opacity=".5"/>
+<rect class="f-ink" x="94" y="166" width="70" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="178" width="56" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="190" width="76" height="3" fill-opacity=".25"/>
+<rect class="f-ink" x="94" y="202" width="44" height="3" fill-opacity=".25"/>
+</g>
+<g data-fx="pop" data-at="1" data-len="0.45"><rect class="f-paper s-ink" x="88.5" y="290.5" width="40" height="40" stroke-opacity=".7"/><rect class="f-none s-ink" x="100" y="304" width="16" height="12"/><rect class="f-none s-ink" x="105" y="307" width="6" height="6"/></g>
+<g data-fx="pop" data-at="1.15" data-len="0.45"><rect class="f-paper s-ink" x="142.5" y="290.5" width="40" height="40" stroke-opacity=".7"/><rect class="f-none s-ink" x="152" y="300" width="20" height="5"/><rect class="f-none s-ink" x="152" y="308" width="20" height="5"/><rect class="f-none s-ink" x="152" y="316" width="20" height="5"/></g>
+<path class="f-none s-ink" d="M135 230V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.6" data-len="0.4"/>
+<path class="f-none s-ink" d="M135 266H108V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.9" data-len="0.35"/>
+<path class="f-none s-ink" d="M135 266H162V290" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="1.9" data-len="0.35"/>
+<rect class="f-paper s-ink" x="122.5" y="246.5" width="26" height="14" data-fx="pop" data-at="2.1" data-len="0.4"/>
+<g data-fx="pop" data-at="2.3" data-len="0.45"><rect class="f-paper s-ink" x="262.5" y="150.5" width="76" height="60" stroke-opacity=".6"/><path class="s-ink" d="M262 162H338" stroke-opacity=".25"/><rect class="f-ink" x="270" y="172" width="52" height="3" fill-opacity=".3"/><rect class="f-ink" x="270" y="182" width="36" height="3" fill-opacity=".2"/></g>
+<path class="f-none s-ink" d="M262 180H187" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2.6" data-len="0.4"/>
+<path class="f-none s-sig" d="M135 230V266H162V290" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.2" data-len="0.55"/>
+<rect class="f-none s-sig" x="141" y="289" width="43" height="43" stroke-width="1.5" data-fx="fade" data-at="3.7" data-len="0.3"/>
+<path class="f-none s-sig" d="M132.5 284.5v-4h4M188.5 280.5h4v4M192.5 336.5v4h-4M136.5 340.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="3.95" data-len="0.5"/>
+</svg></div></div>
+          <h3 class="explorer__name">Xamarin and Hybrid Applications</h3>
+          <p class="explorer__text">Hybrid applications are reviewed for weaknesses in app-to-web communication and plugin security. We identify issues that could expose sensitive data or affect the safe functioning of mobile features.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-paper s-ink" x="97.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.6" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.65" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="150.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.7" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.75" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.8" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="176.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.85" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.9" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="0.95" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="202.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1" data-len="0.3"/>
+<rect class="f-paper s-ink" x="97.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.05" data-len="0.3"/>
+<rect class="f-paper s-ink" x="123.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.1" data-len="0.3"/>
+<rect class="f-paper s-ink" x="149.5" y="228.5" width="16" height="16" stroke-opacity=".55" data-fx="pop" data-at="1.15" data-len="0.3"/>
+<rect class="f-ink" x="97" y="264" width="7" height="7" data-fx="pop" data-at="1.3" data-len="0.3"/>
+<rect class="f-ink" x="109" y="264" width="7" height="7" data-fx="pop" data-at="1.4" data-len="0.3"/>
+<rect class="f-ink" x="121" y="264" width="7" height="7" data-fx="pop" data-at="1.5" data-len="0.3"/>
+<rect class="f-ink" x="133" y="264" width="7" height="7" data-fx="pop" data-at="1.6" data-len="0.3"/>
+<rect class="f-ink" x="84" y="300" width="102" height="22" data-fx="fade" data-at="1.7" data-len="0.3"/>
+<rect class="f-paper" x="122" y="309.75" width="26" height="2.5" data-fx="fade" data-at="1.7" data-len="0.3"/>
+<g data-fx="pop" data-at="1.9" data-len="0.45"><rect class="f-paper s-ink" x="270.5" y="150.5" width="70" height="60" stroke-opacity=".7"/><rect class="f-none s-ink" x="280" y="162" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="176" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="190" width="50" height="8" stroke-opacity=".5"/></g>
+<g data-fx="pop" data-at="2.1" data-len="0.45"><rect class="f-paper s-ink" x="270.5" y="300.5" width="70" height="60" stroke-opacity=".7"/><rect class="f-none s-ink" x="280" y="312" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="326" width="50" height="8" stroke-opacity=".5"/><rect class="f-none s-ink" x="280" y="340" width="50" height="8" stroke-opacity=".5"/></g>
+<path class="f-none s-ink" d="M186 311H232V180H270" pathLength="1" stroke-opacity=".55" data-fx="draw" data-at="2.3" data-len="0.6"/>
+<path class="f-none s-sig" d="M232 240V330H270" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.2" data-len="0.55"/>
+<rect class="f-none s-sig" x="267" y="297" width="77" height="67" stroke-width="1.5" data-fx="fade" data-at="3.7" data-len="0.3"/>
+<rect class="f-sig" x="227" y="235" width="10" height="10" data-fx="pop" data-at="3.1" data-len="0.4"/>
+<path class="f-none s-sig" d="M261.5 290.5v-4h4M345.5 286.5h4v4M349.5 370.5v4h-4M265.5 374.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4" data-len="0.5"/>
+</svg></div></div>
+          <h3 class="explorer__name">Mobile Banking and Payment Apps</h3>
+          <p class="explorer__text">Security checks focus on protecting financial information and preventing unauthorized transactions. We assess login controls and payment workflows along with the handling of sensitive customer data.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <div class="explorer__inline xp-box" aria-hidden="true"><div class="xp xp--light" data-sig="8"><svg viewBox="0 0 400 500">
+<g data-fx="fade" data-at="0.2" data-len="0.5">
+<rect class="f-paper s-ink" x="70.75" y="110.75" width="130" height="260" stroke-width="1.5"/>
+<rect class="f-ink" x="125" y="120" width="20" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="120" y="356" width="30" height="3" fill-opacity=".4"/>
+</g>
+<rect class="f-ink" x="84" y="150" width="80" height="3" fill-opacity=".28" data-fx="grow" data-at="0.6" data-len="0.4"/>
+<rect class="f-ink" x="84" y="170" width="60" height="3" fill-opacity=".28" data-fx="grow" data-at="0.7" data-len="0.4"/>
+<rect class="f-ink" x="84" y="190" width="90" height="3" fill-opacity=".28" data-fx="grow" data-at="0.8" data-len="0.4"/>
+<rect class="f-ink" x="84" y="210" width="50" height="3" fill-opacity=".28" data-fx="grow" data-at="0.9" data-len="0.4"/>
+<rect class="f-p100" x="84" y="240" width="102" height="40" data-fx="fade" data-at="1" data-len="0.3"/>
+<rect class="f-ink" x="96" y="254" width="12" height="12" data-fx="pop" data-at="1.1" data-len="0.3"/>
+<g data-fx="pop" data-at="1.4" data-len="0.5"><rect class="f-paper s-ink" x="270.5" y="170.5" width="70" height="70" stroke-width="1.5"/><rect class="f-none s-ink" x="290.5" y="190.5" width="30" height="30"/><rect class="f-ink" x="300.5" y="200.5" width="10" height="10"/></g>
+<path class="f-none s-ink" d="M200 205H270" pathLength="1" stroke-opacity=".6" data-fx="draw" data-at="1.9" data-len="0.45"/>
+<rect class="f-ink" x="231" y="201" width="8" height="8" data-fx="pop" data-at="2.3" data-len="0.35"/>
+<g data-fx="fade" data-at="2.8" data-len="0.4"><rect class="f-paper s-ink s-dash" x="275.5" y="330.5" width="60" height="110" stroke-opacity=".7"/><rect class="f-ink" x="298" y="338" width="14" height="2.5" fill-opacity=".4"/></g>
+<path class="f-none s-sig" d="M305 330V241" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.3" data-len="0.5"/>
+<rect class="f-sig" x="300" y="279" width="10" height="10" data-fx="pop" data-at="3.8" data-len="0.4"/>
+<path class="f-none s-sig" d="M259.5 163.5v-4h4M347.5 159.5h4v4M351.5 247.5v4h-4M263.5 251.5h-4v-4" stroke-width="1.5" data-fx="pop" data-at="4" data-len="0.5"/>
+</svg></div></div>
+          <h3 class="explorer__name">IoT Companion Applications</h3>
+          <p class="explorer__text">We test mobile apps that connect to smart devices to identify weaknesses in device pairing and communication along with access controls that could put connected devices or user information at risk.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- COMMON VULNERABILITIES                                               -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Common Vulnerabilities Our Mobile Application Security Testing Finds</h2>
+        <p class="shead__lede rv" style="--d:1">Our mobile application security testing services help businesses uncover security weaknesses that could expose sensitive data or put mobile applications at risk. We assess common vulnerabilities across Android and iOS apps along with their APIs and data communication to help organizations strengthen application security.</p>
+      </div>
+    </header>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("unlock", "lg") }}</span>
+        <h3 class="trigger__title">Weak Authentication and Access Controls</h3>
+        <p class="trigger__text">We identify weaknesses in login processes and user permissions that could allow unauthorized users to access accounts or restricted application features.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("database", "lg") }}</span>
+        <h3 class="trigger__title">Insecure Data Storage</h3>
+        <p class="trigger__text">Our testing detects sensitive information stored without adequate protection on mobile devices. This includes login credentials and personal details that could be exposed if a device is compromised.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("wifi", "lg") }}</span>
+        <h3 class="trigger__title">Insecure Network Communication</h3>
+        <p class="trigger__text">We check how applications exchange information with servers to identify weak encryption and unsafe communication practices that could expose sensitive data during transmission.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("api", "lg") }}</span>
+        <h3 class="trigger__title">Mobile API Security Vulnerabilities</h3>
+        <p class="trigger__text">Our mobile API security testing identifies access control gaps and authentication issues along with exposed data that could allow attackers to access information or misuse application features.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("gear", "lg") }}</span>
+        <h3 class="trigger__title">Insecure Code and Application Configuration</h3>
+        <p class="trigger__text">We examine application code and security settings to identify coding errors and misconfigurations that could expose internal information or create opportunities for exploitation.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("key", "lg") }}</span>
+        <h3 class="trigger__title">Weak Encryption and Data Protection</h3>
+        <p class="trigger__text">We assess the protection applied to sensitive information to identify weak encryption practices or improper handling of cryptographic keys that could compromise user privacy.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("container", "lg") }}</span>
+        <h3 class="trigger__title">Vulnerable Third-Party Libraries</h3>
+        <p class="trigger__text">Our assessment checks third-party components for known security weaknesses that could introduce risks through outdated dependencies or insecure software packages.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("mobile-scan", "lg") }}</span>
+        <h3 class="trigger__title">Reverse Engineering and Tampering Risks</h3>
+        <p class="trigger__text">We evaluate how well mobile applications resist unauthorized code analysis and modification to identify weaknesses that could expose business logic or compromise application integrity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our Mobile App Security Testing Process</h2>
+        <p class="process__lede">We follow a structured mobile app security testing process to identify vulnerabilities and help businesses protect their applications against security threats. Our approach combines detailed security assessments with practical recommendations to strengthen Android and iOS applications.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Application Scope and Requirement Analysis</h3>
+          <p class="step__text">We review your application's architecture and business requirements to define the testing scope. This includes identifying Android and iOS platforms along with APIs and critical application features that require assessment.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Assessment and Vulnerability Identification</h3>
+          <p class="step__text">Our team examines application settings and data handling practices alongside authentication and access controls to identify weaknesses through mobile application security testing.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Mobile App Penetration Testing</h3>
+          <p class="step__text">We perform authorized security tests to determine how identified weaknesses could be exploited. Our mobile app penetration testing services examine potential risks involving application access and sensitive data along with API communication.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Analysis and Prioritization</h3>
+          <p class="step__text">Each finding is evaluated based on its severity and potential business impact. We classify vulnerabilities by priority so your development team can focus on the issues that pose the greatest security risks.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Report and Remediation Guidance</h3>
+          <p class="step__text">We provide a detailed security report covering identified vulnerabilities and their potential impact along with recommended fixes. The findings support informed decisions for improving mobile application security.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Verification and Retesting</h3>
+          <p class="step__text">After fixes are implemented, we retest the reported vulnerabilities to verify the effectiveness of the corrective measures. This helps confirm that addressed issues are resolved and that the application has improved its security posture.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Mobile App Security Testing Services</h2>
+        <p class="shead__lede rv" style="--d:1">Our Mobile App Security Testing Services deliver actionable security findings that help businesses understand application risks and prioritize fixes. Each assessment includes clear documentation and practical recommendations to support developers and security teams in improving Android and iOS application security.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example detailed vulnerability report: executive summary, findings with severity ratings and the retesting and closure report">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-ink" x="36.75" y="44.75" width="259.5" height="391.5"/><rect class="f-sig" x="52" y="60" width="8" height="8"/><rect class="f-paper" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-paper" x="54" y="112" font-size="25" text-anchor="start">Detailed</text><text class="sig-txt f-paper" x="54" y="141" font-size="25" text-anchor="start">Vulnerability</text><text class="sig-txt f-paper" x="54" y="170" font-size="25" text-anchor="start">Report</text><path class="f-none s-sig" d="M58 200h-6v26h6M138 200h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-sig" x="66" y="217.5" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-paper" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Executive Summary</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><rect class="f-stone" x="216" y="236" width="200" height="4" data-fx="grow" data-at="1.9" data-len="0.35"/><rect class="f-stone" x="216" y="248" width="176" height="4" data-fx="grow" data-at="2" data-len="0.35"/><text class="sig-txt f-ink" x="216" y="280" font-size="10" text-anchor="start" data-fx="fade" data-at="2.3" data-len="0.3">Insecure Data Storage</text><g data-fx="pop" data-at="2.45" data-len="0.4"><rect class="f-sig" x="384.5" y="269.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="280.5" font-size="7" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 289h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="307" font-size="7.9" text-anchor="start" data-fx="fade" data-at="2.52" data-len="0.3">Weak Authentication and Access Controls</text><g data-fx="pop" data-at="2.67" data-len="0.4"><rect class="f-sig" x="384.5" y="296.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="307.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 316h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="334" font-size="10" text-anchor="start" data-fx="fade" data-at="2.74" data-len="0.3">Insecure Network Communication</text><g data-fx="pop" data-at="2.89" data-len="0.4"><rect class="f-sig" x="384.5" y="323.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="334.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 343h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="361" font-size="9.6" text-anchor="start" data-fx="fade" data-at="2.96" data-len="0.3">Vulnerable Third-Party Libraries</text><g data-fx="pop" data-at="3.11" data-len="0.4"><rect class="f-sig1" x="384.5" y="350.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="361.5" font-size="7" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 370h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="388" font-size="7.9" text-anchor="start" data-fx="fade" data-at="3.18" data-len="0.3">Reverse Engineering and Tampering Risks</text><g data-fx="pop" data-at="3.33" data-len="0.4"><rect class="f-p100 s-stone" x="384.5" y="377.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="388.5" font-size="7" text-anchor="middle">LOW</text></g><path class="f-none s-ink" d="M216 397h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="435" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3.4" data-len="0.3">Retesting and Closure Report</text><path class="f-none s-ink" d="M216 445h216" stroke-opacity=".2"/><rect class="f-none s-ink" x="216.75" y="461.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 468l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.6" data-len="0.3"/><rect class="f-stone" x="238" y="466" width="150" height="4" data-fx="grow" data-at="3.65" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="482.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 489l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.85" data-len="0.3"/><rect class="f-stone" x="238" y="487" width="120" height="4" data-fx="grow" data-at="3.9" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Summary</h3>
+            <p class="deliver__text">A clear overview of the mobile application's security status with key risks and potential business impact, helping decision-makers understand the findings without needing deep technical knowledge.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Vulnerability Report</h3>
+            <p class="deliver__text">Documented security findings covering affected components and vulnerability severity along with supporting evidence and reproduction steps. Findings can be mapped to relevant OWASP MASVS guidance where applicable.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("wrench") }}
+          <div>
+            <h3 class="deliver__title">Remediation Recommendations</h3>
+            <p class="deliver__text">Practical guidance helps developers address weaknesses in authentication and data storage along with API security and application configuration. Recommendations are prioritized according to risk and potential impact.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chat") }}
+          <div>
+            <h3 class="deliver__title">Security Walkthrough Session</h3>
+            <p class="deliver__text">A review session with our security team to explain important findings and discuss potential attack scenarios. Your team can clarify technical concerns and understand the recommended remediation steps.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("shield-check") }}
+          <div>
+            <h3 class="deliver__title">Retesting and Closure Report</h3>
+            <p class="deliver__text">Following remediation, retesting verifies the status of reported vulnerabilities and documents the results. The closure report summarizes resolved issues and highlights any remaining risks that require attention.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- STATEMENT BAND                                                       -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Clear Findings. Practical Fixes.</h2>
+    <p class="band__text rv" style="--d:1">From vulnerability identification to remediation verification, our mobile application security testing deliverables give your team a clear path to stronger application security.</p>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose Us for Mobile App Security Testing Services?</h2>
+        <p class="shead__lede rv" style="--d:1">At CipherTrivia, a trusted Mobile App Security Testing Company, helps businesses strengthen mobile application security through structured testing and practical remediation guidance. Our approach focuses on identifying real security risks and delivering clear findings that help development teams protect user data and improve application resilience.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("magnifier") }}
+        <h3 class="principle__title">Comprehensive Security Assessments</h3>
+        <p class="principle__text">Our mobile app security testing services cover Android and iOS applications along with APIs and data handling practices to identify vulnerabilities across key application components.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("gauge") }}
+        <h3 class="principle__title">Risk-Based Vulnerability Prioritization</h3>
+        <p class="principle__text">Security findings are classified by severity and potential impact so your team can focus on critical weaknesses and plan remediation more effectively.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Actionable Reports and Recommendations</h3>
+        <p class="principle__text">Every assessment provides documented findings and practical guidance that help developers understand identified issues and implement appropriate security fixes.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Testing Across Mobile Platforms</h3>
+        <p class="principle__text">From native Android and iOS apps to React Native and Flutter applications, our testing approach addresses platform-specific risks and common mobile security weaknesses.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Industry-Recognized Security Practices</h3>
+        <p class="principle__text">We align relevant testing activities with established guidance such as OWASP MASVS and OWASP mobile security testing resources to assess application controls against recognized security practices.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("retest") }}
+        <h3 class="principle__title">Remediation Support and Retesting</h3>
+        <p class="principle__text">After your team implements security fixes, retesting helps verify the status of reported vulnerabilities and identifies any remaining issues that need attention.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Mobile App Security Testing</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

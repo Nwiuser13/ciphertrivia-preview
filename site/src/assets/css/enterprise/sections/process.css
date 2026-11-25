@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Process — sticky counter + scroll-driven rail (dark)
+   ========================================================================== */
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-inv-strong);
+}
+
+.process__aside {
+  grid-column: 1 / span 5;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+.process__aside .shead__index { display: block; margin-bottom: 0.75rem; }
+.process__title {
+  margin-top: 1.5rem;
+  font-size: var(--fs-3xl);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+.process__lede {
+  margin-top: 1.5rem;
+  max-width: 54ch;
+  color: var(--stone-300);
+}
+.process__aside .btn { margin-top: 2.5rem; }
+.process__count {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-inv-strong);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: clamp(4rem, 2.5rem + 6vw, 9rem);
+  line-height: 0.85;
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.process__count small {
+  font-size: 0.28em;
+  letter-spacing: -0.02em;
+  color: var(--stone-500);
+}
+
+.process__list {
+  --progress: 0;
+  grid-column: 7 / -1;
+  position: relative;
+}
+.process__list::before,
+.process__list::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 7px;
+}
+.process__list::before {
+  bottom: 0;
+  width: 1px;
+  background: var(--line-inv-strong);
+}
+.process__list::after {
+  left: 6px;
+  width: 3px;
+  height: calc(var(--progress) * (100% - 0.5rem));
+  background: var(--signal-500);
+}
+
+.step {
+  position: relative;
+  padding: 0 0 clamp(2.75rem, 2rem + 2.5vw, 4.5rem) clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.step:last-child { padding-bottom: 0; }
+.step__marker {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 15px;
+  height: 15px;
+  background: var(--ink-950);
+  border: 1px solid var(--line-inv-strong);
+  transition: background var(--dur-2), border-color var(--dur-2);
+}
+.step.is-active .step__marker { background: var(--signal-500); border-color: var(--signal-500); }
+
+.step__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--stone-400);
+  transition: color var(--dur-2);
+}
+.step.is-active .step__label { color: var(--signal-500); }
+.step__title {
+  margin-top: 0.625rem;
+  font-size: var(--fs-2xl);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  color: var(--stone-400);
+  transition: color var(--dur-2);
+}
+.step.is-active .step__title { color: var(--paper-50); }
+.step__marker + .step__title { margin-top: 0; }
+.step__text {
+  margin-top: 1rem;
+  max-width: 58ch;
+  color: var(--stone-400);
+}
+
+@media (max-width: 1024px) {
+  .process__aside, .process__list { grid-column: 1 / -1; }
+  .process__aside { position: static; }
+  .process__count { display: none; }
+}
+
+/* Light variant, on a white section: for pages where a neighbouring section is already ink */
+.process--light { border-top-color: var(--line-strong); }
+.process--light .process__lede { color: var(--ink-700); }
+.process--light .process__list::before { background: var(--line-strong); }
+.process--light .step__marker { background: var(--paper-0); border-color: var(--line-strong); }
+.process--light .step__title,
+.process--light .step__text { color: var(--stone-500); }
+.process--light .step.is-active .step__title { color: var(--ink-950); }
+
+/* Without JS every step reads as active */
+html:not(.js) .step__marker { background: var(--signal-500); border-color: var(--signal-500); }
+html:not(.js) .step__title { color: var(--paper-50); }
+html:not(.js) .process--light .step__title { color: var(--ink-950); }

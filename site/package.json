@@ -1,0 +1,16 @@
+{
+  "name": "ciphertrivia-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "serve": "node server.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "nodemailer": "^10.2.1"
+  }
+}

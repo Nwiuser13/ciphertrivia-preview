@@ -1,0 +1,26 @@
+---
+layout: layouts/enterprise.njk
+title: "Page Not Found | CipherTrivia"
+description: "The page you're looking for doesn't exist or has been moved."
+permalink: /404.html
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+
+<section class="hero hero--status" aria-labelledby="status-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <div class="hero__layout">
+      <div class="hero__copy">
+        <p class="kicker rv">404</p>
+        <h1 class="hero__title rv" style="--d:1" id="status-title">Page Not Found</h1>
+        <p class="hero__lede rv" style="--d:2">The page you're looking for doesn't exist or has been moved.</p>
+        <div class="hero__actions rv" style="--d:3">
+          <a class="btn btn--signal" href="/">Back to Home {{ arrow() }}</a>
+          <a class="btn btn--ghost" href="/contact/">Contact Us {{ arrow() }}</a>
+        </div>
+      </div>
+      <div class="hero__visual rv" style="--d:2">{{ icon("compass", "xl") }}</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+/* ==========================================================================
+   CipherTrivia Enterprise — Design Tokens
+   Single source of truth. Change values here, never hard-code in components.
+   ========================================================================== */
+
+:root {
+  /* ---- Ink (dark neutrals) — 950 is the logo's own background colour so
+          the logo file sits seamlessly on every dark surface ---- */
+  --ink-950: #000514;
+  --ink-900: #060B1A;
+  --ink-800: #0D1527;
+  --ink-700: #1D2638;
+  --ink-600: #3A4356;
+
+  /* ---- Paper (light neutrals) ---- */
+  --paper-0:   #FFFFFF;
+  --paper-50:  #F7F6F2;
+  --paper-100: #EFEDE7;
+  --paper-200: #E2DFD7;
+
+  /* ---- Stone (mid neutrals / secondary text) ---- */
+  --stone-500: #62666D;
+  --stone-400: #8D9198;
+  --stone-300: #B4B7BC;
+
+  /* ---- Signal (single brand accent: orange) ----
+          500 fills, markers, and text on dark (dark text on top of fills)
+          600 large display text on light (≥3:1)
+          700 small text, hover text and focus rings on light (≥4.5:1) */
+  --signal-500: #FF4F1F;
+  --signal-600: #E2400F;
+  --signal-700: #B8330B;
+  --signal-100: #FFE6DC;
+
+  /* ---- Severity (findings only) ---- */
+  --sev-critical: #D93636;
+  --sev-high:     #F06A1A;
+  --sev-medium:   #E8A317;
+  --sev-low:      #2F8F5B;
+  /* Severity text on tint, for small labels (each pair ≥4.5:1) */
+  --sev-critical-ink: #A32424; --sev-critical-bg: #FBE9E9;
+  --sev-high-ink:     #B8330B; --sev-high-bg:     #FFE6DC;
+  --sev-medium-ink:   #7A5300; --sev-medium-bg:   #FBF0D2;
+  --sev-low-ink:      #1F6B43; --sev-low-bg:      #E2F1E8;
+
+  /* ---- Feedback (form errors; 700 on 100 is ≥4.5:1) ---- */
+  --danger-700: #A32424;
+  --danger-100: #FBE9E9;
+
+  /* ---- Lines ---- */
+  --line:            rgba(0, 5, 20, 0.12);
+  --line-strong:     rgba(0, 5, 20, 0.26);
+  --line-inv:        rgba(255, 255, 255, 0.10);
+  --line-inv-strong: rgba(255, 255, 255, 0.22);
+
+  /* ---- Typography ---- */
+  --f-sans:  "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono:  "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --fs-mono:    0.6875rem;
+  --fs-xs:      0.8125rem;
+  --fs-sm:      0.9375rem;
+  --fs-base:    clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --fs-lg:      clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --fs-xl:      clamp(1.25rem, 1.12rem + 0.6vw, 1.625rem);
+  --fs-2xl:     clamp(1.625rem, 1.3rem + 1.5vw, 2.5rem);
+  --fs-3xl:     clamp(2.125rem, 1.5rem + 2.9vw, 4rem);
+  --fs-display: clamp(2.75rem, 1.5rem + 5.6vw, 7rem);
+
+  --lh-tight: 1.0;
+  --lh-snug:  1.15;
+  --lh-body:  1.6;
+
+  --tracking-display: -0.045em;
+  --tracking-tight:   -0.03em;
+  --tracking-mono:    0.08em;
+
+  /* ---- Space ---- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-section: clamp(4rem, 2.5rem + 5.5vw, 8.5rem);
+  --s-block:   clamp(2.5rem, 1.5rem + 4vw, 5rem);
+
+  /* ---- Layout ---- */
+  --container: 1440px;
+  --gutter:    clamp(1rem, 0.5rem + 2.5vw, 3rem);
+  --header-h:  72px;
+  --util-h:    36px;
+
+  /* ---- Motion ---- */
+  --ease:     cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 0.2s;
+  --dur-2: 0.4s;
+  --dur-3: 0.9s;
+
+  /* ---- Elevation (used sparingly — enterprise is flat) ---- */
+  --shadow-panel: 0 40px 80px -40px rgba(0, 5, 20, 0.45);
+}

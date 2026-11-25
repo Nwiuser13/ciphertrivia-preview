@@ -1,0 +1,273 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Common Vulnerabilities Our Mobile Application Security Testing Finds | CipherTrivia Insights"
+description: "Across Android and iOS engagements, these six vulnerability classes account for most of the high and critical findings in our mobile application security testing reports."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Common Vulnerabilities Our Mobile Application Security Testing Finds"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Common Vulnerabilities Our Mobile Application Security Testing Finds",
+      "description": "Across Android and iOS engagements, these six vulnerability classes account for most of the high and critical findings in our mobile application security testing reports.",
+      "datePublished": "2026-10-22",
+      "url": "https://www.ciphertrivia.com/insights/common-mobile-app-vulnerabilities/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-common-mobile-app-vulnerabilities.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/common-mobile-app-vulnerabilities/#webpage"
+      },
+      "dateModified": "2026-10-22",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Common Vulnerabilities Our Mobile Application Security Testing Finds"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is mobile application security testing and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mobile application security testing is a structured assessment of an Android or iOS application covering its binary, runtime behavior, local data storage, network communications and backend API interactions. Unlike web applications, mobile apps ship compiled binaries to user devices, which means attackers can reverse-engineer the binary, hook into runtime functions, and intercept traffic even when certificate pinning is implemented. Testing matters because mobile apps frequently handle sensitive data (credentials, payment details, health records) on devices the organization does not control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you test both Android and iOS apps, or only one platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We test both platforms. Android and iOS have fundamentally different security models, sandbox architectures and toolchains. An Android APK or AAB is tested with tools like jadx, apktool, Frida and objection for decompilation and runtime hooking. iOS IPAs are analyzed with class-dump, Hopper, Frida and SSL Kill Switch for similar depth. We test each platform independently because a vulnerability on one does not guarantee the same issue exists, or does not exist, on the other."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What standards does CipherTrivia align mobile security testing to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All mobile security testing engagements are aligned to the OWASP Mobile Application Security Verification Standard (MASVS) and the OWASP Mobile Application Security Testing Guide (MASTG). Findings are scored using CVSS 4.0 and mapped to the relevant MASVS categories. For regulated industries such as banking or healthcare, we also map findings to PCI DSS, HIPAA or RBI guidelines as applicable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you test apps that use certificate pinning or root/jailbreak detection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bypassing certificate pinning and root or jailbreak detection is a standard part of our testing methodology. We use dynamic instrumentation frameworks such as Frida and objection to bypass these controls at runtime. The goal is to verify whether these defenses are robust enough to resist a motivated attacker, and to document exactly how they can be circumvented so your development team can strengthen the implementation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a mobile application security test typically take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A single-platform test (Android or iOS only) typically takes one to two weeks. A dual-platform engagement covering both Android and iOS takes two to three weeks. Timelines depend on the complexity of the application, the number of API endpoints, and whether source code access is provided for white-box analysis. We agree on timelines during scoping so there are no surprises."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">Mobile Security</span>
+          <span class="article-hero__date">22 Oct 2026 · 5 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Common Vulnerabilities Our Mobile Application Security Testing Finds</h1>
+        <p class="hero__lede rv" style="--d:2">Across Android and iOS engagements, these six vulnerability classes account for most of the high and critical findings in our mobile application security testing reports. Each maps directly to OWASP MASVS categories.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--paper" aria-hidden="true">{{ icon("mobile", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#insecure-data-storage">Insecure Data Storage</a></li>
+        <li><a href="#insecure-communication-transport">Insecure Communication &amp; Transport</a></li>
+        <li><a href="#insecure-authentication-session-management">Insecure Authentication &amp; Session Management</a></li>
+        <li><a href="#client-side-injection-webview-abuse">Client-Side Injection &amp; WebView Abuse</a></li>
+        <li><a href="#reverse-engineering-code-tampering">Reverse Engineering &amp; Code Tampering</a></li>
+        <li><a href="#insufficient-cryptography">Insufficient Cryptography</a></li>
+        <li><a href="#faq">Frequently Asked Questions About Mobile Application Security Testing</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+      <div class="a-section" id="insecure-data-storage">
+        <h2>Insecure Data Storage</h2>
+        <p>The most common high-severity finding in our mobile engagements. Applications write sensitive data, including authentication tokens, session identifiers, PII and financial records, to SharedPreferences (Android), NSUserDefaults (iOS), unencrypted SQLite databases, application logs or cache directories in plaintext. On a rooted or jailbroken device, this data is immediately accessible. Even on stock devices, backup extraction and third-party keyboard caches can expose it.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-STORAGE. We enumerate every local persistence mechanism the app uses, extract data from each, and verify whether encryption is applied and whether keys are properly stored in the platform keystore.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="insecure-communication-transport">
+        <h2>Insecure Communication &amp; Transport</h2>
+        <p>Mobile apps that rely solely on TLS without certificate pinning are trivially intercepted using a proxy with a custom CA certificate. Apps that do implement pinning often do so incorrectly: pinning only in the main HTTP client but not in third-party SDKs, analytics libraries or push-notification channels. We also test for cleartext HTTP fallback, improper TLS version negotiation and hostname verification bypasses.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-NETWORK. We attempt to intercept traffic with and without pinning bypass, verify that all endpoints use TLS 1.2+, and confirm that third-party SDK traffic is equally protected.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="insecure-authentication-session-management">
+        <h2>Insecure Authentication &amp; Session Management</h2>
+        <p>Mobile apps frequently implement authentication logic on the client side: biometric checks that can be bypassed with Frida, local PIN verification that never calls the server, session tokens that persist indefinitely after logout, and refresh tokens stored outside the platform keystore. We also test for missing step-up authentication on sensitive operations like fund transfers or profile changes.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-AUTH. We test the full authentication lifecycle including biometric bypass, token lifecycle, session invalidation and backend enforcement of every client-side check.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="client-side-injection-webview-abuse">
+        <h2>Client-Side Injection &amp; WebView Abuse</h2>
+        <p>Hybrid apps and apps with embedded WebViews are vulnerable to JavaScript injection through deep links, custom URL schemes and intent-based navigation. We test for JavaScript bridge exposure that allows native function calls from web content, local file access through <code>file://</code> URIs in WebViews, and exported activities and content providers that accept untrusted input without validation.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-PLATFORM. We enumerate exported components, fuzz deep-link handlers, and test every WebView configuration for JavaScript enablement, file access and bridge exposure.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="reverse-engineering-code-tampering">
+        <h2>Reverse Engineering &amp; Code Tampering</h2>
+        <p>Every mobile app ships its compiled binary to the end user's device, which means an attacker can decompile it, patch it, and redistribute it. We assess the effectiveness of obfuscation (ProGuard/R8 on Android, Swift symbol stripping on iOS), root/jailbreak detection, debugger detection, integrity verification and anti-tampering controls. We attempt to repackage the app with modified behavior and test whether the server detects the tampered client.</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-RESILIENCE. We decompile, patch and repackage the binary, then verify whether runtime integrity checks and server-side attestation detect our modifications.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="insufficient-cryptography">
+        <h2>Insufficient Cryptography</h2>
+        <p>Mobile apps frequently implement cryptography incorrectly: using deprecated algorithms such as MD5 or SHA-1 for integrity checks, AES in ECB mode, hardcoded encryption keys compiled into the binary, IVs that are static or derived from predictable values, and key material stored in SharedPreferences or NSUserDefaults instead of the platform keystore (Android Keystore / iOS Keychain with Secure Enclave).</p>
+        <div class="a-card a-card--muted">
+          <p class="a-label">MASVS mapping</p>
+          <p>MASVS-CRYPTO. We extract all cryptographic operations from the decompiled source, verify algorithm choices, key storage locations and IV handling against current best practices.</p>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="faq">
+        <h2>Frequently Asked Questions About Mobile Application Security Testing</h2>
+        <div class="a-faq">
+          <div>
+            <h3>What is mobile application security testing and why does it matter?</h3>
+            <p class="is-sm">Mobile application security testing is a structured assessment of an Android or iOS application covering its binary, runtime behavior, local data storage, network communications and backend API interactions. Unlike web applications, mobile apps ship compiled binaries to user devices, which means attackers can reverse-engineer the binary, hook into runtime functions, and intercept traffic even when certificate pinning is implemented. Testing matters because mobile apps frequently handle sensitive data (credentials, payment details, health records) on devices the organization does not control.</p>
+          </div>
+          <div>
+            <h3>Do you test both Android and iOS apps, or only one platform?</h3>
+            <p class="is-sm">We test both platforms. Android and iOS have fundamentally different security models, sandbox architectures and toolchains. An Android APK or AAB is tested with tools like jadx, apktool, Frida and objection for decompilation and runtime hooking. iOS IPAs are analyzed with class-dump, Hopper, Frida and SSL Kill Switch for similar depth. We test each platform independently because a vulnerability on one does not guarantee the same issue exists, or does not exist, on the other.</p>
+          </div>
+          <div>
+            <h3>What standards does CipherTrivia align mobile security testing to?</h3>
+            <p class="is-sm">All mobile security testing engagements are aligned to the OWASP Mobile Application Security Verification Standard (MASVS) and the OWASP Mobile Application Security Testing Guide (MASTG). Findings are scored using CVSS 4.0 and mapped to the relevant MASVS categories. For regulated industries such as <a href="/industries/banking-fintech/">banking</a> or <a href="/industries/healthcare/">healthcare</a>, we also map findings to PCI DSS, HIPAA or RBI guidelines as applicable.</p>
+          </div>
+          <div>
+            <h3>Can you test apps that use certificate pinning or root/jailbreak detection?</h3>
+            <p class="is-sm">Yes. Bypassing certificate pinning and root or jailbreak detection is a standard part of our testing methodology. We use dynamic instrumentation frameworks such as Frida and objection to bypass these controls at runtime. The goal is to verify whether these defenses are robust enough to resist a motivated attacker, and to document exactly how they can be circumvented so your development team can strengthen the implementation.</p>
+          </div>
+          <div>
+            <h3>How long does a mobile application security test typically take?</h3>
+            <p class="is-sm">A single-platform test (Android or iOS only) typically takes one to two weeks. A dual-platform engagement covering both Android and iOS takes two to three weeks. Timelines depend on the complexity of the application, the number of API endpoints, and whether source code access is provided for white-box analysis. We agree on timelines during scoping so there are no surprises.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/services/mobile-application-security-testing/">
+            <p class="a-label">Service</p>
+            <p class="reading__title">Mobile Application Security Testing</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/mobile-app-security-checklist/">
+            <p class="a-label">Checklist</p>
+            <p class="reading__title">Mobile App Security Checklist</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get Started With Mobile Application Security Testing</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your Android or iOS application and we'll scope a mobile application security testing engagement that fits your platform, timeline and compliance requirements.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/whitepapers/mobile-app-security-checklist/">Download Mobile Security Checklist {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

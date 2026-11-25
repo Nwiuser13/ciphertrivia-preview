@@ -1,0 +1,732 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Web App Security Testing & Penetration Testing Services"
+description: "CipherTrivia provides web app security testing and penetration testing services to identify vulnerabilities, assess security risks and strengthen web application protection."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Web App Security Testing Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["Why is web application security testing important?", "Web application security testing helps businesses identify weaknesses before attackers exploit them. It helps protect customer information, reduce security risks, strengthen access controls and improve the reliability of web-based applications."],
+  ["What vulnerabilities can web application security testing identify?", "Security testing can identify SQL injection, cross-site scripting (XSS), broken access controls, authentication weaknesses, insecure file uploads, security misconfigurations and sensitive data exposure. Testing can also reveal weaknesses in application logic, APIs and third-party components."],
+  ["What is the difference between vulnerability assessment and web application penetration testing?", "A vulnerability assessment identifies and classifies potential security weaknesses across an application. Web application penetration testing goes further by safely validating selected vulnerabilities through controlled attack simulations to understand their potential impact."],
+  ["How does CipherTrivia conduct web application security testing?", "CipherTrivia combines automated security tools with manual testing techniques to assess application vulnerabilities. Our process includes scope definition, security assessment, vulnerability validation, risk prioritization and reporting with practical remediation recommendations."],
+  ["Which types of web applications can be tested?", "Our web app security testing services cover e-commerce websites, SaaS platforms, enterprise applications, customer portals, financial applications, healthcare platforms and web-based APIs. The testing scope is defined according to the application's functionality and security requirements."],
+  ["How long does web application security testing take?", "The duration depends on application complexity, the number of features and user roles, the testing scope and the depth of manual assessment required. A focused assessment may take a few days, while larger applications can require several weeks."],
+  ["What do you receive after web application security testing?", "CipherTrivia provides a web application security testing report containing identified vulnerabilities, severity ratings, supporting evidence, potential impacts and remediation recommendations. Retesting results may also be provided when verification is included in the agreed scope."],
+  ["Can web application security testing help with compliance requirements?", "Security testing can support compliance initiatives by identifying application-level weaknesses and documenting security findings. The assessment can be aligned with relevant security standards or organizational requirements, although testing alone does not guarantee compliance or certification."],
+  ["How often should web application security testing be performed?", "Testing is recommended before major application releases and after significant changes to application functionality, authentication or infrastructure. Periodic assessments can also help identify new vulnerabilities as applications, dependencies and threat conditions evolve."],
+  ["Does CipherTrivia provide remediation support after testing?", "CipherTrivia provides practical remediation guidance to help development teams understand and address identified vulnerabilities. Additional remediation assistance and retesting can be discussed based on your application requirements and the agreed project scope."],
+  ["How can I choose the right web app security testing company?", "Look for a web app security testing company that combines automated scanning with manual validation, provides clear risk ratings and delivers actionable remediation guidance. Review the provider's testing methodology, reporting quality, scope definition and approach to handling sensitive application data before selecting a partner."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Web App Security Testing Services",
+      "serviceType": "Web Application Security Testing",
+      "description": "CipherTrivia provides web app security testing and penetration testing services to identify vulnerabilities, assess security risks and strengthen web application protection.",
+      "url": "https://www.ciphertrivia.com/services/web-application-security-testing/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web App Security Testing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Vulnerability Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Penetration Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Authentication & Access Control Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Input Validation & Injection Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Logic Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Configuration & Component Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Retesting" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Web App Security Testing Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title hero__title--long rv" id="hero-title">Web App Security Testing Services for <span class="accent">Vulnerability Detection</span></h1>
+        <p class="hero__lede rv" style="--d:1">CipherTrivia provides comprehensive web app security testing services to identify vulnerabilities, assess application risks and strengthen protection against cyber threats. As a web app security testing company, we conduct security assessments and web application penetration testing to uncover weaknesses in authentication, access controls, application logic and data protection.</p>
+        <p class="hero__lede rv" style="--d:2">Our testing approach combines automated tools with manual analysis to deliver actionable findings and remediation recommendations that help businesses protect sensitive information and improve application security.</p>
+        <div class="hero__actions rv" style="--d:3">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" aria-hidden="true">
+          <svg viewBox="0 0 480 480">
+            <!-- The page under test, on its plate -->
+            <rect class="f-ink" x="26" y="34" width="380" height="270"/>
+            <rect class="f-paper s-ink" x="16" y="24" width="380" height="270" stroke-width="1.5"/>
+            <path class="s-ink" d="M16 50H396" stroke-opacity=".18"/>
+            <g class="f-none s-ink" stroke-opacity=".45"><rect x="27" y="34" width="6" height="6"/><rect x="38" y="34" width="6" height="6"/><rect x="49" y="34" width="6" height="6"/></g>
+            <rect class="f-p50 s-ink" x="66" y="31" width="316" height="12" stroke-opacity=".14"/>
+            <rect class="f-ink" x="74" y="35.5" width="120" height="3" fill-opacity=".3"/>
+            <g class="f-ink"><rect x="32" y="64" width="36" height="3" fill-opacity=".8"/><rect x="252" y="64" width="24" height="3" fill-opacity=".22"/><rect x="286" y="64" width="24" height="3" fill-opacity=".22"/><rect x="320" y="64" width="24" height="3" fill-opacity=".22"/></g>
+            <rect class="f-none s-ink" x="368" y="60.5" width="10" height="10" stroke-opacity=".4"/>
+            <!-- Sign-in form: credentials typed, submitted -->
+            <rect class="f-p50 s-ink" x="32" y="82" width="164" height="180" stroke-opacity=".16"/>
+            <rect class="f-ink" x="46" y="98" width="78" height="5" fill-opacity=".85"/>
+            <rect class="f-ink" x="46" y="109" width="112" height="3" fill-opacity=".25"/>
+            <rect class="f-paper s-ink" x="46" y="124" width="136" height="22" stroke-opacity=".3"/>
+            <rect class="f-ink" x="53" y="133.5" width="74" height="3" fill-opacity=".75" data-fx="grow" data-at=".3" data-len=".8"/>
+            <rect class="f-paper s-ink" x="46" y="154" width="136" height="22" stroke-opacity=".3"/>
+            <g class="f-ink"><rect x="53" y="162.5" width="5" height="5" data-fx="pop" data-at="1.2" data-len=".25"/><rect x="62" y="162.5" width="5" height="5" data-fx="pop" data-at="1.3" data-len=".25"/><rect x="71" y="162.5" width="5" height="5" data-fx="pop" data-at="1.4" data-len=".25"/><rect x="80" y="162.5" width="5" height="5" data-fx="pop" data-at="1.5" data-len=".25"/><rect x="89" y="162.5" width="5" height="5" data-fx="pop" data-at="1.6" data-len=".25"/><rect x="98" y="162.5" width="5" height="5" data-fx="pop" data-at="1.7" data-len=".25"/></g>
+            <rect class="f-ink" x="46" y="186" width="136" height="24"/>
+            <rect class="f-sig" x="46" y="186" width="136" height="24" data-fx="fade" data-at="2" data-len=".12" data-out="2.7"/>
+            <rect class="f-paper" x="98" y="196.5" width="32" height="3"/>
+            <g class="f-ink" fill-opacity=".2"><rect x="46" y="226" width="58" height="3"/><rect x="46" y="236" width="40" height="3"/></g>
+            <!-- Account page -->
+            <rect class="f-p100" x="212" y="82" width="168" height="54"/>
+            <path class="f-none s-ink" d="M212 136L254 108L286 126L320 96L380 136" stroke-opacity=".14"/>
+            <g class="f-ink" fill-opacity=".2"><rect x="212" y="148" width="150" height="3"/><rect x="212" y="158" width="118" height="3"/><rect x="224" y="174.5" width="120" height="3"/><rect x="224" y="188.5" width="98" height="3"/><rect x="224" y="202.5" width="132" height="3"/></g>
+            <g class="f-ink" fill-opacity=".38"><rect x="212" y="173" width="6" height="6"/><rect x="212" y="187" width="6" height="6"/><rect x="212" y="201" width="6" height="6"/></g>
+            <!-- Records of another customer, returned for the edited request -->
+            <rect class="f-sig1 s-sig" x="206.5" y="216.5" width="180" height="34" data-fx="fade" data-at="6.1" data-len=".3"/>
+            <rect class="f-sig" x="214" y="225" width="6" height="6" data-fx="pop" data-at="6.2" data-len=".3"/>
+            <rect class="f-sig" x="226" y="226.5" width="112" height="3" data-fx="grow" data-at="6.25" data-len=".4"/>
+            <rect class="f-sig" x="214" y="238" width="6" height="6" data-fx="pop" data-at="6.35" data-len=".3"/>
+            <rect class="f-sig" x="226" y="239.5" width="84" height="3" data-fx="grow" data-at="6.4" data-len=".4"/>
+            <g data-fx="pop" data-at="6.8" data-len=".5"><rect class="f-sig" x="369" y="203" width="12" height="12"/><path class="f-none s-sig" d="M363 200v-4h4M383 196h4v4M387 218v4h-4M367 222h-4v-4" stroke-width="1.5"/></g>
+            <!-- Intercepting proxy: the request is held and one parameter edited -->
+            <rect class="f-ink" x="150" y="278" width="314" height="186"/>
+            <rect class="f-sig" x="164" y="292" width="6" height="6"/>
+            <rect class="f-paper" x="178" y="293.5" width="64" height="3" fill-opacity=".55"/>
+            <g class="f-none s-paper" stroke-opacity=".3"><rect x="424" y="291.5" width="7" height="7"/><rect x="436" y="291.5" width="7" height="7"/><rect x="448" y="291.5" width="7" height="7"/></g>
+            <path class="s-paper" d="M150 308.5H464" stroke-opacity=".12"/>
+            <g data-fx="fade" data-at="2.9" data-len=".3"><rect class="f-paper" x="164" y="318" width="28" height="10" fill-opacity=".9"/><rect class="f-paper" x="200" y="321.5" width="132" height="3" fill-opacity=".6"/></g>
+            <g class="f-paper" data-fx="fade" data-at="3.05" data-len=".3"><rect x="164" y="338.5" width="40" height="3" fill-opacity=".3"/><rect x="212" y="338.5" width="104" height="3" fill-opacity=".16"/></g>
+            <g class="f-paper" data-fx="fade" data-at="3.2" data-len=".3"><rect x="164" y="350.5" width="40" height="3" fill-opacity=".3"/><rect x="212" y="350.5" width="124" height="3" fill-opacity=".16"/></g>
+            <g class="f-paper" data-fx="fade" data-at="3.35" data-len=".3"><rect x="164" y="362.5" width="40" height="3" fill-opacity=".3"/><rect x="212" y="362.5" width="82" height="3" fill-opacity=".16"/></g>
+            <g class="f-paper" data-fx="fade" data-at="3.5" data-len=".3"><rect x="164" y="384.5" width="34" height="3" fill-opacity=".35"/><rect x="206" y="384.5" width="60" height="3" fill-opacity=".7"/></g>
+            <g data-fx="fade" data-at="3.6" data-len=".3">
+              <rect class="f-sig" x="156" y="392" width="302" height="16" fill-opacity=".16" data-fx="fade" data-at="3.95" data-len=".25"/>
+              <rect class="f-paper" x="164" y="398.5" width="34" height="3" fill-opacity=".35"/>
+              <rect class="f-paper" x="206" y="398.5" width="60" height="3" fill-opacity=".7" data-fx="hide" data-at="4.05" data-len=".15"/>
+              <rect class="f-sig" x="206" y="398.5" width="96" height="3" data-fx="grow" data-at="4.15" data-len=".45"/>
+              <rect class="f-sig" x="306" y="394" width="2" height="12" data-fx="pop" data-at="4.55" data-len=".25"/>
+            </g>
+            <g class="f-paper" data-fx="fade" data-at="3.7" data-len=".3"><rect x="164" y="412.5" width="34" height="3" fill-opacity=".35"/><rect x="206" y="412.5" width="44" height="3" fill-opacity=".7"/></g>
+            <rect class="f-none s-paper" x="436.5" y="436.5" width="16" height="16" stroke-opacity=".35"/>
+            <path class="f-none s-paper" d="M441 444.5h7m-2.5-3 3 3-3 3" stroke-opacity=".7"/>
+            <!-- Server -->
+            <g class="f-paper s-ink" stroke-opacity=".7"><rect x="420.5" y="84.5" width="48" height="26"/><rect x="420.5" y="114.5" width="48" height="26"/><rect x="420.5" y="144.5" width="48" height="26"/></g>
+            <g class="f-ink"><rect x="428" y="95" width="5" height="5"/><rect x="428" y="125" width="5" height="5"/><rect x="428" y="155" width="5" height="5"/></g>
+            <g class="f-ink" fill-opacity=".25"><rect x="440" y="96" width="20" height="3"/><rect x="440" y="126" width="20" height="3"/><rect x="440" y="156" width="20" height="3"/></g>
+            <rect class="f-sig" x="427" y="124" width="7" height="7" data-fx="fade" data-at="5.25" data-len=".1"/>
+            <!-- Route: form, proxy, server, back into the page -->
+            <path id="wp-p1" class="f-none s-ink s-dash" d="M114 210V312H164" stroke-opacity=".4"/>
+            <path id="wp-p2" class="f-none s-ink s-dash" d="M412 286V157H420" stroke-opacity=".4"/>
+            <path id="wp-p3" class="f-none s-ink s-dash" d="M420 97H402V233H388" stroke-opacity=".4"/>
+            <rect class="f-sig" x="-4.5" y="-4.5" width="9" height="9" data-fx="move" data-path="#wp-p1" data-at="2.2" data-len=".75"/>
+            <rect class="f-sig" x="-4.5" y="-4.5" width="9" height="9" data-fx="move" data-path="#wp-p2" data-at="4.7" data-len=".55"/>
+            <rect class="f-sig" x="-4.5" y="-4.5" width="9" height="9" data-fx="move" data-path="#wp-p3" data-at="5.45" data-len=".6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Web Application Security Testing to Protect Business Data</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Web app security testing services involve evaluating websites and web applications to identify vulnerabilities that could expose sensitive data, compromise user accounts or disrupt business operations. These services help organizations understand how securely their applications handle user access, process information and protect against common cyber threats.</p>
+        <p class="rv">CipherTrivia provides web app security testing services that combine automated security tools with manual testing to identify weaknesses in authentication, access controls, input validation, application logic and data protection. Our web application penetration testing evaluates how identified vulnerabilities could be exploited through controlled attack simulations, helping businesses understand potential risks and their impact.</p>
+        <p class="rv">As a web app security testing company, CipherTrivia delivers detailed security reports with validated findings, risk ratings and practical remediation recommendations. This helps development teams fix vulnerabilities, strengthen application security and improve protection against threats such as SQL injection, cross-site scripting (XSS), broken access controls and unauthorized data access.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board" data-sig-wrap>
+        <div class="board__canvas crawl" data-sig="14" role="img" aria-label="Animated diagram: the application is crawled page by page into a map of its pages and inputs, test payloads are sent to the inputs, weaknesses are flagged into a findings list, and an unlinked admin page is discovered">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<rect class="f-p50 s-ink" x="820.5" y="60.5" width="340" height="380" stroke-opacity=".16"/>
+<rect class="f-ink" x="820.5" y="60.5" width="340" height="32" fill-opacity=".05"/>
+<rect class="f-sig" x="836" y="72" width="8" height="8"/>
+<rect class="f-ink" x="852" y="74.5" width="96" height="3" fill-opacity=".6"/>
+<path class="s-ink" d="M836 144H1144" stroke-opacity=".08"/>
+<path class="s-ink" d="M836 190H1144" stroke-opacity=".08"/>
+<path class="s-ink" d="M836 236H1144" stroke-opacity=".08"/>
+<path class="s-ink" d="M836 282H1144" stroke-opacity=".08"/>
+<path class="s-ink" d="M836 328H1144" stroke-opacity=".08"/>
+<g data-fx="pop" data-at="0.20" data-len=".45">
+<rect class="f-paper s-ink" x="50" y="228" width="110" height="64" stroke-opacity=".55"/>
+<path class="s-ink" d="M50 237H160" stroke-opacity=".25"/>
+<rect class="f-ink" x="56" y="231.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="58" y="244" width="75" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="58" y="252" width="52" height="2.5" fill-opacity=".22"/>
+<rect class="f-ink" x="58" y="260" width="52" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M160 260H225V70H290" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="0.70" data-len=".45"/>
+<g data-fx="pop" data-at="1.00" data-len=".45">
+<rect class="f-paper s-ink" x="290" y="50" width="100" height="40" stroke-opacity=".55"/>
+<path class="s-ink" d="M290 59H390" stroke-opacity=".25"/>
+<rect class="f-ink" x="296" y="53.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="298" y="66" width="67" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="298" y="74" width="46" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M160 260H225V150H290" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="0.82" data-len=".45"/>
+<g data-fx="pop" data-at="1.12" data-len=".45">
+<rect class="f-paper s-ink" x="290" y="130" width="100" height="40" stroke-opacity=".55"/>
+<path class="s-ink" d="M290 139H390" stroke-opacity=".25"/>
+<rect class="f-ink" x="296" y="133.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="298" y="146" width="67" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="298" y="154" width="46" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M160 260H225V230H290" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="0.94" data-len=".45"/>
+<g data-fx="pop" data-at="1.24" data-len=".45">
+<rect class="f-paper s-ink" x="290" y="210" width="100" height="40" stroke-opacity=".55"/>
+<path class="s-ink" d="M290 219H390" stroke-opacity=".25"/>
+<rect class="f-ink" x="296" y="213.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="298" y="226" width="67" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="298" y="234" width="46" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M160 260H225V310H290" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="1.06" data-len=".45"/>
+<g data-fx="pop" data-at="1.36" data-len=".45">
+<rect class="f-paper s-ink" x="290" y="290" width="100" height="40" stroke-opacity=".55"/>
+<path class="s-ink" d="M290 299H390" stroke-opacity=".25"/>
+<rect class="f-ink" x="296" y="293.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="298" y="306" width="67" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="298" y="314" width="46" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M160 260H225V390H290" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="1.18" data-len=".45"/>
+<g data-fx="pop" data-at="1.48" data-len=".45">
+<rect class="f-paper s-ink" x="290" y="370" width="100" height="40" stroke-opacity=".55"/>
+<path class="s-ink" d="M290 379H390" stroke-opacity=".25"/>
+<rect class="f-ink" x="296" y="373.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="298" y="386" width="67" height="2.5" fill-opacity=".55"/>
+<rect class="f-ink" x="298" y="394" width="46" height="2.5" fill-opacity=".22"/>
+</g>
+<path class="f-none s-ink" d="M390 70H445V70H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="1.90" data-len=".45"/>
+<g data-fx="pop" data-at="2.20" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="55" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 64H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="58.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="71" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 150H445V132H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="1.98" data-len=".45"/>
+<g data-fx="pop" data-at="2.28" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="117" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 126H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="120.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="133" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 150H445V168H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="2.06" data-len=".45"/>
+<g data-fx="pop" data-at="2.36" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="153" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 162H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="156.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="169" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 230H445V212H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="2.14" data-len=".45"/>
+<g data-fx="pop" data-at="2.44" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="197" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 206H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="200.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="213" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 230H445V250H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="2.22" data-len=".45"/>
+<g data-fx="pop" data-at="2.52" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="235" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 244H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="238.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="251" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 310H445V310H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="2.30" data-len=".45"/>
+<g data-fx="pop" data-at="2.60" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="295" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 304H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="298.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="311" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M390 390H445V390H500" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="2.38" data-len=".45"/>
+<g data-fx="pop" data-at="2.68" data-len=".45">
+<rect class="f-paper s-ink" x="500" y="375" width="86" height="30" stroke-opacity=".55"/>
+<path class="s-ink" d="M500 384H586" stroke-opacity=".25"/>
+<rect class="f-ink" x="506" y="378.5" width="3" height="3" fill-opacity=".45"/>
+<rect class="f-ink" x="508" y="391" width="56" height="2.5" fill-opacity=".55"/>
+</g>
+<path class="f-none s-ink" d="M586 70H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.10" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="65" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.30" data-len=".35"/>
+<path class="f-none s-ink" d="M586 132H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.16" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="127" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.36" data-len=".35"/>
+<path class="f-none s-ink" d="M645 132H657" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.22" data-len=".45"/>
+<rect class="f-paper s-ink" x="657" y="127" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.42" data-len=".35"/>
+<path class="f-none s-ink" d="M586 168H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.28" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="163" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.48" data-len=".35"/>
+<path class="f-none s-ink" d="M586 212H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.34" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="207" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.54" data-len=".35"/>
+<path class="f-none s-ink" d="M586 250H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.40" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="245" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.60" data-len=".35"/>
+<path class="f-none s-ink" d="M645 250H657" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.46" data-len=".45"/>
+<rect class="f-paper s-ink" x="657" y="245" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.66" data-len=".35"/>
+<path class="f-none s-ink" d="M586 310H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.52" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="305" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.72" data-len=".35"/>
+<path class="f-none s-ink" d="M586 390H635" pathLength="1" stroke-width="1.25" stroke-opacity=".35" data-fx="draw" data-at="3.58" data-len=".45"/>
+<rect class="f-paper s-ink" x="635" y="385" width="10" height="10" stroke-opacity=".6" data-fx="pop" data-at="3.78" data-len=".35"/>
+<g class="f-none s-ink s-dash" stroke-opacity=".3" data-fx="fade" data-at="4.1" data-len=".4">
+<path d="M814 70H652"/>
+<path d="M814 168H652"/>
+<path d="M814 250H674"/>
+<path d="M814 390H652"/>
+</g>
+<path id="cr-t0" class="f-none" d="M814 70H652"/>
+<rect class="f-sig" x="-4" y="-4" width="8" height="8" data-fx="move" data-path="#cr-t0" data-at="4.40" data-len=".5"/>
+<rect class="f-sig" x="635" y="65" width="10" height="10" data-fx="pop" data-at="4.90" data-len=".4"/>
+<path class="f-none s-sig" d="M629 63v-4h4M647 59h4v4M651 77v4h-4M633 81h-4v-4" stroke-width="1.5" data-fx="pop" data-at="5.00" data-len=".45"/>
+<path id="cr-t1" class="f-none" d="M814 168H652"/>
+<rect class="f-sig" x="-4" y="-4" width="8" height="8" data-fx="move" data-path="#cr-t1" data-at="5.30" data-len=".5"/>
+<rect class="f-sig" x="635" y="163" width="10" height="10" data-fx="pop" data-at="5.80" data-len=".4"/>
+<path class="f-none s-sig" d="M629 161v-4h4M647 157h4v4M651 175v4h-4M633 179h-4v-4" stroke-width="1.5" data-fx="pop" data-at="5.90" data-len=".45"/>
+<path id="cr-t2" class="f-none" d="M814 250H674"/>
+<rect class="f-sig" x="-4" y="-4" width="8" height="8" data-fx="move" data-path="#cr-t2" data-at="6.20" data-len=".5"/>
+<rect class="f-sig" x="657" y="245" width="10" height="10" data-fx="pop" data-at="6.70" data-len=".4"/>
+<path class="f-none s-sig" d="M651 243v-4h4M669 239h4v4M673 257v4h-4M655 261h-4v-4" stroke-width="1.5" data-fx="pop" data-at="6.80" data-len=".45"/>
+<path id="cr-t3" class="f-none" d="M814 390H652"/>
+<rect class="f-sig" x="-4" y="-4" width="8" height="8" data-fx="move" data-path="#cr-t3" data-at="7.10" data-len=".5"/>
+<rect class="f-sig" x="635" y="385" width="10" height="10" data-fx="pop" data-at="7.60" data-len=".4"/>
+<path class="f-none s-sig" d="M629 383v-4h4M647 379h4v4M651 397v4h-4M633 401h-4v-4" stroke-width="1.5" data-fx="pop" data-at="7.70" data-len=".45"/>
+<path class="f-none s-sig" d="M160 276H215V458H290" pathLength="1" stroke-width="1.5" data-fx="draw" data-at="8.3" data-len=".7"/>
+<g data-fx="pop" data-at="9.0" data-len=".5">
+<rect class="f-sig1 s-sig s-dash" x="290" y="438" width="100" height="40" stroke-width="1.5"/>
+<path class="s-sig" d="M290 447H390" stroke-opacity=".5"/>
+<rect class="f-sig" x="298" y="454" width="60" height="2.5"/><rect class="f-sig" x="298" y="462" width="40" height="2.5" fill-opacity=".5"/>
+</g>
+<path class="f-none s-sig" d="M282 432v-6h6M392 426h6v6M398 484v6h-6M288 490h-6v-6" stroke-width="1.5" data-fx="pop" data-at="9.3" data-len=".45"/>
+<rect class="f-sig1 s-sig" x="836" y="121" width="12" height="12" data-fx="pop" data-at="5.10" data-len=".4"/>
+<rect class="f-ink" x="860" y="123" width="180" height="3" fill-opacity=".7" data-fx="grow" data-at="5.20" data-len=".5"/>
+<rect class="f-ink" x="860" y="131" width="110" height="2.5" fill-opacity=".2" data-fx="grow" data-at="5.30" data-len=".5"/>
+<rect class="f-sig" fill-opacity=".6" x="836" y="167" width="12" height="12" data-fx="pop" data-at="6.00" data-len=".4"/>
+<rect class="f-ink" x="860" y="169" width="150" height="3" fill-opacity=".7" data-fx="grow" data-at="6.10" data-len=".5"/>
+<rect class="f-ink" x="860" y="177" width="90" height="2.5" fill-opacity=".2" data-fx="grow" data-at="6.20" data-len=".5"/>
+<rect class="f-sig" fill-opacity=".6" x="836" y="213" width="12" height="12" data-fx="pop" data-at="6.90" data-len=".4"/>
+<rect class="f-ink" x="860" y="215" width="196" height="3" fill-opacity=".7" data-fx="grow" data-at="7.00" data-len=".5"/>
+<rect class="f-ink" x="860" y="223" width="120" height="2.5" fill-opacity=".2" data-fx="grow" data-at="7.10" data-len=".5"/>
+<rect class="f-sig1 s-sig" x="836" y="259" width="12" height="12" data-fx="pop" data-at="7.80" data-len=".4"/>
+<rect class="f-ink" x="860" y="261" width="140" height="3" fill-opacity=".7" data-fx="grow" data-at="7.90" data-len=".5"/>
+<rect class="f-ink" x="860" y="269" width="80" height="2.5" fill-opacity=".2" data-fx="grow" data-at="8.00" data-len=".5"/>
+<rect class="f-sig" x="836" y="305" width="12" height="12" data-fx="pop" data-at="9.60" data-len=".4"/>
+<rect class="f-ink" x="860" y="307" width="210" height="3" fill-opacity=".7" data-fx="grow" data-at="9.70" data-len=".5"/>
+<rect class="f-ink" x="860" y="315" width="130" height="2.5" fill-opacity=".2" data-fx="grow" data-at="9.80" data-len=".5"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TYPES                                                                -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Types of Web App Security Testing Services We Provide</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia offers web app security testing services to identify vulnerabilities and assess security risks across websites and web applications. Our testing approach combines automated tools with manual assessment techniques to uncover weaknesses, validate potential attack paths and provide actionable recommendations that help businesses protect sensitive data and strengthen application security.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("radar") }}</div>
+        <h3 class="ledger__title">Web Application Vulnerability Assessment</h3>
+        <p class="ledger__text">We examine web applications to identify security weaknesses, outdated components, insecure configurations and potential entry points for attackers. This assessment helps businesses understand their security gaps and prioritize vulnerabilities based on severity and potential impact.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">Web Application Penetration Testing</h3>
+        <p class="ledger__text">Our web application penetration testing evaluates how attackers could exploit identified vulnerabilities through controlled attack simulations. We test authentication, access controls, session management and application functionality to identify exploitable weaknesses before they lead to security incidents.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("identity") }}</div>
+        <h3 class="ledger__title">Authentication &amp; Access Control Testing</h3>
+        <p class="ledger__text">We assess login mechanisms, password policies, session handling and user permissions to identify weaknesses that could allow unauthorized access. Testing also checks for broken access controls that may expose restricted pages, customer records or administrative functions.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h3 class="ledger__title">API Security Testing</h3>
+        <p class="ledger__text">We evaluate APIs connected to web applications to identify weaknesses in authentication, authorization, data validation and access restrictions. Our API security testing helps detect vulnerabilities that could expose sensitive information or allow unauthorized actions through application endpoints.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("syringe") }}</div>
+        <h3 class="ledger__title">Input Validation &amp; Injection Testing</h3>
+        <p class="ledger__text">We test how applications handle user-supplied data to identify vulnerabilities such as SQL injection, cross-site scripting (XSS) and other injection-related risks. The assessment helps determine if improper input handling could expose databases, compromise application functionality or affect users.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("flowchart") }}</div>
+        <h3 class="ledger__title">Business Logic Security Testing</h3>
+        <p class="ledger__text">We review application workflows and business rules to identify weaknesses that automated scanners may overlook. Testing can uncover issues involving unauthorized transactions, workflow manipulation, pricing logic and misuse of application features.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("sliders") }}</div>
+        <h3 class="ledger__title">Security Configuration &amp; Component Testing</h3>
+        <p class="ledger__text">We assess security-related configurations, HTTP headers, exposed services and outdated software components that may increase application risk. This helps identify misconfigurations and known vulnerabilities that could weaken the application's overall security posture.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("retest") }}</div>
+        <h3 class="ledger__title">Web Application Retesting</h3>
+        <p class="ledger__text">After vulnerabilities have been fixed, we can retest the affected areas, where included in the agreed scope, to verify remediation. This helps development teams confirm whether security issues have been resolved and identify any remaining weaknesses.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- APPLICATION TYPES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Web Application Security Testing for Different Application Types</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia provides web app security testing services for a wide range of web-based platforms to identify vulnerabilities, protect sensitive information and reduce exposure to cyber threats. Our web application security testing approach evaluates application functionality, access controls, data handling and security configurations based on the technology and business requirements of each platform.</p>
+      </div>
+    </header>
+
+    <div class="explorer" data-explorer>
+      <div class="explorer__media" aria-hidden="true">
+        <div class="explorer__stack">
+          <div class="explorer__frame is-active" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-ecommerce.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-saas.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-enterprise.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-portals.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-financial.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-healthcare.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/web-application-security-testing/type-apis.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+        </div>
+      </div>
+
+      <div class="explorer__list">
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-ecommerce.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">E-commerce Applications</h3>
+          <p class="explorer__text">We assess online shopping platforms for vulnerabilities in customer accounts, payment workflows, shopping carts, order management and access controls. Testing helps identify risks that could expose customer information or allow unauthorized transactions.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-saas.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">SaaS &amp; Cloud-Based Applications</h3>
+          <p class="explorer__text">Our testing examines SaaS platforms for weaknesses in user permissions, tenant separation, authentication and data access. These assessments help identify security gaps that could expose one customer's information to another or compromise application resources.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-enterprise.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Enterprise &amp; Business Applications</h3>
+          <p class="explorer__text">We evaluate enterprise portals, CRM systems, ERP platforms and internal business applications for weaknesses in role-based access, sensitive data handling and business workflows. Our web application penetration testing helps identify vulnerabilities that could affect business operations or confidential records.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-portals.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Customer &amp; Employee Portals</h3>
+          <p class="explorer__text">We test customer portals, employee dashboards and self-service platforms for authentication weaknesses, session management issues and unauthorized access to restricted information. This helps businesses protect personal records and internal business data.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-financial.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Financial &amp; Transactional Applications</h3>
+          <p class="explorer__text">We assess web applications that handle payments, financial records and other sensitive transactions for weaknesses in authorization, input validation and transaction workflows. Testing focuses on identifying security gaps that could lead to unauthorized actions or data exposure.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-healthcare.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Healthcare &amp; Data-Sensitive Applications</h3>
+          <p class="explorer__text">We evaluate healthcare portals and other applications that process confidential information for security weaknesses involving access permissions, data transmission and information storage. Assessments help identify risks that could expose sensitive user or patient data.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/web-application-security-testing/type-apis.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">APIs &amp; Web-Based Integrations</h3>
+          <p class="explorer__text">We test application APIs and connected services for weaknesses in authentication, authorization, data validation and access restrictions. This helps identify potential entry points that could compromise information exchanged between applications.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- COMMON VULNERABILITIES                                               -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Common Web Application Vulnerabilities Our Security Testing Identifies</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia provides web app security testing services to help businesses identify security weaknesses that could put websites, customer information and business operations at risk. Our web application security testing helps uncover vulnerabilities that attackers may exploit to access sensitive data, misuse application features or disrupt services. We provide clear findings and practical recommendations to help businesses improve application security and protect their digital assets.</p>
+      </div>
+    </header>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("db-in", "lg") }}</span>
+        <h3 class="trigger__title">SQL Injection</h3>
+        <p class="trigger__text">We check how web applications handle user input to identify weaknesses that could allow unauthorized access to databases. Fixing these vulnerabilities helps protect customer records, login details and confidential business information.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("browser", "lg") }}</span>
+        <h3 class="trigger__title">Cross-Site Scripting (XSS)</h3>
+        <p class="trigger__text">We identify weaknesses that could allow harmful scripts to run in a visitor's browser. Addressing these issues helps protect user accounts, website visitors and sensitive information from potential misuse.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("unlock", "lg") }}</span>
+        <h3 class="trigger__title">Broken Access Controls</h3>
+        <p class="trigger__text">We check if users can access pages, records or features that should be restricted. Our testing helps prevent unauthorized access to customer data, employee information and administrative functions.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("key", "lg") }}</span>
+        <h3 class="trigger__title">Login &amp; Account Security Issues</h3>
+        <p class="trigger__text">We assess login processes, password controls and user sessions to identify weaknesses that could put accounts at risk. This helps businesses strengthen user authentication and account protection.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("cursor", "lg") }}</span>
+        <h3 class="trigger__title">Unauthorized Actions &amp; Request Forgery</h3>
+        <p class="trigger__text">We check whether an attacker could trick a logged-in user into performing an unintended action. This helps protect important account changes, customer settings and sensitive transactions.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("gear", "lg") }}</span>
+        <h3 class="trigger__title">Web Application Security Misconfigurations</h3>
+        <p class="trigger__text">We review application settings and security controls to identify errors that could expose sensitive information or create opportunities for attacks. Correcting these issues helps improve website security and application protection.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("server", "lg") }}</span>
+        <h3 class="trigger__title">Unsafe Server Requests</h3>
+        <p class="trigger__text">We identify weaknesses in application features that connect to other websites or internal systems. These issues could allow unauthorized requests to reach resources that should remain protected.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("database", "lg") }}</span>
+        <h3 class="trigger__title">Sensitive Data Exposure</h3>
+        <p class="trigger__text">We assess how web applications handle personal information, account details and business records to identify risks involving data storage, transmission or access. Our recommendations help improve data protection and information security.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("update", "lg") }}</span>
+        <h3 class="trigger__title">Insecure File Uploads</h3>
+        <p class="trigger__text">We review file upload features to identify weaknesses that could allow unsafe files to be uploaded or accessed improperly. This helps protect web servers, application files and stored business data.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("container", "lg") }}</span>
+        <h3 class="trigger__title">Outdated Software &amp; Components</h3>
+        <p class="trigger__text">We check for outdated frameworks, libraries and software components that may contain known security vulnerabilities. Addressing these issues helps reduce exposure to known cyber threats and application attacks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our Web App Security Testing Process</h2>
+        <p class="process__lede">Our web app security testing process helps identify vulnerabilities, assess security risks and protect web applications from cyber threats. CipherTrivia combines automated tools with manual testing to deliver clear findings and practical security recommendations.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Understanding Your Requirements</h3>
+          <p class="step__text">We review your application, key features and security needs to define the testing scope and identify critical areas for assessment.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Identifying Security Weaknesses</h3>
+          <p class="step__text">We examine your application to identify vulnerabilities, insecure settings and weaknesses that could expose sensitive data or allow unauthorized access.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Testing &amp; Validating Vulnerabilities</h3>
+          <p class="step__text">Our web application penetration testing validates identified weaknesses through controlled testing to understand their potential impact.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Assessment &amp; Prioritization</h3>
+          <p class="step__text">We classify vulnerabilities by severity and business impact to help your team prioritize critical fixes.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Reporting &amp; Remediation Guidance</h3>
+          <p class="step__text">We provide a web application security testing report with findings, potential impacts and practical steps to fix vulnerabilities.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Retesting &amp; Verification</h3>
+          <p class="step__text">Where included in scope, we retest resolved issues to verify fixes and identify remaining vulnerabilities.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Web Application Security Testing</h2>
+        <p class="shead__lede rv" style="--d:1">Our web application security testing services provide your team with detailed security findings, validated vulnerabilities and practical guidance to improve application protection. CipherTrivia delivers the following outcomes to help businesses understand their security risks and plan corrective actions.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example web application security report: vulnerability severity and risk ratings and retesting and fix verification">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-sig" x="36.75" y="44.75" width="259.5" height="391.5"/><rect class="f-ink" x="52" y="60" width="8" height="8"/><rect class="f-ink" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-ink" x="54" y="112" font-size="17.6" text-anchor="start">Detailed Web Application</text><text class="sig-txt f-ink" x="54" y="132.388" font-size="17.6" text-anchor="start">Security Report</text><path class="f-none s-ink" d="M58 162.388h-6v26h6M138 162.388h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-ink" x="66" y="179.888" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-ink" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Vulnerability Severity &amp; Risk</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><text class="sig-txt f-ink" x="216" y="240" font-size="10" text-anchor="start" data-fx="fade" data-at="1.9" data-len="0.3">SQL Injection</text><g data-fx="pop" data-at="2.05" data-len="0.4"><rect class="f-sig" x="384.5" y="229.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="240.5" font-size="7" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 249h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="267" font-size="10" text-anchor="start" data-fx="fade" data-at="2.12" data-len="0.3">Broken Access Controls</text><g data-fx="pop" data-at="2.27" data-len="0.4"><rect class="f-sig" x="384.5" y="256.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="267.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 276h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="294" font-size="10" text-anchor="start" data-fx="fade" data-at="2.34" data-len="0.3">Cross-Site Scripting (XSS)</text><g data-fx="pop" data-at="2.49" data-len="0.4"><rect class="f-sig" x="384.5" y="283.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="294.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 303h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="321" font-size="10" text-anchor="start" data-fx="fade" data-at="2.56" data-len="0.3">Insecure File Uploads</text><g data-fx="pop" data-at="2.71" data-len="0.4"><rect class="f-sig1" x="384.5" y="310.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="321.5" font-size="7" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 330h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="348" font-size="10" text-anchor="start" data-fx="fade" data-at="2.78" data-len="0.3">Outdated Software &amp; Components</text><g data-fx="pop" data-at="2.93" data-len="0.4"><rect class="f-p100 s-stone" x="384.5" y="337.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="348.5" font-size="7" text-anchor="middle">LOW</text></g><path class="f-none s-ink" d="M216 357h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="395" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3" data-len="0.3">Retesting &amp; Fix Verification</text><path class="f-none s-ink" d="M216 405h216" stroke-opacity=".2"/><rect class="f-none s-ink" x="216.75" y="421.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 428l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.2" data-len="0.3"/><rect class="f-stone" x="238" y="426" width="150" height="4" data-fx="grow" data-at="3.25" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="442.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 449l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.45" data-len="0.3"/><rect class="f-stone" x="238" y="447" width="120" height="4" data-fx="grow" data-at="3.5" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="463.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 470l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.7" data-len="0.3"/><rect class="f-stone" x="238" y="468" width="168" height="4" data-fx="grow" data-at="3.75" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Web Application Security Report</h3>
+            <p class="deliver__text">We provide a structured web application security testing report documenting identified vulnerabilities across your website or application. The report includes technical details, affected components, supporting evidence and potential consequences for application security.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("gauge") }}
+          <div>
+            <h3 class="deliver__title">Vulnerability Severity &amp; Risk Assessment</h3>
+            <p class="deliver__text">We classify identified vulnerabilities based on their severity and potential business impact. This helps your team distinguish critical security issues from lower-risk findings and prioritize remediation based on the level of exposure.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("magnifier") }}
+          <div>
+            <h3 class="deliver__title">Evidence-Based Vulnerability Findings</h3>
+            <p class="deliver__text">Our security experts provide supporting evidence for identified weaknesses along with details of affected URLs, application functions and vulnerable components where applicable. These findings help development teams understand the issue and validate the security gaps.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("wrench") }}
+          <div>
+            <h3 class="deliver__title">Actionable Remediation Recommendations</h3>
+            <p class="deliver__text">We provide practical recommendations to address identified vulnerabilities, improve security controls and reduce the risk of exploitation. Our guidance helps developers understand the corrective measures required for issues involving authentication, access controls, input validation and data protection.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("shield-crack") }}
+          <div>
+            <h3 class="deliver__title">Web Application Penetration Testing Results</h3>
+            <p class="deliver__text">Our web application penetration testing evaluates how identified weaknesses could be exploited through controlled testing. We document validated attack scenarios and their potential impact to help your team understand the actual security implications.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("shield-check") }}
+          <div>
+            <h3 class="deliver__title">Retesting &amp; Fix Verification</h3>
+            <p class="deliver__text">When included in the agreed scope, we retest resolved vulnerabilities to verify whether corrective measures have addressed the original findings. We also document the retesting status and highlight any remaining issues that require further attention.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div>
+            <h3 class="deliver__title">Security Improvement Priorities</h3>
+            <p class="deliver__text">We summarize key findings and recommend next steps to help your organization plan security improvements. This gives technical teams and decision-makers a clearer view of application risks and the actions needed to strengthen protection.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BACKED BY NEXTWEBI                                                   -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-label="Backed by Nextwebi">
+  <div class="container">
+    {% set backedLead = true %}
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s7-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s7-title">Frequently Asked Questions About Web Application Security Testing</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Layout — container, 12-col grid, section shells, section headers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+/* ---- Section shells ---- */
+.section {
+  position: relative;
+  padding-block: var(--s-section);
+}
+.section--paper { background: var(--paper-50); }
+.section--stone { background: var(--paper-100); }
+.section--white { background: var(--paper-0); }
+.section--ink   { background: var(--ink-950); color: var(--paper-50); }
+.section--tight { padding-block: clamp(2.5rem, 2rem + 2vw, 4rem); }
+
+.section--ink .kicker,
+.section--ink .muted { color: var(--stone-400); }
+.section--ink .lede,
+.section--ink .prose p { color: var(--stone-300); }
+
+/* ---- Section header: index + label on the left, title + lede on the right ---- */
+.shead {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-strong);
+  margin-bottom: var(--s-block);
+}
+.section--ink .shead { border-top-color: var(--line-inv-strong); }
+.shead--follow { margin-top: var(--s-section); }
+
+.shead__meta {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.shead__index {
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  color: var(--signal-700);
+}
+.section--ink .shead__index { color: var(--signal-500); }
+.shead__body { grid-column: 4 / -1; }
+.shead__title {
+  font-size: var(--fs-3xl);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  max-width: 22ch;
+}
+.shead__lede {
+  margin-top: var(--s-5);
+  max-width: 66ch;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+.section--ink .shead__lede { color: var(--stone-300); }
+
+/* ---- Sub-header inside a section ---- */
+.subhead {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: var(--s-3);
+  margin-top: var(--s-block);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-strong);
+  margin-bottom: var(--s-6);
+}
+.subhead__label { grid-column: 1 / span 3; }
+.subhead__title { grid-column: 4 / -1; }
+
+/* ---- Decorative column guides — one hairline at the start of each of the
+        12 real columns, plus the closing edge, so text aligns to a line ---- */
+.guides {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.guides > .container {
+  height: 100%;
+  background-image:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(var(--line), var(--line));
+  background-size:
+    calc((100% + var(--gutter)) / 12) 100%,
+    1px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: repeat-x, no-repeat;
+  background-origin: content-box;
+  background-clip: content-box;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  opacity: 0.6;
+}
+
+/* Asides now open with their title (no index line above it) */
+.split__aside > :first-child,
+.process__aside > :first-child,
+.faq-layout__aside > :first-child { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .shead__meta, .shead__body,
+  .subhead__label, .subhead__title { grid-column: 1 / -1; }
+}

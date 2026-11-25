@@ -1,0 +1,202 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Case Studies | CipherTrivia Cybersecurity Services"
+description: "Real-world VAPT, cloud security and compliance engagement outcomes delivered by CipherTrivia."
+crumbs: [["Home", "/"], ["Case Studies"]]
+collectionOf: "/case-studies/"
+crumbsSchema: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <div class="hero__layout">
+      <div class="hero__copy">
+        <p class="kicker kicker--label rv"><span class="kicker__slash">&lt;</span> Case Studies <span class="kicker__slash">&gt;</span></p>
+        <h1 class="hero__title hero__title--long rv" style="--d:1" id="hero-title">Engineering Resilience Through Real-World Security Engagements</h1>
+      </div>
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        {#- Engagement: a finding is fixed and re-tested, sector by sector -#}
+        <div class="resolve" aria-hidden="true">
+          <div class="resolve__pair">
+            <div class="resolve__tile resolve__tile--found">{{ icon("shield-crack", "cover") }}</div>
+            <div class="resolve__link">
+              <span class="resolve__trace"></span>
+              <span class="resolve__runner">{{ icon("wrench", "bare") }}</span>
+            </div>
+            <div class="resolve__tile resolve__tile--fixed">{{ icon("shield-check", "cover") }}</div>
+          </div>
+          <div class="resolve__sectors">
+            {%- for s in ["card", "heart-pulse", "cloud-lock", "pipeline", "radar"] %}
+            <span class="resolve__sector" style="--i:{{ loop.index0 }}">{{ icon(s, "sm") }}</span>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CASE STUDIES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-label="All case studies">
+  <div class="container">
+    <div class="case-list">
+      <article class="case rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/banking-api-gateway.webp" width="1600" height="1000" alt="Security analyst reviewing code and network activity across several monitors" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">VAPT · Fintech &amp; Banking</p>
+          <h2 class="case__title">Closing Critical Gaps in a Banking API Gateway</h2>
+          <p class="case__text">A regional banking platform needed a full penetration test of its customer-facing API gateway ahead of a major product launch. Our team identified several high-severity authentication and authorization flaws, including a broken access control issue that could expose cross-account data.</p>
+          <p class="case__text">We worked directly with the engineering team to validate fixes, re-tested every finding, and delivered a clean report ahead of the client's regulatory audit deadline.</p>
+          <div class="case__foot">
+            <a class="btn" href="/case-studies/banking-api-gateway/">Read case study {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case case--flip rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/fintech-zero-trust.webp" width="1600" height="1000" alt="Aerial view of a financial district overlaid with connected payment and service icons" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Cloud Security · SaaS</p>
+          <h2 class="case__title">Migrating a Fintech Platform to a Zero-Trust Cloud Architecture</h2>
+          <p class="case__text">A fast-growing fintech platform's AWS environment had grown organically over three years, with overly permissive IAM roles and publicly exposed storage buckets. We ran a full cloud security review, mapped every misconfiguration, and prioritized fixes by exploitability.</p>
+          <p class="case__text">The resulting remediation plan reduced the client's external attack surface by over 60% and laid the groundwork for a least-privilege IAM model across all environments.</p>
+          <div class="case__foot">
+            <a class="btn" href="/contact/">Read case study {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/healthcare-hipaa.webp" width="1600" height="1000" alt="Doctor using a tablet with digital health records overlaid" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Compliance · Healthcare</p>
+          <h2 class="case__title">Securing a Healthcare Data Platform for HIPAA Readiness</h2>
+          <p class="case__text">A digital health platform handling patient records needed to demonstrate HIPAA-aligned security controls before signing a major enterprise contract. We ran an application and infrastructure assessment, mapped gaps against the HIPAA Security Rule, and delivered a prioritized remediation roadmap.</p>
+          <p class="case__text">Within six weeks the client closed all high and critical findings and used our report as supporting evidence during their compliance audit.</p>
+          <div class="case__foot">
+            <a class="btn" href="/contact/">Read case study {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case case--flip rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/saas-startup-soc2.webp" width="1600" height="1000" alt="Open-plan office of a growing software company" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">SOC 2 · SaaS Startup</p>
+          <h2 class="case__title">SOC 2 Readiness: Cloud Security Review for a SaaS Startup</h2>
+          <p class="case__text">A B2B SaaS startup preparing for its first SOC 2 Type II audit needed an independent security review of its product and AWS infrastructure. We performed a combined application penetration test and cloud configuration review against SOC 2 control objectives.</p>
+          <p class="case__text">Our findings and remediation evidence were accepted directly by the client's auditor, helping them pass their first audit cycle without exceptions.</p>
+          <div class="case__foot">
+            <a class="btn" href="/contact/">Read case study {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/saas-multi-account-aws.webp" width="1600" height="1000" alt="Office towers linked by a network of cloud services" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Cloud Security · SaaS &amp; Multi-Account AWS</p>
+          <h2 class="case__title">Securing a Multi-Account AWS Environment for a SaaS Platform</h2>
+          <p class="case__text">A B2B SaaS company operating across 12 AWS accounts needed a comprehensive cloud security assessment ahead of their SOC 2 Type II audit. We identified 23 findings, including a critical privilege-escalation chain through misconfigured cross-account roles, public S3 buckets containing customer uploads, and CloudTrail disabled in 4 non-primary regions. All findings were remediated within the audit timeline.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/cloud-security-services/">Cloud Security Services {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case case--flip rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/health-tech-program.webp" width="1600" height="1000" alt="Clinician holding a tablet beside a HIPAA symbol" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Consulting · Healthcare &amp; SaaS</p>
+          <h2 class="case__title">Building a Security Program for a Growth-Stage Health-Tech Platform</h2>
+          <p class="case__text">A Series B health-tech company needed a security program that would satisfy HIPAA requirements and enterprise buyer due-diligence questionnaires. We assessed their maturity at Level 1, designed a 12-month roadmap to reach Level 3, built the risk register and policy suite, and guided the team through the first two implementation phases.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/cybersecurity-consulting/">Cybersecurity Consulting {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/payment-cicd.webp" width="1600" height="1000" alt="Person making a mobile payment beside a laptop, with banking icons" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">DevSecOps · SaaS &amp; Fintech</p>
+          <h2 class="case__title">Securing a Multi-Service CI/CD Pipeline for a Payment Platform</h2>
+          <p class="case__text">A payment processing SaaS company with 14 microservices across GitHub Actions and ArgoCD had no automated security scanning in their pipeline. We integrated SAST, SCA, container scanning and secrets detection across all repositories, configured severity-based security gates, and reduced initial false positives by 87% during a two-week tuning phase. The team now catches an average of 6 findings per sprint before code reaches staging.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/devsecops-services/">DevSecOps Services {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case case--flip rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/multi-tenant-saas.webp" width="1600" height="1000" alt="Top-down view of a laptop surrounded by SaaS service icons" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Architecture Review · SaaS Platform</p>
+          <h2 class="case__title">Identifying Trust Boundary Gaps in a Multi-Tenant SaaS Platform</h2>
+          <p class="case__text">A B2B SaaS provider preparing for SOC 2 Type II engaged us to review the security architecture of their multi-tenant platform. We identified 14 control gaps including cross-tenant data leakage paths through shared caching layers, missing encryption at rest on analytics staging tables, and service-to-service calls with no authentication. All findings were remediated before the compliance audit.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/security-architecture-review/">Security Architecture Review {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/health-tech-soc2-hipaa.webp" width="1600" height="1000" alt="Compliance checklist with completed items on a laptop, beside medical icons" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">Compliance · SaaS &amp; Healthcare</p>
+          <h2 class="case__title">SOC 2 Type II and HIPAA Readiness for a Health-Tech Platform</h2>
+          <p class="case__text">A health-tech SaaS company needed SOC 2 Type II and HIPAA compliance before closing enterprise contracts. We completed the gap analysis, implemented controls across both frameworks using a unified control set, built the evidence repository and supported them through a successful SOC 2 Type II audit and HIPAA readiness assessment within five months.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/security-compliance/">Security Compliance Services {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+      <article class="case case--flip rv">
+        <div class="case__media">
+          <figure class="case__photo"><img src="/assets/images/case-studies/soc-credential-stuffing.webp" width="1600" height="1000" alt="Hands on a keyboard below a sign-in and access-control dashboard" loading="lazy"></figure>
+        </div>
+        <div class="case__body">
+          <p class="kicker">SOC as a Service · SaaS &amp; Cloud Infrastructure</p>
+          <h2 class="case__title">Detecting a Credential-Stuffing Campaign Before Account Takeover</h2>
+          <p class="case__text">A mid-market SaaS provider engaged our SOC as a Service after a previous managed security provider failed to detect a distributed credential-stuffing campaign. Within the first month of operation, our analysts identified and contained an active campaign targeting customer accounts, correlating authentication anomalies across three log sources that were previously monitored in isolation.</p>
+          <div class="case__foot">
+            <a class="btn btn--ghost" href="/services/soc-as-a-service/">SOC as a Service {{ arrow() }}</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CALL TO ACTION                                                       -->
+<!-- ================================================================== -->
+<section class="section section--white section--tight" aria-label="Talk to us">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <p class="svc-cta__text"><strong class="svc-cta__lead">Want to be our next success story?</strong> Tell us about your application, API or cloud environment and we'll map out the right approach.</p>
+      </div>
+      <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+    </div>
+  </div>
+</section>

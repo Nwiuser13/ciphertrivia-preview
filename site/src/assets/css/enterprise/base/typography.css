@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Typography
+   Geist (sans) for everything, small labels included, in normal case (the
+   owner wants the site to read as human-made, in the menu's typeface).
+   Geist Mono only for real code. Highlighted words change colour only,
+   never typeface.
+   ========================================================================== */
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+strong { font-weight: 500; }
+
+.t-display {
+  font-size: var(--fs-display);
+  line-height: 0.96;
+  letter-spacing: var(--tracking-display);
+  font-weight: 300;
+}
+
+.t-h2 {
+  font-size: var(--fs-3xl);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.t-h3 {
+  font-size: var(--fs-2xl);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.t-h4 {
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.accent {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+/* Code, commands and hostnames only, never labels */
+.mono {
+  font-family: var(--f-mono);
+  font-size: 0.9em;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  color: var(--stone-500);
+  font-weight: 500;
+}
+.kicker::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--signal-500);
+}
+
+/* Label written with a leading "//" in the copy — no square marker */
+.kicker--label::before { content: none; }
+/* Label the brief writes in capitals: a little tracking keeps them readable */
+.kicker--caps { letter-spacing: 0.04em; }
+.kicker__slash { color: var(--signal-700); }
+.section--ink .kicker__slash { color: var(--signal-500); }
+
+.lede {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+
+.prose > * + * { margin-top: 1.25em; }
+.prose p { color: var(--ink-700); }
+
+.muted { color: var(--stone-500); }
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Keep ranges like "1–2 weeks" from breaking after the dash */
+.nowrap { white-space: nowrap; }
+
+/* Internal links that lib/autolink.js adds to body copy: the words keep their colour over a thin
+   orange underline, as in articles; works on light and ink sections alike */
+.autolink {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--signal-500);
+  text-underline-offset: 3px;
+  transition: color var(--dur-1);
+}
+.autolink:hover { color: var(--signal-700); }
+.section--ink .autolink:hover,
+.ledger__cell:hover .autolink:hover { color: var(--signal-500); }

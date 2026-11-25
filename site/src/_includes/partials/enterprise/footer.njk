@@ -1,0 +1,105 @@
+{% from "partials/enterprise/macros.njk" import arrow %}
+<footer class="ftr" aria-label="Footer">
+  <div class="container">
+    {%- if crumbs %}
+    <nav class="ftr__trail" aria-label="Breadcrumb">
+      <ol>
+        {%- for c in crumbs %}
+        <li>{% if c[1] and not loop.last %}<a href="{{ c[1] }}">{{ c[0] }}</a>{% else %}<span aria-current="page">{{ c[0] }}</span>{% endif %}</li>
+        {%- endfor %}
+      </ol>
+    </nav>
+    {%- endif %}
+    <div class="ftr__top">
+      <p class="ftr__statement">Find security weaknesses <span class="accent">before attackers do.</span></p>
+      <div class="ftr__cta">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="mailto:projects@ciphertrivia.com">Email us {{ arrow() }}</a>
+      </div>
+    </div>
+
+    <div class="ftr__cols">
+      <div class="ftr__about">
+        <a class="brand" href="/">
+          <img class="brand__logo brand__logo--lg" src="/assets/brand/ciphertrivia-logo-orange.png" alt="CipherTrivia" width="770" height="192" loading="lazy">
+        </a>
+        <p>Cybersecurity assessments covering application security, API testing, cloud protection and infrastructure vulnerabilities, combining AI-assisted analysis with expert guidance to help organizations identify risks and protect critical digital assets.</p>
+        <address class="ftr__address">
+          <a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a><br>
+          <a href="tel:+919008372466">+91 90083 72466</a>
+        </address>
+      </div>
+
+      {#- Every service in two columns, then every industry, then company and resources.
+          Privacy and terms sit in small type in the base row. A new service or industry page
+          goes here as well as in the header menu and the hubs. -#}
+      <nav class="ftr__col ftr__col--services" aria-label="Services">
+        <h3><a href="/services/">Services</a></h3>
+        <ul>
+          <li><a href="/services/vapt-security-services/">VAPT Security Services</a></li>
+          <li><a href="/services/penetration-testing/">Penetration Testing</a></li>
+          <li><a href="/services/web-application-security-testing/">Web App Security Testing</a></li>
+          <li><a href="/services/mobile-application-security-testing/">Mobile App Security Testing</a></li>
+          <li><a href="/services/api-security-testing/">API Security Testing</a></li>
+          <li><a href="/services/cloud-security-services/">Cloud Security Services</a></li>
+          <li><a href="/services/network-security-testing/">Network Security Testing</a></li>
+          <li><a href="/services/security-architecture-review/">Security Architecture Review</a></li>
+          <li><a href="/services/devsecops-services/">DevSecOps Services</a></li>
+          <li><a href="/services/soc-as-a-service/">SOC as a Service</a></li>
+          <li><a href="/services/security-compliance/">Security Compliance</a></li>
+          <li><a href="/services/cybersecurity-consulting/">Cybersecurity Consulting</a></li>
+          <li><a href="/ai-security/">AI Security</a></li>
+          <li><a href="/services/llm-security-testing/">LLM Security Testing</a></li>
+          <li><a href="/services/ai-agent-security-testing/">AI Agent Security Testing</a></li>
+          <li><a href="/services/post-quantum-cryptography-security/">Post-Quantum Cryptography</a></li>
+          <li><a href="/services/digital-identity-deepfake-security/">Digital Identity &amp; Deepfake Security</a></li>
+          <li><a href="/services/iot-ot-security/">IoT &amp; OT Security</a></li>
+          <li><a href="/penetration-testing-company-bangalore/">Penetration Testing in Bangalore</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ftr__col" aria-label="Industries">
+        <h3><a href="/industries/">Industries</a></h3>
+        <ul>
+          <li><a href="/industries/saas-technology/">Technology &amp; SaaS</a></li>
+          <li><a href="/industries/banking-fintech/">Fintech &amp; Banking</a></li>
+          <li><a href="/industries/healthcare/">Healthcare</a></li>
+          <li><a href="/industries/ecommerce/">Retail &amp; Ecommerce</a></li>
+          <li><a href="/industries/manufacturing/">Manufacturing</a></li>
+          <li><a href="/industries/logistics/">Logistics</a></li>
+          <li><a href="/industries/startups/">Startups</a></li>
+          <li><a href="/industries/enterprise-it/">Enterprise IT</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ftr__col" aria-label="Company and resources">
+        <h3>Company &amp; Resources</h3>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/whitepapers/">Whitepapers</a></li>
+          <li><a href="/case-studies/">Case Studies</a></li>
+          <li><a href="/whitepapers/enterprise-vapt-guide/">Enterprise VAPT Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ftr__offices">
+      <p class="ftr__offices-label">Offices</p>
+      {%- for o in nextwebi.offices %}
+      <address class="ftr__office"><span class="ftr__office-name">{{ o.name }}</span>{{ o.address }}</address>
+      {%- endfor %}
+    </div>
+
+    <div class="ftr__base">
+      <span>© 2026 Nextwebi IT Solutions Pvt. Ltd. · CipherTrivia is a brand of <a href="https://www.nextwebi.com/">Nextwebi</a></span>
+      <span class="ftr__legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/terms/#confidentiality">Confidentiality &amp; NDA</a>
+      </span>
+    </div>
+  </div>
+  <div class="container"><span class="ftr__wordmark" aria-hidden="true">CipherTrivia</span></div>
+</footer>

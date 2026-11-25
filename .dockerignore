@@ -1,0 +1,6 @@
+**/node_modules
+site/_site
+new files/
+image-briefs/
+.git
+.env

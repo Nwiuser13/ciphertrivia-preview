@@ -1,0 +1,258 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Web Application Security Checklist | CipherTrivia Whitepapers"
+description: "A three-level web application security maturity model from CipherTrivia's testing team: what 'foundational', 'standard' and 'advanced' actually look like, with a checklist for each level."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Web Application Security Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Web Application Security Checklist",
+      "description": "A three-level web application security maturity model from CipherTrivia's testing team: what 'foundational', 'standard' and 'advanced' actually look like, with a checklist for each level.",
+      "url": "https://www.ciphertrivia.com/whitepapers/web-application-security-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-web-application-security-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/web-application-security-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Web Application Security Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Web Application Security</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Web Application Security Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">A three-level maturity model (Foundational, Standard, Advanced) that tells you not just what to fix, but where your application actually sits today.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Web Application Security</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>10 minutes</dd></div>
+        <div class="article-meta__row"><dt>Based on:</dt><dd>CipherTrivia web application penetration test reports</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#the-three-levels">The Three Levels</a></li>
+          <li><a href="#what-standard-looks-like-in-practice">What "Standard" Looks Like in Practice</a></li>
+          <li><a href="#why-applications-plateau-at-level-2">Why Applications Plateau at Level 2</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          When a client asks "are we secure?", a yes/no answer is almost never useful. What's useful is knowing where you sit on a scale, and what the next step up actually requires. After several years of web application assessments, we group what we find into three levels. Most applications we test land somewhere in the middle of Level 2, with a handful of Level 1 gaps still open.
+        </p>
+        <p>
+          This checklist is organized the same way: read through the levels, be honest about which controls are actually in place (not just planned), and you'll have a realistic picture of where you stand, plus a prioritized list of what closes the gap to the next level.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-three-levels">
+        <h2>The Three Levels</h2>
+
+        <div class="a-stack">
+          <div class="a-card a-card--panel">
+            <div class="a-card__head">
+              <h3>Level 1: Foundational</h3>
+              <span class="tag tag--critical">Baseline</span>
+            </div>
+            <div class="a-card__body">
+              <p>The minimum that should be true of any application handling user data. Applications missing items here are usually one or two steps away from a critical finding.</p>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">All input is validated server-side, regardless of client-side checks.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Database queries use parameterized statements, with no string-concatenated SQL anywhere.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Sessions use secure, HttpOnly, SameSite cookies and expire after inactivity.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Every page that returns user data checks that the logged-in user is authorized to see that specific record.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">No secrets, API keys or database credentials in client-side JavaScript or version control history.</p></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="a-card a-card--panel">
+            <div class="a-card__head">
+              <h3>Level 2: Standard</h3>
+              <span class="tag tag--medium">Where most apps sit</span>
+            </div>
+            <div class="a-card__body">
+              <p>This is where defenses become deliberate rather than incidental: security headers, rate limiting, and a process for keeping dependencies current.</p>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Content-Security-Policy, X-Frame-Options and other security headers are set and actually restrictive (not just present).</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Login, password reset and other sensitive actions are rate-limited and logged.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Multi-factor authentication is available, and required for admin and privileged accounts.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Dependencies are scanned for known vulnerabilities as part of the build, not just at release time.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">File uploads are validated by content, restricted by type and size, and stored outside the web root.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Error pages and API responses don't leak stack traces, internal paths or framework versions.</p></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="a-card a-card--panel">
+            <div class="a-card__head">
+              <h3>Level 3: Advanced</h3>
+              <span class="tag tag--low">Mature</span>
+            </div>
+            <div class="a-card__body">
+              <p>Controls here assume that something will eventually go wrong, and focus on detecting it quickly and limiting the blast radius.</p>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Authorization logic is centralized (not re-implemented per endpoint) and covered by automated tests.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Security-relevant events (auth failures, permission changes, data exports) are logged centrally and alertable.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">A web application firewall or equivalent runtime protection is tuned to your application, not running on default rules.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Regular, scoped <a href="/services/penetration-testing/">penetration testing</a> is part of the release cycle, not a one-time event.</p></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-standard-looks-like-in-practice">
+        <h2>What "Standard" Looks Like in Practice</h2>
+        <p>
+          The diagram below maps Level 2 controls onto a typical web application stack: security headers and rate limiting at the edge, centralized authorization in the application tier, and dependency scanning in the build pipeline.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/webapp-security-architecture.png" alt="Diagram of a web application architecture showing a CDN and WAF with security headers and rate limiting at the edge, an application tier with centralized authorization middleware and input validation, a CI/CD pipeline with dependency and SAST scanning, and a database accessed only through parameterized queries, with centralized logging across all tiers" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: A Level 2 reference architecture, where each control sits at the layer where it's cheapest to enforce.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="why-applications-plateau-at-level-2">
+        <h2>Why Applications Plateau at Level 2</h2>
+        <p>
+          In our experience, the jump from Level 1 to Level 2 usually happens naturally as a development team matures, since security headers and dependency scanning are well-documented, low-friction additions. The jump from Level 2 to Level 3 is different: it requires centralizing authorization logic that's often grown organically across dozens of endpoints, and committing to a recurring testing cadence rather than a one-off audit.
+        </p>
+        <p>
+          Neither is a criticism. Most applications don't need Level 3 across the board. The point of this model is to help you decide, deliberately, which parts of your application (the ones handling payments, personal data, or admin functions) are worth the investment to push to Level 3, rather than treating "more security" as an undifferentiated goal.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>How do we find out which level we're at?</h3>
+            <p class="is-sm">A web application penetration test against this checklist gives you a direct, evidence-based answer, including which specific endpoints or flows fall short of each level, not just an overall score.</p>
+          </div>
+          <div>
+            <h3>Does this apply to single-page applications and APIs too?</h3>
+            <p class="is-sm">The principles apply broadly, but APIs have their own specific risk patterns (object-level authorization, rate limiting per client, etc.). See our <a href="/whitepapers/api-security-best-practices/">API Security Best Practices</a> guide for the API-specific version of this model.</p>
+          </div>
+          <div>
+            <h3>We use a popular framework: doesn't it handle most of this for us?</h3>
+            <p class="is-sm">Modern frameworks help significantly with Level 1 items (parameterized queries, CSRF protection, escaping). But Level 2 and 3 controls, such as rate limiting on specific business logic, centralized authorization across custom endpoints, and logging strategy, are almost always application-specific decisions a framework can't make for you.</p>
+          </div>
+          <div>
+            <h3>How long does an assessment against this model take?</h3>
+            <p class="is-sm">For a typical business web application, a thorough assessment runs one to two weeks depending on the number of roles, user flows and integrations. We scope this precisely after a short walkthrough of your application.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">SR</span>
+          <div>
+            <p class="a-strong">Sneha Reddy</p>
+            <p class="a-meta is-sm">Senior Web Application Security Engineer, CipherTrivia · OSCP &amp; CEH</p>
+            <p class="is-sm">Sneha leads web application assessments at CipherTrivia and built this maturity model after noticing how many clients asked "are we secure" without a way to track progress over time. She works mainly with SaaS and fintech product teams running on tight release cycles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert web app security testing?</h3>
+        <p class="svc-cta__text">Our web application security testing team can assess your apps against OWASP Top 10.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/web-application-security-testing/">Explore Web App Testing {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Find out which level your application is at</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">A focused web application penetration test maps your app against this checklist. See our <a href="/services/">web application security services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Listings — four-up guide cards, insights feed with a category filter
+   ========================================================================== */
+
+/* ---- Four-up card grid (repeats the .cards breakpoints, since it loads later) ---- */
+.cards--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card__go--text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-950);
+}
+.card__go--text .btn__icon { width: 1rem; height: 1rem; }
+
+/* ---- Category filter: square toggles, sticks under the header ---- */
+.filterbar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  background: var(--paper-0);
+  border-bottom: 1px solid var(--line-strong);
+}
+.filterbar__inner {
+  display: flex;
+  gap: 0.5rem;
+  padding-block: 0.875rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filterbar__inner::-webkit-scrollbar { display: none; }
+.filter {
+  flex: none;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--line-strong);
+  font-size: var(--fs-xs);
+  color: var(--ink-700);
+  transition: background var(--dur-1), color var(--dur-1), border-color var(--dur-1);
+  font-weight: 500;
+}
+.filter:hover { border-color: var(--ink-950); color: var(--ink-950); }
+.filter[aria-pressed="true"] {
+  background: var(--ink-950);
+  border-color: var(--ink-950);
+  color: var(--paper-50);
+}
+
+/* ---- Feed: date + tag | title, summary, link ---- */
+.section--feed { padding-top: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
+.feed { border-top: 1px solid var(--line-strong); }
+.feed__item {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 1rem;
+  padding-block: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+}
+.feed__meta {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.feed__date {
+  padding-top: 0.35rem;
+  font-size: var(--fs-xs);
+  color: var(--stone-500);
+}
+.feed__main { grid-column: 4 / span 8; }
+.feed__title {
+  font-size: var(--fs-2xl);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  transition: color var(--dur-1);
+}
+.feed__text { margin-top: 0.875rem; max-width: 66ch; color: var(--ink-700); }
+.feed__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-950);
+}
+.feed__go .btn__icon { transition: transform var(--dur-2) var(--ease); }
+.feed__item:hover .feed__title { color: var(--signal-700); }
+.feed__item:hover .feed__go .btn__icon { transform: translateX(4px); }
+.feed__empty {
+  padding-block: 3rem;
+  text-align: center;
+  color: var(--stone-500);
+}
+
+/* ---- Case studies: stacked case frames, media side alternating ---- */
+.hero__title--long {
+  max-width: 22ch;
+  font-size: clamp(2.25rem, 1.2rem + 3.6vw, 4.75rem);
+  line-height: 0.98;
+}
+.case-list > .case + .case { margin-top: var(--s-6); }
+.case__text + .case__text { margin-top: 0.875rem; }
+.case--flip .case__media {
+  grid-column: 6 / -1;
+  grid-row: 1;
+  border-right: 0;
+  border-left: 1px solid var(--line-strong);
+}
+.case--flip .case__body { grid-column: 1 / span 5; grid-row: 1; }
+
+@media (max-width: 1280px) {
+  .cards--4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 1024px) {
+  .case--flip .case__media,
+  .case--flip .case__body { grid-column: 1 / -1; grid-row: auto; }
+  .case--flip .case__media { border-left: 0; border-bottom: 1px solid var(--line-strong); }
+}
+@media (max-width: 1024px) {
+  .cards--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  /* Fade the edge so it's clear more filters scroll into view */
+  .filterbar__inner {
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+            mask-image: linear-gradient(to right, #000 85%, transparent);
+  }
+  .feed__meta, .feed__main { grid-column: 1 / -1; }
+  .feed__meta { flex-direction: row; align-items: center; gap: 1rem; }
+  .feed__date { padding-top: 0; }
+}
+@media (max-width: 640px) {
+  .cards--4 { grid-template-columns: 1fr; }
+}
+
+/* ---- Insights hero: the watch wall. One tile per feed category; an orange cursor
+   steps from tile to tile and the tile it lands on lifts its icon, redraws the
+   accent and lights its status square, while a scan line sweeps the wall.
+   Each tile's --step (0-5) is when the cursor reaches it in the 12 s loop. ---- */
+.watch {
+  --cycle: 12s;
+  container-type: inline-size;   /* icons scale with the wall, not the window */
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--ink-950);
+  background: var(--ink-950);
+}
+.watch__tile {
+  --tile: clamp(3.25rem, 17cqi, 6rem);
+  --g: rgba(0, 5, 20, 0.12);
+  --at: calc(var(--step) * var(--cycle) / 6);
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, var(--g) 1px, transparent 1.5px) 50% 50% / 14px 14px, var(--paper-100);
+}
+.watch__tile--ink { --g: rgba(255, 255, 255, 0.1); background-color: var(--ink-950); }
+.watch__tile--ink .ico { --ico-bg: var(--ink-900); --ico-line: var(--paper-50); --ico-edge: var(--line-inv-strong); }
+.watch .ico::before { inset: 1px; }   /* keep the plate from showing as a hairline round a resting tile */
+.watch__tile::after {   /* status square */
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 6px;
+  height: 6px;
+  background: var(--stone-400);
+  animation: watchLight var(--cycle) linear var(--at) infinite;
+}
+.watch .watch__tile .ico__face { animation: watchLift var(--cycle) var(--ease-out) var(--at) infinite; }
+.watch .watch__tile .ico__a > * { animation: watchDraw var(--cycle) var(--ease-out) var(--at) infinite; }
+.watch__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: calc((100% - 2px) / 3);
+  height: calc((100% - 1px) / 2);
+  border: 2px solid var(--signal-500);
+  pointer-events: none;
+  animation: watchCursor var(--cycle) var(--ease) infinite;
+}
+.watch::after {   /* scan line */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 18%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--signal-500) 7%, transparent));
+  border-bottom: 1px solid color-mix(in srgb, var(--signal-500) 50%, transparent);
+  pointer-events: none;
+  animation: watchScan 6s linear infinite;
+}
+/* Snake order: across the top row, then back along the bottom row */
+@keyframes watchCursor {
+  0%, 12.5%        { transform: translate(0, 0); }
+  16.667%, 29.167% { transform: translate(calc(100% + 1px), 0); }
+  33.333%, 45.833% { transform: translate(calc(200% + 2px), 0); }
+  50%, 62.5%       { transform: translate(calc(200% + 2px), calc(100% + 1px)); }
+  66.667%, 79.167% { transform: translate(calc(100% + 1px), calc(100% + 1px)); }
+  83.333%, 95.833% { transform: translate(0, calc(100% + 1px)); }
+  100%             { transform: translate(0, 0); }
+}
+@keyframes watchLift {
+  0%, 16.667%, 100% { transform: none; }
+  4%, 13% { transform: translate(-7%, -7%) rotate(-6deg); border-color: var(--ico-line); }
+}
+@keyframes watchDraw  { 0% { stroke-dashoffset: 1; } 8%, 100% { stroke-dashoffset: 0; } }
+@keyframes watchLight { 0%, 15% { background: var(--signal-500); } 16.667%, 100% { background: var(--stone-400); } }
+@keyframes watchScan  { from { transform: translateY(-100%); } to { transform: translateY(560%); } }
+
+/* Still picture: the cursor rests on the first tile */
+@media (prefers-reduced-motion: reduce) {
+  .watch__cursor,
+  .watch__tile::after,
+  .watch .watch__tile .ico__face,
+  .watch .watch__tile .ico__a > * { animation: none !important; }
+  .watch::after { content: none; }
+  .watch__tile:first-child::after { background: var(--signal-500); }
+}

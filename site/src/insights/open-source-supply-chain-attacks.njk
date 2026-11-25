@@ -1,0 +1,174 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Open-Source Supply-Chain Attacks Are Now a When, Not an If | CipherTrivia Insights"
+description: "Compromised npm and PyPI packages have hit CI pipelines across the industry this quarter. Here's what CipherTrivia is seeing, and the controls that actually stop it."
+crumbs: [["Home", "/"], ["Insights", "/insights/"], ["Open-Source Supply-Chain Attacks Are Now a When, Not an If"]]
+---
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Open-Source Supply-Chain Attacks Are Now a When, Not an If",
+      "description": "Compromised npm and PyPI packages have hit CI pipelines across the industry this quarter. Here's what CipherTrivia is seeing, and the controls that actually stop it.",
+      "datePublished": "2026-06-12",
+      "url": "https://www.ciphertrivia.com/insights/open-source-supply-chain-attacks/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/insights-open-source-supply-chain-attacks.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/insights/open-source-supply-chain-attacks/#webpage"
+      },
+      "dateModified": "2026-06-12",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ciphertrivia.com/insights/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Open-Source Supply-Chain Attacks Are Now a When, Not an If"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/insights/">{{ arrow("btn__icon back-link__icon") }}All Insights</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <div class="article-hero__tags rv">
+          <span class="tag">Threat Intelligence</span>
+          <span class="article-hero__date">12 Jun 2026 · 6 min read</span>
+        </div>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Open-Source Supply-Chain Attacks Are Now a When, Not an If</h1>
+        <p class="hero__lede rv" style="--d:2">Compromised npm and PyPI packages have made their way into CI pipelines across multiple industries this quarter. Here's what we're seeing in the field, and the controls that actually stop it before it reaches production.</p>
+      </div>
+      <div class="article-meta article-meta--media rv" style="--d:3">
+        <div class="cover cover--ink" aria-hidden="true">{{ icon("dependency", "cover") }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BODY                                                                 -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Article">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+        <li><a href="#whats-happening">What's happening</a></li>
+        <li><a href="#why-it-matters">Why it matters for your organization</a></li>
+        <li><a href="#what-to-do-now">What to do now</a></li>
+        <li><a href="#related-reading">Related reading</a></li>
+      </ol>
+    </nav>
+
+    <div class="article__body prose-article">
+      <div class="a-section" id="whats-happening">
+        <h2>What's happening</h2>
+        <p>Over the last few months, several widely-used open-source packages on npm and PyPI were found carrying malicious post-install scripts. These are typically added either by compromising a maintainer's account or by publishing a typosquatted package with a name close enough to a popular dependency to get picked up by an automated install.</p>
+        <p>The payloads we've examined have followed a familiar pattern: harvest environment variables and CI secrets, exfiltrate them to an external endpoint, and, in a few cases, attempt to plant a secondary backdoor inside the build artifact itself. Because the malicious code runs <em>during</em> install or build, it executes with whatever access your CI runner has, often including cloud credentials, registry tokens and signing keys.</p>
+      </div>
+
+      <hr>
+
+      <div class="a-section" id="why-it-matters">
+        <h2>Why it matters for your organization</h2>
+        <p>Most teams trust their dependency tree implicitly: a single <code>npm install</code> or <code>pip install -r requirements.txt</code> can pull in hundreds of transitive packages, almost none of which anyone on the team has reviewed. A single compromised package, even a low-level transitive dependency, has the same blast radius as a compromised build server.</p>
+        <p>The organizations that got hit hardest weren't running outdated software; they were running <strong>auto-updating</strong> dependencies with no pinning, no lockfile verification, and CI runners with broad, long-lived credentials. That combination turns a single upstream compromise into an organization-wide incident within minutes of the next build.</p>
+      </div>
+
+      <hr>
+
+      <div class="take">
+        <div class="take__by">
+          <span class="avatar">AT</span>
+          <div>
+            <p class="take__name">Aditya Thakur</p>
+            <p class="take__role">DevSecOps Engineer, CipherTrivia</p>
+          </div>
+        </div>
+        <p class="take__label">"CipherTrivia's Take"</p>
+        <p class="take__text">"Every audit we run still finds the same gap: dependency updates are automatic, but dependency <em>review</em> isn't. Lockfiles get committed, sure, but few teams actually verify them against a known-good hash before a build runs, and almost none scope their CI credentials so a compromised package can't reach anything sensitive. The fix isn't exotic. It's pinning, provenance checks, and a CI runner that has no more access than the job strictly needs."</p>
+      </div>
+
+      <hr>
+
+      <div class="a-section" id="what-to-do-now">
+        <h2>What to do now</h2>
+        <p>A practical checklist we're walking clients through this month:</p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span>Pin dependency versions and commit lockfiles, and fail builds if the lockfile doesn't match installed versions.</span></li>
+          <li class="check"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span>Run a software composition analysis (SCA) scan on every PR, not just on release branches.</span></li>
+          <li class="check"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span>Scope CI/CD credentials to least privilege: short-lived tokens, per-job permissions, no standing cloud admin access.</span></li>
+          <li class="check"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span>Use a private registry mirror/proxy so new package versions are quarantined before they reach your builds.</span></li>
+          <li class="check"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span>Generate and verify build provenance (e.g. SLSA-style attestations) for production artifacts.</span></li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div class="a-section" id="related-reading">
+        <h2>Related reading</h2>
+        <div class="reading">
+          <a class="reading__item" href="/whitepapers/devsecops-cicd-security-checklist/">
+            <p class="a-label">Checklist</p>
+            <p class="reading__title">DevSecOps &amp; CI/CD Security Checklist</p>
+          </a>
+          <a class="reading__item" href="/whitepapers/enterprise-vapt-guide/">
+            <p class="a-label">Guide</p>
+            <p class="reading__title">Enterprise VAPT Guide</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Not sure if your CI pipeline is exposed?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">We can review your build pipeline's dependency and credential exposure in a single session.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

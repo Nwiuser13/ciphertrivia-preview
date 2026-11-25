@@ -1,0 +1,258 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "DevSecOps & CI/CD Security Checklist | CipherTrivia Whitepapers"
+description: "A pipeline-stage-by-stage DevSecOps security checklist from CipherTrivia: what to check at commit, build, test, package and deploy, with a secure CI/CD reference diagram."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["DevSecOps & CI/CD Security Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "DevSecOps & CI/CD Security Checklist",
+      "description": "A pipeline-stage-by-stage DevSecOps security checklist from CipherTrivia: what to check at commit, build, test, package and deploy, with a secure CI/CD reference diagram.",
+      "url": "https://www.ciphertrivia.com/whitepapers/devsecops-cicd-security-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-devsecops-cicd-security-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/devsecops-cicd-security-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "DevSecOps & CI/CD Security Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · DevSecOps</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">DevSecOps &amp; CI/CD Security Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">Security checks mapped directly onto your pipeline stages (commit, build, test, package, deploy), so each one lands with the team that owns it.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>DevSecOps / CI-CD</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>10 minutes</dd></div>
+        <div class="article-meta__row"><dt>Applies to:</dt><dd>GitHub Actions, GitLab CI, Jenkins, Azure DevOps</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#checks-by-pipeline-stage">Checks by Pipeline Stage</a></li>
+          <li><a href="#a-secured-pipeline-end-to-end">A Secured Pipeline, End to End</a></li>
+          <li><a href="#what-we-usually-find">What We Usually Find</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          Most "<a href="/services/devsecops-services/">DevSecOps</a>" checklists read like a tool shopping list: add a SAST scanner here, a container scanner there. The harder problem is that a pipeline has multiple owners (developers, platform/DevOps, security), and a check that lands on the wrong stage either gets ignored or becomes a bottleneck everyone routes around.
+        </p>
+        <p>
+          So instead of grouping by tool category, this checklist is organized by pipeline stage, the same order code actually travels through on its way to production. Each stage lists what to check and who typically owns fixing it.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="checks-by-pipeline-stage">
+        <h2>Checks by Pipeline Stage</h2>
+
+        <div class="a-stack a-stack--sm">
+          <div class="a-rail">
+            <span class="a-rail__dot"></span>
+            <h3>1. Commit</h3>
+            <p class="is-sm">Owner: developers, enforced via pre-commit hooks</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Secret-scanning runs pre-commit and again in CI, catching keys, tokens and credentials before they're pushed.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Commits are signed, and branch protection prevents force-pushes to main/release branches.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-rail">
+            <span class="a-rail__dot"></span>
+            <h3>2. Build</h3>
+            <p class="is-sm">Owner: platform/DevOps team</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">SAST (static analysis) runs on every pull request, with results visible to the developer before merge, not just logged centrally.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Build runners use short-lived, least-privilege credentials (OIDC federation) rather than long-lived static cloud keys.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-rail">
+            <span class="a-rail__dot"></span>
+            <h3>3. Test</h3>
+            <p class="is-sm">Owner: developers + security</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Dependency/SCA scanning runs against every build, with a defined policy for what severity blocks a merge vs. just files a ticket.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">DAST or authenticated security smoke tests run against a staging deploy before production release, for internet-facing services.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-rail">
+            <span class="a-rail__dot"></span>
+            <h3>4. Package</h3>
+            <p class="is-sm">Owner: platform/DevOps team</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Container images are scanned for known CVEs, and built from minimal/distroless base images where practical.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Build artifacts are signed, and the pipeline verifies signatures before deployment (supply-chain integrity).</p></li>
+            </ul>
+          </div>
+
+          <div class="a-rail">
+            <span class="a-rail__dot"></span>
+            <h3>5. Deploy</h3>
+            <p class="is-sm">Owner: platform/DevOps team + security review</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Infrastructure-as-code changes go through the same review and scanning as application code (IaC scanning for misconfigurations).</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Production deploy credentials require approval from a second person, so no single pipeline run can push to production unreviewed.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Rollback is tested and fast, since a security fix that needs to ship urgently shouldn't be blocked by deployment friction.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-secured-pipeline-end-to-end">
+        <h2>A Secured Pipeline, End to End</h2>
+        <p>
+          The diagram below shows where each control from the checklist sits in a typical pipeline, from a developer's commit through to a production deployment.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/devsecops-cicd-architecture.png" alt="Diagram of a secure CI/CD pipeline showing stages for commit with secret scanning and signed commits, build with SAST and OIDC short-lived credentials, test with dependency scanning and DAST against staging, package with container image scanning and artifact signing, and deploy with IaC scanning, two-person approval, and rollback, feeding into a production environment" class="a-figure__img" loading="lazy" decoding="async" width="1774" height="887">
+          <figcaption>Figure 1: Five stages, five sets of checks, each with a clear owner.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-we-usually-find">
+        <h2>What We Usually Find</h2>
+        <p>
+          During cloud and infrastructure assessments, pipeline-related findings are some of the most consequential because they affect every deployment, not just one application. The most common: long-lived cloud credentials stored as CI secrets (rather than short-lived OIDC tokens), SAST/SCA tools that are configured but whose findings nobody triages, and Infrastructure-as-Code repositories with broader permissions than the workloads they deploy actually need.
+        </p>
+        <p>
+          The fix is rarely "buy another scanner." It's almost always about closing the loop: making sure findings reach the person who can act on them, at the stage where fixing them is cheapest.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>Where should we start if we have none of this in place?</h3>
+            <p class="is-sm">Stage 1 (Commit): secret scanning is low-friction, catches one of the most common and damaging issue types, and doesn't require buy-in from multiple teams to implement.</p>
+          </div>
+          <div>
+            <h3>Can you assess our existing pipeline rather than just our application?</h3>
+            <p class="is-sm">Yes, a CI/CD and cloud configuration review is a common engagement for us, looking at pipeline permissions, secret management, IaC configuration and deployment controls against this checklist.</p>
+          </div>
+          <div>
+            <h3>Does this apply if we're not using containers/Kubernetes?</h3>
+            <p class="is-sm">Yes. The stage-based structure applies to any pipeline; the "Package" stage just looks different (e.g. signed deployment artifacts/zip files rather than container images).</p>
+          </div>
+          <div>
+            <h3>How does this relate to a cloud security assessment?</h3>
+            <p class="is-sm">They're complementary: a cloud security assessment (see our <a href="/whitepapers/cloud-security-assessment-checklist/">Cloud Security Assessment Checklist</a>) looks at the environment your pipeline deploys into; this checklist looks at the pipeline itself.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">AT</span>
+          <div>
+            <p class="a-strong">Aditya Thakur</p>
+            <p class="a-meta is-sm">DevSecOps Engineer, CipherTrivia · AWS Certified Security &amp; CKA</p>
+            <p class="is-sm">Aditya works on CI/CD and cloud infrastructure assessments at CipherTrivia, helping engineering teams integrate security checks into their existing pipelines without adding friction developers route around.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need DevSecOps implementation?</h3>
+        <p class="svc-cta__text">Our DevSecOps team embeds security automation directly into your CI/CD pipelines.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/devsecops-services/">Explore DevSecOps {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Get a second set of eyes on your pipeline</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">A CI/CD and cloud configuration review maps your pipeline against this checklist. See our <a href="/services/">DevSecOps services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

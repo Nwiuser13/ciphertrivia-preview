@@ -1,0 +1,377 @@
+/* ==========================================================================
+   Showcase — principles grid (dark) and case study frame
+   ========================================================================== */
+
+/* ---- Principles ---- */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-inv-strong);
+  border-left: 1px solid var(--line-inv);
+}
+.principle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 23rem;
+  padding: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem);
+  border-right: 1px solid var(--line-inv);
+  border-bottom: 1px solid var(--line-inv);
+  transition: background var(--dur-2) var(--ease);
+}
+.principle:hover { background: var(--ink-800); }
+/* Seven items: the last card spans its own row at every width */
+.principles--7 > :last-child { grid-column: 1 / -1; min-height: 0; }
+.principles--7 > :last-child .principle__text { max-width: 62ch; }
+.principle__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+.principle__label::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: var(--signal-500);
+  transform: scale(0);
+  transition: transform var(--dur-2) var(--ease);
+}
+.principle:hover .principle__label::after { transform: scale(1); }
+.principle__title {
+  margin-top: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem);
+  font-size: var(--fs-xl);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  color: var(--paper-50);
+}
+.principle__text {
+  margin-top: 1rem;
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: var(--stone-300);
+}
+
+/* ---- Findings panel (dark console listing example findings) ---- */
+.findings {
+  background: var(--ink-950);
+  color: var(--paper-50);
+  border: 1px solid var(--ink-950);
+}
+.ph + .findings { border-top: 0; }
+.findings__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line-inv-strong);
+}
+.findings__title {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--stone-300);
+}
+.findings__pulse {
+  width: 7px;
+  height: 7px;
+  background: var(--signal-500);
+  animation: utilPulse 1.6s steps(2, jump-none) infinite;
+}
+.finding {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.375rem 1.25rem;
+  border-bottom: 1px solid var(--line-inv);
+  transition: background var(--dur-2);
+}
+.finding:last-child { border-bottom: 0; }
+.finding:hover { background: var(--ink-800); }
+.finding__no {
+  font-size: var(--fs-xs);
+  color: var(--signal-500);
+}
+.finding__text { font-size: var(--fs-base); line-height: 1.45; }
+.finding__issue { display: block; font-weight: 500; color: var(--paper-50); }
+.finding__impact {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: var(--fs-xs);
+  color: var(--stone-300);
+}
+
+/* ---- Case study ---- */
+.case {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border: 1px solid var(--line-strong);
+  background: var(--paper-0);
+}
+.case__media { grid-column: 1 / span 7; border-right: 1px solid var(--line-strong); }
+.case__media .ph { height: 100%; aspect-ratio: auto; min-height: 24rem; }
+/* Case photo: graded to the palette (ink-to-paper, orange kept on warm accents), an ink
+   gradient rising from the foot, an orange wash on the side that faces the copy, and
+   sighting brackets that turn orange when the case is hovered */
+.case__photo {
+  position: relative;
+  height: 100%;
+  min-height: 24rem;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink-950);
+}
+.case__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.06);
+  transition: transform 1.4s var(--ease-out);
+}
+.case__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(255, 79, 31, 0) 58%, rgba(255, 79, 31, 0.42) 100%);
+  mix-blend-mode: multiply;
+}
+.case--flip .case__photo::before { background: linear-gradient(270deg, rgba(255, 79, 31, 0) 58%, rgba(255, 79, 31, 0.42) 100%); }
+.case__photo::after {
+  --c: rgba(247, 246, 242, 0.9);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(var(--c), var(--c)) 1.25rem 1.25rem / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 1.25rem 1.25rem / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) calc(100% - 1.25rem) 1.25rem / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) calc(100% - 1.25rem) 1.25rem / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 1.25rem calc(100% - 1.25rem) / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 1.25rem calc(100% - 1.25rem) / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) calc(100% - 1.25rem) calc(100% - 1.25rem) / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) calc(100% - 1.25rem) calc(100% - 1.25rem) / 1.5px 1.25rem,
+    linear-gradient(180deg, rgba(0, 5, 20, 0.28) 0%, rgba(0, 5, 20, 0) 28%, rgba(0, 5, 20, 0) 50%, rgba(0, 5, 20, 0.7) 100%);
+  background-repeat: no-repeat;
+}
+.case:hover .case__photo img { transform: scale(1.04); }
+.case:hover .case__photo::after { --c: var(--signal-500); }
+@media (prefers-reduced-motion: reduce) {
+  .case__photo img { transition: none; }
+  .case:hover .case__photo img { transform: none; }
+}
+.case__body {
+  grid-column: 8 / -1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(2rem, 1.25rem + 2.5vw, 3.5rem);
+}
+.case__title {
+  margin-top: 1.5rem;
+  font-size: var(--fs-2xl);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.case__text { margin-top: 1.25rem; color: var(--ink-700); }
+.case__foot {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case__media, .case__body { grid-column: 1 / -1; }
+  .case__media { border-right: 0; border-bottom: 1px solid var(--line-strong); }
+  .case__media .ph { min-height: 0; aspect-ratio: 16 / 9; }
+  .case__photo { min-height: 0; aspect-ratio: 16 / 10; }
+  .case__photo::before,
+  .case--flip .case__photo::before { background: linear-gradient(180deg, rgba(255, 79, 31, 0) 60%, rgba(255, 79, 31, 0.38) 100%); }
+}
+@media (max-width: 640px) {
+  .principles { grid-template-columns: 1fr; }
+  .principle { min-height: 0; }
+  .principle__title { margin-top: 2rem; }
+}
+
+/* ---- Case studies hero: one engagement per loop. The wrench travels from the
+   cracked shield to the empty one, leaving an orange trace; the check draws in and
+   the sighting brackets lock on as the fix is re-tested. Each loop lights the next
+   sector in the strip below (banking, healthcare, SaaS, payments, SOC). ---- */
+.resolve {
+  --loop: 4s;
+  container-type: inline-size;   /* icons scale with the panel, not the window */
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1px;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--ink-950);
+  background: var(--ink-950);
+}
+.resolve__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr);
+  gap: 1px;
+}
+.resolve__tile {
+  --tile: clamp(3.25rem, 17cqi, 6rem);
+  --g: rgba(0, 5, 20, 0.07);
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--g) 1px, transparent 1px) 50% 50% / 24px 24px,
+    linear-gradient(90deg, var(--g) 1px, transparent 1px) 50% 50% / 24px 24px,
+    var(--paper-100);
+}
+.resolve__tile--fixed { --g: rgba(255, 255, 255, 0.06); background-color: var(--ink-950); }
+.resolve__tile--fixed .ico { --ico-bg: var(--ink-900); --ico-line: var(--paper-50); --ico-edge: var(--line-inv-strong); }
+.resolve .ico::before { inset: 1px; }   /* keep the plate from showing as a hairline round a resting tile */
+.resolve__tile--found::after {   /* open-finding marker: orange until the fix lands */
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 7px;
+  height: 7px;
+  background: var(--signal-500);
+  animation: resolveOpen var(--loop) linear infinite;
+}
+.resolve__tile--fixed::after {   /* sighting brackets */
+  --c: var(--signal-500);
+  content: "";
+  position: absolute;
+  inset: 0.75rem;
+  background:
+    linear-gradient(var(--c), var(--c)) 0 0 / 14px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) 0 0 / 2px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 14px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 2px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) 0 100% / 14px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) 0 100% / 2px 14px no-repeat,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 14px 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 2px 14px no-repeat;
+  opacity: 0;
+  animation: resolveLock var(--loop) var(--ease-out) infinite;
+}
+.resolve .resolve__tile--found .ico__face { animation: resolveWork var(--loop) var(--ease-out) infinite; }
+.resolve .resolve__tile--found .ico__a > * { animation: resolveCrack var(--loop) var(--ease-out) infinite; }
+.resolve .resolve__tile--fixed .ico__face { animation: resolveSettle var(--loop) var(--ease-out) infinite; }
+.resolve .resolve__tile--fixed .ico__a > * { animation: resolveCheck var(--loop) var(--ease-out) infinite; }
+
+.resolve__link { position: relative; background: var(--paper-0); }
+.resolve__link::before {   /* the route between the two shields */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px dashed var(--stone-400);
+}
+.resolve__trace {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--signal-500);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: resolveTrace var(--loop) var(--ease) infinite;
+}
+.resolve__runner {
+  --r: 1.75rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: var(--r);
+  height: var(--r);
+  margin-top: calc(var(--r) / -2);
+  background: var(--signal-500);
+  animation: resolveRun var(--loop) var(--ease) infinite;
+}
+.resolve__runner .ico { --ico: 1.125rem; --ico-line: var(--ink-950); --ico-accent: var(--paper-0); }
+
+.resolve__sectors {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+}
+.resolve__sector {
+  --at: calc(var(--i) * var(--loop));
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-block: clamp(0.75rem, 0.5rem + 0.8vw, 1.25rem);
+  background: var(--paper-0);
+}
+.resolve__sector::after {   /* fills as that sector's engagement plays */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--signal-500);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: resolveSector calc(var(--loop) * 5) var(--ease) var(--at) infinite;
+}
+.resolve .resolve__sector .ico__face { animation: resolveSectorLift calc(var(--loop) * 5) var(--ease-out) var(--at) infinite; }
+
+@keyframes resolveRun {
+  0%, 8%    { left: 0; opacity: 0; }
+  14%       { opacity: 1; }
+  58%       { left: calc(100% - var(--r)); opacity: 1; }
+  66%, 100% { left: calc(100% - var(--r)); opacity: 0; }
+}
+@keyframes resolveTrace {
+  0%, 8%   { transform: scaleX(0); opacity: 1; }
+  58%, 90% { transform: scaleX(1); opacity: 1; }
+  100%     { transform: scaleX(1); opacity: 0; }
+}
+@keyframes resolveWork {
+  0%, 62%, 100% { transform: none; }
+  6%, 52% { transform: translate(-7%, -7%) rotate(-6deg); border-color: var(--ico-line); }
+}
+@keyframes resolveCrack  { 0% { stroke-dashoffset: 1; } 12%, 100% { stroke-dashoffset: 0; } }
+@keyframes resolveSettle {
+  0%, 60%, 100% { transform: none; }
+  68%, 90% { transform: translate(-7%, -7%) rotate(-6deg); border-color: var(--ico-line); }
+}
+@keyframes resolveCheck  { 0%, 60% { stroke-dashoffset: 1; } 74%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes resolveLock   { 0%, 60% { opacity: 0; transform: scale(1.08); } 70%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; transform: none; } }
+@keyframes resolveOpen   { 0%, 58% { background: var(--signal-500); } 62%, 96% { background: var(--stone-400); } 100% { background: var(--signal-500); } }
+@keyframes resolveSector { 0% { transform: scaleX(0); } 12%, 18% { transform: scaleX(1); } 20%, 100% { transform: scaleX(0); } }
+@keyframes resolveSectorLift {
+  0%, 20%, 100% { transform: none; }
+  3%, 17% { transform: translate(-6px, -6px) rotate(-6deg); border-color: var(--ico-line); }
+}
+
+/* Still picture: the fix has landed, first sector lit */
+@media (prefers-reduced-motion: reduce) {
+  .resolve *,
+  .resolve *::before,
+  .resolve *::after { animation: none !important; }
+  .resolve__runner { display: none; }
+  .resolve__trace { transform: none; }
+  .resolve__tile--found::after { background: var(--stone-400); }
+  .resolve__tile--fixed::after { opacity: 1; }
+  .resolve__sector:first-child::after { transform: none; }
+}

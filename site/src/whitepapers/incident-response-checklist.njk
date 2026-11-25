@@ -1,0 +1,263 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Incident Response Checklist | CipherTrivia Whitepapers"
+description: "A first-72-hours incident response checklist from CipherTrivia's incident response team, covering what to do, in order, when you suspect a breach, plus a readiness checklist to prepare before one happens."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Incident Response Checklist: The First 72 Hours"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Incident Response Checklist: The First 72 Hours",
+      "description": "A first-72-hours incident response checklist from CipherTrivia's incident response team, covering what to do, in order, when you suspect a breach, plus a readiness checklist to prepare before one happens.",
+      "url": "https://www.ciphertrivia.com/whitepapers/incident-response-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-incident-response-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/incident-response-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Incident Response Checklist: The First 72 Hours"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Incident Response</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Incident Response Checklist: The First 72 Hours</h1>
+        <p class="hero__lede rv" style="--d:2">If you're reading this during an active incident: skip to "Hour 0-1" below. If you're reading this beforehand, good, that's when this checklist is most useful.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Incident Response</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>9 minutes</dd></div>
+        <div class="article-meta__row"><dt>Based on:</dt><dd>CipherTrivia incident response engagements</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#the-first-72-hours">The First 72 Hours</a></li>
+          <li><a href="#a-note-from-the-field">A Note From the Field</a></li>
+          <li><a href="#an-incident-response-readiness-flow">An Incident Response Readiness Flow</a></li>
+          <li><a href="#before-an-incident-readiness-checklist">Before an Incident: Readiness Checklist</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section a-card a-card--alert">
+        <p class="a-strong is-sm">If you suspect an active breach right now:</p>
+        <p class="is-sm">Don't power off affected systems (you may lose evidence in memory); instead, isolate them from the network. Then go to "Hour 0-1" below. If you need help immediately, <a href="/contact/">contact us</a>, as we provide emergency incident response support.</p>
+      </div>
+
+<div class="a-section">
+        <p>
+          Of the incidents we've helped clients respond to, the ones that go badly almost never go badly because of the initial compromise. They go badly because of what happens in the first few hours after it's discovered. Systems get powered off (destroying evidence), the wrong people find out at the wrong time, or nobody is clearly in charge of decisions.
+        </p>
+        <p>
+          This checklist is organized as a timeline: what to do in the first hour, the first day, and the first three days, followed by a readiness checklist for what should already be in place before any of this happens.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="the-first-72-hours">
+        <h2>The First 72 Hours</h2>
+
+        <div class="a-stack a-stack--lg">
+          <div class="a-row">
+            <div class="a-row__aside"><p class="a-strong is-sm">Hour 0-1</p></div>
+            <div class="a-rail a-grow">
+              <h3>Contain &amp; Preserve</h3>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Isolate affected systems from the network (disconnect, don't power off) to stop spread while preserving memory and disk state.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Notify your incident response lead (internal or external) and start a timeline log, recording every action with timestamps from this point on.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Preserve relevant logs (auth logs, firewall logs, cloud audit trails) before retention windows roll over.</p></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="a-row">
+            <div class="a-row__aside"><p class="a-strong is-sm">Hours 1-24</p></div>
+            <div class="a-rail a-grow">
+              <h3>Investigate &amp; Scope</h3>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Establish initial scope: which systems, accounts and data were potentially accessed, and which definitely were not.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Rotate credentials for any accounts confirmed or suspected to be compromised, but coordinate timing so it doesn't tip off an active attacker before containment is complete.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Identify the likely initial access vector, since this shapes both containment and what you'll need to say externally.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Loop in legal counsel early; they'll guide notification obligations and privilege considerations for the investigation.</p></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="a-row">
+            <div class="a-row__aside"><p class="a-strong is-sm">Days 1-3</p></div>
+            <div class="a-rail a-grow">
+              <h3>Eradicate, Recover &amp; Communicate</h3>
+              <ul class="check-list">
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Remove attacker access (persistence mechanisms, backdoors, new accounts), confirming it's verified rather than assumed.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Restore systems from known-clean backups or rebuilds, not by "cleaning" a potentially still-compromised system.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Determine regulatory/customer notification requirements based on data involved and jurisdiction, and prepare communications with legal.</p></li>
+                <li class="check"><span class="check__box">✓</span><p class="is-sm">Begin drafting the post-incident report while details are still fresh, since this becomes the basis for fixing root causes.</p></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="a-note-from-the-field">
+        <h2>A Note From the Field</h2>
+        <blockquote>
+          <p class="is-italic">"The single most common mistake we see isn't technical: it's that the team finding the issue doesn't know who's authorized to make the call to take a production system offline. That decision gets escalated, re-escalated, and by the time it's made, hours have passed. Decide who has that authority before you need it, and write it down."</p>
+        </blockquote>
+      </div>
+
+<hr>
+
+<div class="a-section" id="an-incident-response-readiness-flow">
+        <h2>An Incident Response Readiness Flow</h2>
+        <p>
+          The diagram below shows how detection, containment and response roles connect, reflecting the structure this checklist assumes is already in place before an incident starts.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/incident-response-flow.png" alt="Diagram of an incident response readiness flow showing detection sources such as SIEM alerts and user reports feeding into a triage step, which escalates to a designated incident commander with pre-authorized containment authority, branching into containment and evidence preservation, investigation, and communication workstreams that converge into a post-incident review" class="a-figure__img" loading="lazy" decoding="async" width="1408" height="768">
+          <figcaption>Figure 1: The roles and handoffs that make the timeline above possible.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="before-an-incident-readiness-checklist">
+        <h2>Before an Incident: Readiness Checklist</h2>
+        <p>Everything above assumes a few things are already true. If any of these aren't, that's where to start:</p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">A named incident commander (and backup) with pre-authorized authority to isolate production systems.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Logs (authentication, network, cloud audit) retained for at least 90 days and centrally accessible.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">An out-of-band communication channel (not your primary email/chat, in case it's compromised) for incident coordination.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Legal counsel and an external IR provider identified and contactable in advance, not selected during the incident.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">Backups tested for restoration (not just existence) and isolated from the systems they back up.</p></li>
+          <li class="check"><span class="check__box">✓</span><p class="is-sm">This checklist (or your own version of it) has been walked through in a tabletop exercise at least once.</p></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>Do we need a retainer in place before an incident, or can we call you during one?</h3>
+            <p class="is-sm">We support both, but a retainer means pre-agreed scope, rates and points of contact, which removes delay during an actual incident. We're also available for emergency engagements without a prior retainer.</p>
+          </div>
+          <div>
+            <h3>What's a tabletop exercise, and do you run them?</h3>
+            <p class="is-sm">A tabletop exercise is a facilitated walkthrough of a simulated incident with your team, to test decision-making and communication without an actual breach. Yes, we run these, typically half a day, tailored to a scenario relevant to your environment.</p>
+          </div>
+          <div>
+            <h3>How do you determine what data was accessed?</h3>
+            <p class="is-sm">Primarily through log analysis (access logs, query logs, file access timestamps) and forensic analysis of affected systems. The depth depends on what logging was in place before the incident, which is why the readiness checklist above matters.</p>
+          </div>
+          <div>
+            <h3>Should we involve law enforcement?</h3>
+            <p class="is-sm">This depends on the nature of the incident and your jurisdiction's requirements; your legal counsel should guide this decision, ideally as part of your pre-incident planning rather than during the incident itself.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">MJ</span>
+          <div>
+            <p class="a-strong">Meera Joshi</p>
+            <p class="a-meta is-sm">Incident Response Lead, CipherTrivia · GCIH &amp; GCFA</p>
+            <p class="is-sm">Meera leads incident response engagements at CipherTrivia and runs tabletop exercises for client teams. She wrote this checklist after noticing that the same handful of early decisions, made or delayed, consistently determined how the rest of an incident went.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need cybersecurity consulting?</h3>
+        <p class="svc-cta__text">Our consulting team builds incident response plans and security roadmaps for your organization.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/cybersecurity-consulting/">Explore Consulting {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Don't wait for an incident to find the gaps</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">A tabletop exercise or readiness review tests this checklist against your actual organization. See our <a href="/services/">incident response services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Image placeholder — swap the <figure class="ph"> for a real <img> later.
+   Ratio is controlled with the --ph-ratio custom property.
+   ========================================================================== */
+
+.ph {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--ph-ratio, 16 / 9);
+  overflow: hidden;
+  background-color: var(--paper-100);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 11px,
+    var(--line) 11px 12px
+  );
+  border: 1px solid var(--line-strong);
+}
+
+/* crosshair */
+.ph::before,
+.ph::after {
+  content: "";
+  position: absolute;
+  background: var(--line-strong);
+}
+.ph::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+.ph::after  { top: 50%; left: 0; right: 0; height: 1px; }
+
+.ph__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0.375rem 0.625rem;
+  background: var(--ink-950);
+  color: var(--paper-50);
+  font-size: 0.75rem;
+}
+
+.ph__tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: calc(100% - 1rem);
+  padding: 0.75rem 1rem;
+  background: var(--paper-50);
+  border-top: 1px solid var(--line-strong);
+  border-right: 1px solid var(--line-strong);
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  color: var(--stone-500);
+}
+.ph__tag strong { color: var(--ink-900); font-weight: 500; }
+
+/* Flush variant — no outer border (when inside a bordered parent) */
+.ph--flush { border: 0; }
+
+/* Dark variant */
+.ph--inv {
+  background-color: var(--ink-800);
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 11px,
+    var(--line-inv) 11px 12px
+  );
+  border-color: var(--line-inv-strong);
+}
+.ph--inv::before,
+.ph--inv::after { background: var(--line-inv-strong); }
+.ph--inv .ph__corner { background: var(--signal-500); color: var(--ink-950); }
+.ph--inv .ph__tag {
+  background: var(--ink-950);
+  border-color: var(--line-inv-strong);
+  color: var(--stone-400);
+}
+.ph--inv .ph__tag strong { color: var(--paper-50); }
+
+/* ==========================================================================
+   Real images that replace a placeholder: keep the slot's frame and ratio.
+   Use <img class="media-img"> with width/height attributes.
+   ========================================================================== */
+.media-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-100);
+}
+/* Slots that stretch to their container: fill it, never crop a diagram */
+.explorer__frame .media-img { height: 100%; object-fit: cover; border: 0; }
+.case__media .media-img,
+.callout__media .media-img { height: 100%; min-height: 20rem; object-fit: contain; border: 0; }
+.case__media .media-img { background: var(--ink-950); }
+.callout__media .media-img { background: var(--paper-50); }
+.final__guide .media-img { border: 0; background: var(--ink-950); }
+.deliver__media .media-img { background: var(--paper-50); }
+@media (max-width: 1024px) {
+  .deliver__media .media-img { max-width: 30rem; }
+  .case__media .media-img,
+  .callout__media .media-img { min-height: 0; height: auto; }
+}

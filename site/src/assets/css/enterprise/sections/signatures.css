@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Signature visuals — the coded line-art that gives each service page its
+   own look (heroes, wide boards, explorer panels). Timing lives in the
+   markup and is played by assets/js/sig.js; this file holds the shared
+   parts, the wide boards and the photo frames.
+   ========================================================================== */
+
+/* ---- SVG paint, from the tokens (opacity via fill-/stroke-opacity) ---- */
+.f-ink   { fill: var(--ink-950); }
+.f-ink9  { fill: var(--ink-900); }
+.f-ink8  { fill: var(--ink-800); }
+.f-paper { fill: var(--paper-0); }
+.f-p50   { fill: var(--paper-50); }
+.f-p100  { fill: var(--paper-100); }
+.f-sig   { fill: var(--signal-500); }
+.f-sig1  { fill: var(--signal-100); }
+.f-stone { fill: var(--stone-400); }
+.f-none  { fill: none; }
+.s-ink   { stroke: var(--ink-950); }
+.s-paper { stroke: var(--paper-50); }
+.s-sig   { stroke: var(--signal-500); }
+.s-stone { stroke: var(--stone-400); }
+.s-dash  { stroke-dasharray: 3 5; }
+/* SVG text (example documents): site faces, sized by the drawing */
+.sig-txt  { font-family: var(--f-sans); letter-spacing: -0.01em; }
+.sig-mono { font-family: var(--f-mono); letter-spacing: 0.08em; }
+
+/* ---- Animated parts (see sig.js) ---- */
+[data-fx="pop"], [data-fx="grow"], [data-fx="growy"] { transform-box: fill-box; }
+[data-fx="pop"]   { transform-origin: center; }
+[data-fx="grow"]  { transform-origin: left center; }
+[data-fx="growy"] { transform-origin: center bottom; }
+[data-fx="draw"]  { stroke-dasharray: 1; }
+/* Until the timeline starts, show the opening frame (parts not yet in) */
+.js [data-sig]:not(.sig-still) [data-fx]:not([data-fx="hide"]) { opacity: 0; }
+/* Still picture for reduced motion / no JS: everything in, nothing travelling */
+.sig-still [data-fx="move"], html:not(.js) [data-fx="move"],
+.sig-still [data-fx="hide"], html:not(.js) [data-fx="hide"] { display: none; }
+
+/* ---- Hero visuals (1:1 line-art in the hero's visual column) ---- */
+.sig-hero { position: relative; aspect-ratio: 1; }
+.sig-hero svg { display: block; width: 100%; height: 100%; overflow: visible; }
+/* Mirrored hero: the visual leads on the left (Mobile App) */
+.hero__layout--flip .hero__visual { grid-column: 1 / span 6; grid-row: 1; align-self: center; }
+.hero__layout--flip .hero__copy { grid-column: 7 / -1; }
+@media (max-width: 1100px) {
+  .hero__visual--sig { display: block; max-width: 34rem; }
+  .hero__layout--flip .hero__visual { grid-row: auto; grid-column: 1 / -1; }
+  .hero__layout--flip .hero__copy { grid-column: 1 / -1; }
+}
+
+/* ---- Coded explorer panels (4:5, in place of photos) ---- */
+.xp { position: absolute; inset: 0; }
+.xp > svg { display: block; width: 100%; height: 100%; }
+.xp--light {
+  background:
+    linear-gradient(rgba(0, 5, 20, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(0, 5, 20, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--paper-50);
+}
+.xp--ink {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--ink-950);
+}
+.explorer__inline.xp-box { position: relative; aspect-ratio: 4 / 5; }
+
+/* ---- Wide boards (replace the 12:5 photo under a page intro) ---- */
+.board {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--paper-0);
+  background-blend-mode: normal;
+}
+.board::before {   /* soften the grid so the diagram leads */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.72);
+  pointer-events: none;
+}
+.board__canvas { position: relative; aspect-ratio: 12 / 5; overflow: hidden; }
+.board__canvas > svg { display: block; width: 100%; height: 100%; }
+.board--ink { border-color: var(--ink-950); background: var(--ink-950); }
+/* 16:10 board (home); --fill stretches it to its container's height, the diagram centred */
+.board--16x10 .board__canvas { aspect-ratio: 16 / 10; }
+.board--toggle-low .board__toggle { top: auto; bottom: 0.75rem; }   /* when the diagram's top right is busy */
+.board--fill { height: 100%; border: 0; }
+.board--fill .board__canvas { height: 100%; min-height: 22rem; aspect-ratio: auto; }
+.board--ink::before { content: none; }
+.board__toggle {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--paper-0);
+  border: 1px solid var(--line-strong);
+  color: var(--ink-950);
+  transition: background var(--dur-1), border-color var(--dur-1), color var(--dur-1);
+}
+.board__toggle:hover { background: var(--signal-500); border-color: var(--signal-500); }
+.board--ink .board__toggle { background: var(--ink-950); border-color: var(--line-inv-strong); color: var(--paper-50); }
+.board--ink .board__toggle:hover { color: var(--ink-950); }
+.board__toggle svg { width: 0.75rem; height: 0.75rem; }
+.board__i-play { display: none; }
+.board.is-paused .board__i-play { display: block; }
+.board.is-paused .board__i-pause { display: none; }
+.sig-still ~ .board__toggle { display: none; }
+@media (max-width: 700px) {
+  /* Phones keep the left of the diagram, large enough to read */
+  .board__canvas { aspect-ratio: 1.64; }
+}
+
+/* ---- Orange band carrying a photo (API): the graded photo multiplies into the orange ---- */
+.band--photo::after { content: none; }
+.band__photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  -webkit-mask-image: linear-gradient(to left, #000 55%, transparent);
+          mask-image: linear-gradient(to left, #000 55%, transparent);
+}
+.band__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 55% 12%;
+  mix-blend-mode: multiply;
+  filter: contrast(1.1);
+}
+@media (max-width: 900px) {
+  .band__photo { width: 100%; opacity: 0.35; -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ---- Photo frames in an explorer: graded photo, sighting brackets, a scan on arrival ---- */
+.xphoto {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink-950);
+}
+.xphoto .media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  transform: scale(1.06);
+  transition: transform 7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.explorer__frame.is-active .xphoto .media-img { transform: scale(1); }
+.xphoto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 5, 20, 0.15) 0%, rgba(0, 5, 20, 0) 30%, rgba(0, 5, 20, 0) 62%, rgba(0, 5, 20, 0.5) 100%);
+}
+.xphoto__hud {
+  --c: rgba(247, 246, 242, 0.85);
+  position: absolute;
+  inset: 1.25rem;
+  z-index: 1;
+  background:
+    linear-gradient(var(--c), var(--c)) 0 0 / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 0 0 / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 0 100% / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 0 100% / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 1.5px 1.25rem;
+  background-repeat: no-repeat;
+}
+.xphoto__hud::before {   /* the marker */
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--signal-500);
+  transform: scale(0);
+}
+.xphoto__hud::after {    /* one pass of a scan line when the frame comes up */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--signal-500);
+  box-shadow: 0 -18px 24px -12px rgba(255, 79, 31, 0.35);
+  opacity: 0;
+}
+.explorer__frame.is-active .xphoto__hud::before { animation: xpPop 0.7s var(--ease-out) 0.35s both; }
+.explorer__frame.is-active .xphoto__hud::after { animation: xpScan 1.8s var(--ease) 0.2s both; }
+@keyframes xpPop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+@keyframes xpScan {
+  0% { top: 0; opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xphoto .media-img { transform: none; transition: none; }
+  .explorer__frame.is-active .xphoto__hud::before { animation: none; transform: scale(1); }
+  .explorer__frame.is-active .xphoto__hud::after { animation: none; }
+}
+
+/* ---- Photo board (Penetration Testing): graded photo with finding pins played over it ---- */
+.board__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.board__photo ~ svg { position: relative; z-index: 1; }
+
+/* ---- Audience panel (VAPT callout): the audiences named in the copy light in turn ---- */
+.xaud {
+  --cycle: 8s;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 1px;
+  height: 100%;
+  min-height: 20rem;
+  background: var(--line-strong);
+}
+.xaud__tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.875rem, 0.5rem + 1vw, 1.25rem);
+  background: var(--paper-0);
+  font-size: var(--fs-xs);
+  line-height: 1.35;
+  color: var(--ink-700);
+  font-weight: 500;
+}
+.xaud__tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--signal-500);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: xaudBar var(--cycle) var(--ease) infinite;
+  animation-delay: calc(var(--i) * var(--cycle) / 8);
+}
+.xaud .xaud__tile .ico__face { animation: xaudLift var(--cycle) var(--ease-out) infinite; animation-delay: calc(var(--i) * var(--cycle) / 8); }
+.xaud__tile--brand { justify-content: center; align-items: center; background: var(--signal-500); }
+.xaud__tile--brand::after { content: none; }
+.xaud__tile--brand .ico { --ico-bg: var(--ink-950); --ico-line: var(--paper-50); --ico-edge: var(--ink-950); --ico-accent: var(--paper-50); }
+.xaud__tile--brand .ico::before { background: var(--ink-950); }
+@keyframes xaudBar  { 0% { transform: scaleX(0); } 9%, 12.5% { transform: scaleX(1); } 15%, 100% { transform: scaleX(0); } }
+@keyframes xaudLift { 0%, 15%, 100% { transform: none; } 3%, 12% { transform: translate(-5px, -5px) rotate(-6deg); border-color: var(--ico-line); } }
+@media (max-width: 1024px) {
+  .xaud { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 640px) {
+  .xaud { grid-template-columns: repeat(2, minmax(0, 1fr)); aspect-ratio: auto; }
+  .xaud__tile { min-height: 6.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xaud__tile::after, .xaud .xaud__tile .ico__face { animation: none; }
+}

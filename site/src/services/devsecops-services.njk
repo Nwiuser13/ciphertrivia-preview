@@ -1,0 +1,474 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "DevSecOps Services | Development, Security, and Operations"
+description: "Strengthen software security with CipherTrivia’s DevSecOps services covering CI/CD pipeline security, automated vulnerability scanning, infrastructure as code (IaC) security and continuous security testing across the SDLC."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["DevSecOps Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What are DevSecOps services?", "DevSecOps services integrate security practices into the software development lifecycle by combining automated security testing and vulnerability management with development and operations workflows. These services help identify security risks early and support secure software delivery."],
+  ["Why are DevSecOps services important for businesses?", "DevSecOps services help businesses detect vulnerabilities before deployment and reduce the cost of fixing security issues later. They also improve security visibility and support faster software releases through automated security checks."],
+  ["What does a DevSecOps company do?", "A DevSecOps company integrates security tools and processes into development pipelines and cloud infrastructure. Services commonly include CI/CD pipeline security and application security testing alongside container security and continuous vulnerability monitoring."],
+  ["Which security tools are used in DevSecOps?", "DevSecOps tools include SAST and DAST scanners alongside Software Composition Analysis (SCA) platforms and container image scanners. Infrastructure as Code security tools and secrets detection solutions also help identify configuration weaknesses and exposed credentials."],
+  ["How does DevSecOps improve CI/CD pipeline security?", "DevSecOps improves CI/CD pipeline security by integrating automated security checks into build and deployment stages. These checks can detect vulnerable dependencies and insecure code while identifying exposed secrets before software reaches production."],
+  ["What is the difference between DevSecOps and traditional security testing?", "Traditional security testing often takes place at specific stages of development or before release. DevSecOps integrates security checks throughout the development lifecycle so teams can identify and address vulnerabilities continuously."],
+  ["Can DevSecOps secure cloud infrastructure?", "Yes. DevSecOps integrates cloud security checks into infrastructure provisioning and deployment workflows. These checks help identify misconfigurations and excessive permissions across AWS and Azure environments while improving Infrastructure as Code security."],
+  ["How does DevSecOps support container and Kubernetes security?", "DevSecOps integrates container image scanning and Kubernetes configuration reviews into deployment pipelines. These controls help detect vulnerable packages and insecure settings before containerized applications are deployed."],
+  ["Does DevSecOps help with compliance requirements?", "DevSecOps can support compliance by integrating security policies and automated validation into development workflows. Depending on the organization's requirements, these controls can help demonstrate alignment with frameworks such as ISO 27001 and SOC 2."],
+  ["How long does DevSecOps implementation take?", "The implementation timeline depends on application complexity and the existing development infrastructure alongside the number of pipelines and security tools involved. A focused implementation may take a few weeks while larger enterprise environments can require several months."],
+  ["How can CipherTrivia help with DevSecOps implementation?", "CipherTrivia helps organizations strengthen software security through DevSecOps assessments and automated security testing alongside CI/CD pipeline reviews and vulnerability remediation guidance. Our services focus on identifying security gaps and integrating practical security controls across the software development lifecycle."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "DevSecOps Services",
+      "serviceType": "DevSecOps",
+      "description": "Strengthen software security with CipherTrivia’s DevSecOps services covering CI/CD pipeline security, automated vulnerability scanning, infrastructure as code (IaC) security and continuous security testing across the SDLC.",
+      "url": "https://www.ciphertrivia.com/services/devsecops-services/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "DevSecOps Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CI/CD Pipeline Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Static Application Security Testing (SAST)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dynamic Application Security Testing (DAST)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Composition Analysis (SCA)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infrastructure as Code (IaC) Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Container and Kubernetes Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Credential Security" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Continuous Security Monitoring" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevSecOps Compliance" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "DevSecOps Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--band">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title"><span class="accent">DevSecOps</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">Integrate security into every stage of the software development lifecycle with our DevSecOps services. We help organizations secure CI/CD pipelines and automate vulnerability scanning while strengthening cloud infrastructure security and compliance. As a trusted DevSecOps company, we implement security practices across development and deployment workflows to reduce risks and support faster software delivery.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vband hero-video rv" style="--d:3" data-hero-video>
+      <video class="hero-video__media" muted loop playsinline preload="metadata" poster="/assets/video/devsecops-poster.jpg" aria-hidden="true"><source src="/assets/video/devsecops.mp4" type="video/mp4"></video>
+      <ol class="vband__rail" aria-hidden="true"><li class="vband__stage" style="--i:0">{{ icon("code", "sm") }}</li><li class="vband__stage" style="--i:1">{{ icon("container", "sm") }}</li><li class="vband__stage" style="--i:2">{{ icon("bug", "sm") }}</li><li class="vband__stage" style="--i:3">{{ icon("shield-check", "sm") }}</li><li class="vband__stage" style="--i:4">{{ icon("rocket", "sm") }}</li><li class="vband__stage" style="--i:5">{{ icon("pulse", "sm") }}</li></ol>
+      <button class="hero-video__toggle" type="button" aria-label="Pause video" data-video-toggle>
+          <svg class="hero-video__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="hero-video__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">DevSecOps Services for Integrated Security Across the Software Development Lifecycle</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">DevSecOps (Development, Security and Operations) is a software development approach that integrates security practices into every stage of the Software Development Lifecycle (SDLC), from initial code development to testing, deployment and ongoing maintenance. It combines development and operations workflows with automated security controls to identify vulnerabilities early and reduce security risks before software reaches production.</p>
+        <p class="rv">Our DevSecOps services help organizations integrate security into CI/CD pipelines through automated vulnerability scanning and secure code analysis alongside container security and Infrastructure as Code (IaC) assessments. As an experienced DevSecOps company, we implement security testing and continuous monitoring practices that help development teams detect misconfigurations and address vulnerabilities while maintaining efficient release cycles. This approach supports secure software delivery and strengthens application security across cloud-native and enterprise environments.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board" data-sig-wrap>
+        <div class="board__canvas" data-sig="15" role="img" aria-label="Animated diagram: builds move through code, CI/CD, testing, deployment and maintenance past secure code analysis, vulnerability scanning, container security and IaC assessment gates; a vulnerable build is stopped at vulnerability scanning, logged, fixed in the code and passes on the next run">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<path class="f-none s-ink" d="M220 144H980" stroke-width="1.5"/>
+<path class="f-none" d="M130 144H1070" id="dso-run"/>
+<path class="f-none" d="M130 144H466.5" id="dso-stop"/>
+<path class="f-none" d="M482.5 162V346" id="dso-drop"/>
+<g data-fx="move" data-at="0.5" data-len="3.6" data-path="#dso-run"><rect class="f-ink" x="-8" y="-8" width="16" height="16"/></g>
+<g data-fx="move" data-at="4.8" data-len="1.3" data-path="#dso-stop"><rect class="f-sig" x="-8" y="-8" width="16" height="16"/></g>
+<rect class="f-sig" x="458.5" y="136" width="16" height="16" data-fx="fade" data-at="6.08" data-len="0.06" data-out="6.6"/>
+<g data-fx="move" data-at="6.6" data-len="0.7" data-path="#dso-drop"><rect class="f-sig" x="-8" y="-8" width="16" height="16"/></g>
+<g data-fx="move" data-at="9.2" data-len="3.6" data-path="#dso-run"><rect class="f-ink" x="-8" y="-8" width="16" height="16"/></g>
+<rect class="f-paper s-ink" x="40.75" y="96.75" width="178.5" height="94.5" stroke-width="1.5"/>
+<g transform="translate(59 127) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><path d="M16 14L6 24l10 10M32 14l10 10-10 10"/><g class="s-sig"><path d="M27 9l-6 30" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="106" y="149" font-size="12.5" text-anchor="start">CODE</text>
+<rect class="f-paper s-ink" x="275.75" y="96.75" width="178.5" height="94.5" stroke-width="1.5"/>
+<g transform="translate(294 127) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><path d="M15 16c-5 0-9 3.6-9 8s4 8 9 8c9 0 9-16 18-16 5 0 9 3.6 9 8s-4 8-9 8c-9 0-9-16-18-16z"/><g class="s-sig"><path d="M24 19l5 5-5 5-5-5z" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="341" y="149" font-size="12.5" text-anchor="start">CI/CD</text>
+<rect class="f-paper s-ink" x="510.75" y="96.75" width="178.5" height="94.5" stroke-width="1.5"/>
+<g transform="translate(529 127) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><rect x="15" y="15" width="18" height="24"/><path d="M19 15v-2a5 5 0 0 1 10 0v2M15 22H7M15 31H7M33 22h8M33 31h8M17 39l-5 4M31 39l5 4M17 15l-5-5M31 15l5-5"/><g class="s-sig"><path d="M24 20v15" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="576" y="149" font-size="12.5" text-anchor="start">TESTING</text>
+<rect class="f-paper s-ink" x="745.75" y="96.75" width="178.5" height="94.5" stroke-width="1.5"/>
+<g transform="translate(764 127) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><path d="M24 5c7 5 9 12 9 19l-3 9H18l-3-9c0-7 2-14 9-19z"/><path d="M15 25l-6 7v6l7-4M33 25l6 7v6l-7-4"/><circle cx="24" cy="19" r="3"/><g class="s-sig"><path d="M20 38l-1 5M24 38v7M28 38l1 5" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="811" y="149" font-size="12.5" text-anchor="start">DEPLOYMENT</text>
+<rect class="f-paper s-ink" x="980.75" y="96.75" width="178.5" height="94.5" stroke-width="1.5"/>
+<g transform="translate(999 127) scale(0.708333)" class="f-none s-ink" stroke-width="2.25882" stroke-linecap="square"><path d="M20.2 11.57L20.66 6.82A17.5 17.5 0 0 1 27.34 6.82L27.8 11.57A13 13 0 0 1 30.1 12.52L33.79 9.49A17.5 17.5 0 0 1 38.51 14.21L35.48 17.9A13 13 0 0 1 36.43 20.2L41.18 20.66A17.5 17.5 0 0 1 41.18 27.34L36.43 27.8A13 13 0 0 1 35.48 30.1L38.51 33.79A17.5 17.5 0 0 1 33.79 38.51L30.1 35.48A13 13 0 0 1 27.8 36.43L27.34 41.18A17.5 17.5 0 0 1 20.66 41.18L20.2 36.43A13 13 0 0 1 17.9 35.48L14.21 38.51A17.5 17.5 0 0 1 9.49 33.79L12.52 30.1A13 13 0 0 1 11.57 27.8L6.82 27.34A17.5 17.5 0 0 1 6.82 20.66L11.57 20.2A13 13 0 0 1 12.52 17.9L9.49 14.21A17.5 17.5 0 0 1 14.21 9.49L17.9 12.52A13 13 0 0 1 20.2 11.57z" stroke-linejoin="miter"/><g class="s-sig"><circle cx="24" cy="24" r="5.5" pathLength="1"/></g></g>
+<text class="sig-mono f-ink" x="1046" y="149" font-size="12.5" text-anchor="start">MAINTENANCE</text>
+<path class="f-none s-ink s-dash" d="M247.5 166V236" stroke-opacity=".5"/>
+<path class="f-paper s-ink" d="M247.5 130l14 14-14 14-14-14z" stroke-width="1.5"/>
+<text class="sig-mono f-ink" x="247.5" y="256" font-size="11" text-anchor="middle" fill-opacity=".75">SECURE CODE ANALYSIS</text>
+<g data-fx="pop" data-at="0.95" data-len="0.35" data-out="4.4"><path class="f-ink" d="M247.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M242.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="9.65" data-len="0.35"><path class="f-ink" d="M247.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M242.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-ink s-dash" d="M482.5 166V236" stroke-opacity=".5"/>
+<path class="f-paper s-ink" d="M482.5 130l14 14-14 14-14-14z" stroke-width="1.5"/>
+<text class="sig-mono f-ink" x="482.5" y="256" font-size="11" text-anchor="middle" fill-opacity=".75">VULNERABILITY SCANNING</text>
+<g data-fx="pop" data-at="1.85" data-len="0.35" data-out="4.4"><path class="f-ink" d="M482.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M477.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-ink s-dash" d="M717.5 166V236" stroke-opacity=".5"/>
+<path class="f-paper s-ink" d="M717.5 130l14 14-14 14-14-14z" stroke-width="1.5"/>
+<text class="sig-mono f-ink" x="717.5" y="256" font-size="11" text-anchor="middle" fill-opacity=".75">CONTAINER SECURITY</text>
+<g data-fx="pop" data-at="2.75" data-len="0.35" data-out="4.4"><path class="f-ink" d="M717.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M712.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="11.45" data-len="0.35"><path class="f-ink" d="M717.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M712.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<path class="f-none s-ink s-dash" d="M952.5 166V236" stroke-opacity=".5"/>
+<path class="f-paper s-ink" d="M952.5 130l14 14-14 14-14-14z" stroke-width="1.5"/>
+<text class="sig-mono f-ink" x="952.5" y="256" font-size="11" text-anchor="middle" fill-opacity=".75">IAC ASSESSMENTS</text>
+<g data-fx="pop" data-at="3.65" data-len="0.35" data-out="4.4"><path class="f-ink" d="M952.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M947.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="12.35" data-len="0.35"><path class="f-ink" d="M952.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M947.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="6.05" data-len="0.4" data-out="9.6"><path class="f-sig" d="M482.5 130l14 14-14 14-14-14z"/><path class="f-none s-ink" d="M478.5 140l8 8M486.5 140l-8 8" stroke-width="2"/></g>
+<path class="f-none s-sig" d="M444.5 126v-8h8M496.5 118h8v8M504.5 162v8h-8M452.5 170h-8v-8" stroke-width="2" data-fx="pop" data-at="6.2" data-len="0.45" data-out="9.6"/>
+<g data-fx="pop" data-at="10.55" data-len="0.35"><path class="f-ink" d="M482.5 130l14 14-14 14-14-14z"/><path class="f-none s-paper" d="M477.5 144l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-p50 s-ink" x="330.75" y="330.75" width="538.5" height="118.5" stroke-width="1.5"/>
+<rect class="f-sig" x="346" y="344" width="8" height="8"/>
+<text class="sig-mono f-ink" x="362" y="352" font-size="11" text-anchor="start" fill-opacity=".7">VULNERABILITIES</text>
+<rect class="f-sig" x="346" y="372" width="30" height="14" data-fx="pop" data-at="7.35" data-len="0.4"/>
+<rect class="f-ink" x="388" y="377" width="220" height="4" fill-opacity=".75" data-fx="grow" data-at="7.5" data-len="0.4"/>
+<rect class="f-stone" x="388" y="389" width="150" height="4" data-fx="grow" data-at="7.6" data-len="0.4"/>
+<rect class="f-p100 s-stone" x="346" y="412" width="30" height="14" data-fx="fade" data-at="7.8" data-len="0.3"/>
+<rect class="f-stone" x="388" y="417" width="180" height="4" data-fx="grow" data-at="7.9" data-len="0.4"/>
+<path class="f-none s-sig" d="M825 380l3.5 3.5 7-8" stroke-width="2" pathLength="1" data-fx="draw" data-at="10.7" data-len="0.35"/>
+<path class="f-none s-sig s-dash" d="M330 392H130V196" stroke-width="2" data-fx="fade" data-at="8" data-len="0.5"/>
+<path class="f-none s-sig" d="M124 208l6-10 6 10" stroke-width="2" data-fx="fade" data-at="8.4" data-len="0.3"/>
+<g data-fx="pop" data-at="8.7" data-len="0.45"><rect class="f-sig" x="112" y="216" width="36" height="36"/><g transform="translate(117 221) scale(0.541667)" class="f-none s-ink" stroke-width="3.32308" stroke-linecap="square"><path d="M21 20v22h6V20" transform="rotate(45 24 24)"/><g class="s-sig"><path d="M17 6v8l4 6h6l4-6V6h-4v6h-6V6z" transform="rotate(45 24 24)" pathLength="1"/></g></g></g>
+<path class="f-none s-sig" d="M970.0 94.0v-8h8M1162.0 86.0h8v8M1170.0 194.0v8h-8M978.0 202.0h-8v-8" stroke-width="2" data-fx="pop" data-at="12.9" data-len="0.5"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SERVICES                                                             -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Comprehensive DevSecOps Services for Secure Software Delivery</h2>
+        <p class="shead__lede rv" style="--d:1">Our DevSecOps services integrate security controls into development pipelines and cloud infrastructure to identify vulnerabilities early and reduce risks across the software delivery lifecycle. We cover the following key areas to support secure application development and deployment.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("pipeline") }}</div>
+        <h3 class="ledger__title">CI/CD Pipeline Security</h3>
+        <p class="ledger__text">We secure continuous integration and continuous delivery pipelines by identifying exposed credentials and reviewing pipeline permissions while integrating automated security checks into build and deployment workflows.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("code") }}</div>
+        <h3 class="ledger__title">Static Application Security Testing (SAST)</h3>
+        <p class="ledger__text">Our DevSecOps approach integrates SAST tools into development workflows to analyze source code for security vulnerabilities and coding weaknesses before applications are deployed.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("app-target") }}</div>
+        <h3 class="ledger__title">Dynamic Application Security Testing (DAST)</h3>
+        <p class="ledger__text">We test running applications to identify exploitable vulnerabilities such as injection flaws and authentication weaknesses by simulating real-world attack scenarios within authorized testing environments.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("dependency") }}</div>
+        <h3 class="ledger__title">Software Composition Analysis (SCA)</h3>
+        <p class="ledger__text">We assess open-source libraries and third-party dependencies to identify known vulnerabilities and outdated components while supporting software license compliance and dependency risk management.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("iac") }}</div>
+        <h3 class="ledger__title">Infrastructure as Code (IaC) Security</h3>
+        <p class="ledger__text">We scan infrastructure configuration files such as Terraform and CloudFormation templates to detect insecure settings and policy violations before cloud resources are provisioned.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("container") }}</div>
+        <h3 class="ledger__title">Container and Kubernetes Security</h3>
+        <p class="ledger__text">We assess container images and Kubernetes configurations for vulnerabilities and excessive permissions while integrating image scanning and deployment security policies into DevSecOps pipelines.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("cloud-lock") }}</div>
+        <h3 class="ledger__title">Cloud Security</h3>
+        <p class="ledger__text">We identify cloud misconfigurations and access control weaknesses across AWS and Azure environments while integrating security checks into cloud provisioning and deployment workflows.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("key") }}</div>
+        <h3 class="ledger__title">Credential Security</h3>
+        <p class="ledger__text">We identify exposed API keys and passwords within source code and CI/CD pipelines while implementing secure secrets storage and controlled access to sensitive credentials.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("pulse") }}</div>
+        <h3 class="ledger__title">Continuous Security Monitoring</h3>
+        <p class="ledger__text">We integrate security monitoring into development and production environments to detect suspicious activity and emerging vulnerabilities while supporting faster incident investigation and remediation.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">DevSecOps Compliance</h3>
+        <p class="ledger__text">We integrate security policies and compliance checks into software delivery workflows to help organizations align with standards such as ISO 27001, SOC 2 and applicable industry requirements.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS (light: the Why section that follows is ink)                 -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s3-title">
+  <div class="container">
+    <div class="process process--light">
+      <div class="process__aside">
+        <h2 class="process__title" id="s3-title">Our DevSecOps Implementation Process</h2>
+        <p class="process__lede">CipherTrivia follows a structured DevSecOps implementation process that integrates security into every stage of the Software Development Lifecycle (SDLC). Our approach combines security assessments and automated testing with continuous validation to identify vulnerabilities early and support secure software delivery.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Assessment and Planning</h3>
+          <p class="step__text">We assess your existing development workflows, application architecture and deployment infrastructure to identify security gaps and define a DevSecOps strategy aligned with your technical requirements.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Integration</h3>
+          <p class="step__text">Our team integrates security controls into CI/CD pipelines and development workflows while incorporating secure coding practices and vulnerability detection tools into the software delivery process.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Automated Security Testing</h3>
+          <p class="step__text">We implement automated SAST, DAST and Software Composition Analysis (SCA) to detect insecure code and vulnerable dependencies alongside configuration weaknesses before production deployment.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Vulnerability Remediation</h3>
+          <p class="step__text">We analyze identified security vulnerabilities and prioritize them based on severity and potential business impact. Our team provides actionable remediation guidance to help developers resolve security issues efficiently.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Continuous Monitoring and Improvement</h3>
+          <p class="step__text">We support continuous security monitoring and recurring pipeline assessments to identify emerging risks while improving security policies and maintaining consistent protection across development and production environments.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Why Choose CipherTrivia for DevSecOps Services?</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia helps organizations integrate security into software development and deployment workflows through DevSecOps consulting, automated security testing and continuous vulnerability management. Our approach focuses on identifying security weaknesses early and reducing risks across applications and cloud infrastructure while supporting efficient software delivery.</p>
+      </div>
+    </header>
+
+    <div class="principles principles--7">
+      <article class="principle rv">
+        {{ icon("shield-check") }}
+        <h3 class="principle__title">Security-First Development</h3>
+        <p class="principle__text">We integrate security practices throughout the Software Development Lifecycle (SDLC) to identify vulnerabilities early and reduce the risk of security issues reaching production.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("gear") }}
+        <h3 class="principle__title">Automated Security Testing</h3>
+        <p class="principle__text">Our DevSecOps services incorporate automated code analysis and vulnerability scanning into CI/CD pipelines to support consistent security validation during software development.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("magnifier") }}
+        <h3 class="principle__title">Comprehensive Vulnerability Detection</h3>
+        <p class="principle__text">We assess application code and third-party dependencies alongside container configurations and cloud infrastructure to identify security gaps across the software delivery environment.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("clouds") }}
+        <h3 class="principle__title">Cloud-Native Security Expertise</h3>
+        <p class="principle__text">Our approach addresses security requirements across AWS and Azure environments with a focus on cloud configurations and Infrastructure as Code (IaC) alongside containerized applications.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("wrench") }}
+        <h3 class="principle__title">Actionable Remediation Guidance</h3>
+        <p class="principle__text">We provide prioritized security findings and practical remediation recommendations that help development teams address vulnerabilities based on severity and potential impact.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Compliance-Focused Security</h3>
+        <p class="principle__text">We help organizations align relevant security controls with frameworks such as ISO 27001 and SOC 2 by incorporating policy validation and compliance checks into development workflows.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("chart") }}
+        <h3 class="principle__title">Continuous Security Improvement</h3>
+        <p class="principle__text">We support ongoing security assessments and pipeline reviews to help organizations adapt to emerging vulnerabilities and maintain stronger application security as their software evolves.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s5-title">What You Receive From Our DevSecOps Services</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia delivers actionable security findings and practical implementation guidance through our DevSecOps services. From CI/CD pipeline assessments to automated security testing and remediation planning, each deliverable helps your team integrate security into development workflows and manage vulnerabilities throughout the software development lifecycle.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example DevSecOps assessment report: automated security integration across SAST, SCA, DAST and IaC, rated findings and security policy documentation">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-sig" x="36.75" y="44.75" width="259.5" height="391.5"/><rect class="f-ink" x="52" y="60" width="8" height="8"/><rect class="f-ink" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-ink" x="54" y="112" font-size="25" text-anchor="start">DevSecOps</text><text class="sig-txt f-ink" x="54" y="141" font-size="25" text-anchor="start">Assessment</text><text class="sig-txt f-ink" x="54" y="170" font-size="25" text-anchor="start">Report</text><path class="f-none s-ink" d="M58 200h-6v26h6M138 200h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-ink" x="66" y="217.5" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-ink" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Automated Security Integration</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><rect class="f-paper s-ink" x="216.75" y="236.75" width="46" height="26.5" stroke-width="1.25"/><text class="sig-mono f-ink" x="223" y="254" font-size="8.5" text-anchor="start">SAST</text><path class="f-none s-sig" d="M250.0 250l3 3 6-6.5" pathLength="1" stroke-width="2" data-fx="draw" data-at="1.9" data-len="0.3"/><rect class="f-paper s-ink" x="270.75" y="236.75" width="46" height="26.5" stroke-width="1.25"/><text class="sig-mono f-ink" x="277" y="254" font-size="8.5" text-anchor="start">SCA</text><path class="f-none s-sig" d="M304.0 250l3 3 6-6.5" pathLength="1" stroke-width="2" data-fx="draw" data-at="2.15" data-len="0.3"/><rect class="f-paper s-ink" x="324.75" y="236.75" width="46" height="26.5" stroke-width="1.25"/><text class="sig-mono f-ink" x="331" y="254" font-size="8.5" text-anchor="start">DAST</text><path class="f-none s-sig" d="M358.0 250l3 3 6-6.5" pathLength="1" stroke-width="2" data-fx="draw" data-at="2.4" data-len="0.3"/><rect class="f-paper s-ink" x="378.75" y="236.75" width="46" height="26.5" stroke-width="1.25"/><text class="sig-mono f-ink" x="385" y="254" font-size="8.5" text-anchor="start">IaC</text><path class="f-none s-sig" d="M412.0 250l3 3 6-6.5" pathLength="1" stroke-width="2" data-fx="draw" data-at="2.65" data-len="0.3"/><text class="sig-txt f-ink" x="216" y="284" font-size="10" text-anchor="start" data-fx="fade" data-at="3" data-len="0.3">Credential Security</text><g data-fx="pop" data-at="3.15" data-len="0.4"><rect class="f-sig" x="384.5" y="273.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="284.5" font-size="7" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 293h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="311" font-size="10" text-anchor="start" data-fx="fade" data-at="3.22" data-len="0.3">CI/CD Pipeline Security</text><g data-fx="pop" data-at="3.37" data-len="0.4"><rect class="f-sig" x="384.5" y="300.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="311.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 320h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="338" font-size="9.3" text-anchor="start" data-fx="fade" data-at="3.44" data-len="0.3">Container and Kubernetes Security</text><g data-fx="pop" data-at="3.59" data-len="0.4"><rect class="f-sig1" x="384.5" y="327.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="338.5" font-size="7" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 347h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="385" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3.66" data-len="0.3">Security Policy Documentation</text><path class="f-none s-ink" d="M216 395h216" stroke-opacity=".2"/><rect class="f-none s-ink" x="216.75" y="411.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 418l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.86" data-len="0.3"/><rect class="f-stone" x="238" y="416" width="150" height="4" data-fx="grow" data-at="3.91" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="432.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 439l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.11" data-len="0.3"/><rect class="f-stone" x="238" y="437" width="120" height="4" data-fx="grow" data-at="4.16" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="453.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 460l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.36" data-len="0.3"/><rect class="f-stone" x="238" y="458" width="168" height="4" data-fx="grow" data-at="4.41" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">DevSecOps Assessment Report</h3>
+            <p class="deliver__text">A detailed review of your existing security practices across CI/CD pipelines and development environments, including identified vulnerabilities and prioritized recommendations for improvement.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("terminal") }}
+          <div>
+            <h3 class="deliver__title">Automated Security Integration</h3>
+            <p class="deliver__text">Recommended or configured security checks for CI/CD pipelines, including SAST and software dependency scanning, based on your technology stack and agreed project scope.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("doc-check") }}
+          <div>
+            <h3 class="deliver__title">Security Policy Documentation</h3>
+            <p class="deliver__text">Documented security policies covering vulnerability severity levels and remediation priorities alongside access controls and security validation requirements for development and deployment workflows.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Remediation and Implementation Guide</h3>
+            <p class="deliver__text">Step-by-step guidance for addressing security weaknesses with recommended fixes and configuration improvements to help development teams resolve vulnerabilities efficiently.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Security Handover and Knowledge Transfer</h3>
+            <p class="deliver__text">Technical documentation and knowledge-sharing sessions that help development and operations teams understand security findings and maintain DevSecOps controls within existing workflows.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA BAND                                                             -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Practical security. Clear remediation. Stronger delivery.</h2>
+    <p class="band__text rv" style="--d:1">Strengthen your CI/CD pipeline security and integrate vulnerability management into your software development lifecycle.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Discuss Your DevSecOps Requirements {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s6-title">Frequently Asked Questions About DevSecOps Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

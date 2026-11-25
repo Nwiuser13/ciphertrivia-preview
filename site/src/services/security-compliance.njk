@@ -1,0 +1,602 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Security Compliance Services | ISO 27001, SOC 2 & GDPR"
+description: "CipherTrivia provides security compliance services to help businesses align with ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR through risk assessments, security audits and compliance gap analysis."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Security Compliance Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["Why are security compliance services important for businesses?", "Security compliance services help businesses identify gaps in information security practices and address regulatory obligations. They also support risk management and data protection while improving accountability across security operations."],
+  ["Which compliance frameworks does CipherTrivia support?", "CipherTrivia supports security compliance assessments aligned with frameworks such as ISO 27001 and SOC 2 alongside PCI DSS and HIPAA, GDPR, NIST Cybersecurity Framework and CIS Controls. The applicable framework depends on your industry and business requirements."],
+  ["What is included in a security compliance assessment?", "A security compliance assessment typically includes a review of security policies and technical controls alongside risk analysis and compliance gap identification. It may also include control mapping and remediation recommendations with supporting documentation for audit preparation."],
+  ["How does a security compliance gap assessment work?", "A compliance gap assessment compares your existing security practices against the requirements of a selected framework. The findings identify missing controls and weaknesses alongside recommended corrective actions to help prioritize compliance improvements."],
+  ["What is the difference between security compliance and cybersecurity?", "Cybersecurity focuses on protecting systems and data against threats and unauthorized access. Security compliance focuses on meeting applicable regulatory requirements and industry standards through documented policies and appropriate controls, although both areas overlap in practice."],
+  ["How long does a security compliance assessment take?", "The timeline depends on the framework and the complexity of your IT environment alongside the number of systems and controls in scope. A focused gap assessment may take a few weeks while larger enterprise assessments can require more time."],
+  ["Does CipherTrivia help with ISO 27001 compliance?", "Yes. CipherTrivia can help organizations assess information security controls against ISO 27001 requirements and identify gaps in risk management and security documentation. The assessment findings support improvement planning and preparation for formal certification audits."],
+  ["How can SOC 2 compliance services help SaaS companies?", "SOC 2 compliance services help SaaS companies evaluate controls related to security and other applicable Trust Services Criteria. The process can include reviewing access management and monitoring alongside incident response and evidence collection to support audit readiness."],
+  ["Do security compliance services include policy documentation?", "Yes. Depending on the agreed scope, services can include reviewing or developing security policies and procedures covering access control and data protection alongside incident management and risk assessment."],
+  ["Can security compliance services help prepare for external audits?", "Yes. Compliance services can help identify control gaps and organize supporting documentation while tracking corrective actions before an external audit. Formal audit opinions and certifications must be issued by the appropriate independent auditor or authorized certification body."],
+  ["How often should organizations review their security compliance?", "Organizations should review security compliance periodically and after significant changes to systems or business operations. Regular reviews help identify new control gaps and address evolving threats alongside changes in applicable regulatory requirements."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Security Compliance Services",
+      "serviceType": "Security Compliance",
+      "description": "CipherTrivia provides security compliance services to help businesses align with ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR through risk assessments, security audits and compliance gap analysis.",
+      "url": "https://www.ciphertrivia.com/services/security-compliance/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Types of Security Compliance Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 27001 Compliance Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SOC 2 Compliance Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PCI DSS Compliance Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HIPAA Compliance Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GDPR Compliance Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NIST Cybersecurity Framework Compliance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CIS Controls Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Risk and Compliance Gap Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Policy and Documentation Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Compliance Audit Preparation" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Security Compliance Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title hero__title--long rv" id="hero-title"><span class="accent">Security Compliance</span> Services for Businesses</h1>
+        <p class="hero__lede rv" style="--d:1">Manage regulatory requirements and improve your organization's security posture with security compliance services from CipherTrivia. We help businesses assess security controls and identify compliance gaps while aligning information security practices with frameworks such as ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR. Our approach combines compliance gap assessments and risk analysis with security control reviews and audit preparation support to help organizations manage compliance risks and protect sensitive business data.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="vcheck">
+          <div class="vcheck__screen hero-video" data-hero-video>
+            <video class="hero-video__media" muted loop playsinline preload="metadata" poster="/assets/video/security-compliance-poster.jpg" aria-hidden="true"><source src="/assets/video/security-compliance.mp4" type="video/mp4"></video>
+            <button class="hero-video__toggle" type="button" aria-label="Pause video" data-video-toggle>
+          <svg class="hero-video__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="hero-video__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+          </div>
+          <ul class="vcheck__list" aria-hidden="true"><li class="vcheck__item" style="--i:0"><span class="vcheck__box"></span>ISO 27001</li><li class="vcheck__item" style="--i:1"><span class="vcheck__box"></span>SOC 2</li><li class="vcheck__item" style="--i:2"><span class="vcheck__box"></span>PCI DSS</li><li class="vcheck__item" style="--i:3"><span class="vcheck__box"></span>HIPAA</li><li class="vcheck__item" style="--i:4"><span class="vcheck__box"></span>GDPR</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Security Compliance Services for Regulatory and Industry Standards</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Security compliance services help organizations evaluate their information security practices against applicable regulatory requirements and industry frameworks. Our Security Compliance Services focus on identifying compliance gaps and assessing security controls while improving risk management and protecting sensitive business information. We provide a structured compliance approach that helps businesses maintain accountability and prepare for audits while addressing security requirements across their IT environments.</p>
+        <p class="rv">CipherTrivia provides security compliance services covering compliance gap assessments and risk analysis alongside security control reviews and audit preparation support. We help organizations align their security practices with frameworks such as ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR based on their industry and regulatory obligations. Our approach includes reviewing existing policies and procedures and evaluating technical and administrative safeguards to identify areas for improvement. With actionable recommendations and compliance-focused documentation, businesses can address security weaknesses and build a more consistent information security management process.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board" data-sig-wrap>
+        <div class="board__canvas" data-sig="11" role="img" aria-label="Animated diagram: ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR requirements are mapped to security controls; one control is found to be a compliance gap, it is closed, and audit readiness reaches full">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<text class="sig-mono f-ink" x="40" y="52" font-size="11.5" text-anchor="start" fill-opacity=".6">INDUSTRY FRAMEWORKS</text>
+<text class="sig-mono f-ink" x="470" y="52" font-size="11.5" text-anchor="start" fill-opacity=".6">SECURITY CONTROLS</text>
+<text class="sig-mono f-ink" x="880" y="52" font-size="11.5" text-anchor="start" fill-opacity=".6">AUDIT READINESS</text>
+<path class="f-none s-ink" d="M230 96C350 96 350 92 470 92" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="0.6" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 96C350 96 350 154 470 154" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="0.72" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 96C350 96 350 216 470 216" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="0.84" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 96C350 96 350 278 470 278" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="0.96" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 172C350 172 350 92 470 92" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.08" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 172C350 172 350 278 470 278" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.2" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 172C350 172 350 340 470 340" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.32" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 248C350 248 350 92 470 92" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.44" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 248C350 248 350 154 470 154" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.56" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 248C350 248 350 278 470 278" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.68" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 324C350 324 350 154 470 154" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.8" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 324C350 324 350 402 470 402" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="1.92" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 400C350 400 350 402 470 402" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="2.04" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 400C350 400 350 340 470 340" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="2.16" data-len="0.5"/>
+<path class="f-none s-ink" d="M230 400C350 400 350 216 470 216" pathLength="1" stroke-opacity=".28" data-fx="draw" data-at="2.28" data-len="0.5"/>
+<g data-fx="slide" data-at="0" data-len="0.45" data-dx="-30"><rect class="f-paper s-ink" x="40.75" y="70.75" width="189.5" height="50.5" stroke-width="1.5"/><rect class="f-ink" x="54" y="92" width="8" height="8"/><text class="sig-mono f-ink" x="74" y="101" font-size="13.5" text-anchor="start">ISO 27001</text></g>
+<g data-fx="slide" data-at="0.1" data-len="0.45" data-dx="-30"><rect class="f-paper s-ink" x="40.75" y="146.75" width="189.5" height="50.5" stroke-width="1.5"/><rect class="f-ink" x="54" y="168" width="8" height="8"/><text class="sig-mono f-ink" x="74" y="177" font-size="13.5" text-anchor="start">SOC 2</text></g>
+<g data-fx="slide" data-at="0.2" data-len="0.45" data-dx="-30"><rect class="f-paper s-ink" x="40.75" y="222.75" width="189.5" height="50.5" stroke-width="1.5"/><rect class="f-ink" x="54" y="244" width="8" height="8"/><text class="sig-mono f-ink" x="74" y="253" font-size="13.5" text-anchor="start">PCI DSS</text></g>
+<g data-fx="slide" data-at="0.3" data-len="0.45" data-dx="-30"><rect class="f-paper s-ink" x="40.75" y="298.75" width="189.5" height="50.5" stroke-width="1.5"/><rect class="f-ink" x="54" y="320" width="8" height="8"/><text class="sig-mono f-ink" x="74" y="329" font-size="13.5" text-anchor="start">HIPAA</text></g>
+<g data-fx="slide" data-at="0.4" data-len="0.45" data-dx="-30"><rect class="f-paper s-ink" x="40.75" y="374.75" width="189.5" height="50.5" stroke-width="1.5"/><rect class="f-ink" x="54" y="396" width="8" height="8"/><text class="sig-mono f-ink" x="74" y="405" font-size="13.5" text-anchor="start">GDPR</text></g>
+<rect class="f-paper s-ink" x="470.75" y="68.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 80) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="90" width="110" height="4" fill-opacity=".55"/>
+<g data-fx="pop" data-at="2.6" data-len="0.35"><rect class="f-ink" x="650" y="81" width="22" height="22"/><path class="f-none s-paper" d="M656 92l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-paper s-ink" x="470.75" y="130.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 142) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><circle cx="16" cy="32" r="8"/><path d="M22 26l16-16M31 17l5 5M36 12l5 5"/><g class="s-sig"><path d="M12 5v10M7.7 7.5l8.6 5M7.7 12.5l8.6-5" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="152" width="98" height="4" fill-opacity=".55"/>
+<g data-fx="pop" data-at="2.8" data-len="0.35"><rect class="f-ink" x="650" y="143" width="22" height="22"/><path class="f-none s-paper" d="M656 154l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-paper s-ink" x="470.75" y="192.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 204) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><path d="M10 5h19l9 9v29H10z"/><path d="M29 5v9h9M16 27h16M16 33h16M16 39h9"/><g class="s-sig"><path d="M16 21h11" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="214" width="86" height="4" fill-opacity=".55"/>
+<g data-fx="pop" data-at="3" data-len="0.35"><rect class="f-ink" x="650" y="205" width="22" height="22"/><path class="f-none s-paper" d="M656 216l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-paper s-ink" x="470.75" y="254.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 266) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><path d="M4 24s7-12 20-12 20 12 20 12-7 12-20 12S4 24 4 24z"/><g class="s-sig"><circle cx="24" cy="24" r="5.5" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="276" width="110" height="4" fill-opacity=".55"/>
+<rect class="f-paper s-ink" x="470.75" y="316.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 328) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><circle cx="18" cy="14" r="7"/><path d="M5 41v-4c0-6 5-10 11-10h5"/><g class="s-sig"><path d="M35 22l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6z" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="338" width="98" height="4" fill-opacity=".55"/>
+<g data-fx="pop" data-at="3.4" data-len="0.35"><rect class="f-ink" x="650" y="329" width="22" height="22"/><path class="f-none s-paper" d="M656 340l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-paper s-ink" x="470.75" y="378.75" width="219.5" height="46.5" stroke-width="1.5"/>
+<g transform="translate(484 390) scale(0.5)" class="f-none s-ink" stroke-width="3.2" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g>
+<rect class="f-ink" x="520" y="400" width="86" height="4" fill-opacity=".55"/>
+<g data-fx="pop" data-at="3.6" data-len="0.35"><rect class="f-ink" x="650" y="391" width="22" height="22"/><path class="f-none s-paper" d="M656 402l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<g data-fx="pop" data-at="3.3" data-len="0.4" data-out="7.2"><rect class="f-sig" x="650" y="267" width="22" height="22"/><path class="f-none s-ink" d="M657 274l8 8M665 274l-8 8" stroke-width="2"/></g>
+<path class="f-none s-sig" d="M460 253v-8h8M692 245h8v8M700 303v8h-8M468 311h-8v-8" stroke-width="2" data-fx="pop" data-at="3.5" data-len="0.45" data-out="7.2"/>
+<text class="sig-mono f-sig" x="706" y="282" font-size="11" text-anchor="start" data-fx="fade" data-at="3.7" data-len="0.3" data-out="7.2">COMPLIANCE GAP</text>
+<g data-fx="pop" data-at="7.3" data-len="0.4"><rect class="f-ink" x="650" y="267" width="22" height="22"/><path class="f-none s-paper" d="M656 278l3.5 3.5 7-7.5" stroke-width="2"/></g>
+<rect class="f-p50 s-ink" x="880.75" y="80.75" width="278.5" height="338.5" stroke-width="1.5"/>
+<rect class="f-p100" x="900" y="380" width="238" height="22"/>
+<rect class="f-ink" x="900" y="380" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="2.8" data-len="0.3"/>
+<rect class="f-p100" x="900" y="350" width="238" height="22"/>
+<rect class="f-ink" x="900" y="350" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="2.96" data-len="0.3"/>
+<rect class="f-p100" x="900" y="320" width="238" height="22"/>
+<rect class="f-ink" x="900" y="320" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="3.12" data-len="0.3"/>
+<rect class="f-p100" x="900" y="290" width="238" height="22"/>
+<rect class="f-ink" x="900" y="290" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="3.28" data-len="0.3"/>
+<rect class="f-p100" x="900" y="260" width="238" height="22"/>
+<rect class="f-ink" x="900" y="260" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="3.44" data-len="0.3"/>
+<rect class="f-p100" x="900" y="230" width="238" height="22"/>
+<rect class="f-ink" x="900" y="230" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="3.6" data-len="0.3"/>
+<rect class="f-p100" x="900" y="200" width="238" height="22"/>
+<rect class="f-ink" x="900" y="200" width="238" height="22" fill-opacity=".85" data-fx="grow" data-at="3.76" data-len="0.3"/>
+<rect class="f-p100" x="900" y="170" width="238" height="22"/>
+<rect class="f-sig" x="900" y="170" width="238" height="22" data-fx="grow" data-at="7.6" data-len="0.3"/>
+<rect class="f-p100" x="900" y="140" width="238" height="22"/>
+<rect class="f-sig" x="900" y="140" width="238" height="22" data-fx="grow" data-at="7.8" data-len="0.3"/>
+<rect class="f-p100" x="900" y="110" width="238" height="22"/>
+<rect class="f-sig" x="900" y="110" width="238" height="22" data-fx="grow" data-at="8" data-len="0.3"/>
+<g data-fx="pop" data-at="8.5" data-len="0.5"><rect class="f-sig" x="984" y="104" width="70" height="70"/><g transform="translate(999 119) scale(0.833333)" class="f-none s-ink" stroke-width="2.16" stroke-linecap="square"><path d="M10 5h19l9 9v29H10z"/><path d="M29 5v9h9"/><g class="s-sig"><path d="M16 28l6 6 11-12" pathLength="1"/></g></g></g>
+<path class="f-none s-ink s-dash" d="M672 280C760 280 800 250 880 250" stroke-opacity=".5"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TYPES                                                                -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Types of Security Compliance Services We Provide</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia offers security compliance services that help organizations assess security controls and identify compliance gaps while aligning information security practices with applicable regulatory requirements and industry standards. Our services focus on risk assessment and security policy reviews alongside compliance documentation and audit preparation to help businesses manage security obligations and protect sensitive data.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">ISO 27001 Compliance Services</h3>
+        <p class="ledger__text">We help organizations assess their information security management practices against ISO 27001 requirements. Our services include security control reviews and risk assessment alongside policy documentation and compliance gap analysis to support the development of an effective Information Security Management System (ISMS).</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("shield-check") }}</div>
+        <h3 class="ledger__title">SOC 2 Compliance Services</h3>
+        <p class="ledger__text">Our SOC 2 compliance services help organizations evaluate security controls related to data protection and service delivery. We review relevant policies and operational processes against applicable Trust Services Criteria to identify control gaps and support audit readiness.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("card") }}</div>
+        <h3 class="ledger__title">PCI DSS Compliance Services</h3>
+        <p class="ledger__text">CipherTrivia helps businesses assess payment security controls against PCI DSS requirements. Our reviews focus on cardholder data protection and access control alongside network security and vulnerability management to identify compliance gaps in payment environments.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("health-record") }}</div>
+        <h3 class="ledger__title">HIPAA Compliance Services</h3>
+        <p class="ledger__text">We help healthcare organizations and relevant business associates assess safeguards for electronic protected health information (ePHI). Our HIPAA compliance services review administrative and technical security controls to identify risks and support the protection of sensitive healthcare data.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("user-shield") }}</div>
+        <h3 class="ledger__title">GDPR Compliance Services</h3>
+        <p class="ledger__text">Our GDPR compliance support focuses on evaluating data protection practices and identifying gaps in the handling of personal information. We assess relevant privacy policies and data access controls alongside data security measures to help organizations address applicable GDPR obligations.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("compass") }}</div>
+        <h3 class="ledger__title">NIST Cybersecurity Framework Compliance</h3>
+        <p class="ledger__text">We help organizations evaluate cybersecurity practices against the NIST Cybersecurity Framework (CSF) to identify gaps in risk management and security operations. Our assessments cover relevant capabilities across governance and identification alongside protection and detection, response and recovery.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("sliders") }}</div>
+        <h3 class="ledger__title">CIS Controls Assessment</h3>
+        <p class="ledger__text">Our CIS Controls assessments review technical safeguards and security configurations against applicable CIS Critical Security Controls. We help identify weaknesses in asset management and access control alongside vulnerability management and system hardening.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("gauge") }}</div>
+        <h3 class="ledger__title">Security Risk and Compliance Gap Assessment</h3>
+        <p class="ledger__text">We assess existing security policies and technical controls to identify gaps between current practices and applicable compliance requirements. Our findings include prioritized recommendations that help organizations address risks and plan compliance improvements.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("document") }}</div>
+        <h3 class="ledger__title">Security Policy and Documentation Review</h3>
+        <p class="ledger__text">CipherTrivia reviews information security policies and procedures to identify inconsistencies and missing documentation. We help organizations develop or improve relevant security documentation to support internal governance and compliance requirements.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("clipboard") }}</div>
+        <h3 class="ledger__title">Compliance Audit Preparation</h3>
+        <p class="ledger__text">Our audit preparation support helps organizations organize compliance documentation and review evidence for applicable security controls. We identify potential gaps and recommend corrective actions to help teams prepare for external audits and certification assessments.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- COMPLIANCE AREAS                                                     -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Compliance Areas Our Security Compliance Services Address</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia’s security compliance services help organizations evaluate information security controls and identify gaps across critical compliance areas. We assess security policies and technical safeguards against applicable regulatory requirements and industry frameworks to help businesses manage compliance risks and protect sensitive information.</p>
+      </div>
+    </header>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("layers", "lg") }}</span>
+        <h3 class="trigger__title">Information Security Management</h3>
+        <p class="trigger__text">We review information security policies and governance practices against relevant requirements such as ISO 27001 to identify control gaps and improve security management.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("eye-off", "lg") }}</span>
+        <h3 class="trigger__title">Data Privacy and Protection</h3>
+        <p class="trigger__text">Our assessments examine how personal and sensitive information is collected and accessed alongside its storage and processing practices to support applicable GDPR and privacy obligations.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("identity", "lg") }}</span>
+        <h3 class="trigger__title">Identity and Access Management</h3>
+        <p class="trigger__text">We evaluate user permissions and authentication controls alongside privileged access practices to identify weaknesses that could expose sensitive systems or business data.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("segments", "lg") }}</span>
+        <h3 class="trigger__title">Network and Infrastructure Security</h3>
+        <p class="trigger__text">We review network configurations and infrastructure safeguards to identify security gaps affecting system isolation and access restrictions while supporting applicable PCI DSS and organizational security requirements.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("bug", "lg") }}</span>
+        <h3 class="trigger__title">Vulnerability and Risk Management</h3>
+        <p class="trigger__text">Our compliance assessments examine vulnerability management processes and risk treatment practices to help organizations prioritize security weaknesses and align controls with frameworks such as NIST CSF and CIS Controls.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("doc-check", "lg") }}</span>
+        <h3 class="trigger__title">Audit Readiness and Documentation</h3>
+        <p class="trigger__text">We review compliance policies and control evidence alongside risk registers and remediation records to identify documentation gaps and support audit preparation for frameworks such as SOC 2 and ISO 27001.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("heart-pulse", "lg") }}</span>
+        <h3 class="trigger__title">Healthcare Data Security</h3>
+        <p class="trigger__text">We assess relevant administrative and technical safeguards for electronic protected health information (ePHI) to help healthcare organizations address applicable HIPAA Security Rule requirements.</p>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("chart", "lg") }}</span>
+        <h3 class="trigger__title">Compliance Monitoring and Reporting</h3>
+        <p class="trigger__text">We help evaluate ongoing compliance activities and document identified gaps with prioritized corrective actions so organizations can track remediation and review security control effectiveness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS (light: the Why section that follows is ink)                 -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s4-title">
+  <div class="container">
+    <div class="process process--light">
+      <div class="process__aside">
+        <h2 class="process__title" id="s4-title">Our Security Compliance Assessment Process</h2>
+        <p class="process__lede">CipherTrivia follows a structured security compliance assessment process to evaluate existing security controls and identify gaps against applicable regulatory requirements and industry frameworks. Our approach combines risk assessment and control reviews with documentation analysis and remediation planning to help organizations improve compliance readiness.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Compliance Scope and Requirement Analysis</h3>
+          <p class="step__text">We identify applicable compliance frameworks such as ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR based on your industry and business requirements. This helps define the assessment scope and relevant security controls.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Gap Assessment</h3>
+          <p class="step__text">Our team reviews existing security policies and technical safeguards to identify gaps between current practices and applicable compliance requirements. The assessment covers access controls and data protection alongside infrastructure security and risk management.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Analysis and Control Evaluation</h3>
+          <p class="step__text">We evaluate identified gaps based on their severity and potential business impact while reviewing the effectiveness of relevant security controls. This helps prioritize compliance risks and determine the corrective actions required.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Planning</h3>
+          <p class="step__text">CipherTrivia provides actionable recommendations to address identified compliance gaps and improve security practices. We outline corrective measures and practical priorities to help your team plan remediation based on available resources and compliance objectives.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Documentation and Compliance Reporting</h3>
+          <p class="step__text">We prepare assessment findings and document identified gaps alongside recommended improvements and relevant control evidence. These deliverables help organizations track remediation progress and prepare for internal reviews or external compliance audits.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA (first version in the brief)                        -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s5-title">Why Choose CipherTrivia for Security Compliance Services?</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia helps organizations assess security controls and address compliance gaps through structured evaluations and practical remediation guidance. Our security compliance services focus on aligning information security practices with applicable industry standards and regulatory requirements while helping businesses manage risks and prepare for compliance audits.</p>
+      </div>
+    </header>
+
+    <div class="principles principles--7">
+      <article class="principle rv">
+        {{ icon("directory") }}
+        <h3 class="principle__title">Expertise Across Compliance Frameworks</h3>
+        <p class="principle__text">Our assessments cover relevant frameworks such as ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR, helping organizations identify applicable requirements and evaluate their existing security controls.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("magnifier") }}
+        <h3 class="principle__title">Comprehensive Compliance Gap Analysis</h3>
+        <p class="principle__text">We examine security policies and technical safeguards to identify gaps in compliance and highlight areas that require corrective action. This gives your team a clearer understanding of existing security weaknesses and compliance priorities.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("target") }}
+        <h3 class="principle__title">Risk-Based Assessment Approach</h3>
+        <p class="principle__text">Our approach prioritizes compliance gaps based on severity and potential business impact so your team can focus on addressing critical security risks and allocating resources effectively.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("wrench") }}
+        <h3 class="principle__title">Actionable Remediation Guidance</h3>
+        <p class="principle__text">We provide practical recommendations to address identified control gaps and improve security practices. Our findings help teams understand the corrective actions required and plan compliance improvements systematically.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("lock") }}
+        <h3 class="principle__title">Technical and Policy-Level Reviews</h3>
+        <p class="principle__text">We assess both technical safeguards and organizational policies, covering areas such as access management and data protection alongside vulnerability management and security documentation.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("calendar") }}
+        <h3 class="principle__title">Audit Preparation Support</h3>
+        <p class="principle__text">Our compliance documentation and assessment reports help organizations organize control evidence and track remediation progress while preparing for internal reviews and external audits.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("buildings") }}
+        <h3 class="principle__title">Industry-Specific Compliance Focus</h3>
+        <p class="principle__text">We consider your business operations and applicable regulatory obligations when evaluating compliance requirements, helping align security controls with the needs of your industry and operating environment.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Security Compliance Services</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia provides structured compliance documentation and actionable assessment reports to help organizations identify security gaps and manage regulatory requirements. Our security compliance services deliver clear findings and practical recommendations that support audit preparation and security control improvements across applicable frameworks such as ISO 27001 and SOC 2 alongside PCI DSS, HIPAA and GDPR.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example compliance gap analysis report: compliance control mapping across ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR, and audit readiness">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-sig" x="36.75" y="44.75" width="259.5" height="391.5"/><rect class="f-ink" x="52" y="60" width="8" height="8"/><rect class="f-ink" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-ink" x="54" y="112" font-size="25" text-anchor="start">Compliance Gap</text><text class="sig-txt f-ink" x="54" y="141" font-size="25" text-anchor="start">Analysis Report</text><path class="f-none s-ink" d="M58 171h-6v26h6M138 171h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-ink" x="66" y="188.5" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-ink" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Compliance Control Mapping</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><text class="sig-mono f-ink" x="216" y="247" font-size="8.5" text-anchor="start">ISO 27001</text><rect class="f-p50 s-ink" x="300.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M305 245l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="1.9" data-len="0.25"/><rect class="f-p50 s-ink" x="322.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M327 245l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="1.94" data-len="0.25"/><rect class="f-p50 s-ink" x="344.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="366.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M371 245l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.02" data-len="0.25"/><rect class="f-p50 s-ink" x="388.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M393 245l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.06" data-len="0.25"/><rect class="f-p50 s-ink" x="410.5" y="236.5" width="19" height="18" stroke-opacity=".15"/><text class="sig-mono f-ink" x="216" y="269" font-size="8.5" text-anchor="start">SOC 2</text><rect class="f-p50 s-ink" x="300.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M305 267l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.14" data-len="0.25"/><rect class="f-p50 s-ink" x="322.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="344.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M349 267l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.22" data-len="0.25"/><rect class="f-p50 s-ink" x="366.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M371 267l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.26" data-len="0.25"/><rect class="f-p50 s-ink" x="388.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="410.5" y="258.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M415 267l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.34" data-len="0.25"/><text class="sig-mono f-ink" x="216" y="291" font-size="8.5" text-anchor="start">PCI DSS</text><rect class="f-p50 s-ink" x="300.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="322.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M327 289l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.42" data-len="0.25"/><rect class="f-p50 s-ink" x="344.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M349 289l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.46" data-len="0.25"/><rect class="f-p50 s-ink" x="366.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="388.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M393 289l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.54" data-len="0.25"/><rect class="f-p50 s-ink" x="410.5" y="280.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M415 289l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.58" data-len="0.25"/><text class="sig-mono f-ink" x="216" y="313" font-size="8.5" text-anchor="start">HIPAA</text><rect class="f-p50 s-ink" x="300.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M305 311l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.62" data-len="0.25"/><rect class="f-p50 s-ink" x="322.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M327 311l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.66" data-len="0.25"/><rect class="f-p50 s-ink" x="344.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="366.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-sig" x="369" y="305" width="13" height="12" data-fx="pop" data-at="2.8" data-len="0.4"/><rect class="f-p50 s-ink" x="388.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M393 311l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.78" data-len="0.25"/><rect class="f-p50 s-ink" x="410.5" y="302.5" width="19" height="18" stroke-opacity=".15"/><text class="sig-mono f-ink" x="216" y="335" font-size="8.5" text-anchor="start">GDPR</text><rect class="f-p50 s-ink" x="300.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M305 333l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.86" data-len="0.25"/><rect class="f-p50 s-ink" x="322.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="344.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M349 333l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.94" data-len="0.25"/><rect class="f-p50 s-ink" x="366.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M371 333l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="2.98" data-len="0.25"/><rect class="f-p50 s-ink" x="388.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><rect class="f-p50 s-ink" x="410.5" y="324.5" width="19" height="18" stroke-opacity=".15"/><path class="f-none s-ink" d="M415 333l3 3 6-6.5" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="3.06" data-len="0.25"/><text class="sig-txt f-ink" x="216" y="374" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3.3" data-len="0.3">Audit Readiness</text><path class="f-none s-ink" d="M216 384h216" stroke-opacity=".2"/><text class="sig-txt f-ink" x="216" y="400" font-size="10" text-anchor="start" data-fx="fade" data-at="3.5" data-len="0.3">Compliance Evidence Documentation</text><rect class="f-p100" x="216" y="406" width="216" height="5"/><rect class="f-ink" x="216" y="406" width="185.76" height="5" data-fx="grow" data-at="3.6" data-len="0.5"/><text class="sig-mono f-ink" x="432" y="400" font-size="8.5" text-anchor="end" data-fx="fade" data-at="3.9" data-len="0.3">86%</text><text class="sig-txt f-ink" x="216" y="430" font-size="10" text-anchor="start" data-fx="fade" data-at="3.7" data-len="0.3">Security Policies and Procedures</text><rect class="f-p100" x="216" y="436" width="216" height="5"/><rect class="f-ink" x="216" y="436" width="155.52" height="5" data-fx="grow" data-at="3.8" data-len="0.5"/><text class="sig-mono f-ink" x="432" y="430" font-size="8.5" text-anchor="end" data-fx="fade" data-at="4.1" data-len="0.3">72%</text><rect class="f-stone" x="216" y="466" width="200" height="4" data-fx="grow" data-at="3.9" data-len="0.35"/><rect class="f-stone" x="216" y="478" width="168" height="4" data-fx="grow" data-at="4" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Compliance Gap Analysis Report</h3>
+            <p class="deliver__text">A detailed assessment of existing security controls against applicable framework requirements, highlighting compliance gaps and risk priorities with recommended corrective actions.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("proposal") }}
+          <div>
+            <h3 class="deliver__title">Security Policies and Procedures</h3>
+            <p class="deliver__text">Documented security policies and procedures covering access management and data protection alongside incident handling and risk management based on your compliance requirements.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("link") }}
+          <div>
+            <h3 class="deliver__title">Compliance Control Mapping</h3>
+            <p class="deliver__text">A control mapping document linking applicable security requirements across frameworks such as ISO 27001 and SOC 2 alongside PCI DSS and other relevant standards to identify overlapping controls and documentation needs.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("database") }}
+          <div>
+            <h3 class="deliver__title">Compliance Evidence Documentation</h3>
+            <p class="deliver__text">Organized compliance records and supporting evidence for relevant security controls, helping teams maintain documentation for internal reviews and external audit preparation.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("shield-check") }}
+          <div>
+            <h3 class="deliver__title">Remediation and Audit Readiness Report</h3>
+            <p class="deliver__text">A summary of assessment findings and outstanding compliance gaps with prioritized remediation recommendations to help teams track corrective actions and prepare for compliance audits.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA BAND                                                             -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Clear findings. Structured documentation. Better compliance visibility.</h2>
+    <p class="band__text rv" style="--d:1">Identify compliance gaps and plan security improvements with CipherTrivia's security compliance services.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA (second version in the brief)                       -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for Security Compliance Services?</h2>
+        <p class="shead__lede rv" style="--d:1">We help organizations navigate complex security requirements through structured compliance assessments and practical remediation guidance. Our security compliance services focus on identifying control gaps and evaluating existing security practices while helping businesses align with relevant industry standards and regulatory frameworks.</p>
+      </div>
+    </header>
+
+    <div class="principles principles--7">
+      <article class="principle rv">
+        {{ icon("directory") }}
+        <h3 class="principle__title">Expertise Across Compliance Frameworks</h3>
+        <p class="principle__text">Our assessments cover ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR, helping organizations understand applicable requirements and evaluate their existing security controls.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("gauge") }}
+        <h3 class="principle__title">Risk-Based Compliance Assessments</h3>
+        <p class="principle__text">We evaluate compliance gaps based on severity and potential business impact so your team can prioritize corrective actions and allocate resources to critical security requirements.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("eye") }}
+        <h3 class="principle__title">Comprehensive Security Control Reviews</h3>
+        <p class="principle__text">Our team examines technical safeguards and organizational policies across access management and data protection alongside vulnerability management and incident response procedures.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("route") }}
+        <h3 class="principle__title">Practical Remediation Recommendations</h3>
+        <p class="principle__text">We provide clear findings and actionable guidance to help your team address compliance gaps and improve security controls based on your operational requirements.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("present") }}
+        <h3 class="principle__title">Structured Documentation and Reporting</h3>
+        <p class="principle__text">Our deliverables include compliance gap reports and control mapping documentation alongside supporting evidence requirements to help maintain consistent records for internal reviews and audit preparation.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("buildings") }}
+        <h3 class="principle__title">Industry-Aligned Compliance Support</h3>
+        <p class="principle__text">We consider your business operations and applicable regulatory obligations when assessing compliance requirements, helping align security practices with the standards relevant to your organization.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("retest") }}
+        <h3 class="principle__title">Ongoing Compliance Improvement</h3>
+        <p class="principle__text">Our recommendations help organizations review security controls and track corrective actions while adapting compliance practices to changing risks and evolving regulatory requirements.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Security Compliance Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

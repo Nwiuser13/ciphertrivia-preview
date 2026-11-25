@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Inquiry — the enquiry form at the foot of service and campaign landing pages
+   (partials/enterprise/inquiry.njk). The page's contact buttons scroll here.
+     .inquiry__copy   heading, reassurance points and direct contact (cols 1–5)
+     .inquiry__form   the contact page's .intake form card (cols 7–12)
+   ========================================================================== */
+
+.inquiry { scroll-margin-top: var(--header-h); border-top: 1px solid var(--line); }
+.inquiry__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 2.5rem;
+  align-items: start;
+}
+.inquiry__copy { grid-column: 1 / span 5; position: sticky; top: calc(var(--header-h) + 2rem); }
+.inquiry__form { grid-column: 7 / -1; }
+
+.inquiry__title {
+  margin-top: 1.25rem;
+  font-size: var(--fs-3xl);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--ink-950);
+}
+.inquiry__title .accent { color: var(--signal-600); }
+.inquiry__lede {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+.inquiry__points {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 1.5rem 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.inquiry__points li {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-950);
+}
+.inquiry__points .ico { --ico: 1.375rem; }
+.inquiry__direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.inquiry__direct a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink-950);
+  transition: color var(--dur-1);
+}
+.inquiry__direct a:hover { color: var(--signal-700); }
+.inquiry__direct .ico { --ico: 1.125rem; }
+.inquiry__copy .map { margin-top: 2rem; }
+
+@media (max-width: 1024px) {
+  .inquiry__copy { grid-column: 1 / -1; position: static; }
+  .inquiry__form { grid-column: 1 / -1; }
+}

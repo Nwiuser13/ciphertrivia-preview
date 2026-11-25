@@ -1,0 +1,36 @@
+{#- Home, straight under the hero: Nextwebi's scale, credentials and client logos in one light
+    panel, so trust reads before anything else. The owner is comparing this placement with the
+    full backed.njk module lower on the page; keep both until they choose. Same legal rule as
+    backed.njk: every seal and logo belongs to Nextwebi and is labelled so right where it
+    appears, with the † note. Data: src/_data/nextwebi.json. Styles: sections/home.css -#}
+<section class="tstrip" aria-label="Credentials and clients of Nextwebi, CipherTrivia's parent company">
+  <div class="tstrip__panel rv">
+    <div class="tstrip__top">
+      <div class="tstrip__intro">
+        <p class="tstrip__kicker">Backed by Nextwebi</p>
+        <p class="tstrip__stat"><span class="tstrip__num">600+</span><span class="tstrip__stat-label">Clients served by Nextwebi across 20+ countries</span></p>
+        <p class="tstrip__years">15+ years of engineering · CipherTrivia is the cybersecurity practice of {{ nextwebi.legalName }}</p>
+      </div>
+      <div class="tstrip__creds-wrap">
+        <p class="tstrip__label">Credentials held by {{ nextwebi.legalName }}</p>
+        <ul class="tstrip__creds">
+          {%- for c in nextwebi.credentials %}
+          <li class="tstrip__cred">
+            <span class="tstrip__seal"><img src="/assets/trust/badges/{{ c.slug }}.webp" alt="{{ c.alt }}" width="{{ c.w }}" height="{{ c.h }}" loading="lazy" decoding="async"></span>
+            <span class="tstrip__cred-name">{{ c.name }}<small>{{ c.area }}</small></span>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="tstrip__clients">
+      <p class="tstrip__label">Selected clients of Nextwebi<sup>†</sup></p>
+      <ul class="tstrip__logos">
+        {%- for c in nextwebi.clients %}
+        <li><img src="/assets/trust/clients/{{ c.slug }}.webp" alt="{{ c.name }}" width="480" height="240" loading="lazy" decoding="async"></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <p class="tstrip__note"><sup>†</sup> Client names and logos are trademarks of their respective owners. They represent client relationships of {{ nextwebi.legalName }} across its technology services and do not imply that these organisations endorse CipherTrivia's cybersecurity services.</p>
+  </div>
+</section>

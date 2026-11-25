@@ -1,0 +1,226 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "Enterprise VAPT Guide | CipherTrivia Whitepapers"
+description: "A practical guide to scoping, running and acting on Vulnerability Assessment and Penetration Testing (VAPT) engagements at enterprise scale."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["Enterprise VAPT Guide"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Enterprise VAPT Guide",
+      "description": "A practical guide to scoping, running and acting on Vulnerability Assessment and Penetration Testing (VAPT) engagements at enterprise scale.",
+      "url": "https://www.ciphertrivia.com/whitepapers/enterprise-vapt-guide/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-enterprise-vapt-guide.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/enterprise-vapt-guide/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Enterprise VAPT Guide"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · VAPT</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">Enterprise VAPT Guide</h1>
+        <p class="hero__lede rv" style="--d:2">How to scope, run and act on Vulnerability Assessment and Penetration Testing engagements at enterprise scale.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>VAPT</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>8 minutes</dd></div>
+        <div class="article-meta__row"><dt>Format:</dt><dd>Web guide + downloadable PDF</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#what-s-inside">What's Inside</a></li>
+          <li><a href="#scoping">1. Scoping a VAPT Engagement</a></li>
+          <li><a href="#approach">2. Choosing the Right Testing Approach</a></li>
+          <li><a href="#cadence">3. How Often Should You Test?</a></li>
+          <li><a href="#remediation">4. From Findings to Fix: The Remediation Workflow</a></li>
+          <li><a href="#pitfalls">5. Common Pitfalls to Avoid</a></li>
+          <li><a href="#who-should-read-this">Who Should Read This</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section" id="overview">
+        <h2>Overview</h2>
+        <p>
+          <a href="/services/vapt-security-services/">Vulnerability Assessment and Penetration Testing</a> (VAPT) is one of the most effective ways for an enterprise to find security gaps before attackers do. But at enterprise scale, across dozens of applications, APIs and cloud accounts, a poorly scoped VAPT engagement wastes time and budget without reducing real risk.
+        </p>
+        <p>
+          This guide walks through how to scope a VAPT engagement properly, choose the right testing approach for each asset, and turn findings into fixes that actually ship, based on patterns we've seen work (and fail) across 600+ engagements.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-s-inside">
+        <h2>What's Inside</h2>
+        <ul class="a-list">
+          <li><a href="#scoping">1. Scoping a VAPT Engagement</a></li>
+          <li><a href="#approach">2. Choosing the Right Testing Approach</a></li>
+          <li><a href="#cadence">3. How Often Should You Test?</a></li>
+          <li><a href="#remediation">4. From Findings to Fix: The Remediation Workflow</a></li>
+          <li><a href="#pitfalls">5. Common Pitfalls to Avoid</a></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="scoping">
+        <h2>1. Scoping a VAPT Engagement</h2>
+        <p>
+          Start from your asset inventory, not your test plan. Before defining scope, list every application, API, mobile app and cloud account that handles customer data or sits on the internet-facing edge. Group these by business criticality: payment flows and authentication systems should always be in scope, even if "nothing has changed recently."
+        </p>
+        <p>
+          For each asset, agree on testing windows, authenticated vs. unauthenticated access, and any systems that are explicitly out of scope (e.g. third-party SaaS you don't control). A clear scope document prevents both gaps in coverage and wasted effort testing things that don't matter.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="approach">
+        <h2>2. Choosing the Right Testing Approach</h2>
+        <ul class="a-list">
+          <li><strong>Black-box testing</strong>: simulates an external attacker with no internal knowledge. Best for perimeter and pre-launch testing.</li>
+          <li><strong>Grey-box testing</strong>: testers have limited credentials or documentation, mirroring a malicious insider or compromised account. Best for most production applications.</li>
+          <li><strong>White-box testing</strong>: full access to source code and architecture diagrams. Best for high-risk systems like payment processing or core banking logic.</li>
+        </ul>
+        <p>
+          Most enterprises get the best return by running grey-box tests on customer-facing applications and APIs, and reserving white-box reviews for the small number of systems where a vulnerability would be catastrophic.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="cadence">
+        <h2>3. How Often Should You Test?</h2>
+        <p>
+          At minimum, test annually and after any major release that touches authentication, payments or access control. Higher-risk organizations (fintechs, healthcare platforms, anything handling regulated data) should run focused tests quarterly, with a full assessment at least once a year.
+        </p>
+        <p>
+          Continuous or "always-on" testing models work well for teams that ship weekly: smaller, scoped tests on each major change, supplemented by a comprehensive annual assessment across the full estate.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="remediation">
+        <h2>4. From Findings to Fix: The Remediation Workflow</h2>
+        <p>
+          A report full of unfixed findings doesn't reduce risk. Build remediation into the engagement from day one:
+        </p>
+        <ol class="a-olist">
+          <li><strong>Triage by exploitability</strong>: rank findings by real-world impact and ease of exploitation, not just CVSS score.</li>
+          <li><strong>Assign owners and deadlines</strong>: critical and high findings should have a named owner and a fix date within days, not the next sprint planning cycle.</li>
+          <li><strong>Retest before closing</strong>: every fix should be verified by the same team that found the issue, to avoid incomplete patches that look fixed but aren't.</li>
+        </ol>
+      </div>
+
+<hr>
+
+<div class="a-section" id="pitfalls">
+        <h2>5. Common Pitfalls to Avoid</h2>
+        <ul class="a-list">
+          <li>Treating VAPT as a one-time compliance checkbox rather than a recurring program.</li>
+          <li>Scoping only "the website" while ignoring internal APIs, admin panels and mobile apps.</li>
+          <li>Letting critical findings sit in a backlog without an owner or deadline.</li>
+          <li>Skipping retesting, leaving "fixed" issues that were never actually verified.</li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="who-should-read-this">
+        <h2>Who Should Read This</h2>
+        <p>
+          This guide is written for engineering leaders, security teams and compliance owners who are scoping a VAPT program for the first time, or looking to make an existing one more effective.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert help with VAPT?</h3>
+        <p class="svc-cta__text">Our VAPT security team can scope an engagement tailored to your environment.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/vapt-security-services/">Explore VAPT Services {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Want help scoping your VAPT program?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your applications, APIs and cloud environment and we'll help you build a testing plan that fits.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

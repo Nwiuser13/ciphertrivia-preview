@@ -1,0 +1,339 @@
+---
+layout: layouts/enterprise.njk
+navActive: industries
+title: "Cybersecurity for Healthcare | Healthcare Cybersecurity Solutions"
+description: "Secure healthcare systems with healthcare cybersecurity solutions, including VAPT, medical application security testing, cloud security assessments and data protection."
+crumbs: [["Home", "/"], ["Industries", "/industries/"], ["Healthcare"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["How much do healthcare cybersecurity services cost?", "The cost depends on the number of healthcare applications and systems being assessed along with the testing scope and complexity. CipherTrivia can define a suitable assessment scope based on your security requirements and infrastructure."],
+  ["What is included in a healthcare cybersecurity assessment?", "A healthcare cybersecurity assessment can include vulnerability scanning and penetration testing as well as application and API security testing or cloud security reviews and a detailed report with risk ratings and remediation recommendations."],
+  ["Do you provide penetration testing for hospitals and healthcare applications?", "Yes. CipherTrivia provides penetration testing for hospital management systems and patient portals alongside telehealth platforms and healthcare web applications or APIs to identify exploitable security weaknesses."],
+  ["Can you assess the security of our EHR and EMR systems?", "Yes. Security assessments can evaluate electronic health record (EHR) and electronic medical record (EMR) systems for access control weaknesses and authentication flaws or data exposure risks and application vulnerabilities."],
+  ["Do your healthcare cybersecurity services support HIPAA compliance?", "CipherTrivia can assess relevant technical security controls against applicable HIPAA Security Rule requirements and identify gaps that may require remediation. Our assessments support compliance efforts but do not constitute formal certification or a legal determination of compliance."],
+  ["How long does a healthcare cybersecurity assessment take?", "The timeline depends on the number of applications and infrastructure components in scope as well as system complexity and testing depth. A defined scope and initial review help establish a realistic project timeline."],
+  ["Will healthcare cybersecurity testing disrupt hospital operations?", "Testing can be planned to reduce disruption by coordinating activities with IT teams and using agreed testing windows. Production systems and connected medical devices require additional precautions based on their operational sensitivity."],
+  ["Do you provide a detailed report with remediation recommendations?", "Yes. CipherTrivia provides a report covering identified vulnerabilities and severity ratings along with technical evidence and remediation guidance to help your team prioritize security improvements."],
+  ["Can you retest vulnerabilities after our development team fixes them?", "Yes. Retesting can verify whether reported vulnerabilities have been addressed and identify any remaining security gaps within the agreed assessment scope."],
+  ["Do you provide cybersecurity services for healthcare SaaS platforms and medical technology companies?", "Yes. Healthcare cybersecurity assessments can cover SaaS platforms and telemedicine solutions alongside medical technology applications and connected systems, depending on the agreed scope."],
+  ["Can you assess AI-powered healthcare applications and AI agents?", "Yes. CipherTrivia can assess AI-powered healthcare applications and agents for risks such as prompt injection and sensitive data leakage or excessive permissions and insecure integrations with healthcare systems."],
+  ["How can we get a quote for healthcare cybersecurity services?", "Contact CipherTrivia with details about your healthcare applications and infrastructure along with your assessment objectives and compliance requirements. Our team can review the scope and recommend suitable testing services with a project timeline and quotation."]
+] %}
+{#- Challenges: icon + its node position on the attack-surface map (clockwise from top left;
+    seven nodes: three along the top, one down each side, two along the bottom under the inner frame) -#}
+{%- set challenges = [
+  ["health-record", "12%", "12%", 48, 48, "Patient Data Breaches", "Electronic health records and protected health information are valuable targets for attackers who exploit weak access controls and compromised credentials."],
+  ["shield-crack", "50%", "12%", 200, 48, "Ransomware and Operational Disruption", "Ransomware attacks can block access to clinical systems and patient records while disrupting hospital operations and critical healthcare services."],
+  ["heart-pulse", "88%", "12%", 352, 48, "Medical Device Vulnerabilities", "Connected medical devices and legacy equipment may contain outdated software or insecure configurations that expose healthcare networks to cyber threats."],
+  ["api", "88%", "50%", 352, 200, "Insecure Healthcare Applications and APIs", "Vulnerabilities in telehealth platforms and healthcare applications can expose patient information or allow unauthorized access to sensitive systems."],
+  ["cloud-alert", "69%", "88%", 276, 352, "Cloud Security and Third-Party Risks", "Misconfigured cloud environments and weaknesses in vendor systems can create entry points for attackers and increase the risk of data exposure."],
+  ["clipboard", "31%", "88%", 124, 352, "Regulatory Compliance and Data Privacy", "Healthcare organizations must manage security controls and privacy obligations under applicable frameworks such as HIPAA and relevant data protection laws."],
+  ["agent", "12%", "50%", 48, 200, "AI and Emerging Security Threats", "AI-powered healthcare applications and intelligent agents can introduce risks involving sensitive data exposure and excessive permissions or unauthorized system interactions."]
+] %}
+{#- Services: icon, matching service page (empty when there is no dedicated page), title, text -#}
+{%- set services = [
+  ["target", "/services/penetration-testing/", "Healthcare Penetration Testing", "Our healthcare penetration testing services identify exploitable vulnerabilities in hospital applications and patient portals as well as clinical systems and network infrastructure before attackers can exploit them."],
+  ["magnifier", "/services/vapt-security-services/", "Healthcare Vulnerability Assessment", "We assess healthcare IT environments to detect outdated software and insecure configurations or known vulnerabilities that could expose electronic health records and sensitive patient data."],
+  ["heart-pulse", "", "Medical Device Security Testing", "We evaluate connected medical devices and their supporting systems to identify security weaknesses that could compromise device integrity or expose hospital networks to unauthorized access."],
+  ["browser", "/services/web-application-security-testing/", "Healthcare Application and API Security", "Our healthcare application security testing examines web applications and mobile platforms alongside APIs to identify authentication flaws and access control issues or vulnerabilities that could expose protected health information."],
+  ["cloud-lock", "/services/cloud-security-services/", "Healthcare Cloud Security Services", "We assess cloud-hosted healthcare applications and storage environments for misconfigurations and excessive permissions or insecure data access that could put patient records at risk."],
+  ["network", "/services/network-security-testing/", "Healthcare Network Security Testing", "Our network security testing identifies weaknesses in hospital networks and connected clinical systems while evaluating network segmentation and access controls or potential attack paths."],
+  ["doc-check", "/services/security-compliance/", "Healthcare Security Compliance Services", "We help healthcare organizations assess security controls against applicable requirements such as HIPAA and relevant data protection regulations while identifying gaps in security policies and technical safeguards."],
+  ["agent", "/ai-security/", "AI Healthcare Security Testing", "We assess AI-powered healthcare applications and intelligent agents for prompt injection and sensitive data exposure or excessive permissions that could compromise patient information and connected clinical systems."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Cybersecurity Solutions for Healthcare Organizations",
+      "serviceType": "Cybersecurity Services",
+      "description": "Secure healthcare systems with healthcare cybersecurity solutions, including VAPT, medical application security testing, cloud security assessments and data protection.",
+      "url": "https://www.ciphertrivia.com/industries/healthcare/",
+      "areaServed": "Worldwide",
+      "audience": { "@type": "BusinessAudience", "audienceType": "Healthcare organizations" },
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Our Healthcare Cybersecurity Services",
+        "itemListElement": [
+          {%- for s in services %}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": {{ s[2] | dump | safe }} } }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.ciphertrivia.com/industries/" },
+        { "@type": "ListItem", "position": 3, "name": "Healthcare" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO: copy on ink, the industry photo bleeding off the right edge    -->
+<!-- ================================================================== -->
+<section class="ind-hero ind-hero--light ind-hero--flip" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container ind-hero__inner">
+    <div class="ind-hero__copy">
+      <h1 class="ind-hero__title rv" id="hero-title">Cybersecurity Solutions for <span class="accent">Healthcare</span> Organizations</h1>
+      <p class="ind-hero__lede rv" style="--d:1">Healthcare organizations face growing cyber threats that target electronic health records (EHRs), connected medical devices and critical healthcare infrastructure. At CipherTrivia, our healthcare cybersecurity solutions help identify security vulnerabilities and protect sensitive patient information through risk assessments, penetration testing, threat detection and compliance-focused security services. We help healthcare providers strengthen their security posture while supporting data privacy and operational continuity.</p>
+      <div class="hero__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ind-hero__media">
+    <img class="ind-hero__img" src="/assets/industries/healthcare.webp" srcset="/assets/industries/healthcare-960.webp 960w, /assets/industries/healthcare.webp 1920w" sizes="(max-width: 1100px) 100vw, 50vw" width="1920" height="1080" alt="Smiling nurse with a stethoscope greeting a patient in a hospital" fetchpriority="high">
+  </div>
+  <svg class="motif motif--ecg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="motif-ecg__base" d="M0 80L150 80L168 72L184 80L202 80L210 94L222 18L236 108L246 80L282 80L302 64L322 80L510 80L528 72L544 80L562 80L570 94L582 18L596 108L606 80L642 80L662 64L682 80L870 80L888 72L904 80L922 80L930 94L942 18L956 108L966 80L1002 80L1022 64L1042 80L1230 80L1248 72L1264 80L1282 80L1290 94L1302 18L1316 108L1326 80L1362 80L1382 64L1402 80L1440 80"/><path class="motif-ecg__pulse" pathLength="1" d="M0 80L150 80L168 72L184 80L202 80L210 94L222 18L236 108L246 80L282 80L302 64L322 80L510 80L528 72L544 80L562 80L570 94L582 18L596 108L606 80L642 80L662 64L682 80L870 80L888 72L904 80L922 80L930 94L942 18L956 108L966 80L1002 80L1022 64L1042 80L1230 80L1248 72L1264 80L1282 80L1290 94L1302 18L1316 108L1326 80L1362 80L1382 64L1402 80L1440 80"/></svg>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW: one passage; its words darken as it is read, the shield   -->
+<!-- closes when the reader reaches the end                              -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="story" data-lit>
+      <h2 class="story__title rv" id="s1-title">Healthcare Cybersecurity Services to Protect Patient Data and Clinical Systems</h2>
+
+      <div class="story__aside" aria-hidden="true">
+        {{ icon("heart-pulse", "lg") }}
+        <span class="story__rail"></span>
+      </div>
+
+      <div class="story__body">
+        <p>Healthcare organizations rely on electronic health records (EHRs), hospital management systems, telehealth platforms and connected medical devices to deliver essential services. However, these technologies face growing threats from ransomware, data breaches, compromised credentials and insecure APIs that can expose sensitive patient information and disrupt clinical operations.</p>
+        <p>CipherTrivia provides healthcare cybersecurity services that help hospitals, clinics, diagnostic laboratories and healthcare technology providers identify vulnerabilities and strengthen security across applications, networks, cloud environments and medical systems. Our services include penetration testing, vulnerability assessments, cloud security reviews, network security testing and compliance support.</p>
+        <p>We also assess AI-powered healthcare applications and intelligent agents to identify risks involving sensitive data, access controls and system interactions. Our Healthcare Cybersecurity Solutions help healthcare organizations reduce cyber risks while protecting patient data and maintaining the security and availability of critical systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CHALLENGES: attack-surface map follows the challenge being read      -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s2-title">Cybersecurity Challenges Faced by Healthcare Organizations</h2>
+      <p class="ihead__lede rv" style="--d:1">Healthcare providers face complex security risks as patient care increasingly depends on connected devices and digital systems. CipherTrivia helps identify these vulnerabilities so organizations can strengthen their security posture and protect sensitive healthcare data.</p>
+    </header>
+
+    <div class="surface" data-surface>
+      <div class="surface__map" aria-hidden="true">
+        <div class="surface__stage">
+          <span class="surface__sweep"></span>
+          <svg class="surface__lines" viewBox="0 0 400 400" focusable="false">
+            <rect class="surface__frame" x="10" y="10" width="380" height="380"/>
+            <rect class="surface__orbit" x="48" y="48" width="304" height="304"/>
+            <rect class="surface__inner" x="124" y="124" width="152" height="152"/>
+            <path class="surface__ticks" d="M200 0v20M200 380v20M0 200h20M380 200h20M0 10h20M10 0v20M380 10h20M390 0v20M0 390h20M10 380v20M380 390h20M390 380v20"/>
+            {%- for c in challenges %}
+            <line class="surface__spoke" data-surface-spoke x1="200" y1="200" x2="{{ c[3] }}" y2="{{ c[4] }}"/>
+            {%- endfor %}
+          </svg>
+          <span class="surface__core">{{ icon("buildings", "lg") }}</span>
+          {%- for c in challenges %}
+          <span class="surface__node" data-surface-node style="--x:{{ c[1] }};--y:{{ c[2] }}">{{ icon(c[0]) }}</span>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <ul class="surface__list">
+        {%- for c in challenges %}
+        <li class="surface__item rv" data-surface-item>
+          {{ icon(c[0], "sm") }}
+          <div>
+            <h3 class="surface__title">{{ c[5] }}</h3>
+            <p class="surface__text">{{ c[6] }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <div class="surface__close rv">
+        <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SERVICES: index rows, each linked to its service page where one exists -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s3-title">Our Healthcare Cybersecurity Services</h2>
+      <p class="ihead__lede rv" style="--d:1">CipherTrivia delivers specialized healthcare cybersecurity solutions that help hospitals, clinics, diagnostic laboratories and healthcare technology providers identify vulnerabilities and protect sensitive patient information. Our services address security risks across healthcare applications and medical devices as well as cloud infrastructure and connected clinical systems.</p>
+    </header>
+
+    <ul class="svc-index">
+      {%- for s in services %}
+      <li class="svc-row rv">
+        <span class="svc-row__ico">{{ icon(s[0], "sm") }}</span>
+        <h3 class="svc-row__title">{% if s[1] %}<a class="svc-row__link" href="{{ s[1] }}">{{ s[2] }}</a>{% else %}{{ s[2] }}{% endif %}</h3>
+        <p class="svc-row__text">{{ s[3] }}</p>
+        {%- if s[1] %}<span class="svc-row__go" aria-hidden="true">{{ arrow("svc-row__arrow") }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ENGAGEMENT: horizontal track that fills as the section is read       -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s4-title">What Our Healthcare Cybersecurity Engagement Looks Like</h2>
+      <p class="ihead__lede rv" style="--d:1">CipherTrivia follows a structured security assessment process to identify vulnerabilities and help healthcare organizations protect patient data and critical clinical systems.</p>
+    </header>
+
+    <ol class="track" data-track>
+      <li class="track__step rv">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("compass") }}
+        <h3 class="track__title">Scope Definition and Risk Assessment</h3>
+        <p class="track__text">We identify critical healthcare assets and define assessment priorities based on sensitive patient data and clinical workflows as well as system exposure.</p>
+      </li>
+      <li class="track__step rv" style="--d:1">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("radar") }}
+        <h3 class="track__title">Security Testing and Vulnerability Discovery</h3>
+        <p class="track__text">We conduct penetration testing and vulnerability assessments across healthcare applications and APIs alongside networks and cloud infrastructure.</p>
+      </li>
+      <li class="track__step rv" style="--d:2">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("gauge") }}
+        <h3 class="track__title">Risk Analysis and Validation</h3>
+        <p class="track__text">Our security team validates identified vulnerabilities and evaluates their potential impact on patient data confidentiality and clinical system availability.</p>
+      </li>
+      <li class="track__step rv" style="--d:3">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("route") }}
+        <h3 class="track__title">Reporting and Remediation Guidance</h3>
+        <p class="track__text">We provide a detailed security report outlining validated findings and risk severity along with practical recommendations to address security gaps.</p>
+      </li>
+      <li class="track__step rv" style="--d:4">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("retest") }}
+        <h3 class="track__title">Retesting and Security Improvement</h3>
+        <p class="track__text">We retest resolved vulnerabilities within the agreed scope and help healthcare organizations verify remediation progress while strengthening their security posture.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- COMPLIANCE: framework tiles                                          -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s5-title">Compliance Frameworks We Help Healthcare Institutions Address</h2>
+      <p class="ihead__lede rv" style="--d:1">CipherTrivia helps healthcare organizations assess security controls and identify gaps against applicable healthcare regulations and information security frameworks. Our healthcare cybersecurity services support compliance efforts by evaluating data protection practices and access controls as well as technical safeguards across healthcare applications and IT infrastructure.</p>
+    </header>
+
+    <div class="fw-grid fw-grid--7">
+      <article class="fw rv">
+        <div class="fw__top">{{ icon("health-record") }}<span class="fw__mark" aria-hidden="true">HIPAA</span></div>
+        <h3 class="fw__title">HIPAA Security Rule</h3>
+        <p class="fw__text">We assess safeguards for electronic protected health information (ePHI) by reviewing access controls and authentication mechanisms alongside data security and risk management practices.</p>
+      </article>
+      <article class="fw rv" style="--d:1">
+        <div class="fw__top">{{ icon("doc-check") }}<span class="fw__mark" aria-hidden="true">HITECH</span></div>
+        <h3 class="fw__title">HITECH Act</h3>
+        <p class="fw__text">We help evaluate security measures related to electronic health information and identify weaknesses in data protection practices and breach prevention controls.</p>
+      </article>
+      <article class="fw rv" style="--d:2">
+        <div class="fw__top">{{ icon("user-shield") }}<span class="fw__mark" aria-hidden="true">GDPR</span></div>
+        <h3 class="fw__title">GDPR</h3>
+        <p class="fw__text">We assess technical security controls and personal data protection practices for healthcare organizations handling the personal information of individuals in the European Economic Area.</p>
+      </article>
+      <article class="fw rv" style="--d:3">
+        <div class="fw__top">{{ icon("badge") }}<span class="fw__mark" aria-hidden="true">ISO 27001</span></div>
+        <h3 class="fw__title">ISO/IEC 27001</h3>
+        <p class="fw__text">We evaluate information security controls and risk management practices to identify gaps against the requirements of an Information Security Management System (ISMS).</p>
+      </article>
+      <article class="fw rv">
+        <div class="fw__top">{{ icon("shield-check") }}<span class="fw__mark" aria-hidden="true">NIST</span></div>
+        <h3 class="fw__title">NIST Cybersecurity Framework</h3>
+        <p class="fw__text">We assess cybersecurity practices across asset management and protection as well as threat detection and response or recovery capabilities.</p>
+      </article>
+      <article class="fw rv" style="--d:1">
+        <div class="fw__top">{{ icon("card") }}<span class="fw__mark" aria-hidden="true">PCI DSS</span></div>
+        <h3 class="fw__title">PCI DSS</h3>
+        <p class="fw__text">For healthcare organizations processing payment card information, we assess relevant systems and security controls against applicable Payment Card Industry Data Security Standard requirements.</p>
+      </article>
+      <article class="fw rv" style="--d:2">
+        <div class="fw__top">{{ icon("eye-off") }}<span class="fw__mark" aria-hidden="true">DPDP</span></div>
+        <h3 class="fw__title">Digital Personal Data Protection Act (DPDP Act), India</h3>
+        <p class="fw__text">We review relevant technical safeguards and data security practices that support the protection of digital personal data under India's applicable data protection requirements.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BACKED BY NEXTWEBI (the brief has no "Why Choose" section)           -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-label="Backed by Nextwebi">
+  <div class="container">
+    {% set backedLead = true %}
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s6-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s6-title">Frequently Asked Questions About Healthcare Cybersecurity Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

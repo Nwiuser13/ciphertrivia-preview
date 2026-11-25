@@ -1,0 +1,167 @@
+/* ==========================================================================
+   Resources — article/guide cards and a wide feature card
+   ========================================================================== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-0);
+  color: inherit;
+}
+.card .ph { border: 0; border-bottom: 1px solid var(--line-strong); }
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+}
+.card__type {
+  font-size: var(--fs-xs);
+  color: var(--stone-500);
+  font-weight: 500;
+}
+.card__title {
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+  transition: color var(--dur-1);
+}
+.card__text { font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-700); }
+.card__go {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--stone-500);
+  transition: color var(--dur-2), transform var(--dur-2) var(--ease);
+}
+.card__go .btn__icon { width: 1.125rem; height: 1.125rem; }
+.card:hover .card__title { color: var(--signal-700); }
+.card:hover .card__go { color: var(--signal-700); transform: translateX(4px); }
+
+/* Guide cover: a large line icon on a toned tile, in place of cover art. Tones
+   rotate ink / paper / signal so neighbouring cards differ; two square rings and a
+   grid sit behind the tile, and the tile lifts off its plate when the card is hovered. */
+.cover {
+  --tile: clamp(5.25rem, 3rem + 4vw, 7.75rem);
+  --g: rgba(0, 5, 20, 0.06);
+  --ring: rgba(0, 5, 20, 0.16);
+  --mark: var(--signal-500);
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-strong);
+  background:
+    linear-gradient(var(--mark), var(--mark)) 1rem 1rem / 7px 7px no-repeat,
+    linear-gradient(var(--g) 1px, transparent 1px) 50% 50% / 28px 28px,
+    linear-gradient(90deg, var(--g) 1px, transparent 1px) 50% 50% / 28px 28px,
+    var(--cover-bg, var(--paper-100));
+}
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--tile) * 1.75);
+  height: calc(var(--tile) * 1.75);
+  border: 1px solid var(--ring);
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s var(--ease-out);
+}
+.cover::after {
+  width: calc(var(--tile) * 2.7);
+  height: calc(var(--tile) * 2.7);
+  border-style: dashed;
+  opacity: 0.7;
+}
+.cover .ico { position: relative; z-index: 1; }
+.card:hover .cover::before { transform: translate(-50%, -50%) scale(1.08); }
+.card:hover .cover::after { transform: translate(-50%, -50%) scale(0.94); }
+
+.cover--paper { --cover-bg: var(--paper-100); }
+.cover--ink {
+  --cover-bg: var(--ink-950);
+  --g: rgba(255, 255, 255, 0.05);
+  --ring: rgba(255, 255, 255, 0.16);
+}
+.cover--ink .ico { --ico-bg: var(--ink-900); --ico-line: var(--paper-50); --ico-edge: var(--line-inv-strong); }
+.cover--signal {
+  --cover-bg: var(--signal-500);
+  --g: rgba(0, 5, 20, 0.09);
+  --ring: rgba(0, 5, 20, 0.3);
+  --mark: var(--ink-950);
+}
+.cover--signal .ico { --ico-edge: var(--ink-950); }
+.cover--signal .ico::before { background: var(--ink-950); }   /* the plate shows in ink on orange */
+
+/* Hero: three covers fanned like a stack of guides */
+.cover-stack { position: relative; aspect-ratio: 4 / 3; }
+.cover-stack .cover {
+  --tile: clamp(4.25rem, 2.5rem + 3vw, 6.25rem);
+  position: absolute;
+  width: 72%;
+  border: 1px solid var(--ink-950);
+}
+.cover-stack .cover:nth-child(1) { left: 0; top: 0; }
+.cover-stack .cover:nth-child(2) { left: 14%; top: 15%; }
+.cover-stack .cover:nth-child(3) { left: 28%; top: 30%; box-shadow: var(--shadow-panel); }
+.cover-stack .cover:nth-child(3) .ico__face { transform: translate(-7%, -7%) rotate(-6deg); border-color: var(--ico-line); }
+
+@media (max-width: 1100px) {
+  .hero__visual--stack { display: block; max-width: 32rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover::before, .cover::after { transition: none; }
+  .card:hover .cover::before, .card:hover .cover::after { transform: translate(-50%, -50%); }
+}
+
+/* Wide feature card */
+.feature {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border: 1px solid var(--line-strong);
+  background: var(--paper-0);
+  color: inherit;
+}
+.feature__media { grid-column: 1 / span 6; border-right: 1px solid var(--line-strong); }
+.feature__media .ph { height: 100%; aspect-ratio: auto; min-height: 22rem; border: 0; }
+.feature__body {
+  grid-column: 7 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(2rem, 1.25rem + 2.5vw, 3.5rem);
+}
+.feature__title {
+  font-size: var(--fs-2xl);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  transition: color var(--dur-1);
+}
+.feature__text { color: var(--ink-700); }
+.feature__go { margin-top: auto; padding-top: 1rem; color: var(--stone-500); transition: color var(--dur-2), transform var(--dur-2) var(--ease); }
+.feature__go .btn__icon { width: 1.25rem; height: 1.25rem; }
+.feature:hover .feature__title { color: var(--signal-700); }
+.feature:hover .feature__go { color: var(--signal-700); transform: translateX(4px); }
+
+@media (max-width: 1024px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature__media, .feature__body { grid-column: 1 / -1; }
+  .feature__media { border-right: 0; border-bottom: 1px solid var(--line-strong); }
+  .feature__media .ph { min-height: 0; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 640px) {
+  .cards { grid-template-columns: 1fr; }
+}

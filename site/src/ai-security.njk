@@ -1,0 +1,555 @@
+---
+layout: layouts/enterprise.njk
+title: "AI Security Services | AI Security Testing – CipherTrivia"
+description: "Protect AI applications and LLMs with AI security services from CipherTrivia. Identify AI vulnerabilities and reduce risks through security testing and expert guidance."
+crumbs: [["Home", "/"], ["AI Security Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{#- AI attack-surface map: id, icon, name, AI-specific (dark card), risks tested there.
+    Names and risks are the page's own terms; positions come from the grid in ai-security.css -#}
+{%- set aimap = [
+  ["prompt", "chat", "User Prompts", true, ["Prompt Injection"]],
+  ["app", "browser", "AI Application", false, ["Broken Access Controls"]],
+  ["llm", "sparkle", "LLM", true, ["Model Abuse and Manipulation", "Sensitive Data Exposure"]],
+  ["agent", "agent", "AI Agent", true, ["Excessive AI Agent Permissions"]],
+  ["tools", "api", "APIs and External Tools", false, ["Insecure API Integrations"]],
+  ["docs", "document", "Enterprise Documents", false, ["Indirect Prompt Injection"]],
+  ["rag", "database", "RAG Retrieval", true, ["RAG Data Exposure"]],
+  ["systems", "network", "Connected Systems", false, ["Insecure Output Handling"]]
+] %}
+{%- set faqs = [
+  ["Why is AI security testing important for businesses?", "AI security testing helps organizations identify vulnerabilities that could expose confidential information or compromise connected applications. It also helps assess risks associated with AI-generated outputs and automated agent actions before these systems are deployed or expanded."],
+  ["What vulnerabilities can AI security testing identify?", "AI security testing can identify prompt injection and sensitive data leakage along with insecure output handling and broken access controls. AI agent assessments can also uncover excessive permissions and unauthorized tool execution or weaknesses in API integrations."],
+  ["What is the difference between AI security testing and traditional application security testing?", "Traditional application security testing focuses on vulnerabilities such as injection flaws and broken authentication within conventional software. AI security testing also examines AI-specific risks involving prompts and model behavior along with retrieval mechanisms and agent interactions with external tools."],
+  ["What is prompt injection in AI security?", "Prompt injection occurs when malicious instructions influence an AI system to disregard intended restrictions or process untrusted instructions in an unsafe way. It can lead to sensitive data exposure or unintended actions when the application lacks appropriate security controls."],
+  ["Can AI security testing identify risks in autonomous AI agents?", "Yes. AI agent security testing can evaluate agent permissions and tool integrations along with access boundaries and safeguards against unauthorized actions. It can also assess how indirect prompt injection may affect agents that retrieve external content or interact with connected systems."],
+  ["What is AI red teaming?", "AI red teaming uses controlled attack simulations to test the resilience of AI applications against malicious inputs and attempts to bypass security restrictions. It helps identify weaknesses in model behavior and application safeguards while providing evidence for remediation."],
+  ["Can AI security services assess LLM and RAG applications?", "Yes. LLM and RAG security assessments can examine prompt handling and model responses along with retrieval permissions and access to connected documents. Testing helps identify weaknesses that could expose confidential information or allow unauthorized access to enterprise data."],
+  ["What does an AI security assessment report include?", "An AI security assessment report typically includes identified vulnerabilities and their severity ratings along with supporting evidence and remediation recommendations. Depending on the agreed scope, it may also include attack scenarios and retesting results."],
+  ["When should businesses conduct AI security testing?", "Businesses should consider AI security testing before deploying AI applications into production and after significant changes to models or integrations. Periodic assessments are also valuable when new AI agents or external tools are introduced."],
+  ["How can CipherTrivia help improve AI application security?", "CipherTrivia helps organizations identify AI-specific vulnerabilities through structured security assessments and controlled testing. Its assessment approach covers relevant AI applications and agent workflows while providing risk-based findings and practical remediation guidance."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "AI Security Services",
+      "serviceType": "AI Security Testing",
+      "description": "Protect AI applications and LLMs with AI security services from CipherTrivia. Identify AI vulnerabilities and reduce risks through security testing and expert guidance.",
+      "url": "https://www.ciphertrivia.com/ai-security/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Types of AI Security Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Application Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLM Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agent Cybersecurity Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative AI Security Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Red Teaming Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RAG Application Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI API and Integration Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Model Security Assessment" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Security Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title"><span class="accent">AI Security</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">Secure your AI applications against emerging threats with CipherTrivia’s AI security services. We assess AI models and LLM-based applications to identify vulnerabilities involving prompt injection and sensitive data exposure while evaluating access controls and AI agent security. Our security testing helps organizations understand AI-related risks and prioritize remediation before vulnerabilities can be exploited.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="12" aria-hidden="true">
+          <svg viewBox="0 0 480 480">
+<rect class="f-ink" x="24" y="24" width="336" height="432"/>
+<path class="f-none s-paper" d="M24 62H360" stroke-opacity=".22"/>
+<rect class="f-none s-paper" x="38" y="36" width="26" height="14" stroke-opacity=".35"/>
+<path class="f-sig" d="M51 36.5c.4 2.6 1.3 3.5 4 4-2.7.5-3.6 1.4-4 4-.4-2.6-1.3-3.5-4-4 2.7-.5 3.6-1.4 4-4z"/>
+<rect class="f-paper" x="72" y="41" width="70" height="4" fill-opacity=".55"/>
+<rect class="f-paper" x="316" y="40" width="6" height="6" fill-opacity=".25"/>
+<rect class="f-paper" x="328" y="40" width="6" height="6" fill-opacity=".25"/>
+<rect class="f-paper" x="340" y="40" width="6" height="6" fill-opacity=".25"/>
+<rect class="f-ink9 s-paper" x="38.75" y="404.75" width="306.5" height="38.5" stroke-opacity=".22"/>
+<rect class="f-paper" x="52" y="421" width="120" height="4" fill-opacity=".75" data-fx="grow" data-at="0.3" data-len="0.6" data-out="1.55"/>
+<rect class="f-paper" x="178" y="421" width="70" height="4" fill-opacity=".75" data-fx="grow" data-at="0.9" data-len="0.45" data-out="1.55"/>
+<rect class="f-sig" x="314" y="412" width="24" height="24"/>
+<path class="f-none s-ink" d="M321 424h10M327 419l5 5-5 5" stroke-width="1.75"/>
+<g data-fx="pop" data-at="1.6" data-len="0.45"><rect class="f-paper" x="170" y="78" width="176" height="48"/><rect class="f-ink" x="184" y="92" width="136" height="4" fill-opacity=".8"/><rect class="f-ink" x="184" y="104" width="96" height="4" fill-opacity=".8"/></g>
+<g data-fx="pop" data-at="2" data-len="0.45"><rect class="f-ink8 s-paper" x="210.75" y="132.75" width="134.5" height="44.5" stroke-opacity=".22"/><path class="f-none s-paper" d="M223 143h11l5 5v19h-16zM234 143v5h5" stroke-width="1.5"/><rect class="f-paper" x="248" y="148" width="80" height="4" fill-opacity=".5"/><rect class="f-paper" x="248" y="158" width="60" height="4" fill-opacity=".5"/></g>
+<rect class="f-sig" x="248" y="158" width="80" height="4" data-fx="grow" data-at="2.7" data-len="0.5"/>
+<path class="f-none s-sig" d="M205 134v-7h7M342 127h7v7M349 176v7h-7M212 183h-7v-7" stroke-width="2" data-fx="pop" data-at="2.85" data-len="0.45" data-out="4.4"/>
+<g data-fx="pop" data-at="3.4" data-len="0.4"><rect class="f-sig" x="38" y="196" width="22" height="22"/><path class="f-ink" d="M49 200.5c.4 2.6 1.3 3.5 4 4-2.7.5-3.6 1.4-4 4-.4-2.6-1.3-3.5-4-4 2.7-.5 3.6-1.4 4-4z"/></g>
+<rect class="f-ink9 s-paper" x="68.75" y="196.75" width="222.5" height="62.5" stroke-opacity=".22" data-fx="fade" data-at="3.55" data-len="0.3"/>
+<rect class="f-paper" x="82" y="210" width="180" height="4" fill-opacity=".7" data-fx="grow" data-at="3.75" data-len="0.35"/>
+<rect class="f-paper" x="82" y="223" width="150" height="4" fill-opacity=".7" data-fx="grow" data-at="4.03" data-len="0.35"/>
+<rect class="f-paper" x="82" y="236" width="108" height="4" fill-opacity=".7" data-fx="grow" data-at="4.31" data-len="0.35"/>
+<g data-fx="pop" data-at="4.75" data-len="0.45"><rect class="f-sig1 s-sig" x="68.75" y="272.75" width="150.5" height="40.5" stroke-width="1.5"/><path class="f-none s-sig" d="M84 284c-2.5 0-3.4 1.2-3.4 3.3v1.4c0 1.2-.8 2-2.1 2 1.3 0 2.1.8 2.1 2v1.4c0 2.1.9 3.3 3.4 3.3M94 284c2.5 0 3.4 1.2 3.4 3.3v1.4c0 1.2.8 2 2.1 2-1.3 0-2.1.8-2.1 2v1.4c0 2.1-.9 3.3-3.4 3.3" stroke-width="1.75"/><rect class="f-sig" x="110" y="291" width="92" height="4"/></g>
+<path class="f-none" d="M219 293H368" id="ai-call"/>
+<path class="f-none s-sig" d="M219 293H368" pathLength="1" stroke-width="2" data-fx="draw" data-at="5.3" data-len="0.8"/>
+<g data-fx="move" data-at="5.3" data-len="0.8" data-path="#ai-call"><rect class="f-sig" x="-6" y="-6" width="12" height="12"/></g>
+<rect class="f-sig" x="362" y="287" width="12" height="12" data-fx="fade" data-at="6.08" data-len="0.05"/>
+<path class="f-none s-ink s-dash" d="M384 236V350" stroke-width="1.5"/>
+<path class="f-none s-sig" d="M384 236V350" pathLength="1" stroke-width="2.5" data-fx="draw" data-at="6.05" data-len="0.35"/>
+<rect class="f-paper s-ink" x="371.75" y="276.75" width="24.5" height="32.5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M384 283l7 2.6v5.2c0 4.4-3 7.4-7 8.8-4-1.4-7-4.4-7-8.8v-5.2z" stroke-width="1.5"/>
+<path class="f-sig1 s-sig" d="M384 283l7 2.6v5.2c0 4.4-3 7.4-7 8.8-4-1.4-7-4.4-7-8.8v-5.2z" stroke-width="1.75" data-fx="pop" data-at="6.15" data-len="0.4"/>
+<path class="f-none s-sig" d="M354 286v-7h7M375 279h7v7M382 300v7h-7M361 307h-7v-7" stroke-width="2" data-fx="pop" data-at="6.3" data-len="0.45"/>
+<path class="f-none s-ink s-dash" d="M396 293H410" stroke-opacity=".5"/>
+<rect class="f-paper s-ink" x="410.75" y="266.75" width="45.5" height="52.5" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M421 279c0-2.2 5.2-3.6 12.5-3.6s12.5 1.4 12.5 3.6v26c0 2.2-5.2 3.6-12.5 3.6s-12.5-1.4-12.5-3.6zM421 279c0 2.2 5.2 3.6 12.5 3.6s12.5-1.4 12.5-3.6M421 292c0 2.2 5.2 3.6 12.5 3.6s12.5-1.4 12.5-3.6" stroke-width="1.5"/>
+<rect class="f-ink" x="441" y="300" width="15" height="15" data-fx="pop" data-at="6.7" data-len="0.4"/>
+<path class="f-none s-paper" d="M444.5 307.5l2.5 2.5 5-5.5" stroke-width="1.75" pathLength="1" data-fx="draw" data-at="6.85" data-len="0.3"/>
+<g data-fx="pop" data-at="7.3" data-len="0.4"><rect class="f-sig" x="38" y="330" width="22" height="22"/><path class="f-ink" d="M49 334.5c.4 2.6 1.3 3.5 4 4-2.7.5-3.6 1.4-4 4-.4-2.6-1.3-3.5-4-4 2.7-.5 3.6-1.4 4-4z"/></g>
+<g data-fx="fade" data-at="7.4" data-len="0.3"><rect class="f-ink9 s-paper" x="68.75" y="330.75" width="196.5" height="46.5" stroke-opacity=".22"/><path class="f-none s-paper" d="M89 342l6 2.2v4.4c0 3.8-2.6 6.4-6 7.6-3.4-1.2-6-3.8-6-7.6v-4.4z" stroke-width="1.5"/><path class="f-none s-sig" d="M86 348.5l2 2 4-4.5" stroke-width="1.75"/></g>
+<rect class="f-paper" x="106" y="345" width="140" height="4" fill-opacity=".7" data-fx="grow" data-at="7.6" data-len="0.35"/>
+<rect class="f-paper" x="106" y="357" width="96" height="4" fill-opacity=".7" data-fx="grow" data-at="7.85" data-len="0.35"/>
+<path class="f-none s-sig s-dash" d="M384 352V372" stroke-width="1.5" data-fx="fade" data-at="7" data-len="0.3"/>
+<rect class="f-paper s-ink" x="376.75" y="372.75" width="79.5" height="83.5" stroke-width="1.5" data-fx="fade" data-at="7.15" data-len="0.3"/>
+<rect class="f-ink" x="386" y="386" width="52" height="4" fill-opacity=".75" data-fx="grow" data-at="7.35" data-len="0.3"/>
+<rect class="f-ink" x="386" y="397" width="40" height="4" fill-opacity=".75" data-fx="grow" data-at="7.45" data-len="0.3"/>
+<rect class="f-ink" x="386" y="408" width="58" height="4" fill-opacity=".75" data-fx="grow" data-at="7.55" data-len="0.3"/>
+<rect class="f-sig" x="386" y="426" width="30" height="14" data-fx="pop" data-at="7.8" data-len="0.4"/>
+<path class="f-none s-ink" d="M424 433l3 3 6-7" stroke-width="1.75" pathLength="1" data-fx="draw" data-at="8.1" data-len="0.3"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">AI Security Services for Applications, LLMs and AI Agents</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">AI security services help organizations identify and address vulnerabilities in AI-powered applications and large language models (LLMs) along with AI agents and connected systems. These services include security assessments and vulnerability testing to reduce risks involving data exposure and unauthorized access.</p>
+        <p class="rv">As businesses adopt generative AI and autonomous AI agents, securing models alone is no longer sufficient. AI agents interact with APIs and enterprise data while executing tasks and making decisions based on user instructions. Weak access controls and excessive permissions can expose sensitive information or allow agents to perform unauthorized actions. CipherTrivia provides AI security services to identify vulnerabilities across AI applications and LLM-based systems as well as agentic AI workflows.</p>
+        <p class="rv">Our AI security assessments evaluate risks such as prompt injection and sensitive data exposure along with insecure tool integrations and excessive AI agent permissions. We assess how AI agents access resources and process instructions while interacting with connected systems to identify potential attack paths and security gaps. Our findings and remediation recommendations help organizations strengthen AI application security and adopt AI agents with greater control over data access and automated actions.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="aimap" data-aimap>
+        <div class="aimap__board" data-aimap-board role="img" aria-label="Map of an AI application and the security risks tested at each point. User prompts: prompt injection. AI application: broken access controls. LLM: model abuse and manipulation, sensitive data exposure. AI agent: excessive AI agent permissions. APIs and external tools: insecure API integrations. Enterprise documents: indirect prompt injection. RAG retrieval: RAG data exposure. Connected systems: insecure output handling.">
+          <canvas class="aimap__canvas"></canvas>
+          <p class="aimap__key">AI-specific risks</p>
+          <ol class="aimap__nodes">
+            {%- for n in aimap %}
+            <li class="aimap__node{% if n[3] %} aimap__node--ai{% endif %}" data-aimap-node="{{ n[0] }}">
+              {{ icon(n[1], "sm") }}
+              <p class="aimap__name">{{ n[2] }}</p>
+              <ul class="aimap__risks">
+                {%- for r in n[4] %}
+                <li class="aimap__risk">{{ r }}</li>
+                {%- endfor %}
+              </ul>
+            </li>
+            {%- endfor %}
+          </ol>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-aimap-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- AI AGENT TESTING                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s2-title">AI Agent Cybersecurity Testing Services</h2>
+        <div class="ai-agent rv" style="--d:1" data-sig="12" role="img" aria-label="Animated diagram: an AI agent uses the tools inside its permission boundary; a web page it reads carries a hidden instruction; the agent's call to a database is stopped at the boundary, while a call to a payment tool passes through an over-broad permission and is recorded as a finding">
+          <svg aria-hidden="true" viewBox="0 0 480 480">
+<path class="f-none s-paper" d="M400.5 300V50.5H150.5V430.5H400.5V350" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="6 6"/>
+<path class="f-none s-paper" d="M400.5 300V350" stroke-opacity=".14" stroke-width="1.5" stroke-dasharray="2 6"/>
+<rect class="f-paper" x="150" y="42" width="8" height="8" fill-opacity=".5"/>
+<path class="f-none s-paper" d="M230 440V292" stroke-opacity=".3" stroke-width="1.25"/>
+<path class="f-none s-paper" d="M280 214H300V108H320" stroke-opacity=".3" stroke-width="1.25"/>
+<path class="f-none s-paper" d="M280 240H320" stroke-opacity=".3" stroke-width="1.25"/>
+<path class="f-none s-paper" d="M280 266H300V372H320" stroke-opacity=".3" stroke-width="1.25"/>
+<path class="f-none s-paper" d="M100 240H180" stroke-opacity=".3" stroke-width="1.25"/>
+<path class="f-none" d="M230 440V292" id="ag-user"/>
+<path class="f-none" d="M280 214H300V108H320" id="ag-search"/>
+<path class="f-none" d="M280 240H320" id="ag-docs"/>
+<path class="f-none" d="M280 266H300V372H320" id="ag-cal"/>
+<path class="f-none" d="M100 240H180" id="ag-web"/>
+<path class="f-none" d="M230 190V165H400" id="ag-db"/>
+<path class="f-none" d="M230 290V325H420" id="ag-pay"/>
+<path class="f-none" d="M320 108H300V214H282" id="ag-search-back"/>
+<rect class="f-ink s-paper" x="180.75" y="190.75" width="98.5" height="98.5" stroke-width="1.5"/>
+<rect class="f-none s-paper" x="205" y="218" width="50" height="38" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M230 206V218M196 230v14M264 230v14M220 266h20" stroke-width="1.5"/>
+<rect class="f-paper" x="216" y="230" width="8" height="8"/>
+<rect class="f-paper" x="236" y="230" width="8" height="8"/>
+<rect class="f-sig" x="216" y="230" width="8" height="8" data-fx="pop" data-at="4.3" data-len="0.4"/>
+<rect class="f-sig" x="236" y="230" width="8" height="8" data-fx="pop" data-at="4.36" data-len="0.4"/>
+<path class="f-none s-paper" d="M224 246h12" stroke-width="1.5"/>
+<rect class="f-ink s-paper" x="320.75" y="80.75" width="54.5" height="54.5" stroke-width="1.5"/>
+<circle class="f-none s-paper" cx="345" cy="105" r="9" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M351.5 111.5l8 8" stroke-width="1.5"/>
+<rect class="f-ink s-paper" x="320.75" y="212.75" width="54.5" height="54.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M338 226h13l7 7v21h-20zM351 226v7h7M343 242h10M343 247h7" stroke-width="1.5"/>
+<rect class="f-ink s-paper" x="320.75" y="344.75" width="54.5" height="54.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M336 362h24v22h-24zM336 369h24M342 358v6M354 358v6" stroke-width="1.5"/>
+<rect class="f-paper" x="320" y="80" width="56" height="56" fill-opacity=".12" data-fx="fade" data-at="2" data-len="0.25" data-out="2.9"/>
+<rect class="f-ink s-paper" x="420.75" y="140.75" width="48.5" height="48.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M432 153c0-2.5 6-4 13-4s13 1.5 13 4v24c0 2.5-6 4-13 4s-13-1.5-13-4zM432 153c0 2.5 6 4 13 4s13-1.5 13-4M432 165c0 2.5 6 4 13 4s13-1.5 13-4" stroke-width="1.5"/>
+<rect class="f-ink s-paper" x="420.75" y="300.75" width="48.5" height="48.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M429 314h32v22h-32zM429 320h32M434 330h9" stroke-width="1.5"/>
+<rect class="f-sig" x="420" y="300" width="50" height="50" fill-opacity=".9" data-fx="fade" data-at="7.3" data-len="0.3"/>
+<path class="f-none s-ink" d="M429 314h32v22h-32zM429 320h32M434 330h9" stroke-width="1.75" data-fx="fade" data-at="7.3" data-len="0.3"/>
+<rect class="f-ink s-paper" x="30.75" y="212.75" width="68.5" height="54.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M40 222h50v36h-50zM40 230h50M46 238h22M46 245h30" stroke-width="1.5"/>
+<rect class="f-sig" x="46" y="250.5" width="26" height="3.5" data-fx="grow" data-at="3" data-len="0.45"/>
+<rect class="f-ink s-paper" x="204.75" y="440.75" width="50.5" height="34.5" stroke-width="1.5"/>
+<path class="f-none s-paper" d="M214 449h32v14h-20l-6 5v-5h-6z" stroke-width="1.5"/>
+<g data-fx="move" data-at="0.3" data-len="0.8" data-path="#ag-user"><rect class="f-paper" x="-4" y="-4" width="8" height="8"/></g>
+<path class="f-none s-paper" d="M280 214H300V108H320" pathLength="1" stroke-width="1.75" data-fx="draw" data-at="1.2" data-len="0.4" data-out="3"/>
+<g data-fx="move" data-at="1.35" data-len="0.6" data-path="#ag-search"><rect class="f-paper" x="-4" y="-4" width="8" height="8"/></g>
+<g data-fx="move" data-at="2.2" data-len="0.6" data-path="#ag-search-back"><rect class="f-paper" x="-4" y="-4" width="8" height="8"/></g>
+<path class="f-none s-sig" d="M100 240H180" pathLength="1" stroke-width="2" data-fx="draw" data-at="3.45" data-len="0.7"/>
+<g data-fx="move" data-at="3.45" data-len="0.8" data-path="#ag-web"><rect class="f-sig" x="-4" y="-4" width="8" height="8"/></g>
+<path class="f-none s-sig" d="M230 190V165H400" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.9" data-len="0.6"/>
+<g data-fx="move" data-at="4.9" data-len="0.65" data-path="#ag-db"><rect class="f-sig" x="-4" y="-4" width="8" height="8"/></g>
+<rect class="f-ink s-paper" x="393" y="158" width="14" height="14" stroke-width="1.5" data-fx="pop" data-at="5.5" data-len="0.4"/>
+<path class="f-none s-paper" d="M396.5 165h7" stroke-width="1.5" data-fx="pop" data-at="5.5" data-len="0.4"/>
+<path class="f-none s-paper" d="M400.5 135V195" pathLength="1" stroke-width="2" data-fx="draw" data-at="5.45" data-len="0.3" data-out="7"/>
+<path class="f-none s-sig" d="M230 290V325H420" pathLength="1" stroke-width="2" data-fx="draw" data-at="6.3" data-len="0.8"/>
+<g data-fx="move" data-at="6.3" data-len="0.9" data-path="#ag-pay"><rect class="f-sig" x="-4" y="-4" width="8" height="8"/></g>
+<path class="f-none s-sig" d="M400.5 300V350" pathLength="1" stroke-width="2.5" data-fx="draw" data-at="7" data-len="0.3"/>
+<path class="f-none s-sig" d="M386.5 299v-6h6M408.5 293h6v6M414.5 351v6h-6M392.5 357h-6v-6" stroke-width="2" data-fx="pop" data-at="7.5" data-len="0.45"/>
+<path class="f-none s-sig s-dash" d="M414 357V372" stroke-width="1.5" data-fx="fade" data-at="7.8" data-len="0.3"/>
+<rect class="f-paper s-paper" x="392.75" y="372.75" width="77.5" height="51.5" stroke-width="1.5" data-fx="fade" data-at="8" data-len="0.3"/>
+<rect class="f-ink" x="402" y="384" width="44" height="4" fill-opacity=".8" data-fx="grow" data-at="8.2" data-len="0.3"/>
+<rect class="f-ink" x="402" y="394" width="34" height="4" fill-opacity=".8" data-fx="grow" data-at="8.3" data-len="0.3"/>
+<rect class="f-sig" x="402" y="405" width="26" height="10" data-fx="pop" data-at="8.5" data-len="0.4"/>
+</svg>
+        </div>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">AI agent cybersecurity testing evaluates autonomous AI agents for security weaknesses that could allow attackers to manipulate agent behavior or trigger unauthorized actions. Testing focuses on risks such as indirect prompt injection and excessive permissions along with insecure tool integrations and unauthorized data access.</p>
+        <p class="rv">AI agents introduce new cybersecurity risks because they can interpret instructions and interact with APIs or external tools while accessing sensitive business data. Security weaknesses such as prompt injection and excessive permissions can manipulate agent behavior or trigger unauthorized actions. CipherTrivia provides AI agent cybersecurity testing to identify vulnerabilities in agent workflows and evaluate the effectiveness of security controls.</p>
+        <p class="rv">Our AI agent security testing assesses agent permissions and tool integrations along with authentication mechanisms and data access boundaries. We simulate relevant attack scenarios to identify risks such as unauthorized tool execution and indirect prompt injection as well as sensitive data exposure and privilege escalation. Our testing findings include risk-based recommendations to help organizations strengthen AI agent security and reduce the likelihood of exploitation across connected systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TYPES                                                                -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Types of AI Security Services We Offer</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia provides AI security services to identify vulnerabilities across AI-powered applications and intelligent systems. Our testing approach covers LLM-based applications and generative AI solutions along with AI agents and connected data sources to help organizations address security risks before they can be exploited.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--8">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("browser") }}</div>
+        <h3 class="ledger__title">AI Application Security Testing</h3>
+        <p class="ledger__text">We assess AI-powered applications for security weaknesses in authentication and authorization along with input validation and application logic. Our testing identifies vulnerabilities that could expose sensitive information or allow unauthorized access through AI-driven features.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("chat") }}</div>
+        <h3 class="ledger__title">LLM Security Testing</h3>
+        <p class="ledger__text">Our LLM security testing evaluates large language model applications for prompt injection and sensitive data leakage along with insecure output handling and weaknesses in model access controls. We identify risks that could affect application security and the confidentiality of business information.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("agent") }}</div>
+        <h3 class="ledger__title">AI Agent Cybersecurity Testing</h3>
+        <p class="ledger__text">AI agent cybersecurity testing evaluates the security of autonomous agents that interact with APIs and external tools or execute tasks using connected systems. We test for indirect prompt injection and excessive permissions along with unauthorized tool execution and privilege escalation to identify weaknesses that could lead to unintended actions or data exposure.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("sparkle") }}</div>
+        <h3 class="ledger__title">Generative AI Security Assessment</h3>
+        <p class="ledger__text">We assess generative AI applications for vulnerabilities involving user prompts and generated responses as well as data processing and third-party integrations. This helps organizations understand security risks associated with deploying AI-powered features in business environments.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">AI Red Teaming Services</h3>
+        <p class="ledger__text">Our AI red teaming services simulate controlled adversarial scenarios to evaluate how AI systems respond to malicious inputs and attempts to bypass security restrictions. This testing helps uncover weaknesses in model behavior and application safeguards that may not be identified through conventional security testing alone.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("database") }}</div>
+        <h3 class="ledger__title">RAG Application Security Testing</h3>
+        <p class="ledger__text">Retrieval-Augmented Generation (RAG) systems connect AI models with enterprise documents and external knowledge sources. We assess retrieval permissions and document access controls along with data handling mechanisms to identify vulnerabilities that could expose confidential information to unauthorized users or AI agents.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h3 class="ledger__title">AI API and Integration Security Testing</h3>
+        <p class="ledger__text">AI applications often depend on APIs and external services to retrieve information or execute tasks. We evaluate API authentication and authorization along with input validation and integration security to identify weaknesses that could expose connected systems or allow unauthorized operations.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("chip") }}</div>
+        <h3 class="ledger__title">AI Model Security Assessment</h3>
+        <p class="ledger__text">We assess relevant AI model interfaces and deployment configurations to identify security weaknesses involving model access and inference endpoints along with exposed functionality and inadequate protective controls. Our findings help organizations strengthen the security of their AI model deployments.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS (light: the Why section that follows is ink)                 -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s4-title">
+  <div class="container">
+    <div class="process process--light">
+      <div class="process__aside">
+        <h2 class="process__title" id="s4-title">Our AI Security Testing Process</h2>
+        <p class="process__lede">CipherTrivia follows a structured AI security testing process to identify vulnerabilities across AI applications and LLM-based systems along with autonomous AI agents. Our approach combines security reviews with controlled testing to uncover potential attack paths and provide actionable recommendations.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope Definition and AI Architecture Review</h3>
+          <p class="step__text">We identify the AI models and applications within scope while reviewing system architecture and data flows along with connected APIs and agent integrations. This helps establish the testing objectives and identify critical security boundaries.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">AI Threat Analysis</h3>
+          <p class="step__text">We analyze potential attack scenarios involving prompt injection and sensitive data exposure along with insecure tool access and excessive AI agent permissions. This step helps prioritize the components and workflows that require focused security testing.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">AI Security Testing and Attack Simulation</h3>
+          <p class="step__text">We conduct authorized security tests against relevant AI components to identify vulnerabilities in prompts and model responses as well as API integrations and agent workflows. Testing may include attempts to bypass security restrictions or trigger unauthorized tool execution.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Vulnerability Validation and Risk Assessment</h3>
+          <p class="step__text">We validate identified weaknesses and evaluate their potential impact on application security and business data. Findings are prioritized based on severity and exploitability so organizations can focus on the most significant risks.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Reporting and Remediation Guidance</h3>
+          <p class="step__text">We deliver a detailed AI security assessment report covering identified vulnerabilities and supporting evidence along with risk ratings and practical remediation recommendations. Retesting can be performed when included in the agreed scope to validate implemented fixes.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s5-title">Why Choose CipherTrivia for AI Security Services?</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia helps organizations identify and address security vulnerabilities across AI-powered applications and autonomous AI agents. Our approach focuses on AI-specific attack scenarios and practical security testing to help businesses understand their exposure and strengthen protection across connected systems.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("badge") }}
+        <h3 class="principle__title">AI-Specific Security Expertise</h3>
+        <p class="principle__text">We focus on vulnerabilities affecting LLMs and generative AI applications along with AI agents and connected APIs. Our testing examines risks that conventional application security assessments may not fully address.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("agent") }}
+        <h3 class="principle__title">Specialized AI Agent Security Testing</h3>
+        <p class="principle__text">We assess autonomous AI agents for indirect prompt injection and excessive permissions along with unauthorized tool execution and insecure access to connected resources. This helps identify weaknesses that could lead to data exposure or unintended actions.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("bug") }}
+        <h3 class="principle__title">Practical Vulnerability Assessment</h3>
+        <p class="principle__text">Our AI security testing identifies exploitable weaknesses through controlled testing and structured analysis. We document findings with relevant evidence and prioritize risks according to their potential security impact.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("wrench") }}
+        <h3 class="principle__title">Actionable Remediation Guidance</h3>
+        <p class="principle__text">We provide clear recommendations that help development and security teams address identified vulnerabilities and improve safeguards across AI applications and agent workflows.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Comprehensive Application and Integration Coverage</h3>
+        <p class="principle__text">We evaluate relevant security controls across AI models and application interfaces along with APIs and connected data sources. This broader assessment helps uncover risks that may arise from interactions between different system components.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("gauge") }}
+        <h3 class="principle__title">Risk-Based Security Reporting</h3>
+        <p class="principle__text">Our reports organize findings by severity and explain their potential impact while outlining corrective actions. This gives organizations a clear basis for prioritizing remediation and strengthening their AI security posture.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RISKS                                                                -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">Common AI Security Risks We Identify</h2>
+        <p class="shead__lede rv" style="--d:1">AI systems introduce security risks that differ from those found in traditional applications. Our AI security assessments focus on identifying weaknesses that could affect data confidentiality and application integrity or allow unauthorized system actions.</p>
+      </div>
+    </header>
+
+    <ul class="includes includes--4">
+      <li class="include rv">{{ icon("syringe", "sm") }}<p><strong>Prompt Injection:</strong> Malicious instructions can manipulate an AI system into ignoring intended restrictions or disclosing protected information.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("unlock", "sm") }}<p><strong>Sensitive Data Exposure:</strong> Inadequate safeguards can expose confidential information through prompts and model responses or connected data sources.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("terminal", "sm") }}<p><strong>Insecure Output Handling:</strong> Unvalidated AI-generated content can introduce security risks when applications process or execute the output.</p></li>
+      <li class="include rv" style="--d:3">{{ icon("shield-crack", "sm") }}<p><strong>Broken Access Controls:</strong> Weak authorization mechanisms can allow users or AI agents to access resources beyond their assigned permissions.</p></li>
+      <li class="include rv">{{ icon("directory", "sm") }}<p><strong>RAG Data Exposure:</strong> Improper retrieval permissions can expose documents or records that a user should not be able to access.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("escalate", "sm") }}<p><strong>Excessive AI Agent Permissions:</strong> Overprivileged agents may invoke tools or perform actions beyond their intended scope.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("link", "sm") }}<p><strong>Insecure API Integrations:</strong> Weak authentication and insufficient validation across connected services can expose AI application components to attacks.</p></li>
+      <li class="include rv" style="--d:3">{{ icon("alert", "sm") }}<p><strong>Model Abuse and Manipulation:</strong> Adversarial inputs can exploit weaknesses in model behavior and undermine intended security restrictions.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">What You Receive From Our AI Security Services</h2>
+        <p class="shead__lede rv" style="--d:1">Our AI security assessment provides a clear view of identified vulnerabilities and the actions required to strengthen your AI application's security posture.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="ai-report" data-sig="10" role="img" aria-label="Example AI security assessment report: findings with risk severity ratings, remediation recommendations and retesting results">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-ink" x="36" y="44" width="260" height="392"/><rect class="f-sig" x="52" y="60" width="8" height="8"/><rect class="f-paper" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-paper" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-paper" x="54" y="112" font-size="25">AI Security</text><text class="sig-txt f-paper" x="54" y="141" font-size="25">Assessment</text><text class="sig-txt f-paper" x="54" y="170" font-size="25">Report</text><path class="f-none s-sig" d="M58 196h-6v26h6M138 196h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-sig" x="66" y="213.5" font-size="10">EXAMPLE</text><path class="f-none s-paper" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="14.5" font-weight="500">Risk Severity Ratings</text><path class="f-none s-ink" d="M216 224h216" stroke-opacity=".25"/><text class="sig-txt f-ink" x="216" y="252" font-size="10.5" data-fx="fade" data-at="1.75" data-len="0.3">Prompt Injection</text><g data-fx="pop" data-at="1.9" data-len="0.4"><rect class="f-sig" x="384.5" y="241.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="252.5" font-size="7.5" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 262h216" stroke-opacity=".1"/><text class="sig-txt f-ink" x="216" y="281" font-size="10.5" data-fx="fade" data-at="2" data-len="0.3">Excessive AI Agent Permissions</text><g data-fx="pop" data-at="2.15" data-len="0.4"><rect class="f-sig" x="384.5" y="270.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="281.5" font-size="7.5" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 291h216" stroke-opacity=".1"/><text class="sig-txt f-ink" x="216" y="310" font-size="10.5" data-fx="fade" data-at="2.25" data-len="0.3">RAG Data Exposure</text><g data-fx="pop" data-at="2.4" data-len="0.4"><rect class="f-sig" x="384.5" y="299.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="310.5" font-size="7.5" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 320h216" stroke-opacity=".1"/><text class="sig-txt f-ink" x="216" y="339" font-size="10.5" data-fx="fade" data-at="2.5" data-len="0.3">Sensitive Data Exposure</text><g data-fx="pop" data-at="2.65" data-len="0.4"><rect class="f-sig1" x="384.5" y="328.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="339.5" font-size="7.5" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 349h216" stroke-opacity=".1"/><text class="sig-txt f-ink" x="216" y="368" font-size="10.5" data-fx="fade" data-at="2.75" data-len="0.3">Insecure Output Handling</text><g data-fx="pop" data-at="2.9" data-len="0.4"><rect class="f-p100 s-stone" x="384.5" y="357.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="368.5" font-size="7.5" text-anchor="middle">LOW</text></g><path class="f-none s-ink" d="M216 378h216" stroke-opacity=".1"/><text class="sig-txt f-ink" x="216" y="416" font-size="12" font-weight="500" data-fx="fade" data-at="3.1" data-len="0.3">Remediation Recommendations</text><rect class="f-stone" x="216" y="430" width="200" height="4" data-fx="grow" data-at="3.3" data-len="0.35"/><rect class="f-stone" x="216" y="443" width="166" height="4" data-fx="grow" data-at="3.4" data-len="0.35"/><rect class="f-stone" x="216" y="456" width="184" height="4" data-fx="grow" data-at="3.5" data-len="0.35"/><text class="sig-txt f-ink" x="216" y="490" font-size="12" font-weight="500" data-fx="fade" data-at="3.9" data-len="0.3">Retesting Results</text><rect class="f-none s-ink" x="216.75" y="504.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 511l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.1" data-len="0.3"/><rect class="f-stone" x="238" y="509" width="150" height="4" data-fx="grow" data-at="4.15" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="525.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 532l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.35" data-len="0.3"/><rect class="f-stone" x="238" y="530" width="120" height="4" data-fx="grow" data-at="4.4" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="546.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 553l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.6" data-len="0.3"/><rect class="f-stone" x="238" y="551" width="168" height="4" data-fx="grow" data-at="4.65" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ul class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div><p class="deliver__text"><strong>AI Security Assessment Report:</strong> A structured report covering the components assessed and the vulnerabilities identified during testing.</p></div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("magnifier") }}
+          <div><p class="deliver__text"><strong>Vulnerability Details:</strong> Technical explanations of security weaknesses with supporting evidence where applicable.</p></div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div><p class="deliver__text"><strong>Risk Severity Ratings:</strong> Prioritization of findings based on their potential impact and exploitability.</p></div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div><p class="deliver__text"><strong>Remediation Recommendations:</strong> Practical guidance to address identified weaknesses and improve security controls.</p></div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("lateral") }}
+          <div><p class="deliver__text"><strong>AI Attack Scenario Findings:</strong> Results from relevant tests involving prompt injection and data exposure or unauthorized AI agent actions.</p></div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("retest") }}
+          <div><p class="deliver__text"><strong>Retesting Results:</strong> Validation of implemented fixes when retesting is included in the engagement scope.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About AI Security Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>
+<script src="/assets/js/ai-map.js" defer></script>

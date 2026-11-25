@@ -1,0 +1,108 @@
+/* ==========================================================================
+   About — figures band, four-up values, standards grid, team call-to-action
+   ========================================================================== */
+
+/* ---- Figures band ---- */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+.figure-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.figure-cell__num {
+  font-size: clamp(3rem, 2rem + 3.6vw, 6rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-950);
+}
+.figure-cell__num .plus { color: var(--signal-600); }
+.figure-cell__label {
+  font-size: var(--fs-xs);
+  color: var(--stone-500);
+}
+
+/* Story: paragraphs sit under the title in the sticky aside */
+.split__aside .split__prose { margin-top: var(--s-3); }
+.split__prose > * + * { margin-top: 1rem; }
+.split__prose p { color: var(--ink-700); }
+
+/* ---- Values in four columns ---- */
+.principles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* ---- Standards ---- */
+.standards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line);
+}
+.standard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 12rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  background: var(--paper-0);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--dur-2) var(--ease);
+}
+.standard::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-bottom: auto;
+  background: var(--signal-500);
+}
+.standard:hover { background: var(--paper-50); }
+/* With icons: the icon takes the marker's place */
+.standards--icons .standard::before { content: none; }
+.standards--icons .standard > .ico { margin-bottom: auto; }
+.standards--icons .standard__name { padding-top: 2rem; }
+.standard__name {
+  padding-top: 2.5rem;
+  font-size: var(--fs-xl);
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+}
+.standard__area {
+  font-size: var(--fs-xs);
+  color: var(--stone-500);
+}
+
+/* ---- Team call-to-action: lead line over the sentence ---- */
+.svc-cta__lead {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  font-weight: 500;
+  color: var(--ink-950);
+}
+
+@media (max-width: 1100px) {
+  .principles--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .figures, .standards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .principles--4 { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .standards { grid-template-columns: 1fr; }
+  .standard { min-height: 0; }
+}

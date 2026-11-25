@@ -1,0 +1,527 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "IoT and OT Security Testing Services | ICS and SCADA"
+description: "IoT and OT security testing for connected devices, ICS and SCADA, smart infrastructure and robotics. Find risks safely with CipherTrivia."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["IoT and OT Security Testing Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What is IoT security testing?", "IoT security testing is a structured assessment of connected devices and the systems around them: the hardware, firmware, wireless and network communications, mobile apps and cloud services. Testers look for weaknesses that could let an attacker take control of a device, steal data or use it as a way into your network."],
+  ["What is OT security?", "Operational technology (OT) security protects the systems that monitor and control physical processes, such as programmable logic controllers (PLCs), SCADA systems, human-machine interfaces and building management systems. Because these systems affect safety and production, the priority is availability and safe operation, not only confidentiality."],
+  ["How is OT security different from IT security?", "IT systems usually prioritize confidentiality, while OT systems prioritize safety and availability. OT equipment often runs for decades, cannot be patched or rebooted easily and speaks industrial protocols that were designed without security. Testing and fixes therefore have to be planned carefully around operations."],
+  ["Is it safe to security test industrial systems?", "It can be, when it is planned for safety. We begin with passive discovery and documentation review, use lab replicas or staging equipment wherever possible, agree testing windows and stop conditions with your operations team, and avoid actions that could disrupt a live process. Active tests on production equipment are only done where agreed in advance."],
+  ["Do you test production environments?", "Only where you have agreed to it and the risk is understood. Most of the work can be done on documentation, network captures, configuration reviews, lab devices and test environments. Where production testing adds value, we limit it to safe, read-only checks under your supervision."],
+  ["What is an ICS or SCADA security assessment?", "An ICS or SCADA security assessment reviews industrial control systems for weaknesses in architecture, network segmentation, remote access, device configuration, protocols and access control. It shows how an attacker could move from a corporate network toward process control systems, and what to change to prevent it."],
+  ["What is IEC 62443?", "IEC 62443 is a series of international standards for the cybersecurity of industrial automation and control systems. It defines security levels, zones and conduits, and requirements for asset owners, system integrators and product suppliers. Our reporting can map findings to it."],
+  ["What is firmware analysis?", "Firmware analysis examines the software that runs on a device. We extract and inspect it for hard-coded credentials, insecure update mechanisms, outdated components with known vulnerabilities, debug interfaces and weak cryptography. It often reveals issues that cannot be seen from the network alone."],
+  ["What is the difference between IT/OT segmentation review and a penetration test?", "A segmentation review examines how your networks are separated, checking firewall rules, remote access paths and shared services against your design. A penetration test goes further and attempts to cross those boundaries. We can do either, or combine them, depending on your goals and risk appetite."],
+  ["Can you test medical devices, smart buildings and robotics?", "Yes. We assess medical and healthcare devices, building management and access control systems, warehouse and logistics automation, and robotic systems. Each has its own protocols, safety considerations and regulatory context, and we adapt the approach to suit."],
+  ["How long does IoT and OT security testing take?", "Duration depends on the number of device types, the size of the network and the depth of testing. A single device assessment can be completed in a short engagement, while a plant-wide OT assessment takes longer and needs careful scheduling. We confirm the timeline after scoping."],
+  ["How much does IoT and OT security testing cost?", "Cost depends on the number and complexity of devices and systems in scope, the depth of testing and the reporting required. Share a short description of your environment with CipherTrivia and we will recommend a scope and quote."],
+  ["What does the report include?", "The report includes an executive summary, an inventory of the assets tested, each finding with its severity, steps to reproduce, evidence and affected component, and a recommended fix. Where relevant, findings are mapped to IEC 62443 and related guidance, with fixes that account for operational constraints."],
+  ["Do you offer retesting after fixes are made?", "Yes. Retesting can be included to confirm that reported weaknesses have been addressed and that changes have not disrupted operations or opened new gaps. The retest results are added to the report."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "IoT and OT Security Testing Services",
+      "serviceType": "IoT and OT Security Testing",
+      "description": "IoT and OT security testing for connected devices, ICS and SCADA, smart infrastructure and robotics. Find risks safely with CipherTrivia.",
+      "url": "https://www.ciphertrivia.com/services/iot-ot-security/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IoT and OT Security Testing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IoT Device Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firmware Analysis and Reverse Engineering" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "OT, ICS and SCADA Security Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT/OT Network Segmentation Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Protocol and Wireless Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smart Infrastructure and Building Systems Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Robotics and Automation Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IoT Cloud, Mobile and API Backend Review" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "IoT and OT Security Testing Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">IoT and OT <span class="accent">Security Testing</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">Connected devices and industrial systems now link the office network to the factory floor, the building and the product in a customer's hands. CipherTrivia tests them safely, shows how an attacker could reach and affect them, and gives your team fixes that respect how your operations run.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" role="img" aria-label="Diagram: an enterprise IT zone is separated from the plant floor by a DMZ with a firewall; allowed traffic passes through the firewall, then a path that goes around it reaches a controller on the plant floor and is recorded as a finding">
+          <svg aria-hidden="true" viewBox="0 0 480 480">
+<rect class="f-none s-ink" x="30.5" y="30.5" width="419" height="100" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="70.5" y="60.5" width="70" height="46" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="205.5" y="60.5" width="70" height="46" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="340.5" y="60.5" width="70" height="46" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M84 74h42M84 82h30M219 74h42M219 82h30M354 74h42M354 82h30" stroke-width="1.5" stroke-opacity=".6"/>
+<rect class="f-p100 s-ink" x="30.5" y="158.5" width="419" height="62" stroke-width="1.5" stroke-opacity=".5"/>
+<rect class="f-paper s-ink" x="190.5" y="170.5" width="100" height="38" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M200 180h80M200 189h80M200 198h80M220 180v9M250 189v9" stroke-width="1.5" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="30.5" y="250.5" width="419" height="190" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="60.5" y="296.5" width="90" height="70" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="195.5" y="296.5" width="90" height="70" stroke-width="1.5"/>
+<rect class="f-paper s-ink" x="330.5" y="296.5" width="90" height="70" stroke-width="1.5"/>
+<rect class="f-none s-ink" x="76" y="312" width="58" height="12" stroke-width="1.5" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="211" y="312" width="58" height="12" stroke-width="1.5" stroke-opacity=".6"/>
+<rect class="f-none s-ink" x="346" y="312" width="58" height="12" stroke-width="1.5" stroke-opacity=".6"/>
+<circle class="f-ink" cx="84" cy="346" r="4" fill-opacity=".5"/>
+<circle class="f-ink" cx="104" cy="346" r="4" fill-opacity=".5"/>
+<circle class="f-ink" cx="219" cy="346" r="4" fill-opacity=".5"/>
+<circle class="f-ink" cx="239" cy="346" r="4" fill-opacity=".5"/>
+<circle class="f-ink" cx="354" cy="346" r="4" fill-opacity=".5"/>
+<circle class="f-ink" cx="374" cy="346" r="4" fill-opacity=".5"/>
+<path class="f-none s-ink s-dash" d="M105 366v36H375V366M240 402v-36" stroke-opacity=".4"/>
+<path class="f-none s-ink" d="M240 108V168" pathLength="1" stroke-width="1.5" data-fx="draw" data-at="0.6" data-len="0.5"/>
+<path class="f-none s-ink" d="M240 210V294" pathLength="1" stroke-width="1.5" data-fx="draw" data-at="1.3" data-len="0.5"/>
+<path class="f-none s-ink" d="M235 287l5 7 5-7" stroke-width="1.5" data-fx="fade" data-at="1.75" data-len="0.15"/>
+<path class="f-none s-sig" d="M375 108V294" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.5" data-len="1.2"/>
+<path class="f-none s-sig" d="M370 287l5 7 5-7" stroke-width="2" data-fx="fade" data-at="5.6" data-len="0.15"/>
+<rect class="f-sig1 s-sig" x="330.5" y="296.5" width="90" height="70" data-fx="fade" data-at="5.8" data-len="0.3"/>
+<path class="f-none s-sig" d="M322 288v-6h6M424 282h6v6M430 370v6h-6M328 376h-6" stroke-width="1.5" data-fx="pop" data-at="6.1" data-len="0.5"/>
+<rect class="f-sig" x="330" y="414" width="90" height="3" data-fx="grow" data-at="6.8" data-len="0.4"/>
+<rect class="f-sig" x="330" y="422" width="60" height="3" fill-opacity=".6" data-fx="grow" data-at="6.9" data-len="0.4"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">IEC 62443</span>
+      <span class="rail__item">NIST SP 800-82</span>
+      <span class="rail__item">ETSI EN 303 645</span>
+      <span class="rail__item">OWASP IoT Top 10</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">IoT and OT Security Testing for Connected Devices and Industrial Systems</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Internet of Things (IoT) devices and operational technology (OT) now sit in factories, hospitals, warehouses, buildings and customers' homes. Many were designed for reliability, not for attackers, and they often run for decades on firmware that is hard to update. When they are compromised the consequences go beyond data: production stops, services fail and physical safety can be at risk.</p>
+        <p class="rv">CipherTrivia's IoT and OT security testing examines the whole chain: the device hardware and firmware, the wireless and industrial protocols it speaks, the network zones that separate it from the office, and the mobile apps and cloud services that manage it. We show how an attacker could get in, move and affect operations.</p>
+        <p class="rv">Safety comes first. We plan every engagement with your operations team, start with passive discovery, use lab equipment where possible and agree testing windows and stop conditions. The result is a set of prioritized fixes that account for uptime, maintenance windows and the realities of the plant floor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RANGE OF SERVICES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Our IoT and OT Security Testing Services</h2>
+        <p class="shead__lede rv" style="--d:1">Each engagement is scoped to your devices, networks and operating constraints. These are the services we offer, from a single product to a whole plant.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("chip") }}</div>
+        <h3 class="ledger__title">IoT Device Security Testing</h3>
+        <p class="ledger__text">We assess connected products end to end, from hardware interfaces and boot process to authentication, data storage and remote management, to find ways to take control of a device.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("bug") }}</div>
+        <h3 class="ledger__title">Firmware Analysis and Reverse Engineering</h3>
+        <p class="ledger__text">We extract and inspect firmware for hard-coded credentials, outdated components, insecure update mechanisms, debug access and weak cryptography that cannot be seen from the network.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("gear") }}</div>
+        <h3 class="ledger__title">OT, ICS and SCADA Security Assessment</h3>
+        <p class="ledger__text">We review controllers, HMIs, historians and engineering workstations for weaknesses in configuration, access control and remote access, using methods planned around safe operation.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("segments") }}</div>
+        <h3 class="ledger__title">IT/OT Network Segmentation Review</h3>
+        <p class="ledger__text">We check how corporate, DMZ and plant networks are separated, reviewing firewall rules, jump hosts, vendor access and shared services against the zones and conduits you intended.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("wifi") }}</div>
+        <h3 class="ledger__title">Industrial Protocol and Wireless Security Testing</h3>
+        <p class="ledger__text">We test industrial protocols such as Modbus, OPC UA and MQTT, and wireless links such as Wi-Fi, Bluetooth Low Energy and Zigbee, for missing authentication, weak encryption and abuse.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("buildings") }}</div>
+        <h3 class="ledger__title">Smart Infrastructure and Building Systems Assessment</h3>
+        <p class="ledger__text">We assess building management, access control, CCTV, lighting and energy systems, which are often installed by third parties and rarely reviewed after handover.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("agent") }}</div>
+        <h3 class="ledger__title">Robotics and Automation Security Testing</h3>
+        <p class="ledger__text">We test robots, automated guided vehicles and automation cells, including their control interfaces, update channels and connections to the systems that direct them.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("cloud-sync") }}</div>
+        <h3 class="ledger__title">IoT Cloud, Mobile and API Backend Review</h3>
+        <p class="ledger__text">We test the apps, APIs and cloud platforms that manage devices, because a weakness there can expose or control every device at once.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RISKS                                                                -->
+<!-- ================================================================== -->
+<section class="section section--white" id="risks" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">IoT and OT Security Risks We Look For</h2>
+        <p class="shead__lede rv" style="--d:1">The same weaknesses appear again and again in connected and industrial systems. Our testing is built to find them, and to show how they combine into real attack paths.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("key") }}</div>
+        <h3 class="ledger__title">Default and Hard-Coded Credentials</h3>
+        <p class="ledger__text">Factory passwords and embedded keys that are shared across devices and easy to find.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("update") }}</div>
+        <h3 class="ledger__title">Outdated and Unpatched Firmware</h3>
+        <p class="ledger__text">Known vulnerabilities in components that cannot be easily updated.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("cloud-alert") }}</div>
+        <h3 class="ledger__title">Insecure Update Mechanisms</h3>
+        <p class="ledger__text">Updates that are not signed or verified, letting an attacker install their own code.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("globe") }}</div>
+        <h3 class="ledger__title">Exposed Services and Remote Access</h3>
+        <p class="ledger__text">Devices and vendor connections reachable from the internet or from other networks.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("segments") }}</div>
+        <h3 class="ledger__title">Weak IT/OT Segmentation</h3>
+        <p class="ledger__text">Firewall rules and shared services that let an attacker move from the office to the plant.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("unlock") }}</div>
+        <h3 class="ledger__title">Insecure Industrial Protocols</h3>
+        <p class="ledger__text">Protocols with no authentication, so anyone on the network can read or issue commands.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("eye-off") }}</div>
+        <h3 class="ledger__title">Unencrypted Communications</h3>
+        <p class="ledger__text">Traffic that can be read or altered on the wire or over the air.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("terminal") }}</div>
+        <h3 class="ledger__title">Exposed Debug and Physical Interfaces</h3>
+        <p class="ledger__text">Serial and debug ports that give direct access to firmware and memory.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("api") }}</div>
+        <h3 class="ledger__title">Insecure Cloud and Mobile Backends</h3>
+        <p class="ledger__text">Management apps and APIs that expose or control every device from one weakness.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("dependency") }}</div>
+        <h3 class="ledger__title">Supply Chain and Third-Party Components</h3>
+        <p class="ledger__text">Vulnerable libraries, vendor tools and integrator accounts that sit outside your control.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SYSTEMS WE ASSESS                                                    -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">IoT and OT Systems We Assess</h2>
+        <p class="shead__lede rv" style="--d:1">If a device connects to a network and affects data or the physical world, it belongs in scope. We assess the following kinds of systems for manufacturers, operators and product companies.</p>
+      </div>
+    </header>
+
+    <ul class="includes">
+      <li class="include rv">{{ icon("chip", "sm") }}<p><strong>Connected Products and Devices:</strong> Consumer and commercial devices with firmware, wireless links and a companion app or cloud service.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("gear", "sm") }}<p><strong>Industrial Control Systems:</strong> PLCs, SCADA, HMIs and engineering workstations that run production and process control.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("buildings", "sm") }}<p><strong>Smart Buildings and Facilities:</strong> Building management, access control, CCTV, lighting and energy systems.</p></li>
+      <li class="include rv">{{ icon("heart-pulse", "sm") }}<p><strong>Medical and Healthcare Devices:</strong> Connected clinical equipment, where safety and patient data are both at stake.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("truck", "sm") }}<p><strong>Warehouse and Logistics Automation:</strong> Conveyors, sorters, scanners and fleet systems that keep goods moving.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("agent", "sm") }}<p><strong>Robotics and Autonomous Machines:</strong> Robots and vehicles with control interfaces, remote updates and shared networks.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- STATEMENT BAND                                                       -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Why Test Connected Devices Before They Cause Downtime?</h2>
+    <p class="band__text rv" style="--d:1">A weakness in a connected device or industrial system can stop production, disrupt services or put people at risk, and fixes are slow once equipment is installed. Testing early, and after changes to networks or vendors, finds problems while there is still time to plan a safe fix.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our IoT and OT Security Testing Process</h2>
+        <p class="process__lede">Every engagement is planned with your operations and engineering teams. We start passively, use lab equipment where we can, and agree testing windows and stop conditions before anything active is attempted.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope, Safety and Asset Discovery</h3>
+          <p class="step__text">We agree scope, safety rules and testing windows, then identify devices and networks using documentation review and passive observation, avoiding any traffic that could disturb a live process.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Architecture Review and Threat Modeling</h3>
+          <p class="step__text">We map zones, conduits and data flows and model how an attacker could move from the internet or office network toward critical devices, so testing targets the paths that matter.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Device and Firmware Testing</h3>
+          <p class="step__text">On lab units or agreed test equipment, we analyze hardware interfaces, firmware, authentication and update mechanisms, looking for ways to gain control or extract secrets.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Network, Protocol and Segmentation Testing</h3>
+          <p class="step__text">We test industrial protocols, wireless links, remote access and the boundaries between IT and OT, verifying whether the separation you designed holds in practice.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Analysis and Reporting</h3>
+          <p class="step__text">Each finding is validated, rated by severity and operational impact and written up with evidence. Recommendations include compensating controls where patching is not immediately possible.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Support and Retesting</h3>
+          <p class="step__text">We walk your teams through the findings and support fixes scheduled around maintenance windows. After changes are made we retest to confirm they work and have not disrupted operations.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our IoT and OT Security Testing</h2>
+        <p class="shead__lede rv" style="--d:1">You receive a report that shows how an attacker could reach your devices and what to change first, with fixes that take operational constraints into account.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <article class="xfind" aria-label="Example IoT and OT security finding">
+          <header class="xfind__head">
+            <span class="xfind__tag">Example finding</span>
+            <span class="xfind__sev">High</span>
+          </header>
+          <h3 class="xfind__title">Office network can reach production controllers because a firewall rule allows the whole subnet</h3>
+          <dl class="xfind__rows">
+            <div><dt>Category</dt><dd>Weak IT/OT segmentation · Insecure industrial protocol</dd></div>
+            <div><dt>Evidence</dt><dd>From a corporate workstation, the Modbus TCP service on a production controller responded. A rule written for a vendor allowed the whole office subnet through the DMZ firewall. Read access was verified; no commands were sent, in line with the agreed safety rules.</dd></div>
+            <div><dt>Recommended fix</dt><dd>Replace the subnet rule with an allow-list for named engineering hosts, route vendor access through a monitored jump host and disable the unused service where possible.</dd></div>
+            <div><dt>Retest</dt><dd>Fixed. The controller is no longer reachable from the office network.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Summary</h3>
+            <p class="deliver__text">A concise overview of the main risks and their effect on operations and safety, written for leadership and plant management.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("directory") }}
+          <div>
+            <h3 class="deliver__title">Asset and Network Inventory</h3>
+            <p class="deliver__text">A record of the devices, networks and connections found, with their zones and owners.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Findings Report</h3>
+            <p class="deliver__text">Every finding with its severity, evidence, affected component and steps to reproduce, mapped to IEC 62443 and related guidance where relevant.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div>
+            <h3 class="deliver__title">Risk Ratings and Priorities</h3>
+            <p class="deliver__text">Findings ranked by exploitability and operational impact, so you know what to fix first.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Remediation and Compensating Controls</h3>
+            <p class="deliver__text">Practical fixes, plus interim protections for equipment that cannot be patched quickly.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("retest") }}
+          <div>
+            <h3 class="deliver__title">Retesting and Verification</h3>
+            <p class="deliver__text">A follow-up check that reported issues are closed, with the results added to your report.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for IoT and OT Security Testing?</h2>
+        <p class="shead__lede rv" style="--d:1">Connected and industrial systems call for care as well as skill. CipherTrivia tests safely, explains risk in operational terms and recommends fixes that fit the way your plant and products really work.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("shield-check") }}
+        <h3 class="principle__title">Safety-First Testing</h3>
+        <p class="principle__text">We plan with your operations team, begin passively and use lab equipment, agreed windows and stop conditions to protect live processes.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Device to Cloud Coverage</h3>
+        <p class="principle__text">We test hardware, firmware, protocols, networks, apps and cloud services together, because attackers move across all of them.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("segments") }}
+        <h3 class="principle__title">Real Attack Paths</h3>
+        <p class="principle__text">We show how weaknesses combine, from the office network or the internet to the controller, not just a list of isolated issues.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("alert") }}
+        <h3 class="principle__title">Operational Risk Ratings</h3>
+        <p class="principle__text">Findings are rated by exploitability and effect on safety, uptime and data, so priorities reflect what matters to your business.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Fixes That Fit Operations</h3>
+        <p class="principle__text">Recommendations include compensating controls and phased changes for equipment that cannot be patched or restarted at will.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Alignment With Industry Standards</h3>
+        <p class="principle__text">Reporting can follow IEC 62443 and related guidance, helping you show customers, auditors and regulators how your systems are secured.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About IoT and OT Security Testing</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

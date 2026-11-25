@@ -1,0 +1,437 @@
+---
+layout: layouts/enterprise.njk
+title: "Penetration Testing Services Company in Bangalore | CipherTrivia"
+description: "We are a leading penetration testing in service company in Bangalore for web and mobile apps, APIs and networks, with validated findings and remediation guidance."
+crumbs: [["Home", "/"], ["Penetration Testing Company in Bangalore"]]
+inquiry: true
+inquiryMap: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{#- Copy is the owner's Bangalore brief (Google Doc), verbatim, including the links it names.
+    Tone rule for city pages: local presence is delivery capability, never a "we're nearby" pitch.
+    Certifications appear only in the Nextwebi module (they are Nextwebi's). -#}
+{%- set faqs = [
+  ["What does a penetration testing services company in Bangalore do?", "A penetration testing services company in Bangalore simulates real attacks on your applications, APIs, and networks with your permission. The goal is to find exploitable weaknesses, explain their business impact, and give your team prioritized fixes, followed by verification that those fixes work."],
+  ["How is penetration testing pricing determined?", "Penetration testing pricing depends on scope: the number of applications, APIs, and network assets, their complexity, and the depth of testing required. We define scope first, then provide a quotation that reflects your actual environment rather than a fixed package."],
+  ["What is the difference between vulnerability scanning and penetration testing?", "Scanning uses automated tools to list potential weaknesses. Penetration testing adds manual work to confirm which weaknesses can actually be exploited and what an attacker could reach. You get fewer false positives and a clearer view of real risk."],
+  ["What does website penetration testing cover compared with web application penetration testing services?", "Website penetration testing focuses on public-facing sites, including forms, upload functions, admin areas, and configuration. Web application penetration testing services go deeper into authentication, authorization, and business logic in interactive applications. Many clients need both, and we scope them together."],
+  ["When do we need network penetration testing?", "Network penetration testing is valuable before audits, after infrastructure changes, and when you expose new services to the internet. It shows whether attackers can breach your perimeter or move laterally once inside your internal network."],
+  ["How should we choose between penetration testing companies?", "Ask each provider how much of the work is manual, what the report contains, whether developers get a walkthrough, and whether retesting is included. We include manual testing, actionable reporting, developer walkthroughs, and one retest as standard."],
+  ["Do you retest after we fix the vulnerabilities?", "Yes. Our published offering includes one retest. After your team implements fixes, we verify them and update the report, so you can show auditors and customers that identified issues are actually resolved."]
+] %}
+{#- What we test: icon + node position on the coverage map (clockwise from top left), title, text with the brief's links -#}
+{%- set tests = [
+  ["browser", "12%", "12%", 48, 48, "Web Application Penetration Testing Services", 'We test authentication, session handling, input validation, authorization, and business logic in your web applications. Our <a href="/services/web-application-security-testing/">web application security testing</a> covers the flaws that lead to data exposure and account takeover, confirmed through manual exploitation.'],
+  ["globe", "50%", "12%", 200, 48, "Website Penetration Testing", "Public-facing websites attract automated attacks first. Our website penetration testing examines forms, admin panels, file uploads, third-party components, and server configuration, so marketing sites and customer portals do not become the easy way into your environment."],
+  ["api", "88%", "12%", 352, 48, "API Security Testing", 'APIs often expose more than the interface shows. We test endpoints for broken object-level authorization, excessive data exposure, weak authentication, and rate-limit gaps. See our <a href="/services/api-security-testing/">API security testing</a> for how we approach gateways and microservices.'],
+  ["network", "88%", "50%", 352, 200, "Network Penetration Testing", 'Our network penetration testing targets external and internal infrastructure: exposed services, weak configurations, credential reuse, and paths for lateral movement. Backed by <a href="/services/network-security-testing/">network security testing</a> across your perimeter and internal ranges, we show how far an intruder could travel once inside.'],
+  ["mobile", "88%", "88%", 352, 352, "Mobile Application Security Testing", 'Mobile apps carry risk on the device and behind it. We examine local storage, transport security, and the backend calls each app makes. Our <a href="/services/mobile-application-security-testing/">mobile application security testing</a> treats the app and its APIs as one system.'],
+  ["bug", "50%", "88%", 200, 352, "Vulnerability Validation and Exploitation", "Automated tools report possibilities. We confirm which ones are exploitable and record the exact steps. This removes false positives from your backlog and shows your team which weaknesses deserve attention first."],
+  ["chart", "12%", "88%", 48, 352, "Risk-Prioritized Reporting", "We rank findings by business impact, not only technical severity. A moderate flaw in a payment flow may outrank a high one on an isolated test server. We give you an order of work that matches your risk."],
+  ["retest", "12%", "50%", 48, 200, "Retesting of Implemented Fixes", "Once your team applies fixes, we retest them under our included retest. We send you updated results confirming which vulnerabilities are closed and which need further work, ready to share with auditors or customers."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Penetration Testing Services in Bangalore",
+      "url": "https://www.ciphertrivia.com/penetration-testing-company-bangalore/",
+      "provider": {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://www.ciphertrivia.com/#organization",
+        "name": "CipherTrivia",
+        "url": "https://www.ciphertrivia.com",
+        "telephone": "+91-9008372466",
+        "email": "projects@ciphertrivia.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4th Floor M-Park, Doddanekundi 2nd Stage, Mahadevpura",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560048",
+          "addressCountry": "IN"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 12.9784, "longitude": 77.7011 },
+        "parentOrganization": { "@type": "Organization", "name": "Nextwebi IT Solutions Pvt. Ltd.", "url": "https://www.nextwebi.com/" }
+      },
+      "description": "CipherTrivia is a penetration testing services company in Bangalore that finds exploitable weaknesses in applications and networks, validates every finding manually, and includes a developer walkthrough and one retest with every engagement.",
+      "serviceType": "Penetration Testing",
+      "areaServed": { "@type": "City", "name": "Bengaluru" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Penetration Testing Services in Bangalore",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Application Penetration Testing Services"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Penetration Testing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "API Security Testing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Network Penetration Testing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Application Security Testing"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "VAPT (Vulnerability Assessment and Penetration Testing)"}}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Penetration Testing Company in Bangalore" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO: copy left, a schematic plate of the Bengaluru office right     -->
+<!-- ================================================================== -->
+<section class="city-hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container" style="position: relative">
+    <div class="city-hero__layout">
+      <div class="city-hero__copy">
+        <p class="city-hero__place rv">Bengaluru, Karnataka</p>
+        <h1 class="city-hero__title rv" style="--d:1" id="hero-title">Penetration Testing Services Company in <span class="accent">Bangalore</span></h1>
+        <p class="city-hero__lede rv" style="--d:2">CipherTrivia is a penetration testing services company in Bangalore that finds exploitable weaknesses in your applications and networks before attackers or auditors do. Our Bengaluru team scopes each engagement, combines automated scanning with manual testing, validates every finding, and shows your developers how to fix it. Our included retest then confirms the fixes hold. Every engagement is built around penetration testing that matches the depth your systems need.</p>
+        <ul class="city-checks rv" style="--d:3">
+          <li>Manual testing that proves what an attacker can actually reach</li>
+          <li>Reports written for both developers and decision makers</li>
+          <li>Developer walkthrough and one retest included</li>
+        </ul>
+        <div class="hero__actions rv" style="--d:4">
+          <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+          <a class="btn btn--ghost-inv" href="tel:+919008372466">Call +91 90083 72466 {{ arrow() }}</a>
+        </div>
+        <p class="city-hero__meta rv" style="--d:5"><span>OWASP-Aligned Testing</span><span>Bengaluru Head Office</span></p>
+      </div>
+
+      <div class="plate rv" style="--d:2" aria-hidden="true">
+        <svg class="plate__map" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g class="plate__grid">
+            {%- for n in range(1, 16) %}
+            <path d="M{{ n * 25 }} 0V400M0 {{ n * 25 }}H400"/>
+            {%- endfor %}
+          </g>
+          <path class="plate__road" pathLength="1" d="M0 318C92 296 150 252 238 168S352 64 400 42"/>
+          <path class="plate__road" pathLength="1" d="M58 0C88 118 150 158 238 168S330 262 344 400"/>
+          <path class="plate__road plate__road--minor" pathLength="1" d="M0 118L118 150L238 168L400 214"/>
+          <path class="plate__road plate__road--minor" pathLength="1" d="M146 400L188 262L238 168L262 0"/>
+          <rect class="plate__ring" x="178" y="108" width="120" height="120"/>
+          <rect class="plate__ring plate__ring--outer" x="118" y="48" width="240" height="240"/>
+          <path class="plate__cross" d="M238 0V400M0 168H400"/>
+        </svg>
+        <span class="plate__pin" style="--x:59.5%;--y:42%"></span>
+        <span class="plate__tag plate__tag--tl">Bengaluru, Karnataka</span>
+        <span class="plate__tag plate__tag--br">12.9784° N · 77.7011° E</span>
+        <span class="ind-hero__frame"><i></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- HOW WE WORK: penetration testing process (scope, test, report, retest) -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="process-title">
+  <div class="container">
+    <div class="process process--light">
+      <div class="process__aside">
+        <p class="kicker">How We Work</p>
+        <h2 class="process__title" id="process-title">Our Penetration Testing Process</h2>
+        <p class="process__lede">From defining your testing scope to verifying fixes, CipherTrivia's Bengaluru team follows a structured process with clear deliverables at every stage.</p>
+        <a class="btn btn--signal" href="/contact/">Request a Penetration Testing Quote {{ arrow() }}</a>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope &amp; Plan</h3>
+          <p class="step__text">We review your applications, APIs and infrastructure, then agree on testing objectives, access requirements, authorized targets and testing windows.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Test &amp; Validate</h3>
+          <p class="step__text">Our security specialists combine automated scanning with manual penetration testing to validate vulnerabilities, investigate attack paths and assess potential business impact.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Report &amp; Guide</h3>
+          <p class="step__text">Receive prioritized findings with technical evidence and practical remediation recommendations. We walk your developers through the results and explain how to address identified weaknesses.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Retest &amp; Confirm</h3>
+          <p class="step__text">Once your team implements fixes, we perform the included retest within the agreed scope and document which findings are resolved or require further action.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CHOOSE                                                           -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s1-title">Why Choose CipherTrivia as a Penetration Testing Services Company in Bangalore</h2>
+      <p class="ihead__lede rv" style="--d:1">Many penetration testing companies hand over a scanner export. Our penetration testing services deliver validated findings, fix guidance, and a retest. Here is what you get when you work with us.</p>
+    </header>
+
+    <div class="ledger ledger--3">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("cursor") }}</div>
+        <h3 class="ledger__title">Manual Testing Comes First</h3>
+        <p class="ledger__text">Our testers work through your application logic by hand, because scanners miss broken access control, flawed workflows, and chained weaknesses. Automated scanning gives us coverage. Manual penetration testing shows what an attacker can actually do with it.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("doc-check") }}</div>
+        <h3 class="ledger__title">Findings Your Team Can Act On</h3>
+        <p class="ledger__text">Each finding in our penetration testing services report names the affected asset, how we exploited it, the business impact, and the recommended fix. Your engineers get reproducible detail. Your leadership gets prioritized risk in plain language they can take into a launch or audit discussion.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("present") }}</div>
+        <h3 class="ledger__title">Developer Walkthroughs</h3>
+        <p class="ledger__text">After delivery, we sit down with your developers and walk through each issue. They see how we reached it and leave with remediation guidance they can apply in their next sprint, without waiting on clarifications.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("retest") }}</div>
+        <h3 class="ledger__title">One Retest Included</h3>
+        <p class="ledger__text">Our published penetration testing services include a retest. Once your team implements fixes, we verify them and update each finding's status. You end up with evidence that vulnerabilities are closed, not an assumption that they are.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("user-shield") }}</div>
+        <h3 class="ledger__title">A Bengaluru Team You Can Reach</h3>
+        <p class="ledger__text">Every stage of our penetration testing services, from scoping to questions during testing and walkthroughs, happens with our Bengaluru team. You deal with the people who tested your systems, which keeps context intact and decisions quick.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("lock") }}</div>
+        <h3 class="ledger__title">Experience With Regulated, API-Heavy Environments</h3>
+        <p class="ledger__text has-links">We have secured a banking API gateway, and the <a href="/case-studies/banking-api-gateway/">banking API gateway case study</a> shows how we scoped, tested, and reported on it. If you want to see how our findings and fixed guidance are read in practice, our published <a href="/case-studies/">case studies</a> show how we document and present results.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHAT WE TEST: coverage map follows the item being read               -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s2-title">What Our Penetration Testing Services Company in Bangalore Tests, From Web Apps to Networks</h2>
+      <p class="ihead__lede rv" style="--d:1">Each service below targets a distinct part of your attack surface, so you pay for the coverage your systems need and nothing repeated.</p>
+    </header>
+
+    <div class="surface" data-surface>
+      <div class="surface__map" aria-hidden="true">
+        <div class="surface__stage">
+          <span class="surface__sweep"></span>
+          <svg class="surface__lines" viewBox="0 0 400 400" focusable="false">
+            <rect class="surface__frame" x="10" y="10" width="380" height="380"/>
+            <rect class="surface__orbit" x="48" y="48" width="304" height="304"/>
+            <rect class="surface__inner" x="124" y="124" width="152" height="152"/>
+            <path class="surface__ticks" d="M200 0v20M200 380v20M0 200h20M380 200h20M0 10h20M10 0v20M380 10h20M390 0v20M0 390h20M10 380v20M380 390h20M390 380v20"/>
+            {%- for t in tests %}
+            <line class="surface__spoke" data-surface-spoke x1="200" y1="200" x2="{{ t[3] }}" y2="{{ t[4] }}"/>
+            {%- endfor %}
+          </svg>
+          <span class="surface__core">{{ icon("target", "lg") }}</span>
+          {%- for t in tests %}
+          <span class="surface__node" data-surface-node style="--x:{{ t[1] }};--y:{{ t[2] }}">{{ icon(t[0]) }}</span>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <ul class="surface__list">
+        {%- for t in tests %}
+        <li class="surface__item rv" data-surface-item>
+          {{ icon(t[0], "sm") }}
+          <div>
+            <h3 class="surface__title">{{ t[5] }}</h3>
+            <p class="surface__text has-links">{{ t[6] | safe }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- AI SECURITY CALLOUT: links out to the dedicated AI Security page     -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <p class="band__meta">AI Security</p>
+    <h2 class="band__title rv" id="band-title">AI Application &amp; LLM Security Testing</h2>
+    <p class="band__text rv" style="--d:1">Assess AI chatbots, copilots and agents for prompt injection, sensitive information disclosure and unauthorized tool actions. Our testing evaluates whether malicious user inputs or retrieved content can manipulate AI behavior and compromise connected workflows.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/ai-security/">Explore AI Security Testing {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- INDUSTRIES WE SERVE                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s3-title">Industries We Serve</h2>
+      <p class="ihead__lede has-links rv" style="--d:1">We tailor our testing to the systems and compliance pressures your sector faces. Banking and fintech teams rely on us for transaction flows, APIs, and customer-facing platforms, a focus reflected in our work for <a href="/industries/banking-fintech/">banking and fintech organizations</a>. SaaS companies bring multi-tenant architectures and frequent releases, and we fit testing around that pace for <a href="/industries/saas-technology/">SaaS and technology teams</a>. If your business sits elsewhere in Bangalore's technology landscape, we scope around your architecture in the same way.</p>
+    </header>
+
+    <div class="tiles tiles--2" aria-hidden="true">
+      <a class="tile rv" href="/industries/banking-fintech/" tabindex="-1">
+        <img src="/assets/industries/banking-industry-960.webp" width="960" height="540" alt="" loading="lazy">
+        <span class="tile__body"><span class="tile__name">Fintech &amp; Banking</span><span class="tile__go">{{ arrow("") }}</span></span>
+      </a>
+      <a class="tile rv" style="--d:1" href="/industries/saas-technology/" tabindex="-1">
+        <img src="/assets/industries/saas-technology-960.webp" width="960" height="540" alt="" loading="lazy">
+        <span class="tile__body"><span class="tile__name">Technology &amp; SaaS</span><span class="tile__go">{{ arrow("") }}</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- HOW IT WORKS: six steps on a light rail                              -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s4-title">
+  <div class="container">
+    <div class="process process--light">
+      <div class="process__aside">
+        <h2 class="process__title" id="s4-title">How Our Penetration Testing Services Company in Bangalore Takes You From Scope to Verified Fixes</h2>
+        <p class="process__lede">Every engagement with our penetration testing services company in Bangalore follows six steps. You always know what is happening and what comes next.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Define Scope</h3>
+          <p class="step__text">We agree on the applications, APIs, and network ranges in scope, testing windows, and rules of engagement, so testing stays safe for your production environment.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Review Architecture</h3>
+          <p class="step__text">We study your architecture, data flows, and user roles. This shows where sensitive data lives and focuses testing on the paths that matter most.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Test Manually and Automatically</h3>
+          <p class="step__text has-links">We run scanning for breadth, then test by hand against the <a href="/whitepapers/owasp-top-10-security-guide/">OWASP Top 10 security guide</a> categories and beyond, targeting logic and access flaws.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Validate Vulnerabilities</h3>
+          <p class="step__text">We confirm each finding is exploitable, capture evidence, and discard false positives. Your report contains only issues we can demonstrate.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Prioritize and Report</h3>
+          <p class="step__text has-links">We rank findings by business risk and deliver remediation guidance for each. Our <a href="/whitepapers/enterprise-vapt-guide/">enterprise VAPT guide</a> explains how these reports support wider security programs.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Walk Through and Retest</h3>
+          <p class="step__text has-links">We brief your developers, then verify their fixes in our included retest. For preparation, our <a href="/whitepapers/web-application-security-checklist/">web application security checklist</a> and <a href="/whitepapers/network-security-checklist/">network security checklist</a> help you get ready.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- VISIT US AND ENGAGEMENT MODEL, then the Nextwebi module              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="visit">
+      <div class="visit__main">
+        <h2 class="visit__title rv" id="s5-title">Visit Us and Our Engagement Model</h2>
+        <div class="visit__text has-links rv" style="--d:1">
+          <p>You can meet our Bengaluru team in person or over a call. Reach out through our <a href="/contact/">contact channels</a> and we will arrange a time that suits you and your engineering leads.</p>
+          <p>Our engagement model keeps things simple. We begin with a scoping conversation, agree scope in writing, test, report, walk your developers through the results, and retest fixes. Penetration testing pricing depends on scope, so we quote after understanding your systems rather than offering a generic figure. If you want broader vulnerability assessment alongside penetration testing, our <a href="/services/vapt-security-services/">VAPT security services</a> combine both.</p>
+        </div>
+        <dl class="visit__contact rv" style="--d:2">
+          <div class="visit__row"><dt>Office Address</dt><dd>4th Floor M-Park, Doddanekundi 2nd Stage, Mahadevpura, Bengaluru, Karnataka 560048, India</dd></div>
+          <div class="visit__row"><dt>Email</dt><dd><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></dd></div>
+          <div class="visit__row"><dt>Phone</dt><dd><a href="tel:+919008372466">+91 90083 72466</a></dd></div>
+        </dl>
+      </div>
+
+      <aside class="glance rv" style="--d:1" aria-labelledby="glance-title">
+        <p class="glance__label" id="glance-title">Engagement Model, at a Glance</p>
+        <ol class="glance__list">
+          <li class="glance__step" style="--i:0"><span class="glance__node" aria-hidden="true"></span>Scoping conversation</li>
+          <li class="glance__step" style="--i:1"><span class="glance__node" aria-hidden="true"></span>Scope agreed in writing</li>
+          <li class="glance__step" style="--i:2"><span class="glance__node" aria-hidden="true"></span>Testing &amp; reporting</li>
+          <li class="glance__step" style="--i:3"><span class="glance__node" aria-hidden="true"></span>Developer walkthrough</li>
+          <li class="glance__step" style="--i:4"><span class="glance__node" aria-hidden="true"></span>Retest of fixes</li>
+        </ol>
+        <p class="glance__note">Pricing depends on scope — we quote after understanding your systems, not before.</p>
+      </aside>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s6-title">Frequently Asked Questions</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Scope Your Penetration Test With Our Bengaluru Team</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Tell us about your applications, APIs and network, and we'll come back with a scope and a quotation that matches what you actually need to test.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+        <a class="btn btn--ghost-inv" href="/services/vapt-security-services/">Explore VAPT Services {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,168 @@
+{#- Site-wide structured data on every page (layouts/enterprise.njk):
+    - the organisation: one complete record (phone, email, address, map, profiles, services)
+      that search engines and AI assistants can quote; every page's own Service, Article and
+      BlogPosting blocks point at it by @id
+    - the website
+    - this page: a WebPage, or a CollectionPage listing a section's pages when the page sets
+      `collectionOf: "/insights/"` (built from the pages themselves, so new ones join it).
+      Pages that describe themselves already (About, Contact, the hubs) set `pageSchema: false`.
+    - a BreadcrumbList made from `crumbs`, for pages that set `crumbsSchema: true` because
+      they have no BreadcrumbList block of their own -#}
+{%- set site = "https://www.ciphertrivia.com" -%}
+{%- set org = site + "/#organization" -%}
+{%- set items = [] -%}
+{%- if collectionOf -%}
+  {%- for p in collections.all -%}
+    {%- if p.url and p.url.indexOf(collectionOf) == 0 and p.url != collectionOf -%}
+      {%- set items = (items.push(p), items) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "{{ org }}",
+      "name": "CipherTrivia",
+      "alternateName": "Cipher Trivia",
+      "url": "{{ site }}/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "{{ site }}/#logo",
+        "url": "{{ site }}/assets/brand/cipher-trivia-logo.png",
+        "caption": "CipherTrivia"
+      },
+      "image": { "@id": "{{ site }}/#logo" },
+      "description": "CipherTrivia is a cyber security services company offering VAPT, penetration testing, web and mobile app security testing, API security, cloud security and compliance services to protect businesses from cyber threats.",
+      "slogan": "Find security weaknesses before attackers do.",
+      "email": "projects@ciphertrivia.com",
+      "telephone": "+91-90083-72466",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4th Floor M-Park, Doddanekundi 2nd Stage, Mahadevpura",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": "560048",
+        "addressCountry": "IN"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 12.9829697, "longitude": 77.7099096 },
+      "hasMap": "https://www.google.com/maps?cid=12632818219701700998",
+      "areaServed": ["IN", "AE", "US", "AU", "GB", "SG"],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+91-90083-72466",
+          "email": "projects@ciphertrivia.com",
+          "availableLanguage": ["English"],
+          "areaServed": ["IN", "AE", "US", "AU", "GB", "SG"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "telephone": "+91-90083-72466",
+          "email": "projects@ciphertrivia.com",
+          "availableLanguage": ["English"]
+        }
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Nextwebi IT Solutions Pvt. Ltd.",
+        "url": "https://www.nextwebi.com/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/ciphertrivia",
+        "https://x.com/ciphertrivia",
+        "https://github.com/ciphertrivia",
+        "https://www.google.com/maps?cid=12632818219701700998"
+      ],
+      "knowsAbout": [
+        "Vulnerability Assessment and Penetration Testing (VAPT)",
+        "Penetration testing",
+        "Web application security testing",
+        "Mobile application security testing",
+        "API security testing",
+        "Cloud security",
+        "Network security testing",
+        "Security architecture review",
+        "DevSecOps",
+        "SOC as a Service",
+        "Security compliance (ISO 27001, SOC 2, PCI DSS, HIPAA, GDPR)",
+        "Cybersecurity consulting",
+        "AI and LLM security testing"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cybersecurity services",
+        "itemListElement": [
+          {%- for s in [
+            ["VAPT Security Services", "/services/vapt-security-services/"],
+            ["Penetration Testing", "/services/penetration-testing/"],
+            ["Web Application Security Testing", "/services/web-application-security-testing/"],
+            ["Mobile App Security Testing", "/services/mobile-application-security-testing/"],
+            ["API Security Testing", "/services/api-security-testing/"],
+            ["Cloud Security Services", "/services/cloud-security-services/"],
+            ["Network Security Testing", "/services/network-security-testing/"],
+            ["Security Architecture Review", "/services/security-architecture-review/"],
+            ["DevSecOps Services", "/services/devsecops-services/"],
+            ["SOC as a Service", "/services/soc-as-a-service/"],
+            ["Security Compliance", "/services/security-compliance/"],
+            ["Cybersecurity Consulting", "/services/cybersecurity-consulting/"],
+            ["AI Security Testing", "/ai-security/"]
+          ] %}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "{{ s[0] }}", "url": "{{ site }}{{ s[1] }}" } }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site }}/#website",
+      "url": "{{ site }}/",
+      "name": "CipherTrivia",
+      "alternateName": "Cipher Trivia",
+      "publisher": { "@id": "{{ org }}" },
+      "inLanguage": "en-IN"
+    }
+    {%- if pageSchema !== false %},
+    {
+      "@type": "{{ 'CollectionPage' if collectionOf else 'WebPage' }}",
+      "@id": "{{ site }}{{ page.url }}#webpage",
+      "url": "{{ site }}{{ page.url }}",
+      "name": {{ title | dump | safe }},
+      "description": {{ description | dump | safe }},
+      "isPartOf": { "@id": "{{ site }}/#website" },
+      "publisher": { "@id": "{{ org }}" },
+      {%- if page.url == "/" %}
+      "about": { "@id": "{{ org }}" },
+      {%- endif %}
+      "primaryImageOfPage": { "@type": "ImageObject", "url": "{{ site }}{{ page.url | ogImage }}", "width": 1200, "height": 630 },
+      {%- if collectionOf %}
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": {{ items.length }},
+        "itemListElement": [
+          {%- for p in items %}
+          { "@type": "ListItem", "position": {{ loop.index }}, "url": "{{ site }}{{ p.url }}", "name": {{ p.data.title.split(" | ")[0] | dump | safe }} }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      },
+      {%- endif %}
+      "inLanguage": "en-IN"
+    }
+    {%- endif %}
+    {%- if crumbsSchema and crumbs %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {%- for c in crumbs %}
+        { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ c[0] | dump | safe }}{% if c[1] %}, "item": "{{ site }}{{ c[1] }}"{% endif %} }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+  ]
+}
+</script>

@@ -1,0 +1,217 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Cybersecurity Services | VAPT, Penetration Testing, Cloud & API Security | CipherTrivia"
+description: "Explore CipherTrivia's full cybersecurity service catalog: VAPT, penetration testing, web, mobile, API and cloud security, DevSecOps, SOC as a Service and compliance."
+crumbs: [["Home", "/"], ["Services"]]
+pageSchema: false
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{#- Groups follow the header menu. Copy per service: the homepage services section (description
+    and tag line); AI Security from its own page. "assets" drives the "What are you securing?"
+    filter: web, mobile, api, cloud, network, pipeline, ai, monitoring, compliance. -#}
+{%- set groups = [
+  { name: "Offensive Security", services: [
+    { url: "/services/vapt-security-services/", icon: "target", name: "VAPT Security Services", assets: "web mobile api cloud network",
+      text: "We identify and validate security vulnerabilities through AI-assisted analysis and expert-led vulnerability assessments and penetration testing.",
+      tags: "Vulnerability Assessment · Penetration Testing · Remediation Guidance" },
+    { url: "/services/penetration-testing/", icon: "lateral", name: "Penetration Testing", assets: "web mobile api cloud network",
+      text: "Simulation of real-world cyberattacks to uncover exploitable weaknesses across applications, networks and infrastructure before attackers can target them.",
+      tags: "Manual Testing · Exploit Validation · Risk Prioritization" },
+    { url: "/services/web-application-security-testing/", icon: "browser", name: "Web Application Security Testing", assets: "web",
+      text: "We detect security flaws in web applications through in-depth testing of authentication, authorization, business logic and data protection mechanisms.",
+      tags: "OWASP Top 10 · Authentication Testing · Business Logic Testing" },
+    { url: "/services/mobile-application-security-testing/", icon: "mobile", name: "Mobile Application Security Testing", assets: "mobile api",
+      text: "We evaluate Android and iOS applications for vulnerabilities affecting data storage, authentication, API communication and runtime security.",
+      tags: "Android Security · iOS Security · Mobile API Testing" }
+  ] },
+  { name: "Cloud & Infrastructure", services: [
+    { url: "/services/cloud-security-services/", icon: "cloud-lock", name: "Cloud Security Services", assets: "cloud",
+      text: "Assess AWS, Azure and GCP environments for configuration weaknesses, identity risks and infrastructure vulnerabilities that could expose business data.",
+      tags: "Cloud Configuration · IAM Assessment · Infrastructure Security" },
+    { url: "/services/api-security-testing/", icon: "api", name: "API Security Testing", assets: "api web mobile",
+      text: "Identify API vulnerabilities involving broken access controls, authentication weaknesses, data exposure and insecure business logic.",
+      tags: "API Authentication · Access Control · Data Exposure Testing" },
+    { url: "/services/network-security-testing/", icon: "network", name: "Network Security Testing", assets: "network",
+      text: "We evaluate network infrastructure and security controls to identify exposed services, weak configurations and potential attack paths.",
+      tags: "Network Scanning · Firewall Assessment · Attack Surface Analysis" },
+    { url: "/services/security-architecture-review/", icon: "flowchart", name: "Security Architecture Review", assets: "web api cloud network",
+      text: "We review system architecture, trust boundaries and security controls to uncover design-level weaknesses and recommend practical improvements.",
+      tags: "Threat Modeling · Architecture Assessment · Security Controls Review" },
+    { url: "/services/iot-ot-security/", icon: "chip", name: "IoT & OT Security Testing", assets: "network",
+      text: "Safely test connected devices, industrial control systems, smart infrastructure and robotics for weaknesses that could disrupt operations or open a way in.",
+      tags: "Firmware Analysis · ICS and SCADA Assessment · IT/OT Segmentation" }
+  ] },
+  { name: "Managed & Advisory", services: [
+    { url: "/services/cybersecurity-consulting/", icon: "proposal", name: "Cybersecurity Consulting", assets: "compliance",
+      text: "We assess security risks and define effective security strategies through risk assessments, security architecture reviews and compliance guidance.",
+      tags: "Security Strategy · Risk Assessment · Compliance Guidance" },
+    { url: "/services/devsecops-services/", icon: "pipeline", name: "DevSecOps Services", assets: "pipeline web",
+      text: "Integrate security testing into development workflows and CI/CD pipelines to detect vulnerabilities earlier and reduce application security risks.",
+      tags: "SAST · DAST · Software Dependency Scanning" },
+    { url: "/services/soc-as-a-service/", icon: "pulse", name: "SOC as a Service", assets: "monitoring",
+      text: "Monitor security events and investigate suspicious activity through continuous threat detection, alert analysis and incident response support.",
+      tags: "Threat Monitoring · Alert Triage · Incident Investigation" },
+    { url: "/services/security-compliance/", icon: "doc-check", name: "Security Compliance Services", assets: "compliance",
+      text: "We assess security controls and documentation against applicable standards and regulatory requirements to support audit preparation and compliance programs.",
+      tags: "ISO 27001 · SOC 2 · Compliance Gap Assessment" },
+    { url: "/services/post-quantum-cryptography-security/", icon: "quantum", name: "Post-Quantum Cryptography Security", assets: "network cloud api",
+      text: "Find where your organization depends on quantum-vulnerable encryption, rank the risk and plan a phased migration to quantum-resistant cryptography.",
+      tags: "Cryptographic Inventory · Quantum Risk Assessment · Migration Roadmap" }
+  ] },
+  { name: "AI Security", tag: "New", services: [
+    { url: "/ai-security/", icon: "agent", name: "AI Security Services", assets: "ai api",
+      text: "Protect AI applications and LLMs with AI security services from CipherTrivia. Identify AI vulnerabilities and reduce risks through security testing and expert guidance.",
+      tags: "LLM Security Testing · AI Agent Testing · AI Red Teaming" },
+    { url: "/services/llm-security-testing/", icon: "chat", name: "LLM Security Testing", assets: "ai api",
+      text: "Test chatbots, copilots and generative AI applications for prompt injection, data leakage, unsafe outputs and tool misuse, with evidence-backed fixes.",
+      tags: "Prompt Injection · OWASP LLM Top 10 · RAG Security Testing" },
+    { url: "/services/ai-agent-security-testing/", icon: "agent", name: "AI Agent Security Testing", assets: "ai api",
+      text: "Test autonomous AI agents for excessive permissions, tool abuse, identity risks and manipulation, and show how far a compromised agent could go.",
+      tags: "Excessive Agency · Tool Abuse · Agent Permissions" },
+    { url: "/services/digital-identity-deepfake-security/", icon: "user-shield", name: "Digital Identity & Deepfake Security", assets: "ai web mobile",
+      text: "Test onboarding, authentication, help desk and payment approvals against impersonation, synthetic identities and deepfake-enabled fraud.",
+      tags: "Deepfake Simulation · KYC Testing · Liveness Bypass Testing" }
+  ] }
+] %}
+{%- set allServices = [] %}
+{%- for g in groups %}{% for s in g.services %}{% set _ = allServices.push(s) %}{% endfor %}{% endfor %}
+{%- set filters = [["all", "All services"], ["web", "Web apps"], ["mobile", "Mobile apps"], ["api", "APIs"], ["cloud", "Cloud"], ["network", "Networks"], ["pipeline", "CI/CD pipelines"], ["ai", "AI systems"], ["monitoring", "24×7 monitoring"], ["compliance", "Compliance"]] %}
+{%- set industries = [
+  ["saas-technology", "Technology & SaaS", "saas-technology"],
+  ["banking-fintech", "Fintech & Banking", "banking-industry"],
+  ["healthcare", "Healthcare", "healthcare"],
+  ["ecommerce", "Retail & Ecommerce", "ecommerce"],
+  ["manufacturing", "Manufacturing", "manufacturing"],
+  ["logistics", "Logistics", "logistics"],
+  ["startups", "Startups", "startups"],
+  ["enterprise-it", "Enterprise IT", "enterprise-it"]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "All Cybersecurity Services in One Place",
+      "description": "Explore CipherTrivia's full cybersecurity service catalog: VAPT, penetration testing, web, mobile, API and cloud security, DevSecOps, SOC as a Service and compliance.",
+      "url": "https://www.ciphertrivia.com/services/",
+      "isPartOf": { "@type": "WebSite", "name": "CipherTrivia", "url": "https://www.ciphertrivia.com/" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {%- for s in allServices %}
+          { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ s.name | dump | safe }}, "url": "https://www.ciphertrivia.com{{ s.url }}" }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container" style="position: relative">
+    <header class="hub-head">
+      <h1 class="hub-head__title rv" id="hero-title">All Cybersecurity Services in <span class="accent">One Place</span></h1>
+      <p class="hub-head__lede rv" style="--d:1">At CipherTrivia, we help businesses uncover hidden security gaps and address emerging cyber threats through a risk-driven approach to digital protection. Our specialists evaluate applications, infrastructure and cloud environments to identify weaknesses before they can be exploited. By combining AI-assisted threat analysis with security assessments and industry-aligned compliance practices, we help organizations reduce exposure, improve incident preparedness and build a stronger foundation for secure digital operations.</p>
+    </header>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FILTER: what are you securing? (sticky under the header)             -->
+<!-- ================================================================== -->
+<div class="filterbar" data-svc-filter>
+  <div class="container filterbar__inner" role="group" aria-label="Filter services by what you are securing">
+    <span class="filterbar__label" aria-hidden="true">What are you securing?</span>
+    {%- for f in filters %}
+    <button class="filter" type="button" data-asset="{{ f[0] }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ f[1] }}</button>
+    {%- endfor %}
+  </div>
+</div>
+<p class="sr-only" aria-live="polite" data-svc-status></p>
+
+<!-- ================================================================== -->
+<!-- CATALOGUE: groups from the header menu                               -->
+<!-- ================================================================== -->
+<section class="section section--white cat" aria-label="Service catalogue" data-svc-catalogue>
+  <div class="container">
+    {%- for g in groups %}
+    <section class="cat-group" data-svc-group aria-labelledby="g{{ loop.index }}-title">
+      <div class="cat-group__head">
+        <h2 class="cat-group__title rv" id="g{{ loop.index }}-title">{{ g.name }}</h2>
+        {%- if g.tag %}<span class="cat-group__tag">{{ g.tag }}</span>{% endif %}
+      </div>
+      <div class="cat-group__grid{% if g.services | length == 1 %} cat-group__grid--one{% endif %}">
+        {%- for s in g.services %}
+        <article class="cat-card{% if g.services | length == 1 %} cat-card--feature{% endif %} rv" style="--d:{{ loop.index0 % 2 }}" data-assets="{{ s.assets }}">
+          <div class="cat-card__top">
+            {{ icon(s.icon) }}
+            {%- if g.services | length > 1 %}<span class="cat-card__go" aria-hidden="true">{{ arrow("") }}</span>{% endif %}
+          </div>
+          {%- if g.services | length == 1 %}<div>{% endif %}
+          <h3 class="cat-card__title"><a class="cat-card__link" href="{{ s.url }}">{{ s.name }}</a></h3>
+          <p class="cat-card__text">{{ s.text }}</p>
+          <p class="cat-card__tags">{{ s.tags }}</p>
+          {%- if g.services | length == 1 %}</div><span class="cat-card__go" aria-hidden="true">{{ arrow("") }}</span>{% endif %}
+        </article>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endfor %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- INDUSTRIES + BACKED BY NEXTWEBI                                      -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="ind-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="ind-title">Cybersecurity Services for Industries That Depend on Digital Trust</h2>
+      <p class="ihead__lede rv" style="--d:1">Every industry faces different digital security challenges. From protecting customer information and financial transactions to securing business applications and connected systems, CipherTrivia helps organizations identify security gaps and reduce the risk of cyberattacks. Our cybersecurity services address industry-specific risks so businesses can protect their operations, maintain customer trust and support secure digital growth.</p>
+    </header>
+
+    <div class="tiles">
+      {%- for i in industries %}
+      <a class="tile rv" style="--d:{{ loop.index0 % 4 }}" href="/industries/{{ i[0] }}/">
+        <img src="/assets/industries/{{ i[2] }}-960.webp" width="960" height="540" alt="" loading="lazy">
+        <span class="tile__body">
+          <span class="tile__name">{{ i[1] }}</span>
+          <span class="tile__go" aria-hidden="true">{{ arrow("") }}</span>
+        </span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA BAND (the Security Risk Snapshot offer from the menu)            -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <p class="band__meta rv">Security Risk Snapshot</p>
+    <h2 class="band__title rv" id="band-title">A free 30-minute review of your app, API and cloud exposure.</h2>
+    <p class="band__text rv" style="--d:1">Leave with a prioritised action plan.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Book a session {{ arrow() }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,95 @@
+{#- Enquiry form at the foot of service and campaign landing pages (front matter `inquiry: true`,
+    added by layouts/enterprise.njk after the page content). Every "contact" button on the page
+    (hero, bands, final CTA, header, phone bars) scrolls here and puts the cursor in the form
+    (enterprise.js). Same fields and function as the contact page; the page's own service is
+    chosen from _data/enquiry.json. Copy comes from the contact page. Styles: sections/inquiry.css
+    Front matter `inquiryMap: true` (city pages) swaps the reassurance copy for a short "Connect
+    With Us" heading, direct contact and the office map, for a local visibility/location signal.
+    Embed URL duplicated from contact.njk's officeEmbed: keep both in step if the listing changes. -#}
+{% from "partials/enterprise/icons.njk" import icon %}
+{% from "partials/enterprise/macros.njk" import arrow %}
+<section class="section section--white inquiry" id="inquiry" aria-labelledby="inquiry-title" data-inquiry>
+  <div class="container">
+    <div class="inquiry__grid">
+      <div class="inquiry__copy">
+        {% if inquiryMap %}
+        <p class="kicker">Connect With Us</p>
+        <h2 class="inquiry__title" id="inquiry-title">Connect With Our <span class="accent">Bengaluru Team</span></h2>
+        <p class="inquiry__direct">
+          <a href="tel:{{ enquiry.phone }}">{{ icon("phone", "bare") }}<span>Call {{ enquiry.phoneDisplay }}</span></a>
+          <a href="https://wa.me/{{ enquiry.phone | replace('+', '') }}?text={{ enquiry.whatsappText | urlencode }}" target="_blank" rel="noopener">{{ icon("chat", "bare") }}<span>WhatsApp</span></a>
+          <a href="mailto:projects@ciphertrivia.com">{{ icon("mail-check", "bare") }}<span>projects@ciphertrivia.com</span></a>
+        </p>
+        <div class="map" data-map>
+          <iframe class="map__frame" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8078483409113!2d77.7099096!3d12.9841386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x61c6488556792ac5%3A0xaf50c93d41670986!2sCipher%20Trivia%20I%20Cybersecurity%20Company!5e0!3m2!1sen!2sin!4v1792852749856!5m2!1sen!2sin" title="CipherTrivia office on Google Maps" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <noscript><iframe class="map__frame map__frame--now" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8078483409113!2d77.7099096!3d12.9841386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x61c6488556792ac5%3A0xaf50c93d41670986!2sCipher%20Trivia%20I%20Cybersecurity%20Company!5e0!3m2!1sen!2sin!4v1792852749856!5m2!1sen!2sin" title="CipherTrivia office on Google Maps" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></noscript>
+        </div>
+        {% else %}
+        <p class="kicker">Quick inquiry</p>
+        <h2 class="inquiry__title" id="inquiry-title">Get a quote for <span class="accent">{{ enquiry.titleFor[page.url] or "your security assessment" }}</span></h2>
+        <p class="inquiry__lede">We'll review your current setup, map the right testing approach, and outline timelines and pricing, with no obligation.</p>
+        <ul class="inquiry__points">
+          <li>{{ icon("clock", "bare") }}<span>Reply within one business day, Monday–Friday IST</span></li>
+          <li>{{ icon("lock", "bare") }}<span>Your NDA or ours, signed before any scoping discussion</span></li>
+          <li>{{ icon("retest", "bare") }}<span>A free retest after your fixes</span></li>
+        </ul>
+        <p class="inquiry__direct">
+          <a href="tel:{{ enquiry.phone }}">{{ icon("phone", "bare") }}<span>Call {{ enquiry.phoneDisplay }}</span></a>
+          <a href="https://wa.me/{{ enquiry.phone | replace('+', '') }}?text={{ enquiry.whatsappText | urlencode }}" target="_blank" rel="noopener">{{ icon("chat", "bare") }}<span>WhatsApp</span></a>
+          <a href="mailto:projects@ciphertrivia.com">{{ icon("mail-check", "bare") }}<span>projects@ciphertrivia.com</span></a>
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="inquiry__form">
+        <div class="intake">
+          <div class="intake__head">
+            <h3 class="intake__title">Tell us about your use case</h3>
+          </div>
+          <form class="intake__form" method="POST" action="/api/contact" novalidate data-lead-form="inquiry">
+            <input type="hidden" name="page_url" value="">
+            <div style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+              <label for="iq-hp">Leave this field blank</label>
+              <input id="iq-hp" name="hp_field" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="fields">
+              <div class="field field--full field--select">
+                <label class="field__label" for="iq-service">What are you interested in?</label>
+                <select class="field__input" id="iq-service" name="services">
+                  {%- for s in enquiry.services %}
+                  <option{% if enquiry.serviceFor[page.url] == s %} selected{% endif %}>{{ s }}</option>
+                  {%- endfor %}
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label" for="iq-name">Full name <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="iq-name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="iq-email">Business email <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="iq-email" name="email" type="email" autocomplete="email" enterkeyhint="next" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="iq-phone">Phone number <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="iq-phone" name="phone" type="tel" autocomplete="tel" enterkeyhint="next" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="iq-company">Company <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="iq-company" name="company" type="text" autocomplete="organization" enterkeyhint="next" required>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="iq-description">Tell us about your requirements</label>
+                <textarea class="field__input" id="iq-description" name="description" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="intake__foot">
+              <button type="submit" class="btn btn--signal intake__submit"><span class="btn__label">Request a quote</span><span class="spinner" aria-hidden="true"></span>{{ arrow() }}</button>
+              <div class="form__msg" role="alert" hidden data-form-msg></div>
+              <p class="intake__legal">By submitting this form, you agree to CipherTrivia's <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Use</a>. You may unsubscribe at any time.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

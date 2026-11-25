@@ -1,0 +1,88 @@
+{#- Home hero: the assessment console, an example engagement played as a loop by
+    assets/js/home-console.js (styles in sections/home.css). Stage names, stage notes
+    and the three findings are the home page's own terms; keep them in step with the
+    AI section and "Example Security Findings" if those change. -#}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set targets = [
+  ["web", "browser", "Web application", "portal.example.com", "Web app"],
+  ["api", "api", "API", "api.example.com/v2", "API"],
+  ["cloud", "cloud-lock", "Cloud", "AWS · 3 accounts", "Cloud"],
+  ["mobile", "mobile", "Mobile apps", "Android · iOS", "Mobile"],
+  ["network", "network", "Network", "External perimeter", "Network"]
+] %}
+{%- set findings = [
+  ["dns", "medium", "Exposed Subdomain or DNS Record", "Potential Unauthorized Access", "Network"],
+  ["cloud", "high", "Overly Permissive Cloud Access", "Potential Data Exposure", "Cloud"],
+  ["sqli", "critical", "Unvalidated Input Parameter", "Potential SQL Injection", "Web app"]
+] %}
+{%- set stages = [
+  ["recon", "radar", "Recon agent", "Discover Your Digital Attack Surface"],
+  ["scan", "code", "Deep-scan agent", "Analyze Code and Security Configurations"],
+  ["review", "user-shield", "Human + AI", "Validate Findings With Security Experts"],
+  ["rank", "chart", "Prioritization agent", "Rank Risks by Severity and Business Impact"],
+  ["retest", "retest", "Retest agent", "Verify Fixes and Track Security Improvements"]
+] %}
+<div class="console-stage" data-console-stage>
+  <div class="console-tilt">
+    <div class="console" data-console role="img" aria-label="Animated example of an assessment: the recon agent maps the attack surface of a web application, API, cloud, mobile apps and network; the deep-scan agent raises 37 signals; security experts dismiss 34 false positives and validate three findings; the prioritization agent ranks them critical, high and medium; the retest agent verifies each fix and the report is ready.">
+      <div class="console__chrome" aria-hidden="true">
+        <span class="console__brand"><span class="console__mark"></span>CipherTrivia<span class="console__sep">/</span><span class="console__app">Assessment console</span></span>
+        <span class="console__tag">Example engagement</span>
+      </div>
+
+      <div class="console__body" aria-hidden="true">
+        <div class="console__scope">
+          <p class="console__label">Scope<span>5 targets</span></p>
+          <ul class="console__targets">
+            {%- for t in targets %}
+            <li class="console__target" data-target="{{ t[0] }}">{{ icon(t[1], "bare") }}<span class="console__tname">{{ t[2] }}<small>{{ t[3] }}</small></span><span class="console__tstate"></span><span class="console__bar"><i></i></span></li>
+            {%- endfor %}
+          </ul>
+          <dl class="console__stats">
+            <div><dt>Assets discovered</dt><dd data-tally="assets">0</dd></div>
+            <div><dt>Signals raised</dt><dd data-tally="signals">0</dd></div>
+            <div><dt>Dismissed by experts</dt><dd data-tally="dismissed">0</dd></div>
+          </dl>
+        </div>
+
+        <div class="console__map" data-map>
+          <canvas class="console__canvas"></canvas>
+          <p class="console__phase"><span data-phase-name>{{ stages[0][2] }}</span><small data-phase-note>{{ stages[0][3] }}</small></p>
+          <span class="console__node console__node--core">{{ icon("agent", "bare") }}</span>
+          {%- for t in targets %}
+          <span class="console__node" data-node="{{ t[0] }}">{{ icon(t[1], "bare") }}<em>{{ t[4] }}</em></span>
+          {%- endfor %}
+        </div>
+
+        <div class="console__findings">
+          <p class="console__label">Findings<span data-tally="open">0 open</span></p>
+          <ol class="console__list">
+            {%- for f in findings %}
+            <li class="console__finding" data-finding="{{ f[0] }}" data-sev="{{ f[1] }}">
+              <span class="console__sev"><b>{{ f[1] | capitalize }}</b></span>
+              <span class="console__ftitle">{{ f[2] }}</span>
+              <span class="console__fmeta">{{ f[3] }} · {{ f[4] }}</span>
+              <span class="console__fstate"><i class="console__valid">Expert validated</i><i class="console__fixed">Fix verified</i></span>
+            </li>
+            {%- endfor %}
+          </ol>
+          <div class="console__risk">
+            <p class="console__label">Risk exposure<span data-tally="risk">Assessing</span></p>
+            <div class="console__meter"><i data-seg="sqli"></i><i data-seg="cloud"></i><i data-seg="dns"></i></div>
+          </div>
+          <p class="console__toast">{{ icon("doc-check", "bare") }}<span>Report ready<small>Severity, evidence and remediation guidance</small></span></p>
+        </div>
+      </div>
+
+      <ol class="console__stages" aria-hidden="true">
+        {%- for s in stages %}
+        <li class="console__stage" data-stage="{{ s[0] }}" data-note="{{ s[3] }}">{{ icon(s[1], "bare") }}<span class="console__sname">{{ s[2] }}</span></li>
+        {%- endfor %}
+      </ol>
+    </div>
+    <button class="console__toggle" type="button" data-console-toggle aria-label="Pause animation">
+      <svg class="console__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+      <svg class="console__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>

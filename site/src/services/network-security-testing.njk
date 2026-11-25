@@ -1,0 +1,610 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Network Security Testing Services & Vulnerability Assessment"
+description: "Secure your IT infrastructure with network security testing services from CipherTrivia. Identify vulnerabilities through network penetration testing and security assessments."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Network Security Testing Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow, ph %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["Can network security testing identify risks before attackers exploit them?", "Yes. Network Security Testing Services help identify exposed systems and security weaknesses before attackers can take advantage of them. Early identification gives businesses time to address vulnerabilities and reduce the risk of unauthorized access or service disruption."],
+  ["Can network security testing find weaknesses in our office network?", "Yes. Testing can identify weak access controls and insecure network configurations along with exposed devices and outdated systems within an office network. The assessment helps IT teams understand which areas need stronger protection."],
+  ["How does network security testing help prevent data breaches?", "Network security testing identifies weaknesses that could allow unauthorized users to access business systems or sensitive information. By addressing these issues, organizations can reduce opportunities for attackers to enter the network and reach confidential data."],
+  ["Can network security testing detect risks caused by incorrect firewall settings?", "Yes. A network security assessment can identify firewall rules that allow unnecessary connections or provide broader access than required. Correcting these settings helps restrict network traffic and reduce exposure to potential attacks."],
+  ["Is network security testing useful for businesses that already have a firewall and antivirus software?", "Yes. Firewalls and antivirus software provide important protection, but they may not detect every network weakness. Network Security Testing Services help identify gaps in configurations and access controls that could remain even when security tools are in place."],
+  ["Can network security testing assess risks from remote employees and VPN connections?", "Yes. Depending on the agreed scope, testing can examine remote access arrangements and VPN configurations to identify weak authentication or excessive permissions that could expose business systems to unauthorized access."],
+  ["What happens if critical vulnerabilities are discovered during network security testing?", "Critical findings are documented and communicated according to the agreed reporting and escalation process. Your IT team can then prioritize corrective action based on the severity of the issue and its potential impact on business operations."],
+  ["Does network security testing require business systems to go offline?", "Most assessments can be planned to minimize disruption to normal business activities. Testing methods and schedules are agreed upon in advance, and potentially disruptive activities require appropriate authorization and safeguards."],
+  ["How often should network security testing be performed?", "Testing is recommended after major network changes and infrastructure upgrades along with significant security incidents. Periodic assessments also help identify weaknesses introduced by new devices and configuration changes as the network evolves."],
+  ["What should a business prepare before starting network security testing?", "Businesses should define the testing scope and identify the network assets included in the assessment. Providing relevant network diagrams and authorized access details along with approved testing windows helps the assessment proceed efficiently."],
+  ["Can network security testing help meet security compliance requirements?", "Network security testing can support security and compliance initiatives by identifying vulnerabilities and documenting corrective actions. The specific requirements depend on the applicable framework and the organization's regulatory obligations."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Network Security Testing Services",
+      "serviceType": "Network Security Testing",
+      "description": "Secure your IT infrastructure with network security testing services from CipherTrivia. Identify vulnerabilities through network penetration testing and security assessments.",
+      "url": "https://www.ciphertrivia.com/services/network-security-testing/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Network Security Testing Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Internal Network Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Network Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Penetration Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Firewall Security Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wireless Network Security Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Vulnerability Assessment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Segmentation Testing" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Network Security Testing Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero hero--ink hero--horizon" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">Network <span class="accent">Security Testing</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">CipherTrivia helps businesses identify network security gaps and protect critical IT infrastructure from cyber threats. Our Network Security Testing Services evaluate network devices and security controls to uncover weaknesses that could lead to unauthorized access or data breaches. We deliver actionable findings and remediation guidance to help organizations improve network protection and reduce security risks.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="vhorizon hero-video" data-hero-video>
+    <video class="hero-video__media" muted loop playsinline preload="metadata" poster="/assets/video/network-security-poster.jpg" aria-hidden="true"><source src="/assets/video/network-security.mp4" type="video/mp4"></video>
+    <div aria-hidden="true"><span class="vhorizon__ping" style="left:17%;top:74%;--d:0s"></span><span class="vhorizon__ping" style="left:39%;top:63%;--d:0.8s"></span><span class="vhorizon__ping" style="left:62%;top:79%;--d:1.6s"></span><span class="vhorizon__ping" style="left:83%;top:67%;--d:2.4s"></span></div>
+    <button class="hero-video__toggle" type="button" aria-label="Pause video" data-video-toggle>
+          <svg class="hero-video__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="hero-video__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">OWASP Top 10</span>
+      <span class="rail__item">OWASP API Top 10</span>
+      <span class="rail__item">CWE</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+      <span class="rail__item">SOC 2</span>
+      <span class="rail__item">PCI DSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Network Security Testing for Business Infrastructure</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Network security plays a critical role in protecting business systems and preventing unauthorized access to sensitive information. At CipherTrivia, our Network Security Testing Services help organizations identify weaknesses across internal and external networks along with network devices and security configurations that could expose their IT infrastructure to cyber threats.</p>
+        <p class="rv">Our testing examines network access controls and firewall configurations alongside exposed services and potential entry points that attackers could exploit. By identifying security gaps and evaluating their potential impact, we provide actionable findings and remediation recommendations that help businesses improve network protection and maintain a more secure IT environment.</p>
+      </div>
+    </div>
+
+    <div class="figure-wide rv">
+      <div class="board board--ink" data-sig-wrap>
+        <div class="board__canvas" data-sig="12" role="img" aria-label="Animated diagram: a scan from the external network finds an exposed service on an internet-facing host; lateral movement from it is blocked at one segment boundary but passes a weak rule into the data segment, and the findings are recorded">
+          <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMinYMid slice">
+<text class="sig-mono f-paper" x="40" y="56" font-size="12" text-anchor="start" fill-opacity=".6">EXTERNAL NETWORK</text>
+<text class="sig-mono f-paper" x="290" y="56" font-size="12" text-anchor="start" fill-opacity=".6">FIREWALL</text>
+<text class="sig-mono f-paper" x="380" y="56" font-size="12" text-anchor="start" fill-opacity=".6">INTERNAL NETWORK</text>
+<rect class="f-none s-paper" x="40.5" y="70.5" width="200" height="390" stroke-opacity=".25" stroke-dasharray="6 6"/>
+<rect class="f-ink9 s-paper" x="290.5" y="70.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="100.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 100.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="130.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="160.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 160.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="190.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="220.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 220.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="250.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="280.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 280.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="310.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="340.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 340.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="370.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="400.5" width="30" height="29" stroke-opacity=".35"/>
+<path class="f-none s-paper" d="M304.5 400.5v29" stroke-opacity=".35"/>
+<rect class="f-ink9 s-paper" x="290.5" y="430.5" width="30" height="29" stroke-opacity=".35"/>
+<rect class="f-none s-paper" x="370.5" y="70.5" width="390" height="170" stroke-opacity=".4" stroke-dasharray="6 6"/>
+<rect class="f-none s-paper" x="800.5" y="70.5" width="370" height="170" stroke-opacity=".4" stroke-dasharray="6 6"/>
+<path class="f-none s-paper" d="M620 280.5H370.5V460.5H1170.5V280.5H660" stroke-opacity=".4" stroke-dasharray="6 6"/>
+<path class="f-none s-paper" d="M620 280.5H660" stroke-opacity=".12" stroke-dasharray="2 6"/>
+<g transform="translate(103 183) scale(1.54167)" class="f-none s-paper" stroke-width="1.03784" stroke-linecap="square"><circle cx="24" cy="24" r="18"/><path d="M24 6c-6 5-8 11-8 18s2 13 8 18M24 6c6 5 8 11 8 18s-2 13-8 18M8 16h32M8 32h32"/><g class="s-sig"><path d="M6 24h36" pathLength="1"/></g></g>
+<rect class="f-ink s-paper" x="444.5" y="114.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(463 129) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><rect x="7" y="7" width="34" height="13"/><rect x="7" y="23" width="34" height="13"/><path d="M20 13.5h15M20 29.5h15M14 36v6M34 36v6M10 42h28"/><g class="s-sig"><rect x="11" y="12" width="3" height="3" pathLength="1"/><rect x="11" y="28" width="3" height="3" pathLength="1"/></g></g><rect class="f-paper" x="450" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="460.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="471" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="481.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="492" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="502.5" y="196" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="604.5" y="114.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(623 129) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><rect x="7" y="7" width="34" height="13"/><rect x="7" y="23" width="34" height="13"/><path d="M20 13.5h15M20 29.5h15M14 36v6M34 36v6M10 42h28"/><g class="s-sig"><rect x="11" y="12" width="3" height="3" pathLength="1"/><rect x="11" y="28" width="3" height="3" pathLength="1"/></g></g><rect class="f-paper" x="610" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="620.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="631" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="641.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="652" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="662.5" y="196" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="844.5" y="114.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(863 129) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><rect x="13" y="4" width="22" height="40"/><path d="M21 38h6"/><g class="s-sig"><path d="M24 12l6 2.5v5c0 4-2.8 6.8-6 8-3.2-1.2-6-4-6-8v-5z" pathLength="1"/></g></g><rect class="f-paper" x="850" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="860.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="871" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="881.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="892" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="902.5" y="196" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="949.5" y="114.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(968 129) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><rect x="5" y="8" width="38" height="32"/><path d="M5 16h38"/><g class="s-sig"><path d="M18 23l-5 5 5 5M30 23l5 5-5 5M26 21l-4 14" pathLength="1"/></g></g><rect class="f-paper" x="955" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="965.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="976" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="986.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="997" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1007.5" y="196" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="1054.5" y="114.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(1073 129) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><rect x="13" y="4" width="22" height="40"/><path d="M21 38h6"/><g class="s-sig"><path d="M24 12l6 2.5v5c0 4-2.8 6.8-6 8-3.2-1.2-6-4-6-8v-5z" pathLength="1"/></g></g><rect class="f-paper" x="1060" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1070.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1081" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1091.5" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1102" y="196" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="1112.5" y="196" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="434.5" y="334.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(453 349) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g><rect class="f-paper" x="440" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="450.5" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="461" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="471.5" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="482" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="492.5" y="416" width="7" height="7" fill-opacity=".22"/>
+<rect class="f-ink s-paper" x="604.5" y="334.5" width="71" height="71" stroke-opacity=".55" stroke-width="1.5"/><g transform="translate(623 349) scale(0.708333)" class="f-none s-paper" stroke-width="2.25882" stroke-linecap="square"><ellipse cx="21" cy="11" rx="14" ry="5"/><path d="M7 11v26c0 2.8 6.3 5 14 5M35 11v13M7 24c0 2.8 6.3 5 14 5"/><g class="s-sig"><path d="M29 35h13M37 30l5 5-5 5" pathLength="1"/></g></g><rect class="f-paper" x="610" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="620.5" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="631" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="641.5" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="652" y="416" width="7" height="7" fill-opacity=".22"/><rect class="f-paper" x="662.5" y="416" width="7" height="7" fill-opacity=".22"/>
+<path class="f-none s-paper s-dash" d="M180 200C300 200 360 200 448 200" stroke-opacity=".6" data-fx="fade" data-at="0.4" data-len="0.4" data-out="4.6"/>
+<rect class="f-paper" x="450" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.2" data-len="0.25"/>
+<rect class="f-paper" x="460.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.26" data-len="0.25"/>
+<rect class="f-paper" x="471" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.32" data-len="0.25"/>
+<rect class="f-paper" x="481.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.38" data-len="0.25"/>
+<rect class="f-paper" x="492" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.44" data-len="0.25"/>
+<rect class="f-paper" x="502.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.5" data-len="0.25"/>
+<path class="f-none s-paper s-dash" d="M180 230C300 230 520 200 608 200" stroke-opacity=".6" data-fx="fade" data-at="0.9" data-len="0.4" data-out="4.6"/>
+<rect class="f-paper" x="610" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.7" data-len="0.25"/>
+<rect class="f-paper" x="620.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.76" data-len="0.25"/>
+<rect class="f-paper" x="631" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.82" data-len="0.25"/>
+<rect class="f-paper" x="641.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.88" data-len="0.25"/>
+<rect class="f-paper" x="652" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="1.94" data-len="0.25"/>
+<rect class="f-paper" x="662.5" y="196" width="7" height="7" fill-opacity=".75" data-fx="pop" data-at="2" data-len="0.25"/>
+<rect class="f-sig" x="641.5" y="196" width="7" height="7" data-fx="pop" data-at="2.2" data-len="0.45"/>
+<path class="f-none s-sig" d="M631.5 192.5v-5h5M650.5 187.5h5v5M655.5 206.5v5h-5M636.5 211.5h-5v-5" stroke-width="2" data-fx="pop" data-at="2.4" data-len="0.4"/>
+<text class="sig-mono f-sig" x="658" y="226" font-size="11" text-anchor="start" data-fx="fade" data-at="2.6" data-len="0.3">EXPOSED SERVICE</text>
+<path class="f-none" d="M240 260C320 260 520 236 640 200" id="net-in"/>
+<g data-fx="move" data-at="3" data-len="0.9" data-path="#net-in"><rect class="f-sig" x="-6" y="-6" width="12" height="12"/></g>
+<rect class="f-none s-sig" x="604.5" y="114.5" width="71" height="71" stroke-width="2.5" data-fx="fade" data-at="3.9" data-len="0.3"/>
+<path class="f-none s-sig" d="M676 150H800" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.6" data-len="0.6"/>
+<g transform="translate(800 150)"><rect class="f-ink s-paper" x="-11" y="-11" width="22" height="22" stroke-width="1.5"/><g transform="translate(-8 -8) scale(0.333333)" class="f-none s-paper" stroke-width="5.4" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g>
+<g data-fx="pop" data-at="5.2" data-len="0.4"><rect class="f-sig" x="789" y="139" width="22" height="22"/></g>
+<g data-fx="pop" data-at="5.25" data-len="0.4"><g transform="translate(792 142) scale(0.333333)" class="f-none s-ink" stroke-width="5.4" stroke-linecap="square"><rect x="9" y="21" width="30" height="21"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><g class="s-sig"><circle cx="24" cy="29" r="2.5" pathLength="1"/><path d="M24 31.5v4" pathLength="1"/></g></g></g>
+<path class="f-none s-sig" d="M640 214V334" pathLength="1" stroke-width="2" data-fx="draw" data-at="6" data-len="0.8"/>
+<path class="f-none s-sig" d="M620 280.5H660" stroke-width="3" data-fx="fade" data-at="6.4" data-len="0.3"/>
+<rect class="f-none s-sig" x="604.5" y="334.5" width="71" height="71" stroke-width="2.5" data-fx="fade" data-at="6.8" data-len="0.3"/>
+<path class="f-none s-sig" d="M592 330v-8h8M680 322h8v8M688 410v8h-8M600 418h-8v-8" stroke-width="2" data-fx="pop" data-at="7" data-len="0.45"/>
+<text class="sig-mono f-sig" x="700" y="312" font-size="11" text-anchor="start" data-fx="fade" data-at="7.2" data-len="0.3">LATERAL MOVEMENT</text>
+<rect class="f-ink9 s-paper" x="900.75" y="300.75" width="248.5" height="142.5" stroke-opacity=".4" stroke-width="1.5" data-fx="fade" data-at="7.6" data-len="0.3"/>
+<rect class="f-sig" x="918" y="322" width="30" height="14" data-fx="pop" data-at="7.9" data-len="0.4"/>
+<rect class="f-paper" x="960" y="327" width="160" height="4" fill-opacity=".7" data-fx="grow" data-at="8" data-len="0.4"/>
+<rect class="f-sig" x="918" y="356" width="30" height="14" data-fx="pop" data-at="8.2" data-len="0.4"/>
+<rect class="f-paper" x="960" y="361" width="120" height="4" fill-opacity=".7" data-fx="grow" data-at="8.3" data-len="0.4"/>
+<rect class="f-stone" x="918" y="390" width="30" height="14" data-fx="pop" data-at="8.5" data-len="0.4"/>
+<rect class="f-paper" x="960" y="395" width="140" height="4" fill-opacity=".7" data-fx="grow" data-at="8.6" data-len="0.4"/>
+</svg>
+        </div>
+        <button class="board__toggle" type="button" aria-label="Pause animation" data-sig-toggle>
+          <svg class="board__i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="board__i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- TYPES                                                                -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Types of Network Security Testing Services</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia offers Network Security Testing Services to help businesses identify vulnerabilities across their IT infrastructure and reduce the risk of unauthorized access. Our assessments cover network devices and security configurations along with exposed services and access controls to help organizations protect critical systems and sensitive business data.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--7">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("network") }}</div>
+        <h3 class="ledger__title">Internal Network Security Testing</h3>
+        <p class="ledger__text">We assess internal network environments to identify security gaps that could allow attackers or unauthorized users to access business systems. The testing focuses on device security and access permissions along with weaknesses that could enable threats to spread across the network.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("globe") }}</div>
+        <h3 class="ledger__title">External Network Security Testing</h3>
+        <p class="ledger__text">Our external network assessments identify security weaknesses visible from outside the organization's network. We examine internet-facing systems and exposed services to uncover potential entry points that attackers could target.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("target") }}</div>
+        <h3 class="ledger__title">Network Penetration Testing</h3>
+        <p class="ledger__text">Through authorized attack simulations, we evaluate how network vulnerabilities could be exploited to gain unauthorized access or compromise connected systems. The findings help businesses understand potential attack paths and prioritize security improvements.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("firewall") }}</div>
+        <h3 class="ledger__title">Firewall Security Assessment</h3>
+        <p class="ledger__text">We review firewall rules and network traffic controls to identify misconfigurations and unnecessary access permissions. This helps organizations reduce network exposure and restrict connections to approved services and systems.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("wifi") }}</div>
+        <h3 class="ledger__title">Wireless Network Security Testing</h3>
+        <p class="ledger__text">Our wireless security testing evaluates Wi-Fi configurations and access controls to identify weaknesses that could expose business networks to unauthorized connections. The assessment helps improve wireless protection and reduce risks associated with insecure network access.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("radar") }}</div>
+        <h3 class="ledger__title">Network Vulnerability Assessment</h3>
+        <p class="ledger__text">Our Network Vulnerability Assessment identifies known security weaknesses across network infrastructure and connected systems. Findings are classified by severity to help organizations prioritize remediation based on risk and potential business impact.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("segments") }}</div>
+        <h3 class="ledger__title">Network Segmentation Testing</h3>
+        <p class="ledger__text">We evaluate how effectively internal networks separate critical systems and sensitive resources. The assessment identifies access control gaps that could allow unauthorized movement between network segments and increase the impact of a security incident.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ACROSS YOUR IT INFRASTRUCTURE                                        -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Network Security Testing Across Your IT Infrastructure</h2>
+        <p class="shead__lede rv" style="--d:1">Our Network Security Testing Services help businesses identify weaknesses across their network infrastructure and understand how these gaps could expose critical systems to cyber threats. CipherTrivia assesses network access and security configurations along with connected devices and exposed services to identify risks and recommend practical improvements.</p>
+      </div>
+    </header>
+
+    <div class="explorer" data-explorer>
+      <div class="explorer__media" aria-hidden="true">
+        <div class="explorer__stack">
+          <div class="explorer__frame is-active" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-infra.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-firewall.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-ports.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-exposure.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-vulnerabilities.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-wireless.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-segmentation.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+          <div class="explorer__frame" data-explorer-media><figure class="xphoto"><img class="media-img" src="/assets/images/network-security-testing/type-findings.webp" width="1200" height="1500" alt="" loading="lazy"><span class="xphoto__hud"></span></figure></div>
+        </div>
+      </div>
+
+      <div class="explorer__list">
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-infra.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Network Infrastructure and Device Security</h3>
+          <p class="explorer__text">We assess routers and switches along with other network devices to identify outdated configurations and weak access controls that could expose business systems to unauthorized access.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-firewall.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Firewall Rules and Access Controls</h3>
+          <p class="explorer__text">Our testing reviews firewall settings and network permissions to identify unnecessary access and misconfigured rules. This helps businesses restrict unauthorized connections and improve control over network traffic.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-ports.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Exposed Ports and Network Services</h3>
+          <p class="explorer__text">We identify open ports and accessible services that could create potential entry points for attackers. The assessment helps determine which services require stronger protection or restricted access.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-exposure.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Internal and External Network Exposure</h3>
+          <p class="explorer__text">Our assessment examines internal network environments and internet-facing infrastructure to identify weaknesses that could allow unauthorized access to business resources or increase exposure to external threats.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-vulnerabilities.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Network Vulnerabilities and Outdated Systems</h3>
+          <p class="explorer__text">We identify known vulnerabilities in network devices and connected systems along with outdated software and insecure configurations. Findings are prioritized according to severity and potential business impact.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-wireless.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Wireless Network Security</h3>
+          <p class="explorer__text">We review wireless network configurations and access controls to identify weaknesses that could allow unauthorized devices to connect to business networks or access sensitive resources.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-segmentation.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Network Segmentation and Lateral Movement</h3>
+          <p class="explorer__text">Our testing evaluates how effectively network segments separate critical systems and sensitive information. We identify gaps that could allow an attacker who compromises one device to reach other parts of the network.</p>
+        </article>
+        <article class="explorer__item rv" data-explorer-item>
+          <img class="explorer__inline" src="/assets/images/network-security-testing/type-findings.webp" width="1200" height="1500" alt="" loading="lazy">
+          <h3 class="explorer__name">Security Findings and Remediation Guidance</h3>
+          <p class="explorer__text">We provide documented findings with risk ratings and practical recommendations to help IT teams address identified weaknesses. This supports informed remediation decisions and improves the overall security of business network infrastructure.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ATTACK PATH                                                          -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">How Attackers Exploit Network Weaknesses and How We Test Them</h2>
+        <p class="shead__lede rv" style="--d:1">Network attacks often involve multiple stages, from finding exposed systems to exploiting vulnerabilities and attempting to access sensitive information. Our Network Security Testing Services simulate these attack paths in an authorized environment to identify security gaps and help businesses understand how attackers could compromise their network infrastructure.</p>
+      </div>
+    </header>
+
+    <div class="triggers">
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("eye", "lg") }}</span>
+        <h3 class="trigger__title">External Network Exposure</h3>
+        <div class="trigger__text">
+          <p>Attackers often begin by scanning internet-facing systems to identify open ports and exposed services. We assess your external network to uncover misconfigured services and outdated systems along with weaknesses that could provide an entry point into your infrastructure.</p>
+          <p class="trigger__why"><strong>How We Test It:</strong> We conduct network scans and service discovery along with targeted vulnerability checks to identify exposed assets and validate potential security risks.</p>
+        </div>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("terminal", "lg") }}</span>
+        <h3 class="trigger__title">Service Exploitation and Initial Access</h3>
+        <div class="trigger__text">
+          <p>Once a weakness is identified, attackers may attempt to exploit vulnerable services or use weak credentials to gain access. Our testing evaluates how these weaknesses could affect network security and whether existing controls can prevent unauthorized entry.</p>
+          <p class="trigger__why"><strong>How We Test It:</strong> We perform controlled exploitation attempts and credential security checks within the approved scope to validate vulnerabilities and assess their potential impact.</p>
+        </div>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("escalate", "lg") }}</span>
+        <h3 class="trigger__title">Privilege Escalation and Unauthorized Access</h3>
+        <div class="trigger__text">
+          <p>After gaining initial access, attackers may try to obtain higher permissions to reach restricted systems or sensitive business resources. We examine access controls and system configurations to identify weaknesses that could allow unauthorized privilege escalation.</p>
+          <p class="trigger__why"><strong>How We Test It:</strong> We assess permissions and configuration weaknesses to determine if access can be expanded beyond the intended level.</p>
+        </div>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("lateral", "lg") }}</span>
+        <h3 class="trigger__title">Lateral Movement Across the Network</h3>
+        <div class="trigger__text">
+          <p>Attackers who compromise one system may attempt to access other connected devices and critical servers. Weak network segmentation and excessive permissions can make this movement easier and increase the impact of an attack.</p>
+          <p class="trigger__why"><strong>How We Test It:</strong> We evaluate network segmentation and access restrictions to identify paths that could allow unauthorized movement between systems.</p>
+        </div>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("database", "lg") }}</span>
+        <h3 class="trigger__title">Sensitive Data and Critical System Access</h3>
+        <div class="trigger__text">
+          <p>Attackers may target business databases and file servers along with administrative systems to obtain confidential information or disrupt operations. Our assessment identifies weaknesses that could expose these resources to unauthorized access.</p>
+          <p class="trigger__why"><strong>How We Test It:</strong> We verify access controls and examine relevant security configurations to determine if sensitive systems and data are adequately protected.</p>
+        </div>
+      </div>
+      <div class="trigger rv">
+        <span class="trigger__ico">{{ icon("doc-check", "lg") }}</span>
+        <h3 class="trigger__title">Security Findings and Remediation</h3>
+        <p class="trigger__text">Following testing, we document validated vulnerabilities and explain their potential business impact. Our findings include risk-based priorities and practical recommendations to help IT teams address security gaps and improve network protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">How Our Network Security Testing Services Process Works</h2>
+        <p class="process__lede">CipherTrivia follows a structured Network Security Testing Services process to identify security gaps and help businesses protect their IT infrastructure from cyber threats. From reviewing network access to verifying security weaknesses, our approach focuses on identifying risks and providing practical recommendations that help organizations improve network protection.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Network Assessment and Scope Definition</h3>
+          <p class="step__text">We begin by understanding your network environment and identifying the systems and devices included in the assessment. This helps us focus on critical business assets and determine which areas require closer security checks.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Security Weakness Identification</h3>
+          <p class="step__text">Our team examines network devices and security settings to identify weaknesses that could expose systems to unauthorized access. This includes reviewing firewall rules and access permissions along with exposed services and outdated configurations.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Vulnerability Validation and Risk Analysis</h3>
+          <p class="step__text">Identified weaknesses are reviewed to understand their severity and potential impact on business operations. Where authorized, we conduct controlled tests to determine how these issues could affect network security and prioritize the risks that need immediate attention.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Network Security Testing Report</h3>
+          <p class="step__text">We prepare a clear report outlining the identified vulnerabilities and explaining their potential consequences. Each finding includes risk-based prioritization and practical recommendations to help your IT team understand what needs to be addressed.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Recommendations</h3>
+          <p class="step__text">Our recommendations focus on helping your team resolve security gaps through improved configurations and stronger access controls along with appropriate updates and network protection measures.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Retesting and Security Verification</h3>
+          <p class="step__text">After corrective actions are implemented, retesting can verify whether the reported weaknesses have been addressed. This helps confirm the effectiveness of security improvements and highlights any remaining issues that require attention.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Network Security Testing Services</h2>
+        <p class="shead__lede rv" style="--d:1">Our Network Security Testing Services provide clear insights into network vulnerabilities and practical guidance to help businesses protect their IT infrastructure. CipherTrivia delivers structured findings that help IT teams understand security risks and prioritize corrective actions to reduce exposure to cyber threats.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <div class="xreport" data-sig="10" role="img" aria-label="Example vulnerability assessment report: network exposure and attack path, risk classification and prioritization, retesting and verification">
+          <svg aria-hidden="true" viewBox="0 0 480 600">
+<g data-fx="fade" data-at="0.15" data-len="0.5"><rect class="f-paper s-ink" x="36.75" y="44.75" width="259.5" height="391.5" stroke-width="1.5"/><rect class="f-sig" x="52" y="60" width="8" height="8"/><rect class="f-ink" x="230" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="62" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="75" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="88" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="230" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="243" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="256" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="269" y="101" width="4" height="4" fill-opacity=".22"/><rect class="f-ink" x="282" y="101" width="4" height="4" fill-opacity=".22"/><text class="sig-txt f-ink" x="54" y="112" font-size="19.2" text-anchor="start">Detailed Vulnerability</text><text class="sig-txt f-ink" x="54" y="134.241" font-size="19.2" text-anchor="start">Assessment Report</text><path class="f-none s-sig" d="M58 164.241h-6v26h6M138 164.241h6v26h-6" stroke-width="1.5"/><text class="sig-mono f-sig" x="66" y="181.741" font-size="10" text-anchor="start">EXAMPLE</text><path class="f-none s-ink" d="M56 404h220" stroke-opacity=".2"/></g>
+<g data-fx="slide" data-at="0.8" data-len="0.7" data-dy="36" data-back="0.6"><rect class="f-ink" x="206" y="184" width="252" height="396" fill-opacity=".08"/><rect class="f-paper s-ink" x="198.75" y="176.75" width="251.5" height="395.5" stroke-width="1.5"/><text class="sig-txt f-ink" x="216" y="210" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="1.7" data-len="0.3">Network Exposure and Attack Path</text><path class="f-none s-ink" d="M216 220h216" stroke-opacity=".2"/><rect class="f-paper s-ink" x="218" y="250" width="24" height="24" stroke-width="1.5"/><rect class="f-paper s-ink" x="274" y="250" width="24" height="24" stroke-width="1.5"/><rect class="f-paper s-ink" x="332" y="250" width="24" height="24" stroke-width="1.5"/><rect class="f-paper s-ink" x="390" y="250" width="24" height="24" stroke-width="1.5"/><path class="f-none s-ink" d="M242 262H274M298 262H332M356 262H390" stroke-opacity=".3" stroke-dasharray="3 4"/><path class="f-none s-sig" d="M242 262H390" pathLength="1" stroke-width="2" data-fx="draw" data-at="1.9" data-len="0.9"/><rect class="f-sig" x="394" y="254" width="16" height="16" data-fx="pop" data-at="2.8" data-len="0.4"/><text class="sig-txt f-ink" x="216" y="312" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="3.1" data-len="0.3">Risk Classification and Prioritization</text><path class="f-none s-ink" d="M216 322h216" stroke-opacity=".2"/><text class="sig-txt f-ink" x="216" y="342" font-size="9" text-anchor="start" data-fx="fade" data-at="3.3" data-len="0.3">Exposed Ports and Network Services</text><g data-fx="pop" data-at="3.45" data-len="0.4"><rect class="f-sig" x="384.5" y="331.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="342.5" font-size="7" text-anchor="middle">CRITICAL</text></g><path class="f-none s-ink" d="M216 351h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="369" font-size="9" text-anchor="start" data-fx="fade" data-at="3.52" data-len="0.3">Firewall Rules and Access Controls</text><g data-fx="pop" data-at="3.67" data-len="0.4"><rect class="f-sig" x="384.5" y="358.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="369.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 378h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="396" font-size="10" text-anchor="start" data-fx="fade" data-at="3.74" data-len="0.3">Network Segmentation</text><g data-fx="pop" data-at="3.89" data-len="0.4"><rect class="f-sig" x="384.5" y="385.5" width="47" height="15" fill-opacity=".6"/><text class="sig-mono f-ink" x="408" y="396.5" font-size="7" text-anchor="middle">HIGH</text></g><path class="f-none s-ink" d="M216 405h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="423" font-size="10" text-anchor="start" data-fx="fade" data-at="3.96" data-len="0.3">Wireless Network Security</text><g data-fx="pop" data-at="4.11" data-len="0.4"><rect class="f-sig1" x="384.5" y="412.5" width="47" height="15"/><text class="sig-mono f-ink" x="408" y="423.5" font-size="7" text-anchor="middle">MEDIUM</text></g><path class="f-none s-ink" d="M216 432h216" stroke-opacity=".08"/><text class="sig-txt f-ink" x="216" y="470" font-size="12.5" text-anchor="start" font-weight="500" data-fx="fade" data-at="4.18" data-len="0.3">Retesting and Verification</text><path class="f-none s-ink" d="M216 480h216" stroke-opacity=".2"/><rect class="f-none s-ink" x="216.75" y="496.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 503l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.38" data-len="0.3"/><rect class="f-stone" x="238" y="501" width="150" height="4" data-fx="grow" data-at="4.43" data-len="0.35"/><rect class="f-none s-ink" x="216.75" y="517.75" width="12.5" height="12.5" stroke-width="1.5"/><path class="f-none s-sig" d="M219.5 524l3 3 5-6" pathLength="1" stroke-width="2" data-fx="draw" data-at="4.63" data-len="0.3"/><rect class="f-stone" x="238" y="522" width="120" height="4" data-fx="grow" data-at="4.68" data-len="0.35"/></g>
+</svg>
+        </div>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Summary</h3>
+            <p class="deliver__text">Receive a clear overview of your network security status with key findings and potential business risks. This summary helps decision-makers understand the most important security concerns without requiring deep technical knowledge.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Vulnerability Assessment Report</h3>
+            <p class="deliver__text">Our report documents identified network vulnerabilities and explains how they could affect your systems. Findings include affected assets and severity ratings along with relevant evidence to help your IT team investigate each issue.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("alert") }}
+          <div>
+            <h3 class="deliver__title">Risk Classification and Prioritization</h3>
+            <p class="deliver__text">Each finding is categorized according to its severity and potential business impact. This helps your team identify critical weaknesses first and allocate resources to the security issues that require the most attention.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("wrench") }}
+          <div>
+            <h3 class="deliver__title">Actionable Remediation Recommendations</h3>
+            <p class="deliver__text">We provide practical guidance to help address network security gaps through improved firewall settings and access controls along with configuration updates and other relevant security measures.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Network Exposure and Attack Path Insights</h3>
+            <p class="deliver__text">Understand how identified weaknesses could create entry points into your network or expose connected systems to unauthorized access. These insights help your team identify areas where additional protection or tighter access restrictions may be needed.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chat") }}
+          <div>
+            <h3 class="deliver__title">Security Review and Findings Discussion</h3>
+            <p class="deliver__text">A review session can help your team understand the assessment results and clarify important findings. This supports informed remediation planning and helps technical stakeholders prioritize improvements based on risk.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("shield-check") }}
+          <div>
+            <h3 class="deliver__title">Retesting and Verification Report</h3>
+            <p class="deliver__text">After remediation, retesting can verify the status of reported vulnerabilities and document the results. This helps confirm that corrective actions have addressed identified weaknesses and highlights any remaining security concerns.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for Network Security Testing Services?</h2>
+        <p class="shead__lede rv" style="--d:1">CipherTrivia helps businesses identify network security weaknesses and understand the risks they pose to critical systems and sensitive information. Our Network Security Testing Services focus on uncovering vulnerabilities and delivering practical recommendations that help organizations improve network protection and reduce exposure to cyber threats.</p>
+      </div>
+    </header>
+
+    <div class="principles principles--7">
+      <article class="principle rv">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Comprehensive Network Security Assessment</h3>
+        <p class="principle__text">Our testing covers internal and external networks along with network devices and security configurations. This broad approach helps identify weaknesses across your IT infrastructure that could expose business systems to unauthorized access.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("gauge") }}
+        <h3 class="principle__title">Clear Risk Identification and Prioritization</h3>
+        <p class="principle__text">Not all vulnerabilities carry the same level of risk. We classify findings based on severity and potential business impact so your IT team can focus on critical security gaps and plan remediation effectively.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Practical Recommendations for Your IT Team</h3>
+        <p class="principle__text">Security findings are supported by actionable guidance that helps your team address configuration issues and access control weaknesses along with other identified vulnerabilities. This makes it easier to understand the next steps and plan appropriate security improvements.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("target") }}
+        <h3 class="principle__title">Authorized Testing Based on Realistic Attack Scenarios</h3>
+        <p class="principle__text">Our network security assessments examine how identified weaknesses could be used to gain unauthorized access or affect connected systems. Controlled testing helps businesses understand potential attack paths and improve their defenses.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Clear Reporting and Technical Guidance</h3>
+        <p class="principle__text">We document identified vulnerabilities and explain their potential impact in a structured report. The findings help technical teams understand security concerns while giving decision-makers the information needed to prioritize corrective actions.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("retest") }}
+        <h3 class="principle__title">Remediation Verification and Retesting</h3>
+        <p class="principle__text">After security fixes are implemented, retesting can verify the status of reported vulnerabilities. This helps confirm that corrective measures are effective and highlights any remaining issues that require further attention.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("chart") }}
+        <h3 class="principle__title">Focus on Business Risk Reduction</h3>
+        <p class="principle__text">Our approach connects technical findings with their potential impact on business operations and data protection. This helps organizations make informed security decisions and improve the resilience of their network infrastructure.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Network Security Testing Services</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

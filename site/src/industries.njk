@@ -1,0 +1,184 @@
+---
+layout: layouts/enterprise.njk
+navActive: industries
+title: "Industries We Secure | CipherTrivia Cybersecurity Services"
+description: "CipherTrivia secures SaaS, fintech, healthcare, ecommerce, manufacturing, logistics, startups and enterprise IT against modern cyber threats."
+crumbs: [["Home", "/"], ["Industries"]]
+pageSchema: false
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{#- One row per industry. Copy: the homepage industry descriptions; framework lists come from
+    each industry page's compliance section. Matrix flags, in column order: ISO 27001, SOC 2, PCI DSS, GDPR, HIPAA,
+    NIST CSF, DPDP Act; then the sector-specific frameworks. -#}
+{%- set industries = [
+  { slug: "saas-technology", name: "Technology & SaaS", img: "saas-technology",
+    text: "Software companies depend on reliable applications and secure customer data. CipherTrivia helps identify weaknesses in software products, cloud platforms and system integrations so technology businesses can reduce security risks and build greater confidence among their customers.",
+    tags: "SOC 2 · ISO 27001 · GDPR · HIPAA · PCI DSS · SIG and CAIQ", mx: [1,1,1,1,1,0,0], more: "Vendor security questionnaires (SIG, CAIQ)" },
+  { slug: "banking-fintech", name: "Fintech & Banking", img: "banking-industry",
+    text: "Banks and financial technology companies handle valuable financial information and transactions that require strong protection. Our cybersecurity assessments help identify weaknesses in payment systems, banking applications and APIs while supporting security practices aligned with relevant financial industry requirements.",
+    tags: "PCI DSS · ISO 27001 · SOC 2 · GDPR · RBI · SWIFT CSP · FFIEC", mx: [1,1,1,1,0,0,0], more: "RBI · SWIFT CSP · FFIEC" },
+  { slug: "healthcare", name: "Healthcare", img: "healthcare",
+    text: "Healthcare organizations manage confidential patient records and digital systems that support essential services. CipherTrivia helps uncover security gaps in healthcare applications, information systems and access controls to reduce the risk of data exposure and operational disruption.",
+    tags: "HIPAA · HITECH · GDPR · ISO 27001 · NIST CSF · PCI DSS · DPDP", mx: [1,0,1,1,1,1,1], more: "HITECH Act" },
+  { slug: "ecommerce", name: "Retail & Ecommerce", img: "ecommerce",
+    text: "Online retailers depend on secure shopping experiences to protect customer accounts, payment processes and order information. Our security testing helps identify vulnerabilities in ecommerce websites, checkout systems and third-party integrations before they can be exploited.",
+    tags: "PCI DSS · GDPR · ISO 27001 · SOC 2 · NIST CSF · DPDP · CCPA/CPRA", mx: [1,1,1,1,0,1,1], more: "CCPA/CPRA" },
+  { slug: "manufacturing", name: "Manufacturing", img: "manufacturing",
+    text: "Manufacturers rely on connected equipment, production systems and business applications to keep operations running smoothly. CipherTrivia helps identify weaknesses in industrial networks, connected systems and IT infrastructure that could lead to production downtime or unauthorized access.",
+    tags: "ISO 27001 · IEC 62443 · NIST CSF · NIST SP 800-82 · TISAX · GDPR · SOC 2", mx: [1,1,0,1,0,1,0], more: "IEC 62443 · NIST SP 800-82 · TISAX" },
+  { slug: "logistics", name: "Logistics", img: "logistics",
+    text: "Logistics companies use digital platforms to coordinate shipments, track deliveries and exchange information across supply chains. Our cybersecurity assessments help identify risks in logistics applications, tracking systems and business integrations to support reliable operations and protect sensitive data.",
+    tags: "ISO 27001 · NIST CSF · SOC 2 · GDPR · TAPA · PCI DSS", mx: [1,1,1,1,0,1,0], more: "TAPA · Regional data protection" },
+  { slug: "startups", name: "Startups", img: "startups",
+    text: "Growing businesses need to protect their products and customer information as they acquire users and expand their digital operations. CipherTrivia helps startups identify important security gaps in applications, cloud environments and digital infrastructure so they can address risks early and build customer confidence.",
+    tags: "ISO 27001 · SOC 2 · GDPR · PCI DSS · NIST CSF · DPDP · HIPAA", mx: [1,1,1,1,1,1,1], more: "" },
+  { slug: "enterprise-it", name: "Enterprise IT", img: "enterprise-it",
+    text: "Large organizations manage interconnected applications, cloud platforms, employee accounts and business-critical information. CipherTrivia helps enterprise IT teams identify vulnerabilities, review access permissions and uncover infrastructure weaknesses so they can prioritize remediation and strengthen their overall security posture.",
+    tags: "ISO 27001 · SOC 2 · NIST CSF · CIS · GDPR · PCI DSS · HIPAA · ISO 27701", mx: [1,1,1,1,1,1,0], more: "CIS Controls · ISO/IEC 27701" }
+] %}
+{%- set frameworks = ["ISO 27001", "SOC 2", "PCI DSS", "GDPR", "HIPAA", "NIST CSF", "DPDP Act"] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Industries We Secure",
+      "description": "CipherTrivia secures SaaS, fintech, healthcare, ecommerce, manufacturing, logistics, startups and enterprise IT against modern cyber threats.",
+      "url": "https://www.ciphertrivia.com/industries/",
+      "isPartOf": { "@type": "WebSite", "name": "CipherTrivia", "url": "https://www.ciphertrivia.com/" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {%- for i in industries %}
+          { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ i.name | dump | safe }}, "url": "https://www.ciphertrivia.com/industries/{{ i.slug }}/" }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO + INDEX: the list on the left, the industry's own photo wipes  -->
+<!-- into the sticky frame as each row becomes active                     -->
+<!-- ================================================================== -->
+<section class="hub-ink" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container" style="position: relative">
+    <header class="hub-head">
+      <h1 class="hub-head__title rv" id="hero-title">Cybersecurity for <span class="accent">High-Risk</span> and Fast-Growing Industries</h1>
+      <p class="hub-head__lede rv" style="--d:1">Compliance-heavy and fast-scaling industries are our core focus. Each industry page explains the specific security challenges, the services we deliver, and the compliance frameworks that apply to your sector.</p>
+    </header>
+
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="index-title">Industries We Secure</h2>
+      <p class="ihead__lede rv" style="--d:1">Every industry faces different digital security challenges. From protecting customer information and financial transactions to securing business applications and connected systems, CipherTrivia helps organizations identify security gaps and reduce the risk of cyberattacks. Our cybersecurity services address industry-specific risks so businesses can protect their operations, maintain customer trust and support secure digital growth.</p>
+    </header>
+
+    <div class="xind" data-explorer>
+      <ul class="xind__list" aria-labelledby="index-title">
+        {%- for i in industries %}
+        <li class="xind__item{% if loop.first %} is-active{% endif %}" data-explorer-item>
+          <a class="xind__link" href="/industries/{{ i.slug }}/">
+            <img class="xind__thumb" src="/assets/industries/{{ i.img }}-960.webp" width="960" height="540" alt="" loading="lazy">
+            <h3 class="xind__name">{{ i.name }}</h3>
+            <span class="xind__go" aria-hidden="true">{{ arrow("") }}</span>
+            <p class="xind__text">{{ i.text }}</p>
+            <p class="xind__tags">{{ i.tags }}</p>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <div class="xind__stage" aria-hidden="true">
+        <div class="xind__frames">
+          {%- for i in industries %}
+          <figure class="xind__frame{% if loop.first %} is-active{% endif %}" data-explorer-media>
+            <img src="/assets/industries/{{ i.img }}-960.webp" width="960" height="540" alt="" {% if not loop.first %}loading="lazy"{% endif %}>
+          </figure>
+          {%- endfor %}
+          <span class="ind-hero__frame"><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FRAMEWORK MATRIX: what each industry page covers, side by side       -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="mx-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="mx-title">Compliance Frameworks Across the Industries We Secure</h2>
+      <p class="ihead__lede rv" style="--d:1">Each industry page maps our security testing to the frameworks that apply to that sector. This view puts them side by side, so you can see the common ground and the sector-specific requirements at a glance.</p>
+    </header>
+
+    <div class="mx-wrap rv">
+      <table class="mx">
+        <caption class="sr-only">Compliance frameworks addressed on each industry page</caption>
+        <thead>
+          <tr>
+            <th scope="col">Industry</th>
+            {%- for f in frameworks %}
+            <th scope="col">{{ f }}</th>
+            {%- endfor %}
+            <th scope="col">Sector-specific</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for i in industries %}
+          {%- set row = loop.index0 %}
+          <tr>
+            <th scope="row"><a href="/industries/{{ i.slug }}/">{{ i.name }}</a></th>
+            {%- for on in i.mx %}
+            {%- if on %}
+            <td class="is-on" data-label="{{ frameworks[loop.index0] }}" style="--c:{{ loop.index0 }};--r:{{ row }}"><span class="mx__dot" aria-hidden="true"></span><span class="sr-only">Covered</span></td>
+            {%- else %}
+            <td><span class="mx__dot" aria-hidden="true"></span><span class="sr-only">Not listed</span></td>
+            {%- endif %}
+            {%- endfor %}
+            <td class="mx__more">{{ i.more }}</td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="mx-note rv">Applicability depends on each organization's operations and regulatory obligations. Our assessments support compliance readiness but do not replace independent audits or formal certification.</p>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BACKED BY NEXTWEBI                                                   -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-label="Backed by Nextwebi">
+  <div class="container">
+    {% set backedLead = true %}
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CTA BAND (the Security Risk Snapshot offer from the menu)            -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <p class="band__meta rv">Security Risk Snapshot</p>
+    <h2 class="band__title rv" id="band-title">A free 30-minute review of your app, API and cloud exposure.</h2>
+    <p class="band__text rv" style="--d:1">Leave with a prioritised action plan.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Book a session {{ arrow() }}</a>
+    </div>
+  </div>
+</section>

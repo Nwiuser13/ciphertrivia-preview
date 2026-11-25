@@ -1,0 +1,312 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "API Security Best Practices | CipherTrivia Whitepapers"
+description: "CipherTrivia's API security team breaks down the OWASP API Security Top 10, real authentication and authorization fix patterns, a secure API architecture, and an FAQ for engineering teams."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["API Security Best Practices"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "API Security Best Practices",
+      "description": "CipherTrivia's API security team breaks down the OWASP API Security Top 10, real authentication and authorization fix patterns, a secure API architecture, and an FAQ for engineering teams.",
+      "url": "https://www.ciphertrivia.com/whitepapers/api-security-best-practices/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-api-security-best-practices.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/api-security-best-practices/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "API Security Best Practices"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · API Security</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">API Security Best Practices</h1>
+        <p class="hero__lede rv" style="--d:2">Authentication, authorization and rate-limiting patterns that hold up, based on how CipherTrivia's API security team actually tests REST and GraphQL APIs, mapped to the OWASP API Security Top 10.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>API Security</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>11 minutes</dd></div>
+        <div class="article-meta__row"><dt>Based on:</dt><dd>OWASP API Security Top 10 + CipherTrivia engagement data</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#what-we-see-in-our-assessments">What We See in Our Assessments</a></li>
+          <li><a href="#what-s-inside">What's Inside</a></li>
+          <li><a href="#top10">1. The OWASP API Security Top 10: What We Test &amp; How We Fix It</a></li>
+          <li><a href="#architecture">2. A Securely Fronted API Architecture</a></li>
+          <li><a href="#checklist">3. Quick Self-Check Checklist</a></li>
+          <li><a href="#faq">4. Frequently Asked Questions</a></li>
+          <li><a href="#who">5. Who Should Read This</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section" id="overview">
+        <h2>Overview</h2>
+        <p>
+          APIs are now how most applications actually move data: between your frontend and backend, between microservices, and between your platform and partner integrations. That also makes them the most direct path to your data for an attacker, because an API often skips the validation and rate-limiting that a browser-based UI takes for granted.
+        </p>
+        <p>
+          This guide walks through the OWASP API Security Top 10 the way our team applies it during an engagement, a reference architecture for a securely fronted API, and the questions clients ask us most often when scoping an API <a href="/services/penetration-testing/">penetration test</a>.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-we-see-in-our-assessments">
+        <h2>What We See in Our Assessments</h2>
+        <p>Across recent API engagements, a small number of issue types make up most of what we report:</p>
+        <div class="a-grid a-grid--4">
+          <div class="a-center">
+            <p class="a-stat">~45<span class="hl">%</span></p>
+            <p class="is-xs">of critical API findings are Broken Object Level Authorization (API1)</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">~1 in 2</p>
+            <p class="is-xs">APIs we test have no per-account rate limiting on sensitive endpoints</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">~30<span class="hl">%</span></p>
+            <p class="is-xs">have at least one undocumented "shadow" endpoint discovered during testing</p>
+          </div>
+          <div class="a-center">
+            <p class="a-stat">~20<span class="hl">%</span></p>
+            <p class="is-xs">return excessive data fields not used by the client (API3)</p>
+          </div>
+        </div>
+        <p class="is-sm">Figures are directional, based on patterns observed across CipherTrivia's recent <a href="/services/api-security-testing/">API security</a> engagements.</p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-s-inside">
+        <h2>What's Inside</h2>
+        <ul class="a-list">
+          <li><a href="#top10">1. The OWASP API Security Top 10: What We Test &amp; How We Fix It</a></li>
+          <li><a href="#architecture">2. A Securely Fronted API Architecture</a></li>
+          <li><a href="#checklist">3. Quick Self-Check Checklist</a></li>
+          <li><a href="#faq">4. Frequently Asked Questions</a></li>
+          <li><a href="#who">5. Who Should Read This</a></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="top10">
+        <h2>1. The OWASP API Security Top 10: What We Test &amp; How We Fix It</h2>
+
+        <div class="a-stack a-stack--lg">
+          <div>
+            <h3>API1: Broken Object Level Authorization</h3>
+            <p>The single most common API finding: an endpoint trusts an object ID in the request path or body without verifying the caller actually owns that object.</p>
+            <p class="is-sm"><strong>What we test:</strong> for every endpoint that takes an ID, we substitute IDs belonging to a different test account and check whether the response leaks or modifies that account's data.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> resolve the "current user" from the authenticated session, and scope every database query to that user or tenant; never trust an ID from the request alone.</p>
+          </div>
+
+          <div>
+            <h3>API2: Broken Authentication</h3>
+            <p>Weak or misconfigured authentication: missing token expiry, predictable API keys, or endpoints that accept expired or unsigned tokens.</p>
+            <p class="is-sm"><strong>What we test:</strong> we test token expiry enforcement, signature validation (including algorithm-confusion attacks on JWTs), and whether password-reset or API-key issuance flows can be abused.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> use short-lived, signed tokens validated with a fixed algorithm and key, rotate API keys on a schedule, and apply the same brute-force protections to API auth as you would a login form.</p>
+          </div>
+
+          <div>
+            <h3>API3: Broken Object Property Level Authorization</h3>
+            <p>Endpoints that return or accept more fields than the client should see or modify, exposing internal flags, other users' data, or allowing privilege escalation via mass assignment.</p>
+            <p class="is-sm"><strong>What we test:</strong> we compare full API responses against what the UI actually displays, and attempt to set sensitive fields (e.g. <code>role</code>, <code>isAdmin</code>, <code>accountBalance</code>) on update requests.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> use explicit response and request schemas (allow-lists of fields) rather than serializing entire database models, especially for write operations.</p>
+          </div>
+
+          <div>
+            <h3>API4: Unrestricted Resource Consumption</h3>
+            <p>No limits on request size, pagination, or computation cost per request, which lets a single client exhaust resources or run up backend costs.</p>
+            <p class="is-sm"><strong>What we test:</strong> we send oversized payloads, request unbounded pagination (e.g. <code>?limit=999999</code>), and test for missing limits on expensive operations like search, export or report generation.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> enforce per-account and per-IP rate limits, cap pagination size, and apply request size limits at the gateway layer.</p>
+          </div>
+
+          <div>
+            <h3>API5: Broken Function Level Authorization</h3>
+            <p>Admin or privileged endpoints reachable by lower-privilege users, often because the check exists in the UI but not the API itself.</p>
+            <p class="is-sm"><strong>What we test:</strong> using a low-privilege account's token, we call every admin and internal endpoint we can enumerate, including ones not linked from the standard UI.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> apply role checks centrally (e.g. route-level middleware or policy engine), and write tests that assert a non-admin token is rejected by every admin route.</p>
+          </div>
+
+          <div>
+            <h3>API6–API10: Business Flow, SSRF, Misconfiguration &amp; Inventory</h3>
+            <p>The remaining categories cover unrestricted access to sensitive business flows (API6), server-side request forgery via webhook or URL-fetching endpoints (API7), security misconfiguration of the API gateway and CORS (API8), improper inventory management (undocumented or deprecated API versions left reachable, API9), and unsafe consumption of third-party APIs (API10).</p>
+            <p class="is-sm"><strong>What we test:</strong> we enumerate API versions and hostnames from DNS, JS bundles and documentation to find "shadow" or deprecated APIs still in production, and test any outbound-fetch features for SSRF.</p>
+            <p class="is-sm"><strong>How teams fix it:</strong> maintain a single source of truth for all live API versions, retire deprecated versions rather than leaving them reachable, and apply the same authz and validation rules to data received from third-party APIs as you would user input.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="architecture">
+        <h2>2. A Securely Fronted API Architecture</h2>
+        <p>
+          This is the API architecture shape we recommend when clients ask "where should these controls actually live?" It's a single API gateway in front of all services, with authentication, rate limiting and schema validation enforced before a request ever reaches business logic.
+        </p>
+
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/api-security-architecture.png" alt="Diagram of a secure API architecture showing clients, an API gateway with authentication, rate limiting and schema validation, internal microservices each with object-level authorization checks, a shared identity provider, and centralized logging feeding a SIEM" class="a-figure__img" loading="lazy" decoding="async" width="1693" height="929">
+          <figcaption>Figure 1: Reference API architecture, showing a single enforcement point for authentication, rate limiting and schema validation in front of internal services.</figcaption>
+        </figure>
+
+        <p>Key controls shown in the diagram, and the risks they address:</p>
+        <ul class="a-list">
+          <li><strong>API gateway</strong>: single point for authentication, per-account rate limiting and request size limits (API2, API4).</li>
+          <li><strong>Schema validation at the edge</strong>: rejects malformed or over-sized payloads before they reach services (API3, API4).</li>
+          <li><strong>Shared identity provider</strong>: issues short-lived signed tokens validated consistently across all services (API2).</li>
+          <li><strong>Per-service object-level authorization</strong>: every service independently re-checks ownership of the resource it's serving (API1, API5).</li>
+          <li><strong>API inventory / version registry</strong>: tracks every live route and version so nothing becomes a forgotten shadow endpoint (API9).</li>
+          <li><strong>Centralized logging to SIEM</strong>: request-level logs across the gateway and services, with alerting on abuse patterns (A09-style coverage).</li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="checklist">
+        <h2>3. Quick Self-Check Checklist</h2>
+        <p>This is the checklist our team runs through before scoping an API penetration test. Any "no" is worth investigating.</p>
+        <ul class="check-list">
+          <li class="check"><span class="check__box">✓</span><p>Does every endpoint that accepts an object ID re-verify the caller owns that object server-side?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Are access and refresh tokens short-lived, signed, and validated with a fixed algorithm?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Do write endpoints use an explicit allow-list of fields rather than accepting an entire object?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Is there per-account rate limiting on authentication, search, export and report endpoints?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Are admin/internal routes protected by role checks that run independently of the UI?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Do you maintain a current inventory of every live API version and hostname?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Are webhook and URL-fetching features restricted from reaching internal IP ranges and cloud metadata endpoints?</p></li>
+          <li class="check"><span class="check__box">✓</span><p>Is data received from third-party APIs validated and authorization-checked like any other user input?</p></li>
+        </ul>
+      </div>
+
+<hr>
+
+<div class="a-section" id="faq">
+        <h2>4. Frequently Asked Questions</h2>
+        <div class="a-stack">
+          <div>
+            <h3>How is API penetration testing different from a regular web app test?</h3>
+            <p class="is-sm">API testing focuses heavily on authorization logic between accounts and roles, since there's no UI to hide unauthorized actions behind. We typically test with multiple authenticated accounts at different privilege levels in parallel, swapping tokens and IDs between them.</p>
+          </div>
+          <div>
+            <h3>Do you need our API documentation (OpenAPI/Swagger) to test effectively?</h3>
+            <p class="is-sm">It helps speed things up and improves coverage, but it's not required: our team also performs endpoint discovery from client applications, JS bundles and traffic capture to find undocumented routes.</p>
+          </div>
+          <div>
+            <h3>We use GraphQL, not REST. Does this still apply?</h3>
+            <p class="is-sm">Yes, with adjustments. Object and field-level authorization (API1, API3) map directly onto GraphQL resolvers and field permissions, and we additionally test for query depth/complexity abuse (a GraphQL-specific form of API4) and introspection exposure in production.</p>
+          </div>
+          <div>
+            <h3>How long does an API penetration test typically take?</h3>
+            <p class="is-sm">For a single API with 20-40 endpoints and 2-3 user roles, most CipherTrivia engagements run 1-2 weeks, including a retest pass after fixes are deployed.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="who">
+        <h2>5. Who Should Read This</h2>
+        <p>
+          This guide is for backend and platform engineers, API product owners, and security leads who are designing, exposing or auditing REST or GraphQL APIs, whether for internal microservices, mobile apps, or partner integrations.
+        </p>
+
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">KI</span>
+          <div>
+            <p class="a-strong">Karthik Iyer</p>
+            <p class="a-meta is-sm">Application &amp; API Security Engineer, CipherTrivia · AWS Security Specialty</p>
+            <p class="is-sm">Karthik focuses on API and cloud-native application security at CipherTrivia, with a background in backend engineering before moving into security testing. He works closely with client platform teams to fix authorization issues at the architecture level, not just patch individual endpoints.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need expert API security testing?</h3>
+        <p class="svc-cta__text">Our API security team tests REST and GraphQL APIs against OWASP API Top 10.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/api-security-testing/">Explore API Testing {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Want your APIs tested against this list?</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">Our team can run a focused API security assessment. See our <a href="/services/">security services</a> for what's included.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

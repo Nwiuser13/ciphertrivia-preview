@@ -1,0 +1,42 @@
+/* ==========================================================================
+   LLM Security Testing page: the example finding card in "What You Receive".
+   Marked as an example; flat, square, severity shown by colour tokens.
+   ========================================================================== */
+.xfind {
+  background: var(--paper-0);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-panel);
+}
+.xfind__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: 0.875rem clamp(1.25rem, 1rem + 1vw, 2rem);
+  background: var(--ink-950);
+  color: var(--paper-50);
+}
+.xfind__tag { font-size: var(--fs-xs); font-weight: 500; color: var(--stone-300); }
+.xfind__sev {
+  padding: 0.25rem 0.625rem;
+  background: var(--sev-high-bg);
+  color: var(--sev-high-ink);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+.xfind__title {
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem) clamp(1.25rem, 1rem + 1vw, 2rem) var(--s-4);
+  font-size: var(--fs-xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+.xfind__rows { margin: 0; padding: 0 clamp(1.25rem, 1rem + 1vw, 2rem) clamp(1.25rem, 1rem + 1vw, 2rem); }
+.xfind__rows > div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--line);
+}
+.xfind__rows dt { font-size: var(--fs-xs); font-weight: 600; color: var(--signal-700); }
+.xfind__rows dd { margin: 0; font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-700); }

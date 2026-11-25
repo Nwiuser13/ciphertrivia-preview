@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Video heroes — five service pages carry a graded hero video (brand ink,
+   paper and orange; files in assets/video/<page>.mp4 with a -poster.jpg).
+   Each page frames its video its own way:
+     .vframe     Cybersecurity Consulting: portrait frame on an offset ink plate
+     .vband      DevSecOps: wide band under the copy with the pipeline rail
+     .vwall      SOC as a Service (dark hero): monitor wall, live mark, scan
+     .vcheck     Security Compliance: video with the framework checklist card
+     .vhorizon   Network Security (dark hero): full-bleed horizon under the copy
+   Playback is the shared [data-hero-video] script: plays only on screen, never
+   for reduced motion (the graded poster shows), and the button pauses it.
+   ========================================================================== */
+
+/* Shared: the video fills its frame */
+:is(.vframe, .vband, .vwall, .vcheck, .vhorizon) .hero-video__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+:is(.vframe, .vwall, .vcheck) .hero-video__toggle { z-index: 3; }
+
+/* ---------------------------------------------- Cybersecurity Consulting ---- */
+.vframe { position: relative; margin: 0 1rem 1rem 0; }
+.vframe::before {          /* the ink plate the frame sits on */
+  content: "";
+  position: absolute;
+  inset: 1rem -1rem -1rem 1rem;
+  background: var(--ink-950);
+}
+.vframe__screen {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--ink-950);
+}
+.vframe__screen .hero-video__media { object-position: 58% 50%; }
+.vframe__screen::after {   /* orange wash from the copy side, ink at the foot */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(255, 79, 31, 0.42) 0%, rgba(255, 79, 31, 0) 46%),
+    linear-gradient(180deg, rgba(0, 5, 20, 0) 58%, rgba(0, 5, 20, 0.5) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.vframe__hud {             /* sighting brackets and the session marker */
+  --c: rgba(247, 246, 242, 0.9);
+  position: absolute;
+  inset: 1.25rem;
+  z-index: 2;
+  background:
+    linear-gradient(var(--c), var(--c)) 0 0 / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 0 0 / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 100% 0 / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 0 100% / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 0 100% / 1.5px 1.25rem,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 1.25rem 1.5px,
+    linear-gradient(var(--c), var(--c)) 100% 100% / 1.5px 1.25rem;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.vframe__hud::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--signal-500);
+}
+.vframe .hero-video__toggle { left: auto; right: 1.25rem; bottom: 1.25rem; }
+
+/* ------------------------------------------------------------- DevSecOps ---- */
+.hero__layout--band { padding-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.vband {
+  position: relative;
+  aspect-ratio: 21 / 8;
+  margin-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+  border: 1px solid var(--ink-950);
+}
+.vband::after {            /* ink rises from the foot so the rail reads */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 5, 20, 0.15) 0%, rgba(0, 5, 20, 0) 35%, rgba(0, 5, 20, 0.82) 100%);
+  pointer-events: none;
+}
+.vband__rail {
+  --n: 6;
+  --cycle: 9s;
+  position: absolute;
+  left: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  right: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  bottom: clamp(1rem, 0.5rem + 2vw, 2.25rem);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.vband__rail::before,
+.vband__rail::after {      /* the pipeline, and the orange run along it */
+  content: "";
+  position: absolute;
+  left: 1.375rem;
+  right: 1.375rem;
+  top: 50%;
+  height: 1px;
+  background: rgba(247, 246, 242, 0.35);
+}
+.vband__rail::after {
+  height: 2px;
+  margin-top: -0.5px;
+  background: var(--signal-500);
+  transform-origin: left center;
+  animation: vbandRun var(--cycle) var(--ease) infinite;
+}
+.vband__stage { position: relative; z-index: 1; }
+.vband .ico { --ico-bg: var(--ink-900); --ico-line: var(--paper-50); --ico-edge: var(--line-inv-strong); }
+.vband .ico__face { animation: vbandStage var(--cycle) var(--ease-out) infinite; animation-delay: calc(var(--i) * var(--cycle) * 0.14); }
+.vband .hero-video__toggle { left: auto; right: 1rem; top: 1rem; bottom: auto; z-index: 2; }
+@keyframes vbandRun {
+  0% { transform: scaleX(0); opacity: 1; }
+  80% { transform: scaleX(1); opacity: 1; }
+  92%, 100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes vbandStage {
+  0%, 12%, 100% { transform: none; border-color: var(--ico-edge); }
+  3%, 9% { transform: translate(-5px, -5px) rotate(-6deg); border-color: var(--ico-line); }
+}
+
+/* ------------------------------------------------------ SOC as a Service ---- */
+.vwall {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--line-inv-strong);
+}
+.vwall::before {           /* bezels: the feed spread across four screens */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 3px), var(--ink-950) calc(50% - 3px), var(--ink-950) calc(50% + 3px), transparent calc(50% + 3px)),
+    linear-gradient(180deg, transparent calc(50% - 3px), var(--ink-950) calc(50% - 3px), var(--ink-950) calc(50% + 3px), transparent calc(50% + 3px)),
+    linear-gradient(rgba(0, 5, 20, 0.28), rgba(0, 5, 20, 0.28)) 100% 0 / 50% 50% no-repeat,
+    linear-gradient(rgba(0, 5, 20, 0.18), rgba(0, 5, 20, 0.18)) 0 100% / 50% 50% no-repeat;
+  box-shadow: inset 0 0 0 6px var(--ink-950);
+  pointer-events: none;
+}
+.vwall .hero-video__media { object-position: 34% 50%; }
+.vwall__live {             /* the live mark, top left screen */
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--signal-500);
+  box-shadow: 0 0 0 4px rgba(255, 79, 31, 0.25);
+  animation: vwallLive 1.4s steps(1) infinite;
+}
+.vwall__scan {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 6px;
+  z-index: 2;
+  height: 2px;
+  background: var(--signal-500);
+  box-shadow: 0 -16px 24px -10px rgba(255, 79, 31, 0.4);
+  opacity: 0.7;
+  animation: vwallScan 4.5s linear infinite;
+  pointer-events: none;
+}
+@keyframes vwallLive { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.25; } }
+@keyframes vwallScan { from { top: 6px; } to { top: calc(100% - 8px); } }
+
+/* --------------------------------------------------- Security Compliance ---- */
+.vcheck { position: relative; padding: 0 0 2rem 2rem; }
+.vcheck__screen {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--ink-950);
+}
+.vcheck__screen .hero-video__media { object-position: 36% 50%; }
+.vcheck .hero-video__toggle { left: auto; right: 1rem; top: 1rem; bottom: auto; }
+.vcheck__list {
+  --cycle: 10s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  gap: 0;
+  min-width: 12.5rem;
+  margin: 0;
+  padding: 0.375rem 0;
+  list-style: none;
+  background: var(--paper-0);
+  border: 1px solid var(--ink-950);
+  box-shadow: var(--shadow-panel);
+}
+.vcheck__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-xs);
+  color: var(--ink-700);
+  font-weight: 500;
+}
+.vcheck__item + .vcheck__item { border-top: 1px solid var(--line); }
+.vcheck__box {
+  position: relative;
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid var(--ink-950);
+}
+.vcheck__box::after {      /* the tick lands, item by item */
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: -0.05rem;
+  width: 0.3rem;
+  height: 0.55rem;
+  border: solid var(--signal-500);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  animation: vcheckTick var(--cycle) var(--ease-out) infinite;
+  animation-delay: calc(0.6s + var(--i) * 0.7s);
+}
+@keyframes vcheckTick {
+  0% { transform: rotate(45deg) scale(0); }
+  4%, 86% { transform: rotate(45deg) scale(1); }
+  92%, 100% { transform: rotate(45deg) scale(0); }
+}
+
+/* ------------------------------------------------------ Network Security ---- */
+.hero--horizon .hero__layout { padding-bottom: 0; }
+.vhorizon {
+  position: relative;
+  height: clamp(13rem, 7rem + 20vw, 26rem);
+  margin-top: clamp(-4rem, -1rem - 3vw, -1.5rem);
+  background: transparent;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 42%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 42%);
+}
+.vhorizon .hero-video__media { object-position: 50% 88%; }
+.vhorizon .hero-video__toggle { left: auto; right: var(--gutter); bottom: 1rem; z-index: 2; }
+.vhorizon__ping {          /* hosts answering the scan */
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--signal-500);
+  animation: vhPing 3.2s var(--ease-out) infinite;
+  animation-delay: var(--d, 0s);
+}
+.vhorizon__ping::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1.5px solid var(--signal-500);
+  animation: vhRing 3.2s var(--ease-out) infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes vhPing { 0%, 100% { opacity: 0; } 8%, 60% { opacity: 1; } 75% { opacity: 0; } }
+@keyframes vhRing { 0% { transform: scale(1); opacity: 0.9; } 55% { transform: scale(4); opacity: 0; } 100% { opacity: 0; } }
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .vframe, .vwall, .vcheck { max-width: 32rem; }
+}
+@media (max-width: 640px) {
+  .vframe__screen, .vcheck__screen { aspect-ratio: 1; }
+  .vband { aspect-ratio: 4 / 3; }
+  .vband .ico--sm { --ico: 2.125rem; }
+  .vcheck { padding: 0 0 1.5rem 1rem; }
+  .vcheck__list { min-width: 0; }
+}
+
+/* ---- Reduced motion: the poster, ticks set, no travelling marks ---- */
+@media (prefers-reduced-motion: reduce) {
+  .vband__rail::after { animation: none; transform: none; }
+  .vband .ico__face, .vwall__live, .vhorizon__ping, .vhorizon__ping::after { animation: none; }
+  .vwall__scan { display: none; }
+  .vcheck__box::after { animation: none; transform: rotate(45deg) scale(1); }
+}

@@ -1,0 +1,257 @@
+---
+layout: layouts/enterprise.njk
+navActive: resources
+title: "SOC 2 & ISO 27001 Compliance Checklist | CipherTrivia Whitepapers"
+description: "A practical SOC 2 and ISO 27001 readiness checklist from CipherTrivia's GRC team, organized by what auditors actually ask for evidence of, not by control numbers."
+crumbs: [["Home", "/"], ["Whitepapers", "/whitepapers/"], ["SOC 2 & ISO 27001 Compliance Checklist"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "SOC 2 & ISO 27001 Compliance Checklist",
+      "description": "A practical SOC 2 and ISO 27001 readiness checklist from CipherTrivia's GRC team, organized by what auditors actually ask for evidence of, not by control numbers.",
+      "url": "https://www.ciphertrivia.com/whitepapers/soc2-iso27001-compliance-checklist/",
+      "publisher": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.ciphertrivia.com/#organization"
+      },
+      "image": "https://www.ciphertrivia.com/assets/og/whitepapers-soc2-iso27001-compliance-checklist.jpg",
+      "mainEntityOfPage": {
+        "@id": "https://www.ciphertrivia.com/whitepapers/soc2-iso27001-compliance-checklist/#webpage"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ciphertrivia.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whitepapers",
+          "item": "https://www.ciphertrivia.com/whitepapers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SOC 2 & ISO 27001 Compliance Checklist"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- ARTICLE HEADER                                                       -->
+<!-- ================================================================== -->
+<section class="hero article-hero" aria-labelledby="article-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+  <div class="container">
+    <a class="back-link" href="/whitepapers/">{{ arrow("btn__icon back-link__icon") }}All Whitepapers</a>
+    <div class="article-hero__layout">
+      <div class="article-hero__copy">
+        <p class="kicker rv">Whitepaper · Compliance &amp; GRC</p>
+        <h1 class="article-hero__title rv" style="--d:1" id="article-title">SOC 2 &amp; ISO 27001 Compliance Checklist</h1>
+        <p class="hero__lede rv" style="--d:2">Auditors don't ask "do you have a policy?"; they ask "show me." This checklist is organized around the evidence you'll actually need to produce.</p>
+      </div>
+      <dl class="article-meta rv" style="--d:3">
+        <div class="article-meta__row"><dt>Category:</dt><dd>Compliance &amp; GRC</dd></div>
+        <div class="article-meta__row"><dt>Read time:</dt><dd>11 minutes</dd></div>
+        <div class="article-meta__row"><dt>Covers:</dt><dd>SOC 2 Type II &amp; ISO 27001:2022</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- REPORT BODY                                                          -->
+<!-- ================================================================== -->
+<section class="section section--white article" aria-label="Whitepaper content">
+  <div class="container article__layout">
+    <nav class="article__toc" aria-label="On this page" data-toc>
+      <p class="article__toc-label">On this page</p>
+      <ol>
+          <li><a href="#what-auditors-ask-for-and-what-that-really-means">What Auditors Ask For, And What That Really Means</a></li>
+          <li><a href="#where-security-engineering-fits-into-compliance">Where Security Engineering Fits Into Compliance</a></li>
+          <li><a href="#soc-2-vs-iso-27001-do-you-need-both">SOC 2 vs. ISO 27001: Do You Need Both?</a></li>
+          <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+          <li><a href="#about-the-author">About the Author</a></li>
+      </ol>
+    </nav>
+    <div class="article__body prose-article">
+<div class="a-section">
+        <p>
+          A surprising number of companies preparing for their first <a href="/services/security-compliance/">SOC 2</a> or ISO 27001 audit already have most of the underlying security practices in place. They just don't have anything written down, assigned to an owner, or repeated on a schedule. Auditors aren't grading whether you're secure in the abstract; they're checking whether you can demonstrate, with evidence, that defined controls operate consistently over time.
+        </p>
+        <p>
+          So rather than listing control numbers (which read the same as the framework documents you already have), this checklist is organized around the kinds of evidence requests that come up again and again: by audit, the framework wants the same thing in slightly different language.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="what-auditors-ask-for-and-what-that-really-means">
+        <h2>What Auditors Ask For, And What That Really Means</h2>
+
+        <div class="a-stack">
+          <div class="a-card">
+            <h3>"Show me your access review."</h3>
+            <p class="a-meta is-sm">What's actually being checked:</p>
+            <p class="is-sm">Periodic (typically quarterly) review of who has access to production systems and sensitive data, with evidence that access for departed employees or role changes was actually revoked, not just that a review meeting happened.</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">A documented access review process runs on a fixed schedule, with sign-off retained as evidence.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Offboarding includes a checklist step for access revocation, with timestamps that can be cross-referenced against HR records.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-card">
+            <h3>"Show me your risk assessment."</h3>
+            <p class="a-meta is-sm">What's actually being checked:</p>
+            <p class="is-sm">A living document identifying specific risks to your organization (not a generic template), with assigned owners, treatment decisions, and evidence it's reviewed at least annually or after significant changes.</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Risk register names specific risks relevant to your business (e.g. "customer database in single region", not "cyber risk").</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Each risk has an owner, a treatment plan, and a review date, and the review actually happened.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-card">
+            <h3>"Show me your vulnerability management process."</h3>
+            <p class="a-meta is-sm">What's actually being checked:</p>
+            <p class="is-sm">Evidence of regular vulnerability scanning and/or <a href="/services/penetration-testing/">penetration testing</a>, with findings tracked to remediation within defined SLAs based on severity. This is one of the most commonly requested pieces of evidence, and one of the easiest to satisfy with a recurring engagement.</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Annual (at minimum) penetration test of in-scope systems, with a report and remediation tracking.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Defined remediation SLAs by severity (e.g. critical within 7 days), with evidence findings were actually closed within them.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-card">
+            <h3>"Show me your incident response plan, and that it works."</h3>
+            <p class="a-meta is-sm">What's actually being checked:</p>
+            <p class="is-sm">A documented IR plan, plus evidence it's been tested (tabletop exercise) within the audit period. A plan that's never been exercised is a common finding.</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">A written incident response plan with defined roles. See our <a href="/whitepapers/incident-response-checklist/">Incident Response Checklist</a> for what good looks like.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">At least one tabletop exercise documented within the last 12 months, with findings tracked.</p></li>
+            </ul>
+          </div>
+
+          <div class="a-card">
+            <h3>"Show me your vendor/third-party risk management."</h3>
+            <p class="a-meta is-sm">What's actually being checked:</p>
+            <p class="is-sm">A list of vendors with access to your systems or data, a risk-tiering approach, and evidence (e.g. SOC 2 reports, security questionnaires) that higher-risk vendors were assessed before onboarding.</p>
+            <ul class="check-list">
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">A maintained vendor inventory with risk tiers, reviewed at least annually.</p></li>
+              <li class="check"><span class="check__box">✓</span><p class="is-sm">Security review evidence (SOC 2 report, questionnaire) on file for critical vendors.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="where-security-engineering-fits-into-compliance">
+        <h2>Where Security Engineering Fits Into Compliance</h2>
+        <p>
+          A lot of the technical evidence above doesn't come from a GRC tool; it comes from your security engineering work. The diagram below shows how penetration testing, vulnerability scanning and incident response practices feed directly into the evidence an auditor reviews.
+        </p>
+        <figure class="a-figure">
+          <img src="/assets/whitepapers/soc2-iso27001-evidence-flow.png" alt="Diagram showing how security engineering activities feed into compliance evidence: penetration testing and vulnerability scanning feed into a vulnerability management evidence trail, access reviews and offboarding processes feed into access control evidence, and incident response plans and tabletop exercises feed into incident management evidence, all flowing into a central compliance evidence repository used during a SOC 2 or ISO 27001 audit" class="a-figure__img" loading="lazy" decoding="async" width="1536" height="1024">
+          <figcaption>Figure 1: Security engineering activities are often the source of compliance evidence, not a separate workstream.</figcaption>
+        </figure>
+      </div>
+
+<hr>
+
+<div class="a-section" id="soc-2-vs-iso-27001-do-you-need-both">
+        <h2>SOC 2 vs. ISO 27001: Do You Need Both?</h2>
+        <p>
+          We get this question often enough that it's worth addressing directly. SOC 2 is largely US-market-driven and produces a report describing your controls and an auditor's opinion on their operating effectiveness. ISO 27001 is an internationally recognized certification against a management-system standard, more commonly requested by enterprise customers outside North America (and increasingly within it).
+        </p>
+        <p>
+          The good news: the underlying evidence categories above largely overlap between both. Organizations targeting both typically build one evidence collection process and map it to both frameworks, rather than running two separate programs.
+        </p>
+      </div>
+
+<hr>
+
+<div class="a-section" id="frequently-asked-questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="a-faq">
+          <div>
+            <h3>How long does SOC 2 or ISO 27001 readiness typically take?</h3>
+            <p class="is-sm">For organizations with most fundamentals already in place, 2-4 months to close evidence gaps before a SOC 2 Type I or ISO 27001 certification audit is common. A SOC 2 Type II report additionally requires an observation period (often 3-6 months) demonstrating controls operated over time.</p>
+          </div>
+          <div>
+            <h3>Can a penetration test satisfy multiple framework requirements at once?</h3>
+            <p class="is-sm">Often yes: a single, well-scoped annual penetration test report can serve as evidence for SOC 2, ISO 27001, and customer security questionnaires simultaneously, provided the scope and methodology are clearly documented.</p>
+          </div>
+          <div>
+            <h3>Do you provide the penetration testing AND help with the compliance gap assessment?</h3>
+            <p class="is-sm">Yes, our team does both, and where useful, structures the penetration test scope and reporting specifically to map onto the evidence categories above.</p>
+          </div>
+          <div>
+            <h3>We're a small team: is full ISO 27001 certification realistic?</h3>
+            <p class="is-sm">Yes, and often more so than larger organizations expect, because the standard is scalable, and a small team with clear ownership of fewer systems can sometimes implement consistent evidence-generation faster than a larger, more fragmented one.</p>
+          </div>
+        </div>
+      </div>
+
+<hr>
+
+<div class="a-section" id="about-the-author">
+        <h2>About the Author</h2>
+        <div class="a-card a-card--muted a-author">
+          <span class="avatar">SK</span>
+          <div>
+            <p class="a-strong">Sanjana Kulkarni</p>
+            <p class="a-meta is-sm">GRC &amp; Compliance Lead, CipherTrivia · ISO 27001 Lead Auditor</p>
+            <p class="is-sm">Sanjana helps clients prepare for SOC 2 and ISO 27001 audits, bridging the gap between policy documentation and the technical evidence security engineering teams produce. She's seen the "show me" question often enough to know which answers actually hold up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RELATED SERVICE                                                      -->
+<!-- ================================================================== -->
+<section class="section section--stone section--tight" aria-label="Related service">
+  <div class="container">
+    <div class="svc-cta rv">
+      <div class="svc-cta__copy">
+        <h3 class="svc-cta__title">Need compliance support?</h3>
+        <p class="svc-cta__text">Our compliance team helps with ISO 27001, SOC 2, PCI DSS, HIPAA and GDPR programs.</p>
+      </div>
+      <a class="btn btn--signal" href="/services/security-compliance/">Explore Compliance Services {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FINAL CTA                                                            -->
+<!-- ================================================================== -->
+<section class="final" aria-labelledby="final-title">
+  <div class="guides" aria-hidden="true" style="opacity:.35"><div class="container" style="--line: rgba(255,255,255,.08)"></div></div>
+  <div class="container final__inner">
+    <h2 class="final__title final__title--md rv" id="final-title">Turn your security work into audit-ready evidence</h2>
+    <div class="final__body">
+      <p class="final__text rv" style="--d:1">We can run a gap assessment against this checklist and align your testing program with your audit timeline. See our <a href="/services/">compliance services</a>.</p>
+      <div class="final__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Schedule a Meet {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>

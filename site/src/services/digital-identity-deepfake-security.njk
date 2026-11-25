@@ -1,0 +1,524 @@
+---
+layout: layouts/enterprise.njk
+navActive: services
+title: "Deepfake and Digital Identity Security Services"
+description: "Deepfake and digital identity security services: test KYC, liveness, voice and help desk checks against impersonation and synthetic identity fraud."
+crumbs: [["Home", "/"], ["Services", "/services/"], ["Digital Identity and Deepfake Security Services"]]
+inquiry: true
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What is deepfake security?", "Deepfake security is the practice of protecting people, processes and systems from AI-generated fake faces, voices and videos used to deceive. It covers testing whether identity checks, approval procedures and support teams can be fooled, and strengthening the controls that decide who is trusted."],
+  ["How do attackers use deepfakes in fraud?", "Common uses include a cloned voice or video of an executive instructing someone to make a payment, a synthetic face that passes remote identity verification to open an account, and a fake caller who persuades a help desk to reset credentials. In each case the attacker borrows trust that a person's face or voice would normally carry."],
+  ["What is synthetic identity fraud?", "Synthetic identity fraud uses a made-up identity, often a mix of real and invented details, to open accounts or obtain credit. AI tools now generate convincing photos, documents and even short videos to support those identities, which makes onboarding checks a frequent target."],
+  ["Can liveness detection be bypassed?", "Some implementations can. Attackers try presentation attacks, such as a photo, a screen replay or a mask, and injection attacks, in which a virtual camera or modified app feeds fake video straight into the check. Testing shows which of these your solution resists and where it needs strengthening."],
+  ["What is KYC and identity verification testing?", "It is a security assessment of the flows that confirm a person's identity, such as document upload, selfie matching, liveness checks and database lookups. We test whether forged documents, synthetic faces and automated attacks can pass, and whether the process fails safely when they are suspected."],
+  ["Do you create deepfakes as part of testing?", "Yes, where it is authorized. Simulations use consenting participants or fully synthetic personas, never a real person's likeness without their written permission, and follow rules of engagement agreed in advance. Executives whose voice or image would be used must approve it."],
+  ["Can you detect deepfakes for us?", "Our focus is on testing and strengthening the controls around identity and approvals, which matter whether or not a fake is detected. We can review the detection tools you use or are evaluating, and recommend process controls that still protect you when detection fails."],
+  ["Can voice authentication be fooled by voice cloning?", "Voice cloning can reproduce a speaker closely enough to challenge systems and staff that rely on how someone sounds. We test whether voice biometrics, call-center checks and call-back procedures hold up, and recommend controls that do not depend on voice alone."],
+  ["Do you test help desk and employee processes?", "Yes. Attackers often target support staff who can reset passwords or multi-factor authentication. We test whether callers can be verified reliably, whether urgency and authority cause staff to skip steps, and whether sensitive resets require strong proof."],
+  ["How can businesses defend against deepfake payment fraud?", "The most effective defenses are procedural: independent call-back to a known number, dual approval for large or unusual payments, delays for changes to payment details and a culture where staff are encouraged to verify. Testing checks whether those safeguards work under pressure."],
+  ["How long does a digital identity and deepfake assessment take?", "Duration depends on the number of identity journeys, channels and teams in scope. A focused assessment of one onboarding flow can be short, while a program covering customers, employees and payments takes longer. We confirm the timeline after scoping."],
+  ["How much does it cost?", "Cost depends on the number of journeys and channels, the depth of simulation and the reporting scope. Share a short description of your identity flows with CipherTrivia and we will recommend a scope and quote."],
+  ["What does the report include?", "The report includes an executive summary, a map of the identity journeys tested, each finding with its severity, the steps to reproduce it, supporting evidence and a recommended fix. Findings can feed policy changes, product fixes and staff training."],
+  ["Do you offer retesting after controls are improved?", "Yes. Retesting can be included to confirm that fixes work against the same attacks and that new controls have not created new gaps. The retest results are added to the report."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Digital Identity and Deepfake Security Services",
+      "serviceType": "Digital Identity and Deepfake Security Testing",
+      "description": "Deepfake and digital identity security services: test KYC, liveness, voice and help desk checks against impersonation and synthetic identity fraud.",
+      "url": "https://www.ciphertrivia.com/services/digital-identity-deepfake-security/",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Identity and Deepfake Security Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deepfake Attack Simulation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identity Verification and KYC Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Liveness Detection and Biometric Bypass Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice Authentication and Call Center Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Help Desk and Social Engineering Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Impersonation and Payment Fraud Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Account Takeover and Recovery Flow Testing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identity Governance and Access Review" } }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ciphertrivia.com/services/" },
+        { "@type": "ListItem", "position": 3, "name": "Digital Identity and Deepfake Security Services" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO                                                                 -->
+<!-- ================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container">
+    <div class="hero__layout hero__layout--sig">
+      <div class="hero__copy">
+        <h1 class="hero__title rv" id="hero-title">Digital Identity and <span class="accent">Deepfake Security</span> Services</h1>
+        <p class="hero__lede rv" style="--d:1">A convincing voice, face or document is no longer proof of who someone is. CipherTrivia tests whether your onboarding, authentication, help desk and payment approvals can be fooled by impersonation, synthetic identities and deepfakes, then helps you close the gaps.</p>
+        <div class="hero__actions rv" style="--d:2">
+          <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero__visual--sig rv" style="--d:2">
+        <div class="sig-hero" data-sig="10" role="img" aria-label="Diagram: a genuine live capture passes face match and liveness checks; a synthetic face is then presented, passes the face match but fails the liveness check, and the attempt is recorded as a finding">
+          <svg aria-hidden="true" viewBox="0 0 480 480">
+<rect class="f-paper s-ink" x="30.5" y="40.5" width="195" height="230" stroke-width="1.5"/>
+<circle class="f-none s-ink" cx="128" cy="130" r="38" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M62 250c0-38 30-58 66-58s66 20 66 58" stroke-width="1.5"/>
+<path class="f-none s-ink" d="M46 62v-6h6M204 56h6v6M210 248v6h-6M52 254h-6" stroke-width="1.5" stroke-opacity=".6"/>
+<rect class="f-paper s-ink" x="254.5" y="40.5" width="195" height="230" stroke-width="1.5" stroke-opacity=".4"/>
+<rect class="f-ink" x="46" y="282" width="80" height="3" fill-opacity=".4"/>
+<rect class="f-paper s-ink" x="30.5" y="312.5" width="419" height="40" stroke-width="1.5"/>
+<rect class="f-ink" x="46" y="330" width="90" height="4" fill-opacity=".5"/>
+<rect class="f-none s-ink" x="386.5" y="322.5" width="50" height="20" stroke-opacity=".6"/>
+<rect class="f-paper s-ink" x="30.5" y="368.5" width="419" height="40" stroke-width="1.5"/>
+<rect class="f-ink" x="46" y="386" width="70" height="4" fill-opacity=".5"/>
+<rect class="f-none s-ink" x="386.5" y="378.5" width="50" height="20" stroke-opacity=".6"/>
+<rect class="f-paper s-ink" x="30.5" y="424.5" width="419" height="40" stroke-width="1.5"/>
+<rect class="f-ink" x="46" y="442" width="110" height="4" fill-opacity=".5"/>
+<rect class="f-none s-ink" x="386.5" y="434.5" width="50" height="20" stroke-opacity=".6"/>
+<path class="f-none s-ink" d="M400 332l6 6 12-12" pathLength="1" stroke-width="2" data-fx="draw" data-at="0.8" data-len="0.4" data-out="4.8"/>
+<path class="f-none s-ink" d="M400 388l6 6 12-12" pathLength="1" stroke-width="2" data-fx="draw" data-at="1.4" data-len="0.4" data-out="4.8"/>
+<path class="f-none s-ink" d="M400 444l6 6 12-12" pathLength="1" stroke-width="2" data-fx="draw" data-at="2" data-len="0.4" data-out="4.8"/>
+<g data-fx="fade" data-at="4" data-len="0.5">
+<circle class="f-none s-sig s-dash" cx="352" cy="130" r="38" stroke-width="1.5"/>
+<path class="f-none s-sig s-dash" d="M286 250c0-38 30-58 66-58s66 20 66 58" stroke-width="1.5"/>
+<path class="f-none s-sig" d="M270 62v-6h6M428 56h6v6M434 248v6h-6M276 254h-6" stroke-width="1.5"/>
+</g>
+<path class="f-none s-sig" d="M400 332l6 6 12-12" pathLength="1" stroke-width="2" data-fx="draw" data-at="5" data-len="0.4"/>
+<path class="f-none s-sig" d="M400 444l6 6 12-12" pathLength="1" stroke-width="2" data-fx="draw" data-at="5.5" data-len="0.4"/>
+<path class="f-none s-sig" d="M401 388l16 12M417 388l-16 12" pathLength="1" stroke-width="2" data-fx="draw" data-at="6" data-len="0.4"/>
+<rect class="f-sig1 s-sig" x="386.5" y="378.5" width="50" height="20" data-fx="fade" data-at="5.8" data-len="0.3"/>
+<rect class="f-sig" x="254" y="282" width="120" height="3" data-fx="grow" data-at="6.5" data-len="0.4"/>
+<path class="f-none s-sig" d="M24 360v-6h6M450 354h6v6M456 416v6h-6M30 422h-6" stroke-width="1.5" data-fx="pop" data-at="7" data-len="0.5"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="container rail__inner">
+      <span class="rail__label">Reporting mapped to</span>
+      <span class="rail__item">NIST SP 800-63</span>
+      <span class="rail__item">ISO/IEC 30107</span>
+      <span class="rail__item">OWASP ASVS</span>
+      <span class="rail__item">CVSS</span>
+      <span class="rail__item">ISO 27001</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW                                                             -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="split">
+      <div class="split__aside">
+        <h2 class="split__title rv" id="s1-title">Protect Your Organization From Impersonation, Synthetic Identities and Deepfake Fraud</h2>
+      </div>
+      <div class="split__body prose">
+        <p class="rv">Businesses have long relied on a face, a voice or a document to decide who to trust. AI has made all three cheap to fake. A cloned voice can ask finance for an urgent transfer, a generated face can open a bank account, and a convincing caller can talk a help desk into resetting a password.</p>
+        <p class="rv">CipherTrivia's digital identity and deepfake security services test those weak points the way a determined attacker would. We examine your onboarding and identity verification, login and recovery flows, voice and call-center checks, help desk procedures and payment approvals, then show where a fake could get through.</p>
+        <p class="rv">Every simulation is authorized, uses consenting participants or synthetic personas and follows agreed rules of engagement. The result is a clear list of fixes that combine technical controls with practical process changes, so trust does not depend on how convincing someone looks or sounds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- RANGE OF SERVICES                                                    -->
+<!-- ================================================================== -->
+<section class="section section--paper" id="types" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s2-title">Our Digital Identity and Deepfake Security Services</h2>
+        <p class="shead__lede rv" style="--d:1">Each engagement is scoped to the identity journeys that matter most to your business, from customer onboarding to executive approvals. These are the areas we test.</p>
+      </div>
+    </header>
+
+    <div class="ledger">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("user-shield") }}</div>
+        <h3 class="ledger__title">Deepfake Attack Simulation</h3>
+        <p class="ledger__text">We run authorized voice, video and image impersonation scenarios against your people and processes to show where a convincing fake would be believed.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("badge") }}</div>
+        <h3 class="ledger__title">Identity Verification and KYC Testing</h3>
+        <p class="ledger__text">We test document checks, selfie matching and database lookups with forged documents, synthetic faces and automated attacks, and review how the flow behaves when fraud is suspected.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("eye") }}</div>
+        <h3 class="ledger__title">Liveness Detection and Biometric Bypass Testing</h3>
+        <p class="ledger__text">We try presentation attacks such as photos, screen replays and masks, and injection attacks that feed fake video into the check, to show which your biometric controls resist.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("phone") }}</div>
+        <h3 class="ledger__title">Voice Authentication and Call Center Testing</h3>
+        <p class="ledger__text">We test voice biometrics and agent verification procedures against cloned voices and persuasive callers, and recommend checks that do not rely on sound alone.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("users-cross") }}</div>
+        <h3 class="ledger__title">Help Desk and Social Engineering Testing</h3>
+        <p class="ledger__text">We test whether support staff can be pressured into resetting passwords, enrolling new devices or disabling multi-factor authentication for someone who is not who they claim to be.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("card") }}</div>
+        <h3 class="ledger__title">Executive Impersonation and Payment Fraud Testing</h3>
+        <p class="ledger__text">We test whether a fake request from a senior leader or supplier can trigger a payment or a change of bank details, and whether your approval and call-back steps hold.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("unlock") }}</div>
+        <h3 class="ledger__title">Account Takeover and Recovery Flow Testing</h3>
+        <p class="ledger__text">We review login, step-up authentication and account recovery for weaknesses an impersonator could use to take over an account without the real owner knowing.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:3">
+        <div class="ledger__head">{{ icon("directory") }}</div>
+        <h3 class="ledger__title">Identity Governance and Access Review</h3>
+        <p class="ledger__text">We review how identities are created, approved and removed, and how privileged access is granted, so that a single fake identity cannot gain more access than it should.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- THREATS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--white" id="threats" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s3-title">Deepfake and Identity Threats We Test For</h2>
+        <p class="shead__lede rv" style="--d:1">Identity fraud now combines several techniques at once. Our scenarios cover the main ones, so findings reflect how real attacks are put together.</p>
+      </div>
+    </header>
+
+    <div class="ledger ledger--10">
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("phone") }}</div>
+        <h3 class="ledger__title">Voice Cloning</h3>
+        <p class="ledger__text">A cloned voice used to authorize payments, reset accounts or pressure staff by phone.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("present") }}</div>
+        <h3 class="ledger__title">Video Call Impersonation</h3>
+        <p class="ledger__text">A fake face and voice of a colleague or executive on a live video meeting.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("identity") }}</div>
+        <h3 class="ledger__title">Synthetic Identities</h3>
+        <p class="ledger__text">Invented people, built from real and fake details, used to open accounts and build credit.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("eye") }}</div>
+        <h3 class="ledger__title">Presentation Attacks</h3>
+        <p class="ledger__text">Photos, screen replays, masks and other physical fakes shown to a camera.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("terminal") }}</div>
+        <h3 class="ledger__title">Camera Injection Attacks</h3>
+        <p class="ledger__text">Virtual cameras and tampered apps that insert fake video straight into a verification flow.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("document") }}</div>
+        <h3 class="ledger__title">AI-Generated Documents</h3>
+        <p class="ledger__text">Forged IDs, statements and proofs of address that look authentic to a quick check.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("key") }}</div>
+        <h3 class="ledger__title">Account Recovery Abuse</h3>
+        <p class="ledger__text">Recovery and reset flows used to take over accounts without the owner's knowledge.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:1">
+        <div class="ledger__head">{{ icon("users-cross") }}</div>
+        <h3 class="ledger__title">Help Desk Impersonation</h3>
+        <p class="ledger__text">Callers posing as employees to obtain resets, new devices or elevated access.</p>
+      </article>
+      <article class="ledger__cell rv" style="--d:2">
+        <div class="ledger__head">{{ icon("mail-alert") }}</div>
+        <h3 class="ledger__title">AI-Written Lures</h3>
+        <p class="ledger__text">Personalized, flawless messages from impersonated suppliers and leaders that prompt action.</p>
+      </article>
+      <article class="ledger__cell rv">
+        <div class="ledger__head">{{ icon("card") }}</div>
+        <h3 class="ledger__title">Deepfake-Enabled Payment Fraud</h3>
+        <p class="ledger__text">Fake instructions backed by a convincing voice or video that move money to the attacker.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- IDENTITY JOURNEYS                                                    -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s4-title">Identity Journeys We Assess</h2>
+        <p class="shead__lede rv" style="--d:1">Wherever someone proves who they are, someone else may try to pass as them. We assess the following journeys for customers, employees and partners.</p>
+      </div>
+    </header>
+
+    <ul class="includes">
+      <li class="include rv">{{ icon("mobile-scan", "sm") }}<p><strong>Customer Onboarding and KYC:</strong> Remote account opening with documents and selfies, where synthetic identities and injected video are the main threat.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("mobile-key", "sm") }}<p><strong>Login and Step-Up Authentication:</strong> Sign-in, biometrics and extra verification for sensitive actions, where weak steps can be bypassed or socially engineered.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("unlock", "sm") }}<p><strong>Account Recovery:</strong> Password and device resets, often the easiest way to take over an account without defeating the login.</p></li>
+      <li class="include rv">{{ icon("phone", "sm") }}<p><strong>Call Center and Voice Verification:</strong> Phone-based checks for customers, where voice cloning and persuasive callers target agents.</p></li>
+      <li class="include rv" style="--d:1">{{ icon("users-cross", "sm") }}<p><strong>Employee Help Desk Resets:</strong> Internal requests for passwords and device enrollment, where urgency and authority push staff to skip checks.</p></li>
+      <li class="include rv" style="--d:2">{{ icon("card", "sm") }}<p><strong>High-Value Payment Approvals:</strong> Transfers and changes to payee details, where a fake instruction from a leader or supplier can cost the most.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- STATEMENT BAND                                                       -->
+<!-- ================================================================== -->
+<section class="band" aria-labelledby="band-title">
+  <div class="container band__inner">
+    <h2 class="band__title rv" id="band-title">Why Test Identity Controls Against Deepfakes?</h2>
+    <p class="band__text rv" style="--d:1">Deepfake tools are inexpensive, easy to use and improving quickly, and controls built for human fraud often assume a convincing voice or face is genuine. Testing shows where that assumption is built into your processes, so you can add checks that still work when the fake is good.</p>
+    <div class="band__action rv" style="--d:2">
+      <a class="btn btn--on-signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- PROCESS                                                              -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s5-title">
+  <div class="container">
+    <div class="process">
+      <div class="process__aside">
+        <h2 class="process__title" id="s5-title">Our Digital Identity and Deepfake Testing Process</h2>
+        <p class="process__lede">Every engagement is planned with your team and runs under written authorization. We use consenting participants or synthetic personas, and we agree the rules of engagement before any simulation begins.</p>
+      </div>
+
+      <ol class="process__list" data-process>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Scope and Identity Journey Mapping</h3>
+          <p class="step__text">We map the journeys in scope, the channels they use and the decisions that depend on trusting an identity, and agree which scenarios are permitted.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Threat Modeling and Scenario Design</h3>
+          <p class="step__text">We design realistic attack scenarios from the attacker's point of view, combining techniques such as voice cloning, synthetic documents and social engineering.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Controlled Impersonation Testing</h3>
+          <p class="step__text">Under the agreed rules, we run the scenarios against your systems and teams: verification flows, call centers, help desk and approvals. Nothing uses a real person's likeness without written permission.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Detection and Response Review</h3>
+          <p class="step__text">We assess whether your tools and staff noticed the attempts, how alerts were handled and whether the response followed procedure.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Risk Analysis and Reporting</h3>
+          <p class="step__text">Each finding is validated, rated by severity and business impact and written up with evidence. Recommendations combine technical controls and process changes.</p>
+        </li>
+        <li class="step">
+          <span class="step__marker" aria-hidden="true"></span>
+          <h3 class="step__title">Remediation Support and Retesting</h3>
+          <p class="step__text">We walk your team through the findings and support fixes. After changes are made we retest to confirm the same attacks no longer succeed.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- DELIVERABLES                                                         -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s6-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s6-title">What You Receive From Our Digital Identity and Deepfake Security Services</h2>
+        <p class="shead__lede rv" style="--d:1">You receive a report that shows exactly where a fake would be trusted and what to change, in a form leadership can approve and operations teams can apply.</p>
+      </div>
+    </header>
+
+    <div class="deliver">
+      <div class="deliver__media rv">
+        <article class="xfind" aria-label="Example deepfake security finding">
+          <header class="xfind__head">
+            <span class="xfind__tag">Example finding</span>
+            <span class="xfind__sev">High</span>
+          </header>
+          <h3 class="xfind__title">Cloned executive voice bypasses the call-back step on a high-value payment request</h3>
+          <dl class="xfind__rows">
+            <div><dt>Category</dt><dd>Voice cloning · Executive impersonation · Payment approval</dd></div>
+            <div><dt>Evidence</dt><dd>In an authorized simulation, a synthetic voice of a consenting executive requested an urgent transfer. The finance analyst called back on the number supplied in the request, which was controlled by the tester, and released the payment.</dd></div>
+            <div><dt>Recommended fix</dt><dd>Require call-back to a number held in the vendor and staff directory, not one supplied with the request. Add dual approval above a set amount and a waiting period for changed payee details.</dd></div>
+            <div><dt>Retest</dt><dd>Fixed. The call-back reached the real executive and the request was declined.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <ol class="deliver__list">
+        <li class="deliver__item rv">
+          {{ icon("present") }}
+          <div>
+            <h3 class="deliver__title">Executive Summary</h3>
+            <p class="deliver__text">A concise overview of the identity risks found and their business impact, written for leadership and the board.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("route") }}
+          <div>
+            <h3 class="deliver__title">Identity Journey Map</h3>
+            <p class="deliver__text">A map of the journeys tested and the points at which identity is trusted, marked with where fakes passed or failed.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("document") }}
+          <div>
+            <h3 class="deliver__title">Detailed Findings Report</h3>
+            <p class="deliver__text">Every finding with its severity, the scenario used, supporting evidence and the affected control or process.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("chart") }}
+          <div>
+            <h3 class="deliver__title">Risk Ratings and Priorities</h3>
+            <p class="deliver__text">Findings ranked by likelihood and business impact, so you know which gaps to close first.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("clipboard") }}
+          <div>
+            <h3 class="deliver__title">Control and Process Recommendations</h3>
+            <p class="deliver__text">Specific technical fixes and procedure changes, including verification steps that still hold when a fake is convincing.</p>
+          </div>
+        </li>
+        <li class="deliver__item rv">
+          {{ icon("retest") }}
+          <div>
+            <h3 class="deliver__title">Retesting and Verification</h3>
+            <p class="deliver__text">A follow-up check that the same attacks no longer succeed, with the results added to your report.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- WHY CIPHERTRIVIA                                                     -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s7-title">
+  <div class="container">
+    <header class="shead">
+      <div class="shead__meta"></div>
+      <div class="shead__body">
+        <h2 class="shead__title rv" id="s7-title">Why Choose CipherTrivia for Digital Identity and Deepfake Security?</h2>
+        <p class="shead__lede rv" style="--d:1">Identity fraud spans technology, people and process. CipherTrivia tests all three together and focuses on controls that keep working even when a fake is good.</p>
+      </div>
+    </header>
+
+    <div class="principles">
+      <article class="principle rv">
+        {{ icon("user-shield") }}
+        <h3 class="principle__title">Realistic, Authorized Simulations</h3>
+        <p class="principle__text">Scenarios mirror how current attacks are built, and run under written authorization with consenting participants or synthetic personas.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("layers") }}
+        <h3 class="principle__title">Technology, People and Process</h3>
+        <p class="principle__text">We test verification technology, the staff who rely on it and the procedures around it, because attackers combine all three.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("shield-check") }}
+        <h3 class="principle__title">Controls That Survive a Good Fake</h3>
+        <p class="principle__text">Recommendations do not depend on spotting every deepfake. They add checks that hold even when a voice or face looks real.</p>
+      </article>
+      <article class="principle rv">
+        {{ icon("alert") }}
+        <h3 class="principle__title">Risk-Based Prioritization</h3>
+        <p class="principle__text">Findings are rated by likelihood and business impact, so you start with the gaps that could cost the most.</p>
+      </article>
+      <article class="principle rv" style="--d:1">
+        {{ icon("doc-check") }}
+        <h3 class="principle__title">Clear, Actionable Reporting</h3>
+        <p class="principle__text">Reports explain each weakness in plain terms and give a specific fix that product, security and operations teams can apply.</p>
+      </article>
+      <article class="principle rv" style="--d:2">
+        {{ icon("clipboard") }}
+        <h3 class="principle__title">Alignment With Recognized Guidance</h3>
+        <p class="principle__text">Findings can be mapped to digital identity and biometric testing guidance, supporting audits and customer assurance.</p>
+      </article>
+    </div>
+
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s8-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s8-title">Frequently Asked Questions About Digital Identity and Deepfake Security</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/assets/js/sig.js" defer></script>

@@ -1,0 +1,351 @@
+---
+layout: layouts/enterprise.njk
+navActive: industries
+title: "Fintech & Banking Cybersecurity Services | CipherTrivia"
+description: "Protect financial platforms with fintech and banking cybersecurity services, including VAPT, API security testing, cloud security assessments and compliance-focused security testing."
+crumbs: [["Home", "/"], ["Industries", "/industries/"], ["Fintech & Banking"]]
+---
+{% from "partials/enterprise/macros.njk" import arrow %}
+{% from "partials/enterprise/icons.njk" import icon %}
+{%- set faqs = [
+  ["What cybersecurity services do fintech and banking institutions need?", "Financial institutions benefit from Vulnerability Assessment and Penetration Testing (VAPT) and API penetration testing alongside application security testing and cloud security assessments. These services help identify vulnerabilities and protect financial data and digital transactions."],
+  ["Why is cybersecurity important for fintech companies?", "Cybersecurity helps fintech companies prevent unauthorized access and reduce the risk of financial fraud while protecting sensitive customer information. Strong security controls also support business continuity and customer trust."],
+  ["What is VAPT in banking cybersecurity?", "Vulnerability Assessment and Penetration Testing (VAPT) identifies security weaknesses and validates their exploitability through controlled testing. Banking institutions use VAPT to evaluate risks across applications and networks alongside supporting infrastructure."],
+  ["How does API penetration testing help banking institutions?", "API penetration testing identifies authentication weaknesses and broken authorization controls alongside insecure endpoints and excessive data exposure. It helps financial institutions reduce the risk of unauthorized account access and compromised transaction workflows."],
+  ["Can CipherTrivia perform mobile banking application security testing?", "Yes. Mobile banking application security testing evaluates Android and iOS applications for insecure data storage and authentication flaws alongside session management weaknesses and insecure communication that could expose financial information."],
+  ["How can fintech companies secure payment gateways?", "Fintech companies can strengthen payment security through regular security testing and reviews of transaction workflows alongside API integrations and access controls. Payment gateway security testing helps identify vulnerabilities that could expose payment data or allow unauthorized transaction activity."],
+  ["Which compliance frameworks are relevant to banking and fintech cybersecurity?", "Relevant frameworks and requirements may include PCI DSS, ISO 27001, SOC 2, GDPR and applicable RBI cybersecurity requirements. SWIFT security controls may also apply to participating financial institutions. Applicability depends on the organization's services and regulatory obligations."],
+  ["How often should banks and fintech companies conduct security testing?", "Security testing should follow a defined schedule based on risk and regulatory requirements. Additional assessments are advisable after significant application changes and infrastructure updates or when newly discovered vulnerabilities affect critical systems."],
+  ["Can cloud security assessments help protect financial data?", "Yes. Cloud security assessments identify misconfigurations and excessive permissions alongside exposed storage resources and weaknesses in identity controls. These findings help organizations reduce unauthorized access risks across cloud-hosted financial applications."],
+  ["What does a fintech cybersecurity assessment report include?", "A cybersecurity assessment report typically documents identified vulnerabilities and their severity alongside technical evidence and remediation recommendations. Retesting can also verify that reported issues have been resolved when included in the agreed scope."],
+  ["Does cybersecurity testing help with PCI DSS compliance?", "Yes. PCI DSS-focused security testing can identify vulnerabilities in payment systems and cardholder data environments that require remediation. However, penetration testing alone does not establish PCI DSS compliance or replace required validation activities."],
+  ["How can fintech and banking institutions get started with CipherTrivia?", "Financial institutions can contact CipherTrivia to discuss their technology stack and security objectives alongside applicable compliance requirements. Based on the agreed scope, we can recommend relevant cybersecurity testing services and define the assessment process."]
+] %}
+{#- Challenges: icon + its node position on the attack-surface map (clockwise from top left;
+    ten nodes sit three along the top and bottom, two down each side) -#}
+{%- set challenges = [
+  ["card", "12%", "12%", 48, 48, "Payment Fraud and Transaction Manipulation", "Payment gateways and digital transaction systems can be targeted through unauthorized transaction attempts and weaknesses in transaction validation. Security testing helps identify vulnerabilities that could expose payment workflows to manipulation or fraudulent activity."],
+  ["api", "50%", "12%", 200, 48, "API Security Vulnerabilities", "Banking and fintech platforms rely on APIs to connect mobile applications and payment services alongside third-party financial systems. Weak authentication and broken authorization controls can expose sensitive financial information or allow unauthorized access to account operations."],
+  ["identity", "88%", "12%", 352, 48, "Account Takeover and Identity Theft", "Weak authentication mechanisms and session management flaws can allow attackers to gain unauthorized access to customer accounts. Application security testing helps identify weaknesses in login workflows and access controls that could increase the risk of account compromise."],
+  ["database", "88%", "37.25%", 352, 149, "Data Breaches and Sensitive Financial Information Exposure", "Financial applications process personal information and confidential transaction records that require strong security controls. Misconfigured databases and inadequate access restrictions can expose sensitive data and create risks involving financial fraud and privacy violations."],
+  ["mobile", "88%", "62.75%", 352, 251, "Mobile and Internet Banking Security Risks", "Mobile banking applications and internet banking portals may contain vulnerabilities involving insecure data storage and session handling alongside authentication weaknesses. Mobile application penetration testing and web application security assessments help identify flaws that could compromise customer accounts and financial operations."],
+  ["cloud-alert", "88%", "88%", 352, 352, "Cloud Security Misconfigurations", "Fintech companies increasingly rely on cloud infrastructure to host financial applications and store operational data. Excessive permissions and exposed storage resources alongside insecure configurations can create opportunities for unauthorized access and data exposure."],
+  ["dependency", "50%", "88%", 200, 352, "Third-Party and Supply Chain Risks", "Financial institutions integrate external payment providers and identity verification services alongside software libraries and fintech partners. Vulnerabilities in these connected systems can introduce security risks that affect application integrity and sensitive financial workflows."],
+  ["clipboard", "12%", "88%", 48, 352, "Regulatory Compliance and Security Control Gaps", "Financial organizations must address applicable security and data protection obligations while maintaining effective technical controls. Gaps in vulnerability management and access control practices can increase compliance risks and make it harder to demonstrate appropriate security safeguards."],
+  ["shield-crack", "12%", "62.75%", 48, 251, "Ransomware and Service Disruption", "Ransomware and other disruptive attacks can affect banking applications and financial infrastructure while interrupting customer access to essential services. Network security testing and vulnerability assessments help identify weaknesses that could expose critical systems to compromise."],
+  ["escalate", "12%", "37.25%", 48, 149, "Insider Threats and Privilege Escalation", "Excessive user permissions and inadequate separation of duties can allow legitimate accounts to access sensitive systems beyond their intended responsibilities. Security assessments help identify privilege escalation paths and weaknesses in access control mechanisms."]
+] %}
+{#- Services: icon, matching service page (empty when there is no dedicated page), title, text -#}
+{%- set services = [
+  ["browser", "/services/web-application-security-testing/", "Application Security Testing", "Identify vulnerabilities across internet banking portals and fintech applications through application security testing. We evaluate authentication mechanisms and access controls alongside business logic to uncover weaknesses that could expose sensitive financial information."],
+  ["api", "/services/api-security-testing/", "Banking and Fintech API Penetration Testing", "Assess API security through API penetration testing that examines authentication and authorization controls alongside insecure endpoints and excessive data exposure. We help identify weaknesses that could compromise financial data or unauthorized transaction workflows."],
+  ["target", "/services/vapt-security-services/", "Vulnerability Assessment and Penetration Testing (VAPT)", "Discover and validate security weaknesses through Vulnerability Assessment and Penetration Testing (VAPT) across applications and supporting infrastructure. We prioritize findings based on severity and exploitability while providing actionable remediation guidance."],
+  ["mobile", "/services/mobile-application-security-testing/", "Mobile Banking Application Security Testing", "Evaluate Android and iOS banking applications for insecure data storage and weak authentication alongside session management flaws and insecure communication. Our mobile application penetration testing helps identify risks that could expose customer accounts or financial information."],
+  ["card", "", "Payment Gateway Security Testing", "Examine payment processing workflows and transaction integrations to identify vulnerabilities in transaction validation and authorization alongside sensitive data handling. Payment gateway security testing helps uncover weaknesses that could expose financial operations to unauthorized activity."],
+  ["cloud-lock", "/services/cloud-security-services/", "Cloud Security Assessment", "We also assess cloud-hosted financial applications and infrastructure to identify misconfigurations and excessive permissions alongside exposed storage resources. Our cloud security assessment services help organizations strengthen access controls and reduce the risk of data exposure."],
+  ["network", "/services/network-security-testing/", "Network Security Testing", "Evaluate network infrastructure and exposed services to identify vulnerabilities that could compromise critical financial systems. Network security testing examines configurations and access restrictions to help reduce opportunities for unauthorized access."],
+  ["code", "", "Secure Code Review", "Review application source code to uncover weaknesses in input validation and authentication alongside authorization controls and sensitive data processing. Secure code review services help development teams address vulnerabilities before they reach production environments."],
+  ["sliders", "", "Security Configuration Assessment", "Examine security configurations and protective controls to identify gaps in application filtering and access restrictions. We assess existing configurations to help financial institutions improve their security posture and reduce unnecessary exposure."],
+  ["doc-check", "/services/security-compliance/", "Compliance-Focused Security Testing", "Support broader compliance initiatives through cybersecurity assessments aligned with PCI DSS and applicable financial sector requirements. We identify technical security gaps and provide remediation guidance that helps organizations strengthen vulnerability management and security controls."],
+  ["agent", "/ai-security/", "AI and Financial Technology Security Testing", "We also evaluate AI-powered financial applications and automated workflows for prompt injection and insecure tool access alongside excessive permissions and sensitive data exposure. AI security testing helps fintech companies identify emerging attack surfaces as they introduce AI-driven financial services."]
+] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Advanced Cybersecurity Services for Fintech and Banking Sectors",
+      "serviceType": "Cybersecurity Services",
+      "description": "Protect financial platforms with fintech and banking cybersecurity services, including VAPT, API security testing, cloud security assessments and compliance-focused security testing.",
+      "url": "https://www.ciphertrivia.com/industries/banking-fintech/",
+      "areaServed": "Worldwide",
+      "audience": { "@type": "BusinessAudience", "audienceType": "Fintech companies and banking institutions" },
+      "provider": { "@id": "https://www.ciphertrivia.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cybersecurity Services for Fintech and Banking Institutions",
+        "itemListElement": [
+          {%- for s in services %}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": {{ s[2] | dump | safe }} } }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ciphertrivia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.ciphertrivia.com/industries/" },
+        { "@type": "ListItem", "position": 3, "name": "Fintech & Banking" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for q in faqs %}
+        { "@type": "Question", "name": {{ q[0] | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ q[1] | dump | safe }} } }{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ================================================================== -->
+<!-- HERO: copy on ink, the industry photo bleeding off the right edge    -->
+<!-- ================================================================== -->
+<section class="ind-hero ind-hero--cover" aria-labelledby="hero-title">
+  <div class="guides" aria-hidden="true"><div class="container"></div></div>
+
+  <div class="container ind-hero__inner">
+    <div class="ind-hero__copy">
+      <h1 class="ind-hero__title rv" id="hero-title">Advanced Cybersecurity Services for <span class="accent">Fintech and Banking</span> Sectors</h1>
+      <p class="ind-hero__lede rv" style="--d:1">Safeguard financial operations with specialized cybersecurity services for fintech and banking sectors. CipherTrivia helps financial institutions identify vulnerabilities across digital banking applications and payment systems alongside APIs and cloud infrastructure through VAPT and security testing. Our assessments help reduce cyber risks and strengthen transaction security while safeguarding sensitive customer information.</p>
+      <div class="hero__actions rv" style="--d:2">
+        <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ind-hero__media">
+    <img class="ind-hero__img" src="/assets/industries/banking-industry.webp" srcset="/assets/industries/banking-industry-960.webp 960w, /assets/industries/banking-industry.webp 1920w" sizes="(max-width: 1100px) 100vw, 50vw" width="1920" height="1080" alt="Banking professional holding documents in a modern office" fetchpriority="high">
+    <svg class="motif motif--candles" viewBox="0 0 280 120" aria-hidden="true" focusable="false"><line class="base" x1="0" y1="116" x2="280" y2="116"/><g class="" style="--i:0"><line x1="12.0" y1="70" x2="12.0" y2="91"/><rect x="8.0" y="78" width="8" height="6"/></g><g class="" style="--i:1"><line x1="31.4" y1="62" x2="31.4" y2="85"/><rect x="27.4" y="70" width="8" height="8"/></g><g class="is-down" style="--i:2"><line x1="50.8" y1="62" x2="50.8" y2="81"/><rect x="46.8" y="70" width="8" height="4"/></g><g class="" style="--i:3"><line x1="70.2" y1="56" x2="70.2" y2="81"/><rect x="66.2" y="64" width="8" height="10"/></g><g class="is-down" style="--i:4"><line x1="89.6" y1="56" x2="89.6" y2="75"/><rect x="85.6" y="64" width="8" height="4"/></g><g class="" style="--i:5"><line x1="109.0" y1="50" x2="109.0" y2="75"/><rect x="105.0" y="58" width="8" height="10"/></g><g class="is-down" style="--i:6"><line x1="128.4" y1="50" x2="128.4" y2="69"/><rect x="124.4" y="58" width="8" height="4"/></g><g class="" style="--i:7"><line x1="147.8" y1="44" x2="147.8" y2="69"/><rect x="143.8" y="52" width="8" height="10"/></g><g class="is-down" style="--i:8"><line x1="167.2" y1="44" x2="167.2" y2="63"/><rect x="163.2" y="52" width="8" height="4"/></g><g class="" style="--i:9"><line x1="186.6" y1="38" x2="186.6" y2="63"/><rect x="182.6" y="46" width="8" height="10"/></g><g class="is-hot" style="--i:10"><line x1="206.0" y1="32" x2="206.0" y2="53"/><rect x="202.0" y="40" width="8" height="6"/></g><g class="is-hot" style="--i:11"><line x1="225.4" y1="32" x2="225.4" y2="51"/><rect x="221.4" y="40" width="8" height="4"/></g><g class="is-hot" style="--i:12"><line x1="244.8" y1="24" x2="244.8" y2="51"/><rect x="240.8" y="32" width="8" height="12"/></g><g class="is-hot" style="--i:13"><line x1="264.2" y1="14" x2="264.2" y2="39"/><rect x="260.2" y="22" width="8" height="10"/></g></svg>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- OVERVIEW: one passage; its words darken as it is read, the shield   -->
+<!-- closes when the reader reaches the end                              -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s1-title">
+  <div class="container">
+    <div class="story" data-lit>
+      <h2 class="story__title rv" id="s1-title">Protecting Financial Data Through Specialized Cybersecurity Services</h2>
+
+      <div class="story__aside" aria-hidden="true">
+        {{ icon("card", "lg") }}
+        <span class="story__rail"></span>
+      </div>
+
+      <div class="story__body">
+        <p>Financial institutions operate in a high-risk digital environment where secure transactions and customer data protection are critical to business continuity and regulatory compliance. Fintech platforms and banking systems face evolving threats such as payment fraud and account takeover alongside API vulnerabilities and cloud misconfigurations that can expose sensitive financial information.</p>
+        <p>CipherTrivia delivers specialized cybersecurity services for fintech and banking institutions to identify vulnerabilities across digital banking applications and financial technology platforms. Our services include Vulnerability Assessment and Penetration Testing (VAPT) and API penetration testing alongside application security testing, cloud security assessments, network security testing and secure code reviews. These assessments help identify exploitable weaknesses across payment gateways and mobile banking applications while evaluating access controls and data protection mechanisms.</p>
+        <p>Our fintech cybersecurity services focus on identifying security gaps and evaluating their potential impact on financial operations. Through risk-based testing and actionable remediation guidance, we help banking and financial technology teams improve application security and reduce exposure to cyber threats. Our assessments can also support broader security and compliance initiatives aligned with applicable requirements such as PCI DSS and relevant financial sector regulations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- CHALLENGES: attack-surface map follows the challenge being read      -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-labelledby="s2-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s2-title">Cybersecurity Challenges Faced by Technology &amp; SaaS Companies</h2>
+      <p class="ihead__lede rv" style="--d:1">Financial institutions face increasingly complex cyber threats as digital banking and online payments become central to financial services. Attackers target banking applications and payment infrastructure alongside customer accounts and financial data, making cybersecurity for fintech and banking institutions critical for protecting transactions and maintaining customer trust.</p>
+    </header>
+
+    <div class="surface" data-surface>
+      <div class="surface__map" aria-hidden="true">
+        <div class="surface__stage">
+          <span class="surface__sweep"></span>
+          <svg class="surface__lines" viewBox="0 0 400 400" focusable="false">
+            <rect class="surface__frame" x="10" y="10" width="380" height="380"/>
+            <rect class="surface__orbit" x="48" y="48" width="304" height="304"/>
+            <rect class="surface__inner" x="124" y="124" width="152" height="152"/>
+            <path class="surface__ticks" d="M200 0v20M200 380v20M0 200h20M380 200h20M0 10h20M10 0v20M380 10h20M390 0v20M0 390h20M10 380v20M380 390h20M390 380v20"/>
+            {%- for c in challenges %}
+            <line class="surface__spoke" data-surface-spoke x1="200" y1="200" x2="{{ c[3] }}" y2="{{ c[4] }}"/>
+            {%- endfor %}
+          </svg>
+          <span class="surface__core">{{ icon("buildings", "lg") }}</span>
+          {%- for c in challenges %}
+          <span class="surface__node" data-surface-node style="--x:{{ c[1] }};--y:{{ c[2] }}">{{ icon(c[0]) }}</span>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <ul class="surface__list">
+        {%- for c in challenges %}
+        <li class="surface__item rv" data-surface-item>
+          {{ icon(c[0], "sm") }}
+          <div>
+            <h3 class="surface__title">{{ c[5] }}</h3>
+            <p class="surface__text">{{ c[6] }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <div class="surface__close rv">
+        <p>CipherTrivia helps financial technology companies and banking institutions address these risks through Vulnerability Assessment and Penetration Testing (VAPT) and API penetration testing alongside application security testing and cloud security assessments. Our security testing identifies exploitable weaknesses and provides actionable remediation guidance to help reduce cyber risk across financial platforms.</p>
+        <a class="btn btn--signal" href="/contact/">Talk to Our Security Experts {{ arrow() }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SERVICES: index rows, each linked to its service page where one exists -->
+<!-- ================================================================== -->
+<section class="section section--paper" aria-labelledby="s3-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s3-title">Cybersecurity Services for Fintech and Banking Institutions</h2>
+      <p class="ihead__lede rv" style="--d:1">CipherTrivia delivers specialized cybersecurity services for fintech and banking institutions to identify vulnerabilities across financial applications and payment systems. We combine technical security testing with risk-based assessments to help financial organizations protect customer data and reduce exposure to cyber threats.</p>
+    </header>
+
+    <ul class="svc-index">
+      {%- for s in services %}
+      <li class="svc-row rv">
+        <span class="svc-row__ico">{{ icon(s[0], "sm") }}</span>
+        <h3 class="svc-row__title">{% if s[1] %}<a class="svc-row__link" href="{{ s[1] }}">{{ s[2] }}</a>{% else %}{{ s[2] }}{% endif %}</h3>
+        <p class="svc-row__text">{{ s[3] }}</p>
+        {%- if s[1] %}<span class="svc-row__go" aria-hidden="true">{{ arrow("svc-row__arrow") }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- ENGAGEMENT: horizontal track that fills as the section is read       -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s4-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s4-title">What Our Banking and Fintech Cybersecurity Engagement Looks Like</h2>
+      <p class="ihead__lede rv" style="--d:1">CipherTrivia follows a structured cybersecurity assessment process for banking and fintech institutions to identify vulnerabilities and strengthen security across financial applications and infrastructure.</p>
+    </header>
+
+    <ol class="track" data-track>
+      <li class="track__step rv">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("compass") }}
+        <h3 class="track__title">Discovery and Scope Definition</h3>
+        <p class="track__text">We assess your financial applications and technology stack to define testing requirements across banking platforms and payment systems alongside APIs and infrastructure.</p>
+      </li>
+      <li class="track__step rv" style="--d:1">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("radar") }}
+        <h3 class="track__title">Security Assessment and Penetration Testing</h3>
+        <p class="track__text">We conduct VAPT and application security testing alongside API penetration testing to identify vulnerabilities in financial applications and supporting systems.</p>
+      </li>
+      <li class="track__step rv" style="--d:2">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("gauge") }}
+        <h3 class="track__title">Vulnerability Validation and Risk Analysis</h3>
+        <p class="track__text">We validate identified weaknesses and prioritize findings based on severity and potential impact on financial data and transaction security.</p>
+      </li>
+      <li class="track__step rv" style="--d:3">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("route") }}
+        <h3 class="track__title">Security Reporting and Remediation Guidance</h3>
+        <p class="track__text">We provide detailed security assessment reports with vulnerability findings and actionable recommendations to help teams address critical security gaps.</p>
+      </li>
+      <li class="track__step rv" style="--d:4">
+        <span class="track__node" aria-hidden="true"></span>
+        {{ icon("retest") }}
+        <h3 class="track__title">Retesting and Security Improvement</h3>
+        <p class="track__text">We perform security retesting after remediation to verify fixes and assess improvements in the security posture of financial systems.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- COMPLIANCE: framework tiles + the scope note                         -->
+<!-- ================================================================== -->
+<section class="section section--stone" aria-labelledby="s5-title">
+  <div class="container">
+    <header class="ihead">
+      <h2 class="ihead__title rv" id="s5-title">Compliance Frameworks We Help Banking and Fintech Institutions Address</h2>
+      <p class="ihead__lede rv" style="--d:1">Financial institutions must meet strict security and data protection requirements to safeguard customer information and maintain trust. CipherTrivia helps banking and fintech companies identify technical security gaps through vulnerability assessments and penetration testing alongside application security reviews that support broader compliance initiatives.</p>
+    </header>
+
+    <div class="fw-grid fw-grid--7">
+      <article class="fw rv">
+        <div class="fw__top">{{ icon("card") }}<span class="fw__mark" aria-hidden="true">PCI DSS</span></div>
+        <h3 class="fw__title">PCI DSS Security Testing</h3>
+        <p class="fw__text">We conduct PCI DSS-focused security testing to identify vulnerabilities in payment applications and cardholder data environments. Our assessments help uncover weaknesses in network security and access controls that could affect payment data protection.</p>
+      </article>
+      <article class="fw rv" style="--d:1">
+        <div class="fw__top">{{ icon("badge") }}<span class="fw__mark" aria-hidden="true">ISO 27001</span></div>
+        <h3 class="fw__title">ISO 27001 Security Assessments</h3>
+        <p class="fw__text">Our cybersecurity assessments identify technical vulnerabilities and control gaps relevant to ISO 27001 requirements. We provide remediation guidance to support information security risk management and broader certification preparation.</p>
+      </article>
+      <article class="fw rv" style="--d:2">
+        <div class="fw__top">{{ icon("shield-check") }}<span class="fw__mark" aria-hidden="true">SOC 2</span></div>
+        <h3 class="fw__title">SOC 2 Security Readiness</h3>
+        <p class="fw__text">We assess application and infrastructure security controls to identify technical gaps relevant to SOC 2 Trust Services Criteria. Our security testing and vulnerability assessments help organizations strengthen security practices and prepare supporting technical evidence.</p>
+      </article>
+      <article class="fw rv" style="--d:3">
+        <div class="fw__top">{{ icon("user-shield") }}<span class="fw__mark" aria-hidden="true">GDPR</span></div>
+        <h3 class="fw__title">GDPR Data Protection</h3>
+        <p class="fw__text">We evaluate application security and access controls to identify weaknesses that could expose personal and financial information. Our application penetration testing supports technical risk reduction and stronger data protection practices relevant to GDPR obligations.</p>
+      </article>
+      <article class="fw rv">
+        <div class="fw__top">{{ icon("pillar") }}<span class="fw__mark" aria-hidden="true">RBI</span></div>
+        <h3 class="fw__title">RBI Cybersecurity Requirements</h3>
+        <p class="fw__text">For applicable regulated financial entities in India, our VAPT and infrastructure security assessments help identify technical weaknesses relevant to cybersecurity risk management and applicable RBI requirements. The specific assessment scope depends on the institution's regulatory category and obligations.</p>
+      </article>
+      <article class="fw rv" style="--d:1">
+        <div class="fw__top">{{ icon("globe") }}<span class="fw__mark" aria-hidden="true">SWIFT CSP</span></div>
+        <h3 class="fw__title">SWIFT Customer Security Programme (CSP)</h3>
+        <p class="fw__text">For financial institutions using SWIFT, we assess relevant technical security controls and identify weaknesses involving system access and infrastructure protection. Our security assessments can support remediation efforts aligned with applicable SWIFT Customer Security Controls Framework requirements.</p>
+      </article>
+      <article class="fw rv" style="--d:2">
+        <div class="fw__top">{{ icon("clipboard") }}<span class="fw__mark" aria-hidden="true">FFIEC</span></div>
+        <h3 class="fw__title">FFIEC Cybersecurity Guidance</h3>
+        <p class="fw__text">For institutions operating within the United States financial regulatory environment, our security assessments can help identify technical risks relevant to applicable FFIEC cybersecurity guidance. Findings support improvements to application security and infrastructure controls.</p>
+      </article>
+    </div>
+
+    <div class="fw-note rv" role="note">
+      {{ icon("alert", "sm") }}
+      <p><strong>Note:</strong> CipherTrivia's assessments support technical security improvement and compliance readiness but do not replace independent audits or formal certification. Applicability depends on the institution's operations and regulatory obligations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- BACKED BY NEXTWEBI (the brief has no "Why Choose" section)           -->
+<!-- ================================================================== -->
+<section class="section section--ink" aria-label="Backed by Nextwebi">
+  <div class="container">
+    {% set backedLead = true %}
+    {% include "partials/enterprise/backed.njk" %}
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FAQ                                                                  -->
+<!-- ================================================================== -->
+<section class="section section--white" aria-labelledby="s6-title">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-layout__aside">
+        <h2 class="faq-layout__title" id="s6-title">Frequently Asked Questions About Fintech and Banking Cybersecurity</h2>
+        <div class="contact-card">
+          <div class="contact-card__row"><span>Email</span><a href="mailto:projects@ciphertrivia.com">projects@ciphertrivia.com</a></div>
+          <div class="contact-card__row"><span>Phone</span><a href="tel:+919008372466">+91 90083 72466</a></div>
+          <div class="contact-card__row"><span>Meet</span><a href="/contact/">Schedule a Meet</a></div>
+        </div>
+      </div>
+
+      <div class="faq-layout__main">
+        <div class="acc" data-acc>
+          {%- for q in faqs %}
+          <div class="acc__item">
+            <h3 class="acc__h"><button class="acc__q" type="button" id="faq-q{{ loop.index }}" aria-expanded="false" aria-controls="faq-a{{ loop.index }}"><span class="acc__title">{{ q[0] }}</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__a" id="faq-a{{ loop.index }}" aria-labelledby="faq-q{{ loop.index }}"><p>{{ q[1] }}</p></div>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
